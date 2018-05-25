@@ -1,5 +1,7 @@
 # mdEdit2
 
+**Application en cours de développement: NON FONCTIONNELLE**
+
 Outil simple et ouvert de saisie, modification et consultation de fiches de métadonnées conformes au format ISO 19139 / INSPIRE.
 
 La présente documentation est adressée aux personnes souhaitant installer mdEdit et contribuer au projet.
