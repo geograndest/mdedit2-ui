@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row" ng-repeat="theme in $ctrl.themePpal | orderBy:'value'">
+        <div class="well well-sm col-md-12 clearfix" ng-if="theme.id.includes($ctrl.csw.constraint) || !$ctrl.csw.constraint">
+            <a class="text-muted" ng-click="$ctrl.onCswSearch('AnyText', theme.id)">
+                <strong>
+                    <span class="glyphicon {{theme.icon}}"></span>
+                    {{theme.value.toUpperCase()}}
+                </strong>
+            </a>
+            <button ng-if="theme.id == $ctrl.csw.constraint" type="button" class="btn btn-xs btn-default pull-right" aria-label="Remove filter" ng-click="$ctrl.onCswSearch('AnyText', '')" >
+                <span ng-if="true" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div ng-if="$ctrl.tpl == 'grid'">
+            <div style="min-height:260px" class="md_grid_item col-lg-2 col-md-3 col-sm-4 col-xs-12 clearfix" ng-repeat="md in $ctrl.data | getValue:'getRecords':'mdList' | filter:theme.id track by $index">
+                <csw-card tpl="grid-obs" md="md" topic-categories="$ctrl.topicCategories" theme-ppal="$ctrl.themePpal" on-click-card="$ctrl.onViewMd(mdFileIdentifier, keywords)"
+                    locales="$ctrl.locales.ui.cardGrid" on-click-label="$ctrl.onCswSearch(constraintType, constraint)"></csw-card>
+            </div>
+        </div>
+        <div ng-if="$ctrl.tpl == 'list'">
+            <div class="row md_list_item" ng-repeat="md in $ctrl.data | getValue:'getRecords':'mdList' | filter:theme.id track by $index">
+                <csw-card tpl="list-obs" md="md" topic-categories="$ctrl.topicCategories" theme-ppal="$ctrl.themePpal" on-click="$ctrl.onViewMd(mdFileIdentifier, keywords)"
+                    locales="$ctrl.locales.ui.cardList" on-click-label="$ctrl.onCswSearch(constraintType, constraint)"></csw-card>
+            </div>
+        </div>
+    </div>
+</div>

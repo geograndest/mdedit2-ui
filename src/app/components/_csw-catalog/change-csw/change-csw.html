@@ -1,0 +1,27 @@
+<span role="button" id="simple-dropdown" uib-dropdown-toggle class="glyphicon {{$ctrl.button.icon}}">
+    <span class="visible-xs-inline">
+        {{$ctrl.button.text}}
+    </span>
+</span>
+<ul class="dropdown-menu" aria-labelledby="simple-dropdown">
+    <li ng-repeat="csw in $ctrl.cswList track by $index">
+        <a href="" ng-click="$ctrl.changeCsw(csw.url)">
+            <strong>{{csw.title}}</strong>
+            <br/>
+            <span>{{csw.description}}</span>
+        </a>
+    </li>
+    <li role="separator" class="divider"></li>
+    <li class="">
+        <form id="form_cswurl" class="navbar-form" role="search">
+            <div class="input-group input-group-sm col-xs-12">
+                <input type="text" class="form-control" placeholder="{{$ctrl.placeholder}}" name="csw_url" id="csw_url" ng-model="$ctrl.cswUrl" />
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit" ng-click="$ctrl.changeCsw($ctrl.cswUrl)">
+                        <i class="glyphicon glyphicon-globe"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </li>
+</ul>

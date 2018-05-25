@@ -1,0 +1,18 @@
+<span ng-if="$ctrl.format == 'button'" class="glyphicon {{$ctrl.views[$ctrl.view].icon}}" ng-click="$ctrl.getNextView()">
+    <span class="visible-xs-inline">
+        {{$ctrl.views[$ctrl.view].name[$ctrl.lang]}}
+    </span>
+</span>
+<span ng-if="$ctrl.format == 'list'" uib-dropdown uib-tooltip="{{$ctrl.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="top">
+    <span class="glyphicon {{$ctrl.icon}}" id="change-view-dropdown" uib-dropdown-toggle>
+        <span class="visible-xs-inline">
+            {{$ctrl.view}}
+        </span>
+    </span>    
+    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="change-view-dropdown">
+      <li ng-repeat="(key, view) in $ctrl.views">
+          <!-- TODO: Ajouter ng-if="key != $ctrl.view" -->
+          <a href ng-if="key != $ctrl.view" ng-click="$ctrl.getView(key)">{{key}}</a>
+      </li>
+    </ul>
+  </span>

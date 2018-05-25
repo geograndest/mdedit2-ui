@@ -1,0 +1,36 @@
+<div class="form-group has-feedback" ng-class="$ctrl.isValidField(0) ? '' : 'has-error'">
+    <label ng-if="$ctrl.label.toLowerCase() == 'true'" class="control-label" for="{{$ctrl.field.name}}" uib-tooltip="{{$ctrl.field.description}}"
+        tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+        {{$ctrl.field.label}}
+        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" class="link" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}"
+            text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}">
+        </page-modal-button>
+    </label>
+    <div class="row">
+        <div class="col-md-6">
+            <label class="control-label" for="{{$ctrl.field.identifier.code.name}}" uib-tooltip="{{$ctrl.field.identifier.code.description}}"
+                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+                {{$ctrl.field.identifier.code.label}}
+                <page-modal-button class="link" format="{{$ctrl.field.identifier.code.helpButton.format}}" title="{{$ctrl.field.identifier.code.helpButton.title}}"
+                    text="{{$ctrl.field.identifier.code.helpButton.text}}" content-url="$ctrl.field.identifier.code.helpButton.contentUrl"
+                    icon="{{$ctrl.field.identifier.code.helpButton.icon}}">
+                </page-modal-button>
+            </label>
+        </div>
+        <div class="col-md-5">
+            <label class="control-label" for="{{$ctrl.field.identifier.codeSpace.name}}" uib-tooltip="{{$ctrl.field.identifier.codeSpace.description}}"
+                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+                {{$ctrl.field.identifier.codeSpace.label}}
+                <page-modal-button class="link" format="{{$ctrl.field.identifier.codeSpace.helpButton.format}}" title="{{$ctrl.field.identifier.codeSpace.helpButton.title}}"
+                    text="{{$ctrl.field.identifier.codeSpace.helpButton.text}}" content-url="$ctrl.field.identifier.codeSpace.helpButton.contentUrl"
+                    icon="{{$ctrl.field.identifier.codeSpace.helpButton.icon}}">
+                </page-modal-button>
+            </label>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-plus" aria-hidden="true" ng-click="$ctrl.onAddIdentifier()"></button>
+        </div>
+    </div>
+    <!-- {{$ctrl.identifiers}} -->
+    <md-form-identifier ng-repeat="(key, identifier) in $ctrl.identifiersList track by $index" multi="{{$ctrl.multi}}" identifier="identifier" fields="$ctrl.field.identifier" update-identifier="$ctrl.updateIdentifiers(key, identifier)" key="{{key}}"         remove-identifier="$ctrl.onRemoveIdentifier(key)"></md-form-identifier>
+</div>

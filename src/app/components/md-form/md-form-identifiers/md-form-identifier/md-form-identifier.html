@@ -1,0 +1,13 @@
+<!-- {{$ctrl.identifier}} -->
+<!-- --{{$ctrl.fields}}-- -->
+<div class="row table-line">
+    <div class="col-md-6">
+        <md-form-element type="text" md="$ctrl.identifier" field="$ctrl.fields.code" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
+    </div>
+    <div class="col-md-5">
+        <md-form-element type="text" md="$ctrl.identifier" field="$ctrl.fields.codeSpace" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
+    </div>
+    <div ng-show="($ctrl.multi).toLowerCase() == 'true'" class="col-md-1">
+        <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-minus" aria-hidden="true" ng-click="$ctrl.onRemove()"></button>
+    </div>
+</div>

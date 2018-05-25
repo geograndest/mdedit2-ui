@@ -1,0 +1,16 @@
+<!-- {{$ctrl.browsegraphic}} -->
+<!-- --{{$ctrl.fields}}-- -->
+<div class="row table-line">
+    <div class="col-md-4">
+        <md-form-element type="text" md="$ctrl.browsegraphic" field="$ctrl.fields.fileName" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
+    </div>
+    <div class="col-md-5">
+        <md-form-element type="textarea" md="$ctrl.browsegraphic" field="$ctrl.fields.fileDescription" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
+    </div>
+    <div class="col-md-2">
+        <md-form-image md="$ctrl.browsegraphic" field="$ctrl.fields.fileName" space="md"></md-form-image>
+    </div>
+    <div ng-show="($ctrl.multi).toLowerCase() == 'true'" class="col-md-1">
+        <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-minus" aria-hidden="true" ng-click="$ctrl.onRemove()"></button>
+    </div>
+</div>

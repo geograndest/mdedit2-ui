@@ -1,0 +1,101 @@
+
+/* Force square image */
+.image{
+  position:relative;
+  overflow:hidden;
+  padding-bottom:100%;
+}
+.image img{
+  position:absolute;
+  width: 100%;
+}
+
+
+/* New badge colors */
+.themeobs.label {
+    color: #001713;
+  }
+  .label-agriculture {
+    background-color: #61a753;
+  }
+  .label-agriculture[href]:hover,
+  .label-agriculture[href]:focus {
+    background-color: #61a753;
+  }
+  .label-amenagement {
+    background-color: rgb(168, 211, 164);
+  }
+  .label-amenagement[href]:hover,
+  .label-amenagement[href]:focus {
+    background-color: rgb(168, 211, 164);
+  }
+  .label-culture {
+    background-color: rgb(189, 121, 183);
+  }
+  .label-culture[href]:hover,
+  .label-culture[href]:focus {
+    background-color: rgb(189, 121, 183);
+  }
+  .label-economie {
+    background-color: rgb(127, 132, 192);
+  }
+  .label-economie[href]:hover,
+  .label-economie[href]:focus {
+    background-color: rgb(127, 132, 192);
+  }
+  .label-environnement {
+    background-color: rgb(197, 250, 192);
+  }
+  .label-environnement[href]:hover,
+  .label-environnement[href]:focus {
+    background-color: rgb(197, 250, 192);
+  }
+  .label-international {
+    background-color: rgb(241, 127, 99);
+  }
+  .label-international[href]:hover,
+  .label-international[href]:focus {
+    background-color: rgb(241, 127, 99);
+  }
+  .label-emploi {
+    background-color: rgb(233, 191, 75);
+  }
+  .label-emploi[href]:hover,
+  .label-emploi[href]:focus {
+    background-color: rgb(233, 191, 75);
+  }
+  .label-education-formation {
+    background-color: rgb(233, 157, 223);
+  }
+  .label-education-formation[href]:hover,
+  .label-education-formation[href]:focus {
+    background-color: rgb(233, 157, 223);
+  }
+  .label-sante {
+    background-color: rgb(209, 161, 221);
+  }
+  .label-sante[href]:hover,
+  .label-sante[href]:focus {
+    background-color: rgb(209, 161, 221);
+  }
+  .label-sport-tourisme {
+    background-color: rgb(248, 252, 193);
+  }
+  .label-sport-tourisme[href]:hover,
+  .label-sport-tourisme[href]:focus {
+    background-color: rgb(248, 252, 193);
+  }
+  .label-transverse {
+    background-color: rgb(190, 190, 190);
+  }
+  .label-transverse[href]:hover,
+  .label-transverse[href]:focus {
+    background-color: rgb(190, 190, 190);
+  }
+  .label-transport {
+    background-color: rgb(196, 243, 241);
+  }
+  .label-transport[href]:hover,
+  .label-transport[href]:focus {
+    background-color: rgb(196, 243, 241);
+  }

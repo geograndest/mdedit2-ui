@@ -1,0 +1,47 @@
+<div class="form-group has-feedback" ng-class="$ctrl.isValidField(0) ? '' : 'has-error'">
+    <label ng-if="$ctrl.label.toLowerCase() == 'true'" class="control-label" for="{{$ctrl.field.name}}" uib-tooltip="{{$ctrl.field.description}}"
+        tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+        {{$ctrl.field.label}}
+        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" class="link" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}"
+            text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}">
+        </page-modal-button>
+    </label>
+    <div class="row">
+        <div class="col-md-4">
+            <label class="control-label" for="{{$ctrl.field.browseGraphic.fileName.name}}" uib-tooltip="{{$ctrl.field.browseGraphic.fileName.description}}"
+                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+                {{$ctrl.field.browseGraphic.fileName.label}}
+                <page-modal-button class="link" format="{{$ctrl.field.browseGraphic.fileName.helpButton.format}}" title="{{$ctrl.field.browseGraphic.fileName.helpButton.title}}"
+                    text="{{$ctrl.field.browseGraphic.fileName.helpButton.text}}" content-url="$ctrl.field.browseGraphic.fileName.helpButton.contentUrl"
+                    icon="{{$ctrl.field.browseGraphic.fileName.helpButton.icon}}">
+                </page-modal-button>
+            </label>
+        </div>
+        <div class="col-md-5">
+            <label class="control-label" for="{{$ctrl.field.browseGraphic.fileDescription.name}}" uib-tooltip="{{$ctrl.field.browseGraphic.fileDescription.description}}"
+                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+                {{$ctrl.field.browseGraphic.fileDescription.label}}
+                <page-modal-button class="link" format="{{$ctrl.field.browseGraphic.fileDescription.helpButton.format}}" title="{{$ctrl.field.browseGraphic.fileDescription.helpButton.title}}"
+                    text="{{$ctrl.field.browseGraphic.fileDescription.helpButton.text}}" content-url="$ctrl.field.browseGraphic.fileDescription.helpButton.contentUrl"
+                    icon="{{$ctrl.field.browseGraphic.fileDescription.helpButton.icon}}">
+                </page-modal-button>
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="control-label" for="{{$ctrl.field.browseGraphic.image.name}}" uib-tooltip="{{$ctrl.field.browseGraphic.image.description}}"
+                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+                {{$ctrl.field.browseGraphic.image.label}}
+                <page-modal-button class="link" format="{{$ctrl.field.browseGraphic.image.helpButton.format}}" title="{{$ctrl.field.browseGraphic.image.helpButton.title}}"
+                    text="{{$ctrl.field.browseGraphic.image.helpButton.text}}" content-url="$ctrl.field.browseGraphic.image.helpButton.contentUrl"
+                    icon="{{$ctrl.field.browseGraphic.image.helpButton.icon}}">
+                </page-modal-button>
+            </label>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-plus" aria-hidden="true" ng-click="$ctrl.onAddBrowseGraphic()"></button>
+        </div>
+    </div>
+    <md-form-browsegraphic ng-repeat="(key, browsegraphic) in $ctrl.browsegraphics track by $index" multi="{{$ctrl.multi}}" browsegraphic="browsegraphic"
+        fields="$ctrl.field.browseGraphic" update-browsegraphic="$ctrl.updateBrowseGraphics(key, browsegraphic)" key="{{key}}"
+        remove-browsegraphic="$ctrl.onRemoveBrowseGraphic(key)"></md-form-browsegraphic>
+</div>

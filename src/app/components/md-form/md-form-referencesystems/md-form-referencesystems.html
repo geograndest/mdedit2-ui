@@ -1,0 +1,36 @@
+<div class="form-group has-feedback" ng-class="$ctrl.isValidField(0) ? '' : 'has-error'">
+    <!-- <label ng-if="$ctrl.label.toLowerCase() == 'true'" class="control-label" for="{{$ctrl.field.name}}" uib-tooltip="{{$ctrl.field.description}}"
+        tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+        {{$ctrl.field.label}}
+        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" class="link" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}"
+            text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}">
+        </page-modal-button>
+    </label> -->
+    <div class="row">
+        <div class="col-md-11">
+            <label class="control-label" for="{{$ctrl.field.referenceSystem.code.name}}" uib-tooltip="{{$ctrl.field.referenceSystem.code.description}}"
+                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+                {{$ctrl.field.referenceSystem.code.label}}
+                <page-modal-button class="link" format="{{$ctrl.field.referenceSystem.code.helpButton.format}}" title="{{$ctrl.field.referenceSystem.code.helpButton.title}}"
+                    text="{{$ctrl.field.referenceSystem.code.helpButton.text}}" content-url="$ctrl.field.referenceSystem.code.helpButton.contentUrl"
+                    icon="{{$ctrl.field.referenceSystem.code.helpButton.icon}}">
+                </page-modal-button>
+            </label>
+        </div>
+        <!-- <div class="col-md-5">
+            <label class="control-label" for="{{$ctrl.field.referenceSystem.codeSpace.name}}" uib-tooltip="{{$ctrl.field.referenceSystem.codeSpace.description}}"
+                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+                {{$ctrl.field.referenceSystem.codeSpace.label}}
+                <page-modal-button class="link" format="{{$ctrl.field.referenceSystem.codeSpace.helpButton.format}}" title="{{$ctrl.field.referenceSystem.codeSpace.helpButton.title}}"
+                    text="{{$ctrl.field.referenceSystem.codeSpace.helpButton.text}}" content-url="$ctrl.field.referenceSystem.codeSpace.helpButton.contentUrl"
+                    icon="{{$ctrl.field.referenceSystem.codeSpace.helpButton.icon}}">
+                </page-modal-button>
+            </label>
+        </div> -->
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-plus" aria-hidden="true" ng-click="$ctrl.onAddReferencesystem()"></button>
+        </div>
+    </div>
+    <!-- {{$ctrl.referencesystems}} -->
+    <md-form-referencesystem ng-repeat="(key, referencesystem) in $ctrl.referencesystems track by $index" multi="{{$ctrl.multi}}" referencesystem="referencesystem" fields="$ctrl.field.referenceSystem" update-referencesystem="$ctrl.updateReferencesystems(key, referencesystem)" key="{{key}}" remove-referencesystem="$ctrl.onRemoveReferencesystem(key)" list="$ctrl.list"></md-form-referencesystem>
+</div>

@@ -1,0 +1,7 @@
+<div class="root">
+    <app-header ng-if="$ctrl.header == '1'" header-title="{{$ctrl.appConfig.app.title}}" help-button="$ctrl.helpButton" home-button="$ctrl.homeButton" change-view-button="$ctrl.changeViewButton", lang="$ctrl.lang" xml-load-button="$ctrl.xmlLoadButton" xml-save-button="$ctrl.xmlSaveButton"></app-header>
+    <div class="app">
+        <div ui-view csw-catalog-view="$ctrl.cswCatalogView" md-view="$ctrl.mdView"></div>
+    </div>
+    <app-footer ng-if="$ctrl.footer == '1'" copyrights="$ctrl.copyrights" mentions-button="$ctrl.mentionsButton" change-lang-button="$ctrl.changeLangButton">footer</app-footer>
+</div>

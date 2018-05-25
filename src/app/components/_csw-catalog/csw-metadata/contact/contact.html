@@ -1,0 +1,58 @@
+<!-- {{$ctrl.contacts}} -->
+<!-- <div ng-if="$ctrl.contacts.length"> 
+    <div ng-repeat="contact in $ctrl.contacts track by $index">
+        test -->
+        <div ng-if="($ctrl.contact | getValue:'getRecord':'role').length">
+            <p>
+                <strong>{{$ctrl.contact | getValue:'getRecord':'role' | translate:$ctrl.roleCodes | toString}} {{$ctrl.locales[$ctrl.contactType]}}:</strong>
+            </p>
+        </div>
+        <div ng-if="!($ctrl.contact | getValue:'getRecord':'role').length">
+            <p>
+                <strong>{{$ctrl.locales.ui.contact}} {{$ctrl.locales[$ctrl.contactType]}}</strong>
+            </p>
+        </div>
+        <div class="panel panel-default" style="margin-left: 20px;">
+            <address class="panel-body">
+                <div class="col-md-2">
+                    <div ng-if="($ctrl.contact | getValue:'getRecord':'logoUrl').length">
+                        <img class="logo img-thumbnail" ng-src="{{$ctrl.contact | getValue:'getRecord':'logoUrl' | toString }}" alt="{{$ctrl.contact | getValue:'getRecord':'logoDescription' | toString}}" title="{{$ctrl.contact | getValue:'getRecord':'logoDescription' | toString}}" />
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div ng-if="($ctrl.contact | getValue:'getRecord':'individualName').length">
+                        <div>{{$ctrl.contact | getValue:'getRecord':'individualName' | toString}}</div>
+                    </div>
+                    <div ng-if="($ctrl.contact | getValue:'getRecord':'positionName').length">
+                        <div>{{$ctrl.contact | getValue:'getRecord':'positionName' | toString}}</div>
+                    </div>
+                    <div ng-if="($ctrl.contact | getValue:'getRecord':'organisationName').length">
+                        <div>
+                            <strong>{{$ctrl.contact | getValue:'getRecord':'organisationName' | toString}}</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div ng-if="($ctrl.contact | getValue:'getRecord':'city').length">
+                        <div>
+                            <span ng-bind-html="$ctrl.contact | getValue:'getRecord':'deliveryPoints.deliveryPoint' | toString | nl2br:true"></span>
+                            <br />{{$ctrl.contact | getValue:'getRecord':'postalCode' | toString}} {{$ctrl.contact | getValue:'getRecord':'city' | toString}}
+                        </div>
+                    </div>
+                    <div ng-if="($ctrl.contact | getValue:'getRecord':'phoneVoices').length">
+                        <div>Tél.:
+                            <span>{{$ctrl.contact | getValue:'getRecord':'phoneVoices.phoneVoice' | toString:' / '}}</span>
+                        </div>
+                    </div>
+                    <div ng-if="($ctrl.contact | getValue:'getRecord':'emails').length">
+                        <div>
+                            <strong>Email:
+                                <span>{{$ctrl.contact | getValue:'getRecord':'emails.email' | toString:' / '}}</span>
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+            </address>
+        </div>
+    <!-- </div>
+</div> -->

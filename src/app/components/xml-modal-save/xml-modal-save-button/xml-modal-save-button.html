@@ -1,0 +1,8 @@
+<!-- if format = button -->
+<span ng-if="$ctrl.format == 'button'" class="glyphicon {{$ctrl.icon}}" ng-click="$ctrl.open()">
+    <span class="visible-xs-inline">
+        {{$ctrl.text}}
+    </span>
+</span>
+<!-- else if format = text -->
+<a href="" ng-if="$ctrl.format == 'text'" class="navbar-link" ng-click="$ctrl.open()">{{$ctrl.text}}</a>

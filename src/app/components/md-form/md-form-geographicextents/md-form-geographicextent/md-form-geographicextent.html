@@ -1,0 +1,20 @@
+<div class="row table-line">
+    <div class="col-md-3">
+        <md-form-element type="text" md="$ctrl.geographicextent" field="$ctrl.fields.extentName" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)" list="$ctrl.extents" select-item="$ctrl.onSelectGeographixExtent(item, model, label, index)"></md-form-element>
+    </div>
+    <div class="col-md-2">
+        <md-form-element type="text" md="$ctrl.geographicextent" field="$ctrl.fields.geographicExtentWestBound" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
+    </div>
+    <div class="col-md-2">
+        <md-form-element type="text" md="$ctrl.geographicextent" field="$ctrl.fields.geographicExtentEastBound" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
+    </div>
+    <div class="col-md-2">
+        <md-form-element type="text" md="$ctrl.geographicextent" field="$ctrl.fields.geographicExtentSouthBound" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
+    </div>
+    <div class="col-md-2">
+        <md-form-element type="text" md="$ctrl.geographicextent" field="$ctrl.fields.geographicExtentNorthBound" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
+    </div>
+    <div ng-show="($ctrl.multi).toLowerCase() == 'true'" class="col-md-1">
+        <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-minus" aria-hidden="true" ng-click="$ctrl.removeExt()"></button>
+    </div>
+</div>

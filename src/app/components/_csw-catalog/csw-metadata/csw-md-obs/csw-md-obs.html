@@ -1,0 +1,461 @@
+<div class="container">
+    <div class="btn-group pull-right" role="group">
+        <button class="btn btn-default btn-sm hidden-print" ng-click="$ctrl.onPrint()">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+        </button>
+        <button class="btn btn-default btn-sm" ng-click="$ctrl.onClose()">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
+    </div>
+
+    <div class="col-md-12 hidden-print">
+        <h2>
+            <span>{{ $ctrl.record | getValue:'getRecord':'dataTitle|srvTitle' | toString | truncate:70:true}}</span>
+        </h2>
+    </div>
+    <div class="row visible-print-block">
+        <div class="col-xs-10">
+            <h2>
+                <span>{{ $ctrl.record | getValue:'getRecord':'dataTitle|srvTitle' | toString | truncate:70:true}}</span>
+            </h2>
+        </div>
+        <div id="" class="col-xs-2">
+            <div ng-if="($ctrl.record | getValue:'getRecord':'dataBrowseGraphics')[0] | getValue:'getRecord':'browseGraphicFileName' | toString">
+                <img style="width:3cm" class="img-thumbnail img-responsive" ng-src="{{ ($ctrl.record | getValue:'getRecord':'dataBrowseGraphics')[0] | getValue:'getRecord':'browseGraphicFileName' | toString}}"
+                    alt="{{ ($ctrl.record | getValue:'getRecord':'dataBrowseGraphics')[0] | getValue:'getRecord':'browseGraphicFileDescription' | toString}}"
+                    title="{{ ($ctrl.record | getValue:'getRecord':'dataBrowseGraphics')[0] | getValue:'getRecord':'browseGraphicFileDescription' | toString}}">
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div id="page" class="col-md-8">
+
+            <h3>Description de l'observatoire</h3>
+            <div class="panel panel-default">
+                <div class="pre panel-body">
+                    <h4>Objectifs et enjeux:</h4>
+                    <div ng-bind-html="$ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'objectifs' | nl2br"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="pre panel-body">
+                    <h4>Données et indicateurs:</h4>
+                    <div ng-bind-html="(!($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'donnees').length ? 'Non renseigné' : ($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'donnees')) | nl2br"></div>
+                    <h4>Sources:</h4>
+                    <div ng-bind-html="(!($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'sources').length ? 'Non renseigné' : ($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'sources')) | nl2br"></div>
+                    <h4>Fréquence de mise à jour:</h4>
+                    <div ng-bind-html="(!($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'frequence_maj') ? 'Non renseigné' : ($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'frequence_maj')) | nl2br"></div>
+                    <h4>Etudes et publications:</h4>
+                    <div ng-if="(!($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'publi_format') && !($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'publi_etudes'))">Non renseigné</div>
+                    <div ng-if="($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'publi_format')"
+                        ng-bind-html="$ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'publi_format' | nl2br"></div>
+                    <div ng-if="($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'publi_etudes')"
+                        ng-bind-html="$ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'publi_etudes' | nl2br"></div>
+                </div>
+            </div>
+
+            <h3>Moyens</h3>
+            <div class="panel panel-default">
+                <div class="pre panel-body">
+                    <h4>Budget dédié à l'observatoire:</h4>
+                    <div ng-bind-html="(!($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'budget').length ? 'Non renseigné' : ($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'budget') | nl2br)"></div>
+                    <!-- </div>
+                <div class="pre panel-body"> -->
+                    <h4>Effectifs dédiés à l'observatoire:</h4>
+                    <div ng-bind-html="(!($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'effectifs').length ? 'Non renseigné' : ($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'effectifs') | nl2br)"></div>
+                    <!-- </div>
+                <div class="pre panel-body"> -->
+                    <h4>Contribution de la Région:</h4>
+                    <div ng-bind-html="(!($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'contrib_region').length ? 'Non renseigné' : ($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'contrib_region') | nl2br)"></div>
+                </div>
+            </div>
+
+            <h3>Coordonnées de l'oservatoire</h3>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <!-- TODO -->
+                    <div class="row" ng-if="(($ctrl.record | getValue:'getRecord':'dataPointOfContacts').length)">
+                        <div class="col-md-12">
+                            <p>
+                                <strong>Structure pilote:</strong>
+                            </p>
+                            <div ng-repeat="dataPointOfContact in $ctrl.record | getValue:'getRecord':'dataPointOfContacts' | filter:'Pilote' track by $index">
+                                <!-- {{dataPointOfContact}} -->
+                                <div ng-if="(dataPointOfContact | getValue:'getRecord':'positionName' | toString).toLowerCase().indexOf('pilote') > -1">
+                                    <!-- <div class="col-md-2">
+                                        <div ng-if="(dataPointOfContact | getValue:'getRecord':'logoUrl')">
+                                            <img class="logo img-thumbnail" ng-src="{{dataPointOfContact | getValue:'getRecord':'logoUrl'}}" alt="{{dataPointOfContact | getValue:'getRecord':'logoDescription'}}" title="{{dataPointOfContact | getValue:'getRecord':'logoDescription'}}"
+                                            />
+                                        </div>
+                                    </div> -->
+                                    <div class="col-md-5">
+                                        <div ng-if="(dataPointOfContact | getValue:'getRecord':'organisationName').length">
+                                            <div>
+                                                <strong>{{dataPointOfContact | getValue:'getRecord':'organisationName' | toString}}</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div>
+                                            <span ng-bind-html="dataPointOfContact | getValue:'getRecord':'deliveryPoints.deliveryPoint' | toString:'<br />' | nl2br"></span>
+                                            </br>
+                                            {{dataPointOfContact | getValue:'getRecord':'postalCode' | toString}} {{dataPointOfContact | getValue:'getRecord':'city'
+                                            | toString}}
+                                        </div>
+                                        <div ng-if="(dataPointOfContact | getValue:'getRecord':'phoneVoices').length">
+                                            <div>Tél.:
+                                                <span ng-bind-html="dataPointOfContact | getValue:'getRecord':'phoneVoices.phoneVoice' | toString | nl2br"></span>
+                                            </div>
+                                        </div>
+                                        <div ng-if="(dataPointOfContact | getValue:'getRecord':'emails.email').length">
+                                            <div>
+                                                <strong>Emails:
+                                                    <span>{{dataPointOfContact | getValue:'getRecord':'emails' | toString}}</span>
+                                                </strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong>Président:</strong>
+                            <span>{{!($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'obs_president').length
+                                ? 'Non renseigné' : ($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString
+                                | getAbstractValue:'obs_president' | toString)}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong>Directeur:</strong>
+                            <span>{{!($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'obs_directeur').length
+                                ? 'Non renseigné' : ($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString
+                                | getAbstractValue:'obs_directeur' | toString)}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong>Partenaires:</strong>
+                            <span>{{!($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'partenaires').length
+                                ? 'Non renseigné' : ($ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString
+                                | getAbstractValue:'partenaires' | toString)}}</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <!-- TODO -->
+                    <div ng-if="(($ctrl.record | getValue:'getRecord':'dataPointOfContacts').length)">
+                        <p>
+                            <strong>Référents de l'observatoire:</strong>
+                        </p>
+                        <div ng-repeat="dataPointOfContact in $ctrl.record | getValue:'getRecord':'dataPointOfContacts' track by $index">
+                            <div ng-if="(dataPointOfContact | getValue:'getRecord':'positionName' | toString).toLowerCase().indexOf('ref_obs') != -1">
+                                <div class="panel panel-default" style="margin-left: 20px;">
+                                    <address class="panel-body">
+                                        <!-- <div ng-if="dataPointOfContact.logoUrl" class="col-md-2">
+                                            <img class="logo img-thumbnail" ng-src="{{dataPointOfContact.logoUrl}}" alt="{{data_contact.logoDescription}}" title="{{dataPointOfContact.logoDescription}}"
+                                            />
+                                        </div> -->
+                                        <div class="col-md-5">
+                                            <div ng-if="(dataPointOfContact | getValue:'getRecord':'individualName').length">
+                                                <div>{{dataPointOfContact | getValue:'getRecord':'individualName' | toString}}</div>
+                                            </div>
+                                            <div ng-if="(dataPointOfContact | getValue:'getRecord':'positionName').length">
+                                                <div>{{dataPointOfContact | getValue:'getRecord':'positionName' | toString}}</div>
+                                            </div>
+                                            <div ng-if="(dataPointOfContact | getValue:'getRecord':'organisationName').length">
+                                                <div>
+                                                    <strong>{{dataPointOfContact | getValue:'getRecord':'organisationName' | toString}}</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div ng-if="(dataPointOfContact | getValue:'getRecord':'city').length">
+                                                <div>
+                                                    <span ng-bind-html="dataPointOfContact | getValue:'getRecord':'deliveryPoints.deliveryPoint' | toString:'<br />' | nl2br"></span>
+                                                    </br>
+                                                    {{dataPointOfContact | getValue:'getRecord':'postalCode' | toString}} {{dataPointOfContact | getValue:'getRecord':'city'
+                                                    | toString}}
+                                                </div>
+                                            </div>
+                                            <div ng-if="(dataPointOfContact | getValue:'getRecord':'phoneVoices').length">
+                                                <div>Tél.:
+                                                    <span ng-bind-html="dataPointOfContact | getValue:'getRecord':'phoneVoices.phoneVoice' | toString:' / ' | nl2br"></span>
+                                                </div>
+                                            </div>
+                                            <div ng-if="(dataPointOfContact | getValue:'getRecord':'emails').length">
+                                                <div>
+                                                    <strong>Email:
+                                                        <span>{{dataPointOfContact | getValue:'getRecord':'emails.email' | toString:'
+                                                            / '}}</span>
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </address>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <!-- TODO -->
+                    <div ng-if="(($ctrl.record | getValue:'getRecord':'dataPointOfContacts').length)">
+                        <p>
+                            <strong>Référent thématique (Région):</strong>
+                        </p>
+                        <div ng-repeat="dataPointOfContact in $ctrl.record | getValue:'getRecord':'dataPointOfContacts' track by $index">
+                            <div ng-if="(dataPointOfContact | getValue:'getRecord':'positionName' | toString).toLowerCase().indexOf('ref_thematique') != -1">
+                                <div class="panel panel-default" style="margin-left: 20px;">
+                                    <address class="panel-body">
+                                        <!-- <div ng-if="dataPointOfContact.logoUrl" class="col-md-2">
+                                            <img class="logo img-thumbnail" ng-src="{{dataPointOfContact.logoUrl}}" alt="{{data_contact.logoDescription}}" title="{{dataPointOfContact.logoDescription}}"
+                                            />
+                                        </div> -->
+                                        <div class="col-md-5">
+                                            <div ng-if="(dataPointOfContact | getValue:'getRecord':'individualName').length">
+                                                <div>{{dataPointOfContact | getValue:'getRecord':'individualName' | toString}}</div>
+                                            </div>
+                                            <div ng-if="(dataPointOfContact | getValue:'getRecord':'positionName').length">
+                                                <div>{{dataPointOfContact | getValue:'getRecord':'positionName' | toString}}</div>
+                                            </div>
+                                            <div ng-if="(dataPointOfContact | getValue:'getRecord':'organisationName').length">
+                                                <div>
+                                                    <strong>{{dataPointOfContact | getValue:'getRecord':'organisationName' | toString}}</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div ng-if="(dataPointOfContact | getValue:'getRecord':'city').length">
+                                                <div>
+                                                    <span ng-bind-html="dataPointOfContact | getValue:'getRecord':'deliveryPoints.deliveryPoint' | toString:'<br />' | nl2br"></span>
+                                                    </br>
+                                                    {{dataPointOfContact | getValue:'getRecord':'postalCode' | toString}} {{dataPointOfContact | getValue:'getRecord':'city'
+                                                    | toString}}
+                                                </div>
+                                            </div>
+                                            <div ng-if="(dataPointOfContact | getValue:'getRecord':'phoneVoices').length">
+                                                <div>Tél.:
+                                                    <span ng-bind-html="dataPointOfContact | getValue:'getRecord':'phoneVoices.phoneVoice' | toString:' / ' | nl2br"></span>
+                                                </div>
+                                            </div>
+                                            <div ng-if="(dataPointOfContact | getValue:'getRecord':'emails').length">
+                                                <div>
+                                                    <strong>Email:
+                                                        <span>{{dataPointOfContact | getValue:'getRecord':'emails.email' | toString:'
+                                                            / '}}</span>
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </address>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <!-- TODO -->
+                    <div ng-if="(($ctrl.record | getValue:'getRecord':'mdContacts').length)">
+                        <div ng-repeat="mdContact in $ctrl.record | getValue:'getRecord':'mdContacts' track by $index">
+                            <div ng-if="(mdContact | getValue:'getRecord':'role').length">
+                                <p>
+                                    <strong>{{mdContact | getValue:'getRecord':'role' | translate:$ctrl.codelists.CI_RoleCode | toString}}
+                                        de la fiche:</strong>
+                                </p>
+                            </div>
+                            <div ng-if="!(mdContact | getValue:'getRecord':'role').length">
+                                <p>
+                                    <strong>Gestionnaire de la fiche:</strong>
+                                </p>
+                            </div>
+                            <div class="panel panel-default" style="margin-left: 20px;">
+                                <address class="panel-body">
+                                    <div class="col-md-2 hidden-print">
+                                        <div ng-if="(mdContact | getValue:'getRecord':'logoUrl').length">
+                                            <img class="logo img-thumbnail" ng-src="{{mdContact | getValue:'getRecord':'logoUrl' | toString}}" alt="{{mdContact | getValue:'getRecord':'logoDescription' | toString}}"
+                                                title="{{mdContact | getValue:'getRecord':'logoDescription' | toString}}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div ng-if="(mdContact | getValue:'getRecord':'individualName').length">
+                                            <div>{{mdContact | getValue:'getRecord':'individualName' | toString}}</div>
+                                        </div>
+                                        <div ng-if="(mdContact | getValue:'getRecord':'positionName').length">
+                                            <div>{{mdContact | getValue:'getRecord':'positionName' | toString}}</div>
+                                        </div>
+                                        <div ng-if="(mdContact | getValue:'getRecord':'organisationName').length">
+                                            <div>
+                                                <strong>{{mdContact | getValue:'getRecord':'organisationName' | toString}}</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div ng-if="(mdContact | getValue:'getRecord':'city').length">
+                                            <div>
+                                                <span ng-bind-html="mdContact | getValue:'getRecord':'deliveryPoints.deliveryPoint' | toString:'<br />' | nl2br"></span>
+                                                </br>
+                                                {{mdContact | getValue:'getRecord':'postalCode' | toString}} {{mdContact | getValue:'getRecord':'city' | toString}}
+                                            </div>
+                                        </div>
+                                        <div ng-if="(mdContact | getValue:'getRecord':'phoneVoices').length">
+                                            <div>Tél.:
+                                                <span ng-bind-html="mdContact | getValue:'getRecord':'phoneVoices.phoneVoice' | toString:' / ' | nl2br"></span>
+                                            </div>
+                                        </div>
+                                        <div ng-if="(mdContact | getValue:'getRecord':'emails').length">
+                                            <div>
+                                                <strong>Email:
+                                                    <span>{{mdContact | getValue:'getRecord':'emails.email' | toString:' / '}}</span>
+                                                </strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="browsegraphic" class="col-md-4">
+            <!-- TODO -->
+            <div ng-if="$ctrl.md.dataSpatialRepresentationType">
+                <div id="spatial-representation-type-label" class="label label-success pull-right" title="{{$ctrl.md.dataSpatialRepresentationType}}">{{$ctrl.md.dataSpatialRepresentationType}}</div>
+            </div>
+            <div ng-if="(($ctrl.record | getValue: 'getRecord': 'dataBrowseGraphics')[0] | getValue: 'getRecord':'browseGraphicFileName' | toString)">
+                <a href="{{ ($ctrl.record | getValue:
+                        'getRecord': 'dataBrowseGraphics')[0] | getValue: 'getRecord': 'browseGraphicFileName' | toString}}"
+                    target="_blanck ">
+                    <img class="img-thumbnail img-responsive " ng-src="{{ ($ctrl.record | getValue:
+                    'getRecord': 'dataBrowseGraphics')[0] | getValue: 'getRecord': 'browseGraphicFileName' | toString}}"
+                        alt="{{ ($ctrl.record
+                    | getValue: 'getRecord': 'dataBrowseGraphics')[0] | getValue: 'getRecord': 'browseGraphicFileDescription'
+                    | toString}} " title="{{ ($ctrl.record | getValue: 'getRecord': 'dataBrowseGraphics')[0] | getValue:
+                    'getRecord': 'browseGraphicFileDescription' | toString}} " />
+                </a>
+            </div>
+            <div ng-if="!(($ctrl.record | getValue: 'getRecord': 'dataBrowseGraphics')[0] | getValue: 'getRecord':'browseGraphicFileName' | toString)">
+                <img style="width:3cm " class="img-thumbnail img-responsive " src="app\components\csw-catalog\csw-metadata\csw-md-obs\logo_empty.jpg"
+                    alt="Image vierge" title="Logo non défini" />
+            </div>
+        </div>
+        <div id="sidebar" class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>
+                        <strong>Statut:</strong> {{$ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString | getAbstractValue:'statut'}}</p>
+                    <p>
+                        <strong>Calendrier:</strong> {{$ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' | toString
+                        | getAbstractValue:'calendrier'}}</p>
+                    <p>
+                        <strong>Niveau d'utilisation:</strong> {{$ctrl.record | getValue:'getRecord':'dataAbstract|srvAbstract' |
+                        toString | getAbstractValue:'utilisation'}}</p>
+                    <!-- <p>
+                        <span ng-if="$ctrl.md.dataGeographicExtents">
+                            <span ng-repeat="dataGeographicExtent in $ctrl.md.dataGeographicExtents track by $index">
+                                <strong>Emprise:</strong> {{dataGeographicExtent.dataExtentName}}
+                            </span>
+                        </span>
+                    </p> -->
+
+                    <hr/>
+                    <div id="keywords">
+                        <!-- TODO -->
+                        <span ng-if="($ctrl.record | getValue:'getRecord':'dataTopicCategories').length">
+                            <span>Categories: </span>
+                            <span ng-repeat="dataTopicCategory in $ctrl.record | getValue:'getRecord':'dataTopicCategories.topicCategory|srvTopicCategories.topicCategory' track by $index">
+                                <span title="{{dataTopicCategory | toString}}" class="label label-warning">{{dataTopicCategory | translate:$ctrl.codelists.MD_TopicCategoryCode | toString}}</span>
+                            </span>
+                        </span>
+                        <br />
+                        <!-- TODO -->
+                        <span ng-if="($ctrl.record | getValue:'getRecord':'dataKeywords').length">
+                            <span>Thèmes et mots-clés: </span>
+                            <span ng-repeat="dataKeyword in $ctrl.record | getValue:'getRecord':'dataKeywords' track by $index">
+                                <span ng-if="(dataKeyword | getValue:'getRecord':'thesaurusName').length">
+                                    <span ng-if="((dataKeyword | getValue:'getRecord':'thesaurusName' | toString).toLowerCase() == 'theme_ppal')" title="{{dataKeyword | getValue:'getRecord':'thesaurusName' | toString}}">
+                                        <span ng-repeat="keyword in dataKeyword | getValue:'getRecord':'keywords'" title="{{dataKeyword | getValue:'getRecord':'keywordType' | toString}}"
+                                            class="label label-primary">
+                                            {{(keyword | toString).substring(1)}}</span>
+                                    </span>
+                                    <span ng-if="!((dataKeyword | getValue:'getRecord':'thesaurusName' | toString).toLowerCase() == 'theme_ppal')" title="{{dataKeyword | getValue:'getRecord':'keywordType' | toString}} - {{dataKeyword | getValue:'getRecord':'thesaurusName' | toString}}">
+                                        <span ng-repeat="keyword in dataKeyword | getValue:'getRecord':'keywords'" title="{{dataKeyword | getValue:'getRecord':'keywordType' | toString}}"
+                                            class="label label-info">
+                                            {{keyword | toString}}</span>
+                                    </span>
+                                </span>
+                                <span ng-if="!(dataKeyword | getValue:'getRecord':'thesaurusName').length">
+                                    <span title="{{dataKeyword | getValue:'getRecord':'keywords' | toString}}">
+                                        <span ng-repeat="keyword in dataKeyword | getValue:'getRecord':'keywords'" title="{{dataKeyword | getValue:'getRecord':'keywordType' | toString}}"
+                                            class="label label-default">
+                                            {{keyword | toString}}</span>
+                                    </span>
+                                </span>
+                            </span>
+                    </div>
+                    <hr/>
+                    <div>
+                        <strong>Sites internet et ressources associées:</strong>
+                        <ul>
+                            <!-- TODO -->
+                            <span ng-if="($ctrl.record | getValue:'getRecord':'dataLinkages').length">
+                                <span ng-repeat="dataLinkage in $ctrl.record | getValue:'getRecord':'dataLinkages' track by $index">
+                                    <!-- {{dataLinkage}} -->
+                                    <li>
+                                        <!-- <span ng-if="dataLinkage | getValue:'getRecord':'linkageProtocol' | isWxs">
+                                            <a ng-href="{{dataLinkage | getValue:'getRecord':'linkageUrl'}}" target="_blanck" title="{{dataLinkage | getValue:'getRecord':'linkageUrl'}}">{{dataLinkage | getValue:'getRecord':'linkageDescription'}}</a>
+                                            <br />
+                                            <span ng-if="dataLinkage | isWxs:wfs">
+                                                <span wfs-download linkage="dataLinkage"></span>
+                                            </span>
+                                        </span> -->
+                                        <!-- <span ng-if="!(dataLinkage | isWxs)"> -->
+                                            <span ng-if="(dataLinkage | getValue:'getRecord':'linkageUrl').length">
+                                                <a ng-href="{{dataLinkage | getValue:'getRecord':'linkageUrl' | toString}}" target="_blanck" title="{{dataLinkage | getValue:'getRecord':'linkageDescription' | toString}}">{{dataLinkage | getValue:'getRecord':'linkageName' | toString}}</a>
+                                            </span>
+                                            <span ng-if="!(dataLinkage | getValue:'getRecord':'linkageUrl').length">
+                                                <!-- {{(dataLinkage | getValue:'getRecord':'linkageUrl').length}}-- -->
+                                                <span title="{{dataLinkage | getValue:'getRecord':'linkageDescription' | toString}}">{{dataLinkage | getValue:'getRecord':'linkageName' | toString}}</span>
+                                            </span>
+                                        <!-- </span> -->
+                                    </li>
+                                </span>
+                            </span>
+                            <span ng-if="!($ctrl.record | getValue:'getRecord':'dataLinkages').length">
+                                <li>Aucune ressource liée disponible.</li>
+                            </span>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 ">
+        <div id="modal-footer ">
+            <small>
+                <span class="pull-right ">
+                    <em class="text-info ">Fiche {{$ctrl.record | getValue:'getRecord':'mdFileIdentifier' | toString}} ({{$ctrl.record | getValue:'getRecord':'mdLanguage'
+                        | toString}}) mise à jour le: {{$ctrl.record | getValue:'getRecord':'mdDateStamp' | toString}}</em>
+                </span>
+            </small>
+        </div>
+    </div>
+</div>

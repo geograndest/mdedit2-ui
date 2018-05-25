@@ -1,0 +1,56 @@
+<!-- Contact:  -->
+<!-- {{$ctrl.field.label}} -->
+<!-- {{$ctrl.item}} -->
+<!-- <br /> ------------------- -->
+<!-- {{$ctrl.item}} -->
+<!-- <br /> -->
+
+
+<div>
+    <div class="row">
+        <!-- DONE: items.role -->
+        <div class="col-md-5">
+            <md-form-element type="select" field-value="$ctrl.item.value | getValue:'md':'topicCategory'" field="$ctrl.fields" space="md"
+                edit="true" update="$ctrl.onSave(space, field, fieldValue)" list="$ctrl.codelists.MD_TopicCategoryCode"></md-form-element>
+        </div>
+        <!-- TODO: toolbar -->
+        <div class="col-md-7 btn-toolbar" ng-if="$ctrl.multi == 'true'">
+            <!-- <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-send" aria-hidden="true" ng-click="sendContact(item)"
+                    title="Copier comme item pour les données/métadonnées"></button> -->
+            <!-- <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-duplicate" aria-hidden="true" ng-click="duplicateContact(item)"
+                    title="Dupliquer le item"></button> -->
+            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-minus" aria-hidden="true" ng-click="$ctrl.onRemove($ctrl.key)"
+                title="Supprimer le item"></button>
+        </div>
+    </div>
+
+
+    <div ng-switch="$ctrl.type">
+        <!-- <md-form-element ngif="item" ng-repeat="(key, item) in $ctrl.items track by $index" multi="{{$ctrl.multi}}" type="{{$ctrl.type}}" field-value="item | getValue:'md':'topicCategory'| toString" field="$ctrl.field" list="$ctrl.list" edit="$ctrl.edit" space="md" update="$ctrl.onUpdateItem(key, item)" key="{{key}}" remove-item="$ctrl.onRemoveItem(key)"></md-form-element> -->
+
+        <!-- {{$ctrl.list}} -->
+        <md-form-element ng-switch-when="select" ng-if="item" ng-repeat="(key, item) in $ctrl.items track by $index" type="select"
+            field-value="item | getValue:'md':'topicCategory'| toString" field="$ctrl.field" edit="$ctrl.edit" multi="{{$ctrl.multi}}"
+            space="md" update="$ctrl.update(space, field, fieldValue)" list="$ctrl.list"></md-form-element>
+
+        <md-form-element ng-switch-when="textarea" ng-if="item" ng-repeat="(key, item) in $ctrl.items track by $index" type="textarea"
+            field-value="item | getValue:'md':'topicCategory'| toString" field="$ctrl.field" edit="$ctrl.edit" multi="{{$ctrl.multi}}"
+            space="md" update="$ctrl.update(space, field, fieldValue)" list="$ctrl.list"></md-form-element>
+
+        <md-form-element ng-switch-default ng-if="item" ng-repeat="(key, item) in $ctrl.items track by $index" type="text" field-value="item | getValue:'md':'topicCategory'| toString"
+            field="$ctrl.field" edit="$ctrl.edit" multi="{{$ctrl.multi}}" space="md" update="$ctrl.update(space, field, fieldValue)"
+            list="$ctrl.list"></md-form-element>
+
+        <!-- <div class="row" ng-if="$ctrl.multi == 'true'">
+            <div class="col-md-12 btn-toolbar">
+                <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-plus" aria-hidden="true" ng-click="$ctrl.onAddItem()"></button>
+            </div>
+        </div> -->
+    </div>
+    <!-- <hr />
+    <div class="row">
+        <div class="col-md-12 btn-toolbar">
+            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-plus" aria-hidden="true" ng-click="$ctrl.addContact()"></button>
+        </div>
+    </div> -->
+    <!-- </div> -->

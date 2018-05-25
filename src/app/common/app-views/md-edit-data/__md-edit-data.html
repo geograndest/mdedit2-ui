@@ -1,0 +1,46 @@
+<div id="content" class="container">
+    <div uib-accordion close-others="false" class="col col-sm-12 panel-group">
+        <form name="mdForm" novalidate>
+
+            <!-- Panel 3 -->
+            <!-- <div edit-accordion-header
+                header="Description des données"
+                tooltip="Informations relatives à la description des données"
+                doc="empty"> -->
+            <div uib-accordion-group is-open="true" class="panel-primary">
+                <div uib-accordion-heading>
+                    <span uib-tooltip="Informations relatives à la description des données" tooltip-popup-close-delay="100" tooltip-trigger="mouseenter"
+                        tooltip-placement="right">
+                        Description des données
+                    </span>
+                    <!-- <span class="bt-doc glyphicon glyphicon-info-sign" aria-hidden="true" ng-click="vm.openModalDoc('empty')"></span> -->
+                    <span class="glyphicon glyphicon-resize-vertical pull-right"></span>
+                </div>
+                <div class="col-md-6 form-group">
+
+                                <md-form-element type="text" field="$ctrl.mdEditLocales.fields.mdFileIdentifier" md="$ctrl.mdjs"
+                                    edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"></md-form-element>
+
+                    <!-- TODO: dataTopicCategories -->
+                    <!-- {{$ctrl.mdjs | getValue:'md':'dataTopicCategories'}} -->
+                    <!-- <div edit-multi-select field="dataTopicCategories" list="MD_TopicCategoryCode" multi="true" help="dataTopicCategories"></div> -->
+                    <!-- <md-form-multi-element type="select" multi="true" items="$ctrl.mdjs | getValue:'md':'dataTopicCategories'" field="$ctrl.mdEditLocales.fields.dataTopicCategories"
+                                edit="true" space="md" on-update="$ctrl.update(space, field, fieldValue)" list="$ctrl.mdEditLocales.codelists.MD_TopicCategoryCode"></md-form-multi-element> -->
+
+                    <!-- __{{$ctrl.mdjs | getValue:'md':'dataTopicCategories'}}__
+                    __{{$ctrl.mdjs | getValue:'md':'mdContacts'}}__ -->
+
+                    <!-- <md-form-element type="text" field-value="$ctrl.mdjs | getValue:'md':'dataTopicCategories.topicCategory'" space="md" field="$ctrl.mdEditLocales.fields.dataTopicCategories"
+                                codelists="$ctrl.mdEditLocales.codelists" on-update="$ctrl.update(space, field, fieldValue)"></md-form-element> -->
+
+                    <!-- <p><test md="$ctrl.mdjs" field="dataTopicCategories" space="md"></test></p>
+                    <p><test md="$ctrl.mdjs" field="dataTopicCategoriesValues" space="md"></test></p> -->
+                    <!-- <p><test field-value="$ctrl.mdjs | getValue:'md':'mdContacts'"></test></p> -->
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+{{$ctrl.mdjs}}

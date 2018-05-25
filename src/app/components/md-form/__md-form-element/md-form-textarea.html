@@ -1,0 +1,24 @@
+<div class="form-group has-feedback" ng-class="$ctrl.isValidField() ? '' : 'has-error'">
+    <label class="control-label" for="{{$ctrl.field.name}}" uib-tooltip="{{$ctrl.field.description}}" tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit()">
+        {{$ctrl.field.label}}
+        <page-modal-button class="link" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}" text="{{$ctrl.field.helpButton.text}}"
+            content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}">
+            </modal-doc-button>
+    </label>
+    <div ng-if="$ctrl.field.editable == 'true' && $ctrl.edit">
+        <textarea rows="3" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}" placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur()"></textarea>
+    </div>
+    <div ng-if="$ctrl.field.editable == 'both'  && $ctrl.edit">
+        <div class="input-group">
+            <textarea rows="3" style="resize:vertical" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}" placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur()"></textarea>
+            <a class="input-group-addon btn btn-sm" ng-class="$ctrl.isValidField() ? 'btn-default' : 'btn-error'" ng-click="$ctrl.onBlur()">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+    <div ng-if="($ctrl.field.editable == 'false' || $ctrl.field.editable == 'both') && !($ctrl.edit)" ng-dblclick="$ctrl.changeEdit()">
+        <span ng-bind-html="$ctrl.fieldValue | nl2br"></span>
+        <span ng-show="$ctrl.isEmptyField()" class="help-block">Champ non renseigné [T]</span>
+    </div>
+</div>
+<small ng-hide="$ctrl.isValidField()" class="help-block">Champ obligatoire [T]</small>
