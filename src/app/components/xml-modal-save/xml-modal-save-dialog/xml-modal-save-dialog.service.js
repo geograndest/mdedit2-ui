@@ -5,23 +5,23 @@ export class XmlModalSaveDialogService {
         'ngInject';
 
         this.$http = $http;
-        // this.$sce = $sce;
     }
 
-    getDoc(url) {
-        return this.$http.get(url)
-            .then((response) => {
-                // var extension = url.substr(url.lastIndexOf(".") + 1);
-                // if (['md', 'markdown', 'mkd'].indexOf(extension.toLowerCase()) !== -1) {
-                //     showdown.setFlavor('github');
-                //     var converter = new showdown.Converter({
-                //         tables: true
-                //     });
-                //     var html = converter.makeHtml(response.data);
-                //     return this.$sce.trustAsHtml(html);
-                // } else {
-                //     return response.data;
-                // }
-            });
-    }
+    // getXml(url, filename, filecontent) {
+
+    //     var data = {
+    //         'filename': filename,
+    //         'filecontent': filecontent
+    //     };
+
+    //     return this.$http({
+    //             method: 'POST',
+    //             url: url,
+    //             dataType: 'json',
+    //             data: data
+    //         })
+    //         .then(function (response) {
+    //             return response.data;
+    //         })
+    // }
 }

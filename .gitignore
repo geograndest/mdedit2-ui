@@ -4,3 +4,4 @@ yarn-error.log
 .idea
 .DS_Store
 php_server_*.bat
+src/php/files/*.*

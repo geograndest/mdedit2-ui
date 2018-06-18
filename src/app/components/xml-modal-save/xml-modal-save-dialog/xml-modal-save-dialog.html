@@ -29,6 +29,7 @@
         <!-- <div ng-show="$ctrl.sec.editor">
             Vous êtes connecté en tant que {{$ctrl.sec.username}} ({{$ctrl.sec.email}}) sur la plateforme. Vous pouvez envoyer directement le fichier XML ({{$ctrl.md.filename}}.xml) dans votre dossier de métadonnées (metadata/{{$ctrl.sec.org}}/{{$ctrl.md.filename}}/).
         </div> -->
+        <!-- --{{$ctrl.xmlUrl}}-- -->
     </div>
     <div class="modal-footer">
         <!-- <div class="btn-group" uib-dropdown ng-show="$ctrl.sec.editor">
@@ -58,7 +59,11 @@
                 <li><a href="#" ng-click="$ctrl.saveXml()" target="_blank">Format XML</a></li>
             </ul>
         </div> -->
-        <button type="button" class="btn btn-primary" ng-click="$ctrl.saveXml()"><span class="glyphicon glyphicon-save"></span> Download</button>
-        <button type="button" class="btn btn-primary" ng-click="$ctrl.cancel()"><span class="glyphicon glyphicon-close"></span> Close</button>
+        <!-- <button type="button" class="btn btn-primary" ng-click="$ctrl.saveXml()">
+            <span class="glyphicon glyphicon-save"></span> Download</button> -->
+        <a class="btn btn-primary" ng-href="{{$ctrl.xmlUrl}}" target="_blank">Download</a>
+        <!-- <a class="btn btn-primary" ng-hide="$ctrl.xmlUrl" ng-href=" {{$ctrl.xmlUrl}} " target="_blank ">Download</a> -->
+        <button type="button" class="btn btn-primary" ng-click="$ctrl.cancel()">
+            <span class="glyphicon glyphicon-close"></span> Close</button>
     </div>
 </form>

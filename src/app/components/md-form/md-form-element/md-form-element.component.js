@@ -1,39 +1,33 @@
 // import template from './md-form-element.html'
-import tpl_text from './md-form-text.html';
-import tpl_select from './md-form-select.html';
-import tpl_textarea from './md-form-textarea.html';
-import tpl_date from './md-form-date.html';
+import tpl_text from "./md-form-text.html";
+import tpl_select from "./md-form-select.html";
+import tpl_textarea from "./md-form-textarea.html";
+// import tpl_date from "./md-form-date.html";
 
 const templates = {
-    'text': tpl_text,
-    'date': tpl_text,
-    'select': tpl_select,
-    'textarea': tpl_textarea
+    text: tpl_text,
+    date: tpl_text,
+    datetime: tpl_text,
+    select: tpl_select,
+    textarea: tpl_textarea
 };
 
 const mdFormElementController = class MdFormElementController {
     constructor(XmlConverterService) {
-        'ngInject';
+        "ngInject";
+
         this.XmlConverterService = XmlConverterService;
-
-        // console.log('constructor: mdFormElementController controller');
-        // console.log(0);
-        // if (this.type == 'date') {
-        //     console.log(1);
-        //     this.fieldValue = new Date(this.fieldValue);
-        // }
     }
-
 
     $onInit() {
         // Disabled field if not editable
-        if (this.field.editable == 'false') {
+        if (this.field.editable == "false") {
             this.field.disabled = true;
         }
         // Initi this.edit according "this.field.editable" value
         var edit = true;
         this.isEdited = [];
-        if (this.edit != 'true' || this.field.editable == 'false') {
+        if (this.edit != "true" || this.field.editable == "false") {
             edit = false;
         }
         for (var i = 0; i < this.fieldValue.length; i++) {
@@ -42,31 +36,33 @@ const mdFormElementController = class MdFormElementController {
         this.edit = edit;
 
         // Init default value
-        var isFieldValueEmpty = this.fieldValue.some(function (i) {
+        var isFieldValueEmpty = this.fieldValue.some(function(i) {
             return !!i;
         });
         if (this.field.value) {
             this.fieldValue = isFieldValueEmpty || this.field.value;
         }
-        this.type = this.field.type || 'text';
-        // Init list values if define as parameter
-        // this.list = this.list || this.mdEditLocales.codelists[this.field.list];
-
-        // for type="date"
-        this.field.isopen = false;
-        // if (this.type == 'date') {
-        //     console.log(1);
-        //     this.fieldValue = new Date(this.fieldValue);
-        // }
+        this.type = this.field.type || "text";
     }
 
     getValues() {
-        return this.XmlConverterService.getValue(this.md, this.space, this.field.name);
+        var value = this.XmlConverterService.getValue(
+            this.md,
+            this.space,
+            this.field.name
+        );
+        if (this.type == "date") {
+            return value.map(d => new Date(d));
+        }
+        return value;
     }
 
     $onChanges(changes) {
         if (changes.md) {
-            this.fieldValue = (!this.getValues().length || this.getValues()[0] == 'EMPTY') ? [''] : this.getValues();
+            this.fieldValue =
+                !this.getValues().length || this.getValues()[0] == "EMPTY"
+                    ? [""]
+                    : this.getValues();
             if (!changes.md.isFirstChange()) {
                 this.saveData();
             }
@@ -76,6 +72,9 @@ const mdFormElementController = class MdFormElementController {
     saveData(items) {
         if (items !== undefined) {
             // console.log('save items', items);
+            if (this.type == "date") {
+                items = items.map(d => d.toISOString().slice(0, 10));
+            }
             this.update({
                 space: this.space,
                 field: this.field.name,
@@ -102,28 +101,27 @@ const mdFormElementController = class MdFormElementController {
     }
 
     isValidField(key) {
-        if (this.field.mandatory == 'true' && this.fieldValue.length && this.fieldValue.every(function (i) {
+        if (
+            this.field.mandatory == "true" &&
+            this.fieldValue.length &&
+            this.fieldValue.every(function(i) {
                 if (i != undefined) {
                     return !i.length;
                 }
-            })) {
+            })
+        ) {
             return false;
         }
         return true;
     }
     isEmptyField(key) {
-        return (!this.fieldValue[key]);
-    }
-
-    // for type="date"
-    openDatePicker(event, id) {
-        this.field.isopen = !this.field.isopen;
+        return !this.fieldValue[key];
     }
 
     changeEdit(key) {
-        if (this.field.editable == 'both') {
-            this.isEdited[key] = !(this.isEdited[key]);
-        } else if (this.field.editable == 'false') {
+        if (this.field.editable == "both") {
+            this.isEdited[key] = !this.isEdited[key];
+        } else if (this.field.editable == "false") {
             this.isEdited[key] = false;
         } else {
             this.isEdited[key] = true;
@@ -131,7 +129,7 @@ const mdFormElementController = class MdFormElementController {
     }
 
     addItem() {
-        this.fieldValue.push('');
+        this.fieldValue.push("");
         this.isEdited.push(this.edit);
     }
 
@@ -140,25 +138,24 @@ const mdFormElementController = class MdFormElementController {
             this.fieldValue[key] = undefined;
         }
     }
-}
+};
 
 export const mdFormElementComponent = {
     bindings: {
-        space: '@',
-        type: '@',
-        multi: '@',
-        label: '@',
-        field: '<',
-        list: '<',
-        edit: '@',
-        md: '<',
-        update: '&',
-        selectItem: '&'
+        space: "@",
+        multi: "@",
+        label: "@",
+        field: "<",
+        list: "<",
+        edit: "@",
+        md: "<",
+        update: "&",
+        selectItem: "&"
     },
     template: ($element, $attrs) => {
-        'ngInject';
-        var type = $attrs.type || 'text';
+        "ngInject";
+        var type = $attrs.type || "text";
         return templates[type];
     },
-    controller: mdFormElementController,
+    controller: mdFormElementController
 };

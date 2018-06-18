@@ -3,15 +3,11 @@ import template from './xml-modal-save-button.html';
 const xmlModalSaveButtonController = class XmlModalSaveButtonController {
     constructor($uibModal) {
         'ngInject';
-       // console.log('constructor: xmlModalSaveButtonController controller');
 
         this.$uibModal = $uibModal;
     }
 
-    $onInit() {
-       // console.log('init: xmlModalSaveButtonController controller');
-       // console.log(this.format);
-    }
+    $onInit() {}
 
     open() {
         this.modalInstance = this.$uibModal.open({

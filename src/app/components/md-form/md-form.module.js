@@ -39,6 +39,9 @@ import {
     mdFormKeywords
 } from './md-form-keywords/md-form-keywords.module';
 import {
+    mdFormInspirekeywords
+} from './md-form-inspirekeywords/md-form-inspirekeywords.module';
+import {
     mdFormReferencesystems
 } from './md-form-referencesystems/md-form-referencesystems.module';
 import {
@@ -72,6 +75,7 @@ export const mdForm = angular
         mdFormBrowsegraphics,
         mdFormIdentifiers,
         mdFormKeywords,
+        mdFormInspirekeywords,
         mdFormDistributionformats,
         mdFormReferencesystems,
         mdFormLinkages,

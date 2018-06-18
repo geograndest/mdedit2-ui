@@ -7,7 +7,9 @@ const HtmlWebpackExcludeAssetsPlugin = require('html-webpack-exclude-assets-plug
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    node: { fs: "empty" },
+    node: {
+        fs: "empty"
+    },
     // Two entries to generate JS file and minify JS file
     entry: {
         'bundle': './src/app/root.module.js',
@@ -78,12 +80,15 @@ module.exports = {
             }, {
                 from: 'src/styles/fonts',
                 to: 'styles/fonts'
+            }, {
+                from: 'src/php',
+                to: 'php'
             }
         ], {
-            // ignore: [
-            //     // Doesn't copy any files with a txt extension    
-            //     '_*'
-            // ],
+            ignore: [
+                // Doesn't copy any files with a txt extension    
+                'php_server_*.bat'
+            ],
             // By default, we only copy modified files during
             // a watch or webpack-dev-server build. Setting this
             // to `true` copies all files.
@@ -94,7 +99,7 @@ module.exports = {
             template: "src/index.html",
             filename: "index.html",
             excludeAssets: [/bundle\.js$/]
-                // excludeAssets: [/bundle\.min\.js$/]
+            // excludeAssets: [/bundle\.min\.js$/]
         }),
         // Need to exclude "bundle.js" file in HtmlWebpackPlugin and keep only "bundle.min.js"
         new HtmlWebpackExcludeAssetsPlugin(),

@@ -4,29 +4,32 @@ const xmlModalSaveDialogController = class XmlModalSaveDialogController {
     constructor(XmlModalSaveDialogService, XmlConverterService) {
         'ngInject';
 
-       // console.log('constructor: xmlModalSaveDialogController controller');
         this.XmlModalSaveDialogService = XmlModalSaveDialogService;
         this.XmlConverterService = XmlConverterService;
     }
 
     $onInit() {
+        this.xmlUrl = this.resolve.xmlUrl;
         this.mdjs = this.resolve.mdjs;
         this.title = this.resolve.title;
         this.onSave = this.resolve.onSave;
-
-       // console.log(555555, this.mdjs);
-
         this.mdxml = this.XmlConverterService.js2xml(this.mdjs);
-       // console.log(this.mdxml);
 
-        // this.XmlModalSaveDialogService.getDoc(this.contentUrl)
-        //     .then((data) => {
-        //         this.content = data;
-        //     });
-    }
-
-    saveXml() {
-        this.onSave(this.mdxml);
+        // Generate XML file on server
+        this.uuid = this.XmlConverterService.getValue(
+            this.mdjs,
+            // this.space,
+            'md',
+            'mdFileIdentifier'
+        )[0];
+        this.onSave({
+            data: {
+                fileName: this.uuid,
+                fileContent: this.mdxml
+            }
+        }).then((data) => {
+            this.xmlUrl = data;
+        });
     }
 
     cancel() {

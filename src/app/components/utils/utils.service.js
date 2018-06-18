@@ -34,8 +34,25 @@ export class UtilsService {
                 return response.data;
             })
             .catch((reason) => {
-               console.log("Error: can't get " + file + " file.");
+                console.log("Error: can't get " + file + " file.");
             });
+    }
+
+    saveFile(serverUrl, fileName, fileContent) {
+        var data = {
+            'filename': fileName,
+            'filecontent': fileContent
+        };
+
+        return this.$http({
+                method: 'POST',
+                url: serverUrl,
+                dataType: 'json',
+                data: data
+            })
+            .then(function (response) {
+                return response.data;
+            })
     }
 
     testRequest(url) {
