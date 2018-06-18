@@ -1,4 +1,4 @@
-<!-- --{{$ctrl.fieldValue}} / {{$ctrl.type}}-- -->
+<!-- --{{$ctrl.fieldValue}} / {{$ctrl.type}} / {{$ctrl.field.type}}-- -->
 
 <!-- Single field -->
 <div ng-if="$ctrl.multi != 'true'" ng-repeat="(key, fieldValue) in $ctrl.fieldValue track by $index" class="form-group has-feedback"
@@ -12,22 +12,22 @@
     </label>
     <!-- <a class="" aria-hidden="true" ng-click="$ctrl.multi = 'true'"><small>(multi)</small></a> -->
     <div ng-if="$ctrl.field.editable == 'true' && $ctrl.isEdited[key]">
-        <input ng-if="!$ctrl.list" type="{{$ctrl.field.type}}" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}"
+        <input ng-if="!$ctrl.list" type="{{$ctrl.type}}" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}"
             placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue[key]" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur(key, fieldValue)"
         />
 
-        <input ng-if="$ctrl.list" type="{{$ctrl.field.type}}" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}"
+        <input ng-if="$ctrl.list" type="{{$ctrl.type}}" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}"
             placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue[key]" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur(key, fieldValue)"
             uib-typeahead="item as item.name + ' (' + item.description+')' for item in $ctrl.list | filter:$viewValue | limitTo:8"
             typeahead-on-select="$ctrl.onSelectItem($item, $model, $label, $index)" typeahead-select-on-blur="true" />
     </div>
     <div ng-if="$ctrl.field.editable == 'both' && $ctrl.isEdited[key]">
         <div class="input-group">
-            <input ng-if="!$ctrl.list" type="{{$ctrl.field.type}}" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}"
+            <input ng-if="!$ctrl.list" type="{{$ctrl.type}}" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}"
                 placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue[key]" ng-disabled="$ctrl.field.disabled"
                 ng-blur="$ctrl.onBlur(key, fieldValue)" />
 
-            <input ng-if="$ctrl.list" type="{{$ctrl.field.type}}" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}"
+            <input ng-if="$ctrl.list" type="{{$ctrl.type}}" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}"
                 placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue[key]" ng-disabled="$ctrl.field.disabled"
                 ng-blur="$ctrl.onBlur(key, fieldValue)" uib-typeahead="item as item.name + ' (' + item.description+')' for item in $ctrl.list | filter:$viewValue | limitTo:8"
                 typeahead-on-select="$ctrl.onSelectItem($item, $model, $label, $index)" typeahead-select-on-blur="true" />
@@ -38,9 +38,9 @@
         </div>
     </div>
     <div ng-if="($ctrl.field.editable == 'false' || $ctrl.field.editable == 'both') && !($ctrl.isEdited[key])" ng-dblclick="$ctrl.changeEdit(key)">
-        <span ng-class="$ctrl.field.disabled ? 'text-muted' : ''" ng-if="$ctrl.field.type=='date'">{{fieldValue.toISOString().slice(0, 10)}}</span>
-        <span ng-class="$ctrl.field.disabled ? 'text-muted' : ''" ng-if="$ctrl.field.type=='datetime-local'">{{fieldValue.toISOString()}}</span>
-        <span ng-class="$ctrl.field.disabled ? 'text-muted' : ''" ng-if="$ctrl.field.type=='text'">{{fieldValue}}</span>
+        <span ng-class="$ctrl.field.disabled ? 'text-muted' : ''" ng-if="$ctrl.type=='date'">{{fieldValue.toISOString().slice(0, 10)}}</span>
+        <span ng-class="$ctrl.field.disabled ? 'text-muted' : ''" ng-if="$ctrl.type=='datetime-local'">{{fieldValue.toISOString()}}</span>
+        <span ng-class="$ctrl.field.disabled ? 'text-muted' : ''" ng-if="$ctrl.type=='text'">{{fieldValue}}</span>
         <span ng-show="$ctrl.isEmptyField(key)" class="help-block">Champ non renseigné [T]</span>
     </div>
     <small ng-hide="$ctrl.isValidField(key)" class="help-block">Champ obligatoire [T]</small>
@@ -67,13 +67,13 @@
         ng-class="$ctrl.isValidField(key) ? '' : 'has-error'">
         <td>
             <div ng-if="$ctrl.field.editable == 'true' && $ctrl.isEdited[key]">
-                <input type="{{$ctrl.field.type}}" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}" placeholder="{{$ctrl.field.placeholder}}"
+                <input type="{{$ctrl.type}}" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}" placeholder="{{$ctrl.field.placeholder}}"
                     ng-model="$ctrl.fieldValue[key]" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur(key, fieldValue)"
                 />
             </div>
             <div ng-if="($ctrl.field.editable == 'both') && $ctrl.isEdited[key]">
                 <div class="input-group my-group">
-                    <input type="{{$ctrl.field.type}}" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}" placeholder="{{$ctrl.field.placeholder}}"
+                    <input type="{{$ctrl.type}}" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}" placeholder="{{$ctrl.field.placeholder}}"
                         ng-model="$ctrl.fieldValue[key]" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur(key, fieldValue)"
                     />
                     <a class="input-group-addon btn btn-sm" ng-class="$ctrl.isValidField(key) ? 'btn-default' : 'btn-error'" type="button" ng-click="$ctrl.onBlur(key, fieldValue)">
@@ -95,11 +95,11 @@
 
 <!-- <div ng-if="$ctrl.tpl == 'title'">
     <div ng-if="$ctrl.field.editable == 'true' && $ctrl.edit">
-        <input type="{{$ctrl.field.type}}" class="form-control input-lg" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}" placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur()" />
+        <input type="{{$ctrl.type}}" class="form-control input-lg" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}" placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur()" />
     </div>
     <div ng-if="$ctrl.field.editable == 'both' && $ctrl.edit">
         <div class="input-group">
-            <input type="{{$ctrl.field.type}}" class="form-control input-lg" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}" placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur()" />
+            <input type="{{$ctrl.type}}" class="form-control input-lg" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}" placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur()" />
             <span class="input-group-btn">
                 <button class="btn btn-default btn-lg" type="button" ng-click="$ctrl.onBlur()">
                     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
