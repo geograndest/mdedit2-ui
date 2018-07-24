@@ -11,7 +11,12 @@ export const mdFields = {
         xpaths: {
             value: 'gmd__MD_Metadata[0].gmd__language[0].gmd__LanguageCode[0]._text[0]',
             code: 'gmd__MD_Metadata[0].gmd__language[0].gmd__LanguageCode[0]._attributes.codeListValue'
+                // paths: [
+                //     'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__language[*]'
+                // ],
+                // value: 'gmd__LanguageCode[0]._attributes.codeListValue'
         }
+
     },
     mdCharacterSet: {
         name: 'mdCharacterSet',
@@ -332,7 +337,7 @@ export const mdFields = {
     dataInspireKeywords: {
         name: 'dataInspireKeywords',
         xpaths: {
-            value: ''
+            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__descriptiveKeywords[*]'
         }
     },
     dataKeywordsList: {
@@ -402,6 +407,12 @@ export const mdFields = {
                     value: ''
                 }
             }
+        }
+    },
+    dataInspireKeywords: {
+        name: 'dataInspireKeywords',
+        xpaths: {
+            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__descriptiveKeywords[*]'
         }
     },
     dataPointOfContacts: {
@@ -617,9 +628,12 @@ export const mdFields = {
         xpaths: {
             paths: [
                 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
-                'gmd__MD_LegalConstraints[0].gmd__useConstraints[*]'
+                'gmd__MD_LegalConstraints[0].gmd__accessConstraints[*]'
+
             ],
-            value: 'gmd__MD_LegalConstraints[0].gmd__accessConstraints[*]'
+            // value: 'gmd__MD_LegalConstraints[0].gmd__accessConstraints[*]'
+            value: 'gmd__MD_RestrictionCode[0]._text[0]',
+            code: 'gmd__MD_RestrictionCode[0]._attributes.codeListValue'
         },
         // _children: {
         //     name: {
@@ -633,7 +647,14 @@ export const mdFields = {
     dataLegalAccessInspireConstraints: {
         name: 'dataLegalAccessInspireConstraints',
         xpaths: {
-            value: ''
+            paths: [
+                'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
+                'gmd__MD_LegalConstraints[0].gmd__otherConstraints[*]'
+
+            ],
+            // value: 'gmd__MD_LegalConstraints[0].gmd__accessConstraints[*]'
+            value: 'gco__CharacterString[0]._text[0]',
+            _code: 'gmd__MD_RestrictionCode[0]._attributes.codeListValue'
         },
         // _children: {
         //     name: {
@@ -644,20 +665,27 @@ export const mdFields = {
         //     }
         // }
     },
-    // _dataLegalAccessOtherConstraints: {
-    //     name: '_dataLegalAccessOtherConstraints',
-    //     xpaths: {
-    //         value: ''
-    //     },
-    //     _children: {
-    //         name: {
-    //             name: 'name',
-    //             xpaths: {
-    //                 value: ''
-    //             }
-    //         }
-    //     }
-    // },
+    dataLegalOtherConstraints: {
+        name: 'dataLegalOtherConstraints',
+        xpaths: {
+            paths: [
+                'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
+                'gmd__MD_LegalConstraints[0].gmd__otherConstraints[*]'
+
+            ],
+            // value: 'gmd__MD_LegalConstraints[0].gmd__accessConstraints[*]'
+            value: 'gco__CharacterString[0]._text[0]',
+            _code: 'gmd__MD_RestrictionCode[0]._attributes.codeListValue'
+        },
+        _children: {
+            name: {
+                name: 'name',
+                xpaths: {
+                    value: ''
+                }
+            }
+        }
+    },
     dataSecurityUseLimitations: {
         name: 'dataSecurityUseLimitations',
         xpaths: {
@@ -676,9 +704,10 @@ export const mdFields = {
         name: 'dataSecurityClassification',
         xpaths: {
             paths: [
-                'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]'
+                'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
+                'gmd__MD_SecurityConstraints[0].gmd__classification[*]'
             ],
-            value: 'gmd__MD_SecurityConstraints[0].gmd__classification[0].gmd__MD_ClassificationCode[0]._attributes.codeListValue'
+            value: 'gmd__MD_ClassificationCode[0]._attributes.codeListValue'
         }
     },
     dataLinkages: {

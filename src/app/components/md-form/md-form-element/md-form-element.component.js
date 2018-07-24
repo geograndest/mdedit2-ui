@@ -34,6 +34,7 @@ const mdFormElementController = class MdFormElementController {
             this.isEdited[i] = edit;
         }
         this.edit = edit;
+        // console.log(12, this.fieldValue, this.isEdited, this.field.name);
 
         // Init default value
         var isFieldValueEmpty = this.fieldValue.some(function(i) {
@@ -41,8 +42,13 @@ const mdFormElementController = class MdFormElementController {
         });
         if (this.field.value) {
             this.fieldValue = isFieldValueEmpty || this.field.value;
+            this.saveData(this.fieldValue);
         }
         this.type = this.field.type || "text";
+
+        this.getValues();
+
+        console.log(478, this.type, this.fieldValue, this.field.name);
     }
 
     getValues() {
@@ -51,7 +57,8 @@ const mdFormElementController = class MdFormElementController {
             this.space,
             this.field.name
         );
-        if (this.type == "date") {
+        if (this.type == "date" || this.type == "datetime-local") {
+            console.log(147, value.map(d => new Date(d)));
             return value.map(d => new Date(d));
         }
         return value;
@@ -59,21 +66,27 @@ const mdFormElementController = class MdFormElementController {
 
     $onChanges(changes) {
         if (changes.md) {
-            this.fieldValue =
-                !this.getValues().length || this.getValues()[0] == "EMPTY"
-                    ? [""]
-                    : this.getValues();
+            this.fieldValue = !this.getValues().length || this.getValues()[0] == "EMPTY" ? [""] :
+                this.getValues();
             if (!changes.md.isFirstChange()) {
-                this.saveData();
+                // this.saveData();
+                for (var i = 0; i < this.fieldValue.length; i++) {
+                    this.isEdited[i] = this.edit;
+                }
             }
+            // console.log(7, this.field.name, this.fieldValue);
+            this.saveData();
         }
     }
 
     saveData(items) {
+        // console.log(8, this.field.name, this.fieldValue);
         if (items !== undefined) {
             // console.log('save items', items);
             if (this.type == "date") {
                 items = items.map(d => d.toISOString().slice(0, 10));
+            } else if (this.type == "datetime-local") {
+                items = items.map(d => d.toISOString());
             }
             this.update({
                 space: this.space,

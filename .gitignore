@@ -5,3 +5,4 @@ yarn-error.log
 .DS_Store
 php_server_*.bat
 src/php/files/*.*
+todo.md

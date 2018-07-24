@@ -324,6 +324,7 @@
             "placeholder": "AAAA-MM-JJ",
             "disabled": "",
             "editable": "both",
+            "type": "date",
             "helpButton": {
                 "format": "button",
                 "contentUrl": "config/views/md-edit-data/help.fr/dataDates.md",
@@ -649,9 +650,26 @@
                 "contentUrl": "config/views/md-edit-data/help.fr/dataInspireKeywords.md",
                 "title": "Thème Inspire",
                 "icon": "glyphicon-info-sign"
+            },
+            "keywords": {
+                "keyword": {
+                    "name": "keyword",
+                    "label": "Intitulé",
+                    "placeholder": "",
+                    "description": "Intitulé du mot-clé.",
+                    "disabled": "",
+                    "editable": "both",
+                    "type": "text",
+                    "helpButton": {
+                        "format": "button",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
+                        "title": "Thème ISO de la fiche",
+                        "icon": "glyphicon-info-sign"
+                    }
+                }
             }
         },
-        "dataKeywordsList": {
+        "_dataKeywordsList": {
             "name": "dataKeywordsList",
             "label": "Mots-clés",
             "placeholder": "ex.: routes, Géoportail, données ouvertes, ...",
@@ -680,7 +698,7 @@
                     "description": "Intitulé du mot-clé.",
                     "disabled": "",
                     "editable": "both",
-                    "type": "select",
+                    "type": "text",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
@@ -710,7 +728,7 @@
                     "description": "Nom du thésaurus.",
                     "disabled": "",
                     "editable": "both",
-                    "type": "select",
+                    "type": "text",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
@@ -725,7 +743,7 @@
                     "description": "Date de publication du thésaurus.",
                     "disabled": "",
                     "editable": "both",
-                    "type": "select",
+                    "type": "date",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
@@ -733,7 +751,7 @@
                         "icon": "glyphicon-info-sign"
                     }
                 },
-                "thesaurusDates": {
+                "_thesaurusDates": {
                     "name": "thesaurusDates",
                     "label": "Dates",
                     "placeholder": "",
@@ -1046,6 +1064,7 @@
                     "disabled": "",
                     "editable": "both",
                     "mandatory": "false",
+                    "type": "date",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/temporalExtentBegin.md",
@@ -1060,6 +1079,7 @@
                     "description": "Date de fin de l'étendue temporelle.",
                     "disabled": "",
                     "editable": "both",
+                    "type": "date",
                     "mandatory": "false",
                     "helpButton": {
                         "format": "button",
@@ -1317,6 +1337,19 @@
             "label": "Mentions et conditions légales d'utilisation",
             "placeholder": "",
             "description": "Mentions et conditions légales d'utilisation des données.",
+            "disabled": "",
+            "multi": "true",
+            "editable": "true",
+            "type": "textarea",
+            "mandatory": "false",
+            "value": [""],
+            "helpButton": {
+                "format": "button",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataLegalUseLimitations.md",
+                "title": "Limites techniques d'usage de la base de données",
+                "icon": "glyphicon-info-sign"
+            },
+
             "_keywords": "conditions, utilisation, données",
             "_children": {
                 "name": {
@@ -1333,6 +1366,20 @@
             "label": "Contraintes légales d'usage",
             "placeholder": "",
             "description": "Contraintes légales d'usage des données.",
+            "disabled": "",
+            "multi": "true",
+            "editable": "true",
+            "type": "select",
+            "mandatory": "false",
+            "value": [""],
+            "helpButton": {
+                "format": "button",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataLegalUseConstraints.md",
+                "title": "Contraintes légales d'usage des données",
+                "icon": "glyphicon-info-sign"
+            },
+
+
             "_keywords": "contraintes, légales, usage, données",
             "_children": {
                 "name": {
@@ -1346,9 +1393,22 @@
         },
         "dataLegalAccessConstraints": {
             "name": "dataLegalAccessConstraints",
-            "label": "Autres contraintes légales d'accès",
+            "label": "Contraintes légales d'accès",
             "placeholder": "",
-            "description": "Autres contraintes légales d'accès des données.",
+            "description": "Contraintes légales d'accès des données.",
+            "disabled": "",
+            "multi": "true",
+            "editable": "true",
+            "type": "select",
+            "mandatory": "false",
+            "value": [""],
+            "helpButton": {
+                "format": "button",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataLegalAccessConstraints.md",
+                "title": "Contraintes légales d'accès aux données",
+                "icon": "glyphicon-info-sign"
+            },
+
             "_keywords": "contraintes, légales, accès, données",
             "_children": {
                 "name": {
@@ -1365,6 +1425,19 @@
             "label": "Contraintes d'accès liées à Inspire",
             "placeholder": "",
             "description": "Contraintes légales d'accès des données liées à Inspire.",
+            "disabled": "",
+            "multi": "true",
+            "editable": "true",
+            "type": "select",
+            "mandatory": "false",
+            "value": [""],
+            "helpButton": {
+                "format": "button",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataLegalAccessInspireConstraints.md",
+                "title": "Contraintes légales d'accès des données liées à Inspire",
+                "icon": "glyphicon-info-sign"
+            },
+
             "_keywords": "contraintes, légales, inspire, données",
             "_children": {
                 "name": {
@@ -1800,106 +1873,140 @@
         }],
 
         "MD_InspireTopicCategoryCode": [{
-            "name": "Coordinate reference systems",
+            "_name": "Coordinate reference systems",
+            "name": "Référentiels de coordonnées",
             "value": "Référentiels de coordonnées"
         }, {
-            "name": "Geographical grid systems",
+            "_name": "Geographical grid systems",
+            "name": "Systèmes de maillage géographique",
             "value": "Systèmes de maillage géographique"
         }, {
-            "name": "Geographical names",
+            "_name": "Geographical names",
+            "name": "Dénominations géographiques",
             "value": "Dénominations géographiques"
         }, {
-            "name": "Administrative units",
+            "_name": "Administrative units",
+            "name": "Unités administratives",
             "value": "Unités administratives"
         }, {
-            "name": "Addresses",
+            "_name": "Addresses",
+            "name": "Adresses",
             "value": "Adresses"
         }, {
-            "name": "Cadastral parcels",
+            "_name": "Cadastral parcels",
+            "name": "Parcelles cadastrales",
             "value": "Parcelles cadastrales"
         }, {
-            "name": "Transport networks",
+            "_name": "Transport networks",
+            "name": "Réseaux de transport",
             "value": "Réseaux de transport"
         }, {
-            "name": "Hydrography",
+            "_name": "Hydrography",
+            "name": "Hydrographie",
             "value": "Hydrographie"
         }, {
-            "name": "Protected sites",
+            "_name": "Protected sites",
+            "name": "Sites protégés",
             "value": "Sites protégés"
         }, {
-            "name": "Elevation",
+            "_name": "Elevation",
+            "name": "Altitude",
             "value": "Altitude"
         }, {
-            "name": "Land cover",
+            "_name": "Land cover",
+            "name": "Occupation des terres",
             "value": "Occupation des terres"
         }, {
-            "name": "Orthoimagery",
+            "_name": "Orthoimagery",
+            "name": "Ortho-imagerie",
             "value": "Ortho-imagerie"
         }, {
-            "name": "Geology",
+            "_name": "Geology",
+            "name": "Géologie",
             "value": "Géologie"
         }, {
-            "name": "Statistical units",
+            "_name": "Statistical units",
+            "name": "Unités statistiques",
             "value": "Unités statistiques"
         }, {
-            "name": "Buildings",
+            "_name": "Buildings",
+            "name": "Bâtiments",
             "value": "Bâtiments"
         }, {
-            "name": "Soil",
+            "_name": "Soil",
+            "name": "Sols",
             "value": "Sols"
         }, {
-            "name": "Land use",
+            "_name": "Land use",
+            "name": "Usage des sols",
             "value": "Usage des sols"
         }, {
-            "name": "Human health and safety",
+            "_name": "Human health and safety",
+            "name": "Santé et sécurité des personnes",
             "value": "Santé et sécurité des personnes"
         }, {
-            "name": "Utility and governmental services",
+            "_name": "Utility and governmental services",
+            "name": "Services d'utilité publique et services publics",
             "value": "Services d'utilité publique et services publics"
         }, {
-            "name": "Environmental monitoring facilities",
+            "_name": "Environmental monitoring facilities",
+            "name": "Installations de suivi environnemental",
             "value": "Installations de suivi environnemental"
         }, {
-            "name": "Production and industrial facilities",
+            "_name": "Production and industrial facilities",
+            "name": "Lieux de production et sites industriels",
             "value": "Lieux de production et sites industriels"
         }, {
-            "name": "Agricultural and aquaculture facilities",
+            "_name": "Agricultural and aquaculture facilities",
+            "name": "Installations agricoles et aquacoles",
             "value": "Installations agricoles et aquacoles"
         }, {
-            "name": "Population distribution — demography",
+            "_name": "Population distribution — demography",
+            "name": "Répartition de la population – démographie",
             "value": "Répartition de la population – démographie"
         }, {
-            "name": "Area management/restriction/regulation zones and reporting units",
+            "_name": "Area management/restriction/regulation zones and reporting units",
+            "name": "Zones de gestion, de restriction ou de réglementation et unités de déclaration",
             "value": "Zones de gestion, de restriction ou de réglementation et unités de déclaration"
         }, {
-            "name": "Natural risk zones",
+            "_name": "Natural risk zones",
+            "name": "Zones à risque naturel",
             "value": "Zones à risque naturel"
         }, {
-            "name": "Atmospheric conditions",
+            "_name": "Atmospheric conditions",
+            "name": "Conditions atmosphériques",
             "value": "Conditions atmosphériques"
         }, {
-            "name": "Meteorological geographical features",
+            "_name": "Meteorological geographical features",
+            "name": "Caractéristiques géographiques météorologiques",
             "value": "Caractéristiques géographiques météorologiques"
         }, {
-            "name": "Oceanographic geographical features",
+            "_name": "Oceanographic geographical features",
+            "name": "Caractéristiques géographiques océanographiques",
             "value": "Caractéristiques géographiques océanographiques"
         }, {
-            "name": "Sea regions",
+            "_name": "Sea regions",
+            "name": "Régions maritimes",
             "value": "Régions maritimes"
         }, {
-            "name": "Bio-geographical regions",
+            "_name": "Bio-geographical regions",
+            "name": "Régions biogéographiques",
             "value": "Régions biogéographiques"
         }, {
-            "name": "Habitats and biotopes",
+            "_name": "Habitats and biotopes",
+            "name": "Habitats et biotopes",
             "value": "Habitats et biotopes"
         }, {
-            "name": "Species distribution",
+            "_name": "Species distribution",
+            "name": "Répartition des espèces",
             "value": "Répartition des espèces"
         }, {
-            "name": "Energy resources",
+            "_name": "Energy resources",
+            "name": "Sources d'énergie",
             "value": "Sources d'énergie"
         }, {
-            "name": "Mineral resources",
+            "_name": "Mineral resources",
+            "name": "Ressources minérales",
             "value": "Ressources minérales"
         }],
 

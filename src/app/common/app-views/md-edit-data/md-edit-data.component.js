@@ -18,15 +18,16 @@ const mdEditDataController = class MdEditDataController {
     }
 
     update(space, field, fieldValue, separator) {
+        // console.log(9);
         // if (field.type == 'date') {
         //     console.log(fieldValue, new Date(fieldValue));
         //     fieldValue = 'test';
         // }
         // console.log('save mdjs', this.mdjs, space, field, fieldValue);
         // console.log(this.XmlConverterService.setValue(this.mdjs, space, field, fieldValue, separator), this.mdjs)
-        // console.log(1, space, field, fieldValue, separator);
         // console.log(this.XmlConverterService.setValue(this.mdjs, space, field, fieldValue, separator));
         this.mdjs = this.XmlConverterService.setValue(this.mdjs, space, field, fieldValue, separator);
+        console.log(9, space, field, fieldValue, separator, this.mdjs);
         this.StoreService.setData({
             mdjs: this.mdjs
         });

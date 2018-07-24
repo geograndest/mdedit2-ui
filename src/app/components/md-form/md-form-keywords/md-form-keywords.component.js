@@ -12,19 +12,26 @@ const mdFormKeywordsController = class MdFormKeywordsController {
 
     getValues() {
         this.keywords = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
-        console.log(this.keywords, this.keywords.length);
+        console.log(122, this.keywords, this.keywords.length);
         this.keywordsList = [];
+        this.inspirekeywordsList = [];
         for (var k = 0; k < this.keywords.length; k++) {
             var thesaurusName = this.XmlConverterService.getValue(this.keywords[k], this.space, 'thesaurusName')[0];
             console.log(k, thesaurusName);
             if (!thesaurusName || !thesaurusName.toLowerCase().includes('inspire')) {
-                // this.keywordsList.push(this.keywords[k]);
-                this.keywordsList[k] = this.keywords[k];
+                // this.keywordsList[k] = this.keywords[k];
+                this.keywordsList.push(this.keywords[k]);
                 // console.log('NOT INSPIRE:', thesaurusName);
-            // } else {
-            //     console.log('INSPIRE:', thesaurusName);
+            } else {
+                // this.inspirekeywordsList[k] = this.keywords[k];
+                this.inspirekeywordsList.push(this.keywords[k]);
+                // console.log('INSPIRE:', thesaurusName);
             }
         }
+        if (!this.keywordsList.length) {
+            this.keywordsList.push({});
+        }
+        console.log(555, this.keywords.length, this.keywordsList.length, this.inspirekeywordsList.length);
     }
 
     $onChanges(changes) {
@@ -45,20 +52,19 @@ const mdFormKeywordsController = class MdFormKeywordsController {
         } else {
             this.keywordsList[key] = {};
         }
+        this.updateKeywords();
     }
 
     updateKeywords(key, keyword) {
-        // var keywords = angular.copy(this.keywords);
-        // var codeSpace = this.XmlConverterService.getValue(keyword, this.space, 'codeSpace');
-        // if (!codeSpace.length) {
-        //     var code = this.XmlConverterService.getValue(keyword, this.space, 'code');
-        //     keyword = this.XmlConverterService.setValue({}, this.space, 'mdCode', code);
-        // }
-        this.keywords[key] = keyword;
+        if (key && inspirekeyword) {
+            this.getValues();
+            this.keywordsList[key] = keyword;
+        }
+        console.log(123, this.keywords.length, this.keywordsList.length, this.inspirekeywordsList.length);
         this.update({
             space: this.space,
             field: this.field.name,
-            fieldValue: this.keywords
+            fieldValue: this.keywordsList.concat(this.inspirekeywordsList)
         });
     }
 }

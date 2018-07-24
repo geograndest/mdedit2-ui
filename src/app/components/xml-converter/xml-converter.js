@@ -120,6 +120,7 @@ export class XmlConverter {
         if (xpaths.hasOwnProperty('code') && xpaths.code.length) {
             xpath_end = xpaths.code;
         }
+        // console.log(xpaths.paths, xpath_end);
         if (xpaths.hasOwnProperty('paths') && xpaths.paths.length) {
             return xpaths.paths.concat(xpath_end).join('.');
         } else {
@@ -169,7 +170,7 @@ export class XmlConverter {
         // TODO: pb si values = empty...
         // if ((!paths || paths.length == 0) && values[0]) {
         if (!paths || paths.length == 0) {
-            // console.log(1);
+            // console.log(1, fields[field].name);
             // console.log(fields[field].xpaths.value);
             obj = lodash.set(obj, fields[field].xpaths.value.replace(/\[[\*|0]\]$/, ''), values);
             if (fields[field].xpaths.hasOwnProperty('code')) {
@@ -177,6 +178,7 @@ export class XmlConverter {
             }
             return obj;
         } else {
+            // console.log(2, fields[field].name);
             var result = [];
             for (var v = 0; v < values.length; v++) {
                 // var xpath = xpaths.pop();
@@ -190,14 +192,15 @@ export class XmlConverter {
                 }
             }
             // console.log(fields[field].name, obj, result);
+            // paths.push(fields[field].xpaths.value);
             paths = paths.map(function(val, key) {
                 // var value = val.replace('[*]', '[0]');
-                return val.replace('[*]', '[0]').replace(/\[0\]$/, '');
+                return val.replace('[*]', '[0]');
                 // return val.replace(/\[[\*|0]\]$/, '');
             });
-            // console.log(paths, paths.join('.'));
+            // console.log(paths, paths.join('.').replace(/\[0\]$/, ''), result);
             // var results = 
-            return lodash.set(obj, paths.join('.'), result);
+            return lodash.set(obj, paths.join('.').replace(/\[0\]$/, ''), result);
         }
 
         // var xpath = xpaths.pop();
