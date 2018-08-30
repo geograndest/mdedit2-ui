@@ -1,14 +1,15 @@
 import template from './app.html';
 
 const AppComponentController = class AppComponentController {
-    constructor($state, $stateParams, $window, UtilsService, XmlConverterService, StoreService) {
+    constructor($state, $stateParams, UtilsService, XmlConverterService, StoreService) {
         'ngInject';
         this.$state = $state;
         this.$stateParams = $stateParams;
-        this.$window = $window;
+        // this.$window = $window;
         this.UtilsService = UtilsService;
         this.XmlConverterService = XmlConverterService;
         this.StoreService = StoreService;
+        // console.log('--- INIT 1 ---');
     }
 
     getViews(views, type) {
@@ -30,17 +31,38 @@ const AppComponentController = class AppComponentController {
     }
 
     $onInit() {
+        // console.log('--- INIT 2 ---');
         this.mdViews = this.getViews(this.appConfig.views, 'mdView');
         this.mdEditViews = this.getViews(this.appConfig.views, 'mdEdit');
         this.isHome = (this.$state.current.name === 'app.home');
         this.isMdView = (Object.keys(this.mdViews).includes(this.$state.current.name.split('.')[1]));
         this.isMdEditView = (Object.keys(this.mdEditViews).includes(this.$state.current.name.split('.')[1]));
 
-        this.mdjs = this.XmlConverterService.xml2js(this.xml);
-        this.StoreService.setData({
-            mdjs: this.mdjs
-        });
-        console.log(this.mdjs);
+        console.log('url', this.url);
+
+        // if (this.url) {
+        //     this.UtilsService.getFile(this.url, (data) => {
+        //         console.log(111);
+        //         this.mdjs = this.XmlConverterService.xml2js(data);
+        //         this.StoreService.setData({
+        //             mdjs: this.mdjs
+        //         });
+        //         console.log('on load URL', this.mdjs);
+        //     });
+        // } else {
+        //     this.mdjs = this.StoreService.getData().mdjs;
+        // }
+
+        this.mdjs = this.StoreService.getData().mdjs;
+        // console.log(888, this.mdjs);
+        if (this.mdjs == undefined) {
+            this.mdjs = this.XmlConverterService.xml2js(this.xml);
+            // if (this.mdjs)
+            this.StoreService.setData({
+                mdjs: this.mdjs
+            });
+        }
+        console.log(888, this.mdjs);
 
         this.helpButton = {
             icon: 'glyphicon-info-sign',
@@ -100,13 +122,17 @@ const AppComponentController = class AppComponentController {
             this.appConfig.app.view = this.$state.current.name.split('.').pop();
         }
         this.changeViewButton = {
-            hide: this.isHome || this.isMdView,
+            hide: this.isHome,
             tooltip: this.appLocales.ui.tooltip_changeview,
             views: this.getChangeViews(this.appConfig.views, this.appConfig.app.changeview.list),
             view: this.appConfig.app.view,
             format: this.appConfig.app.changeview.format,
             icon: this.appConfig.app.changeview.icon,
             onChangeView: (view) => {
+                // console.log(222, this.mdjs);
+                // this.StoreService.setData({
+                //     mdjs: this.mdjs
+                // });
                 this.$state.transitionTo(this.appConfig.views[view].url, this.$stateParams, {
                     reload: true,
                     inherit: true,

@@ -3,37 +3,48 @@ import {
     mdFields
 } from './xml-converter.mdFields';
 
-export function getValue($cacheFactory, StoreService, XmlConverterService) {
+// export function getValue($cacheFactory, StoreService, XmlConverterService) {
+//     'ngInject';
+//     var cache = {};
+//     var cache2 = $cacheFactory('cache'); 
+//     return (data, space, fieldPath) => {
+//         // var result = XmlConverterService.getValue(data, space, fieldPath);
+//         var xpath = mdFields[fieldPath].xpath;
+//         var result = jsonPath.query(data, xpath);
+
+//         cache2.put('data', result);
+//         return cache2.get('data');
+
+//     };
+// };
+
+export function getValue(XmlConverterService) {
     'ngInject';
-    var cache = {};
-    var cache2 = $cacheFactory('cache'); 
     return (data, space, fieldPath) => {
-        // var result = XmlConverterService.getValue(data, space, fieldPath);
-        var xpath = mdFields[fieldPath].xpath;
-        var result = jsonPath.query(data, xpath);
+        // var result;
+        if (data) {
+            var paths = fieldPath.split('|');
+            for (var i = 0; i < paths.length; i++) {
+                // console.log(111, paths[i]);
+                var fields = paths[i].split('.');
+                // console.log(222, fields);
 
-        cache2.put('data', result);
-        return cache2.get('data');
-
-        
-        // if (!data.result || !angular.equals(data.result, result)) {
-        //     data.result = result;
-        // }
-        // return data.result;
-
-        // if (!cache['fieldPath'] || !angular.equals(cache[fieldPath], result)) {
-        //     cache[fieldPath] = result;
-        // }
-        // if (Array.isArray(cache[fieldPath][0])) {
-        //     console.log(fieldPath, 1);
-        //     return cache[fieldPath][0];
-        // } else {
-        //     console.log(fieldPath, 0);
-        //     return cache[fieldPath];
-        // }
-        // return cache[fieldPath];
+                for (var j = 0; j < fields.length; j++) {
+                    // console.log(333, fields[j], data);
+                    data = XmlConverterService.getValue(data, space, fields[j]);
+                }
+                if (data[0]) {
+                    break;
+                }
+                // result = XmlConverterService.getValue(data, space, paths[i]);
+            }
+            // console.log(444, data);
+            return data;
+        }
+        return '';
     };
 };
+
 
 export function truncate() {
     return (data, n, useWordBoundary) => {

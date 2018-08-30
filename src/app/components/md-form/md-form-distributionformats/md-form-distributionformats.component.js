@@ -24,7 +24,9 @@ const mdFormDistributionformatsController = class MdFormDistributionformatsContr
     $onChanges(changes) {
         if (changes.md) {
             this.distributionformats = this.getValues();
-            // console.log(this.distributionformats);
+            if (this.distributionformats.length == 0) {
+                this.distributionformats = [{}];
+            }
         }
     }
 

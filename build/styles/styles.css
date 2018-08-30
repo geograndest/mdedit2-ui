@@ -6437,6 +6437,10 @@ a,
 a[ng-click] {
   cursor: pointer; }
 
+.label {
+  margin-left: 2px;
+  display: inline-block; }
+
 .form-group {
   margin-bottom: 5px; }
 

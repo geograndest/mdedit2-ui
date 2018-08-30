@@ -34,6 +34,9 @@ const mdFormTemporalextentsController = class MdFormTemporalextentsController {
     $onChanges(changes) {
         if (changes.md) {
             this.temporalextents = this.getValues();
+            if (this.temporalextents.length == 0) {
+                this.temporalextents = [{}];
+            }
         }
     }
 

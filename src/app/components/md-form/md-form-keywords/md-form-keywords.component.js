@@ -12,6 +12,9 @@ const mdFormKeywordsController = class MdFormKeywordsController {
 
     getValues() {
         this.keywords = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
+        if (this.keywords.length == 0) {
+            this.keywords = [{}];
+        }
         console.log(122, this.keywords, this.keywords.length);
         this.keywordsList = [];
         this.inspirekeywordsList = [];
@@ -56,7 +59,7 @@ const mdFormKeywordsController = class MdFormKeywordsController {
     }
 
     updateKeywords(key, keyword) {
-        if (key && inspirekeyword) {
+        if (key && keyword) {
             this.getValues();
             this.keywordsList[key] = keyword;
         }

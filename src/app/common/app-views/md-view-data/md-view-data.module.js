@@ -14,12 +14,6 @@ export const mdViewData = angular
         const mdViewDataState = {
             name: 'app.mdViewData',
             url: '/md-view-data',
-            params: {
-                name: {
-                    value: 'none',
-                    squash: false
-                }
-            },
             resolve: {
                 mdViewLocales: (UtilsService, appConfig, lang) => {
                     'ngInject';

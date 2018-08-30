@@ -36,19 +36,33 @@ const mdFormElementController = class MdFormElementController {
         this.edit = edit;
         // console.log(12, this.fieldValue, this.isEdited, this.field.name);
 
+        // // Init default value
+        // var isFieldValueEmpty = this.fieldValue.some(function(i) {
+        //     return !!i;
+        // });
+        // if (this.field.value) {
+        //     this.fieldValue = isFieldValueEmpty || this.field.value;
+        //     this.saveData(this.fieldValue);
+        // }
+        // this.type = this.field.type || "text";
+
+        // this.getValues();
+
         // Init default value
-        var isFieldValueEmpty = this.fieldValue.some(function(i) {
-            return !!i;
+        var isFieldValueEmpty = this.fieldValue.every((value) => {
+            return value == '';
         });
-        if (this.field.value) {
-            this.fieldValue = isFieldValueEmpty || this.field.value;
+        if (isFieldValueEmpty && this.field.value) {
+            this.fieldValue = this.field.value;
             this.saveData(this.fieldValue);
         }
+        // console.log(77, this.field.name, isFieldValueEmpty, this.fieldValue)
         this.type = this.field.type || "text";
 
-        this.getValues();
+        this.fieldValue = this.getValues();
+        // console.log(0, this.field.name)
 
-        console.log(478, this.type, this.fieldValue, this.field.name);
+        // console.log(478, this.type, this.fieldValue, this.field.name);
     }
 
     getValues() {
@@ -58,16 +72,16 @@ const mdFormElementController = class MdFormElementController {
             this.field.name
         );
         if (this.type == "date" || this.type == "datetime-local") {
-            console.log(147, value.map(d => new Date(d)));
+            // console.log(147, value.map(d => new Date(d)));
             return value.map(d => new Date(d));
         }
+        // console.log(this.field.name, value, this.multi)
         return value;
     }
 
     $onChanges(changes) {
         if (changes.md) {
-            this.fieldValue = !this.getValues().length || this.getValues()[0] == "EMPTY" ? [""] :
-                this.getValues();
+            this.fieldValue = !this.getValues().length || this.getValues()[0] == "EMPTY" ? [""] : this.getValues();
             if (!changes.md.isFirstChange()) {
                 // this.saveData();
                 for (var i = 0; i < this.fieldValue.length; i++) {
@@ -75,12 +89,13 @@ const mdFormElementController = class MdFormElementController {
                 }
             }
             // console.log(7, this.field.name, this.fieldValue);
-            this.saveData();
+            this.saveData(this.fieldValue);
+            // console.log(2, this.field.name, this.fieldValue)
         }
     }
 
     saveData(items) {
-        // console.log(8, this.field.name, this.fieldValue);
+        // console.log(8, this.field.name, this.fieldValue, items);
         if (items !== undefined) {
             // console.log('save items', items);
             if (this.type == "date") {
@@ -94,6 +109,7 @@ const mdFormElementController = class MdFormElementController {
                 fieldValue: items
             });
         }
+        // console.log(9, this.field.name, this.fieldValue, items);
     }
 
     onBlur(key, itemValue) {

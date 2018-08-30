@@ -14,7 +14,8 @@ export class XmlConverterService {
         return converter.xml2js(xml, {
             compact: true,
             spaces: 4,
-            alwaysArray: true
+            alwaysArray: true,
+            trim: true
         });
     }
 

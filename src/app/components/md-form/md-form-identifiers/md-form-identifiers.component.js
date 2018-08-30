@@ -12,6 +12,9 @@ const mdFormIdentifiersController = class MdFormIdentifiersController {
 
     getValues() {
         this.identifiers = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
+        if (this.identifiers.length == 0) {
+            this.identifiers = [{}];
+        }
         this.identifiersList = angular.copy(this.identifiers);
         // var newIdentifiers = angular.copy(identifiers);
         for (var i = 0; i < this.identifiersList.length; i++) {

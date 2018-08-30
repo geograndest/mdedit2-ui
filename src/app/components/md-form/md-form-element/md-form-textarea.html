@@ -1,4 +1,3 @@
-<!-- --{{$ctrl.fieldValue}}-- -->
 <!-- Single field -->
 <div ng-if="$ctrl.multi != 'true'" ng-repeat="(key, fieldValue) in $ctrl.fieldValue track by $index" class="form-group has-feedback" ng-class="$ctrl.isValidField(key) ? '' : 'has-error'">
     <label ng-if="$ctrl.label.toLowerCase() == 'true'" class="control-label" for="{{$ctrl.field.name}}" uib-tooltip="{{$ctrl.field.description}}" tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(key)">

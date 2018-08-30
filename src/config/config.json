@@ -12,9 +12,9 @@
         "lang": "fr",
         "_changeview_format": "'button' or 'list' value",
         "changeview": {
-            "format": "list",
-            "list": ["mdEditData", "mdEditMap"],
-            "icon": "glyphicon-pencil"
+            "format": "button",
+            "list": ["mdEditData", "mdViewData"],
+            "icon": "glyphicon-eye-open"
         },
         "template": "empty",
         "header": 1,
@@ -66,7 +66,7 @@
         "mdEditData": {
             "url": "app.mdEditData",
             "path": "config/views/md-edit-data/md-edit-data.html",
-            "icon": "glyphicon-pencil",
+            "icon": "glyphicon-eye-open",
             "type": "mdEdit",
             "default": true,
             "hierarchyLevels": ["dataseries", "dataset"],
@@ -112,10 +112,10 @@
         },
         "mdViewData": {
             "url": "app.mdViewData",
-            "path": "config/views/md-view/md-view.html",
-            "icon": "glyphicon-th",
+            "_path": "config/views/md-view-data/md-view-data.html",
+            "icon": "glyphicon-pencil",
             "type": "mdView",
-            "default": true,
+            "default": false,
             "hierarchyLevels": ["dataseries", "dataset"],
             "keywords": {
                 "fr": ["données", "Données ouvertes"],
@@ -128,9 +128,9 @@
                 "de": "List views (DE)"
             },
             "locales": {
-                "fr": "config/views/md-view/locales.fr.json",
-                "en": "config/views/md-view/locales.en.json",
-                "de": "config/views/md-view/locales.de.json"
+                "fr": "config/views/md-view-data/locales.fr.json",
+                "en": "config/views/md-view-data/locales.en.json",
+                "de": "config/views/md-view-data/locales.de.json"
             }
         },
         "mdViewMap": {
@@ -138,7 +138,7 @@
             "path": "config/views/md-view/md-view.html",
             "icon": "glyphicon-th",
             "type": "mdView",
-            "default": true,
+            "default": false,
             "hierarchyLevels": ["dataseries", "dataset"],
             "keywords": {
                 "fr": ["données", "Données ouvertes"],
@@ -161,7 +161,7 @@
             "path": "config/views/md-view/md-view.html",
             "icon": "glyphicon-th",
             "type": "mdView",
-            "default": true,
+            "default": false,
             "hierarchyLevels": ["dataseries", "dataset"],
             "keywords": {
                 "fr": ["données", "Données ouvertes"],

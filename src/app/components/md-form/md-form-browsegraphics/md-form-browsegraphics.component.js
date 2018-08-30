@@ -24,7 +24,9 @@ const mdFormBrowsegraphicsController = class MdFormBrowsegraphicsController {
     $onChanges(changes) {
         if (changes.md) {
             this.browsegraphics = this.getValues();
-            // console.log(this.browsegraphics);
+            if (this.browsegraphics.length == 0) {
+                this.browsegraphics = [{}];
+            }
         }
     }
 

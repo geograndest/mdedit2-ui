@@ -51,8 +51,9 @@ const mdFormLinkagesController = class MdFormLinkagesController {
     $onChanges(changes) {
         if (changes.md) {
             this.linkages = this.getValues();
-            // this.getValues();
-            console.log(this.linkages);
+            if (this.linkages.length == 0) {
+                this.linkages = [{}];
+            }
         }
     }
 

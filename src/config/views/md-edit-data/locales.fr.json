@@ -643,7 +643,7 @@
             "placeholder": "",
             "description": "Thème de la directive européenne Inspire auquel se rapporte la base de données.",
             "disabled": "",
-            "editable": "true",
+            "editable": "both",
             "type": "select",
             "helpButton": {
                 "format": "button",

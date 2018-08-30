@@ -1,0 +1,307 @@
+<div class="container">
+    <div class="btn-group pull-right" role="group">
+        <button class="btn btn-default btn-sm hidden-print" ng-click="$ctrl.onPrint()">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+        </button>
+        <button class="btn btn-default btn-sm" ng-click="$ctrl.onClose()">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
+    </div>
+
+    <div class="col-md-12 hidden-print">
+        <h2>
+            <span>{{ $ctrl.record | getValue:'getRecord':'srvTitle' | toString }}</span>
+        </h2>
+    </div>
+    <div class="row visible-print-block">
+        <div class="col-xs-10">
+            <h2>
+                <span>{{ $ctrl.record | getValue:'getRecord':'srvTitle' | toString }}</span>
+            </h2>
+        </div>
+        <div id="" class="col-xs-2">
+            <div class="image">
+                <img ng-if="($ctrl.record | getValue:'getRecord':'dataBrowseGraphics').length" style="width:3cm" class="img-thumbnail img-responsive"
+                    ng-src="{{ ($ctrl.record | getValue:'getRecord':'dataBrowseGraphics')[0] | getValue:'getRecord':'browseGraphicFileName' | toString}}"
+                    alt="{{ ($ctrl.record | getValue:'getRecord':'dataBrowseGraphics')[0] | getValue:'getRecord':'browseGraphicFileDescription' | toString}}"
+                    title="{{ ($ctrl.record | getValue:'getRecord':'dataBrowseGraphics')[0] | getValue:'getRecord':'browseGraphicFileDescription' | toString}}">
+            </div>
+        </div>
+    </div>
+    <div>
+        <div id="page" class="col-md-8">
+            <div class="panel panel-default">
+                <div id="dataAbstract" class="pre panel-body" ng-bind-html="$ctrl.record | getValue:'getRecord':'srvAbstract' | toString | nl2br"></div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p ng-if="($ctrl.record | getValue:'getRecord':'dataDates').length" ng-repeat="dataDate in $ctrl.record | getValue:'getRecord':'dataDates' track by $index">
+                        <strong>Date de {{(dataDate | getValue:'getRecord':'dateType' | translate:$ctrl.codelists.CI_DateTypeCode
+                            | toString).toLowerCase()}} des données: </strong>
+                        {{dataDate | getValue:'getRecord':'date|dateTime' | toString}}
+                    </p>
+                    <p ng-if="!($ctrl.record | getValue:'getRecord':'dataDates').length">
+                        Aucune date précisée</p>
+                    <div ng-if="($ctrl.record | getValue:'getRecord':'srvTemporalExtents').length">
+                        <p ng-if="(dataTemporalExtent | getValue:'getRecord':'dataTemporalExtentBegin').length" ng-repeat="dataTemporalExtent in $ctrl.record | getValue:'getRecord':'srvTemporalExtents' track by $index">
+                            <strong>{{dataTemporalExtent | getValue:'getRecord':'dataExtentName' | toString}}:</strong>
+                            <span class="pre">{{dataTemporalExtent | getValue:'getRecord':'dataTemporalExtentBegin' | toString}}</span>
+                            <span class="pre" ng-if="(dataTemporalExtent | getValue:'getRecord':'dataTemporalExtentEnd').length">/ {{dataTemporalExtent | getValue:'getRecord':'dataTemporalExtentEnd' | toString}}</span>
+                        </p>
+                        <p>
+                            <strong>Fréquence de mise à jour:</strong>
+                            <span ng-if="($ctrl.record | getValue:'getRecord':'dataMaintenanceFrequency').length" class="pre">{{$ctrl.record | getValue:'getRecord':'dataMaintenanceFrequency' | translate:$ctrl.codelists.MD_MaintenanceFrequencyCode
+                                | toString}}</span>
+                            <span ng-if="!($ctrl.record | getValue:'getRecord':'dataMaintenanceFrequency').length" class="pre">Non renseignée</span>
+                        </p>
+                    </div>
+                    <hr />
+                    <div>
+                        <strong>Langue des données:</strong>
+                        <span ng-if="($ctrl.record | getValue:'getRecord':'dataLanguages').length">
+                            <span>{{$ctrl.record | getValue:'getRecord':'dataLanguages.language' | translate:$ctrl.codelists.MD_LanguageCode
+                                | toString}}</span>
+                        </span>
+                        <span ng-if="!($ctrl.record | getValue:'getRecord':'dataLanguages').length">
+                            Non renseigné
+                        </span>
+                    </div>
+                    <hr />
+                    <div>
+                        <strong>Format de diffusion:</strong>
+                        <span ng-if="($ctrl.record | getValue:'getRecord':'dataDistributionFormats').length" ng-repeat="dataDistributionFormat in $ctrl.record | getValue:'getRecord':'dataDistributionFormats' track by $index">
+                            {{dataDistributionFormat | getValue:'getRecord':'formatName' | toString}}
+                            <span ng-if="(dataDistributionFormat | getValue:'getRecord':'formatVersion').length || (dataDistributionFormat | getValue:'getRecord':'formatSpecification').length">(</span>
+                            <span ng-if="(dataDistributionFormat | getValue:'getRecord':'formatVersion').length">{{dataDistributionFormat | getValue:'getRecord':'formatVersion' | toString}}</span>
+                            <span ng-if="(dataDistributionFormat | getValue:'getRecord':'formatSpecification').length">- {{dataDistributionFormat | getValue:'getRecord':'formatSpecification' | toString}}</span>
+                            <span ng-if="(dataDistributionFormat | getValue:'getRecord':'formatVersion').length || (dataDistributionFormat | getValue:'getRecord':'formatSpecification').length">)</span>
+                            {{$last ? '' : ', '}}
+                        </span>
+                        <span ng-if="!($ctrl.record | getValue:'getRecord':'dataDistributionFormats').length">
+                            Non renseigné
+                        </span>
+                    </div>
+                    <hr />
+                    <div>
+                        <p>
+                            <strong>Qualité des données:</strong>
+                        </p>
+                        <div class="pre">
+                            <div ng-if="($ctrl.record | getValue:'getRecord':'dataLiStatement').length" ng-bind-html="$ctrl.record | getValue:'getRecord':'dataLiStatement' | toString | nl2br"></div>
+                            <div ng-if="!($ctrl.record | getValue:'getRecord':'dataLiStatement').length"> Non renseigné </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div>
+                        <p>
+                            <strong>Limites techniques d'usage:</strong>
+                        </p>
+                        <div ng-if="($ctrl.record | getValue:'getRecord':'srvResourceConstraints.useLimitations').length" ng-repeat="useLimitation in $ctrl.record | getValue:'getRecord':'srvResourceConstraints.useLimitations' track by $index">
+                            <p ng-bind-html="useLimitation | getValue:'getRecord':'useLimitation' | toString | nl2br"></p>
+                        </div>
+                        <div ng-if="($ctrl.record | getValue:'getRecord':'srvResourceConstraints.useLimitations' | toString) != ''">
+                            <div>Aucune limite d'usage définie.</div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div>
+                        <p>
+                            <strong>Contraintes légales:</strong>
+                        </p>
+                        <div ng-if="($ctrl.record | getValue:'getRecord':'srvResourceConstraints.securityClassification').length">
+                            <label>Classification:</label> {{$ctrl.record | getValue:'getRecord':'srvResourceConstraints.securityClassification'
+                            | translate:$ctrl.codelists.MD_ClassificationCode | toString}}
+                            <br />
+                        </div>
+                        <div ng-if="($ctrl.record | getValue:'getRecord':'srvResourceConstraints.securityUseLimitations').length">
+                            <label>Limite d'usage (sécurité):</label>
+                            <p ng-repeat="useLimitation in $ctrl.record | getValue:'getRecord':'srvResourceConstraints.securityUseLimitations' track by $index"
+                                ng-bind-html="useLimitation | getValue:'getRecord':'useLimitation' | toString | nl2br"></p>
+                        </div>
+                    </div>
+                    <label>Contraintes légales d'accès aux données:</label>
+                    <br />
+                    <p ng-if="($ctrl.record | getValue:'getRecord':'dataResourceConstraints.legalAccessConstraints').length && (legalAccessConstraint | getValue:'getRecord':'legalConstraint' | toString) != 'otherRestrictions'"
+                        ng-repeat="legalAccessConstraint in $ctrl.record | getValue:'getRecord':'dataResourceConstraints.legalAccessConstraints' track by $index">
+                        {{legalAccessConstraint | getValue:'getRecord':'legalConstraint' | translate:$ctrl.codelists.MD_RestrictionCode | toString
+                        }}
+                    </p>
+                    <p ng-if="($ctrl.record | getValue:'getRecord':'dataResourceConstraints.legalOtherConstraints').length" ng-repeat="legalOtherConstraint in $ctrl.record | getValue:'getRecord':'dataResourceConstraints.legalOtherConstraints' track by $index">
+                        {{legalOtherConstraint | getValue:'getRecord':'legalOtherConstraint' | toString }}
+                    </p>
+                    <p ng-if="!($ctrl.record | getValue:'getRecord':'dataResourceConstraints.legalAccessConstraints').length && !($ctrl.record | getValue:'getRecord':'dataResourceConstraints.legalOtherConstraints').length">
+                        Aucune contrainte d'accès définie.
+                    </p>
+                    <label>Contraintes légales d'usage des données:</label>
+                    <br />
+                    <p ng-if="($ctrl.record | getValue:'getRecord':'dataResourceConstraints.legalUseConstraints').length" ng-repeat="legalUseConstraint in $ctrl.record | getValue:'getRecord':'dataResourceConstraints.legalUseConstraints' track by $index">
+                        {{legalUseConstraint | getValue:'getRecord':'legalConstraint' | translate:$ctrl.codelists.MD_RestrictionCode | toString }}
+                    </p>
+                    <p ng-if="($ctrl.record | getValue:'getRecord':'dataResourceConstraints.legalUseLimitations').length" ng-repeat="useLimitation in $ctrl.record | getValue:'getRecord':'dataResourceConstraints.legalUseLimitations' track by $index"
+                        ng-bind-html="useLimitation | getValue:'getRecord':'useLimitation' | toString | nl2br"></p>
+                    <p ng-if="!($ctrl.record | getValue:'getRecord':'dataResourceConstraints.legalUseLimitations').length && !($ctrl.record | getValue:'getRecord':'dataResourceConstraints.legalUseConstraints').length">
+                        Aucune limite légale d'usage définie.
+                    </p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div ng-repeat="contact in $ctrl.record | getValue:'getRecord':'dataPointOfContacts' track by $index">
+                        <contact contact="contact" contact-type="data" locales="$ctrl.locales.ui" role-codes="$ctrl.codelists.CI_RoleCode"></contact>
+                    </div>
+                    <div ng-repeat="contact in $ctrl.record | getValue:'getRecord':'mdContacts' track by $index">
+                        <contact contact="contact" contact-type="metadata" locales="$ctrl.locales.ui" role-codes="$ctrl.codelists.CI_RoleCode"></contact>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="browsegraphic" class="col-md-4" style="padding-bottom:1em;">
+            <div ng-if="($ctrl.record | getValue:'getRecord':'dataSpatialRepresentationType').length">
+                <span style="position:absolute; right:30px; top:20px; z-index:999" id="spatial-representation-type-label" class="label label-success"
+                    title="{{$ctrl.record | getValue:'getRecord':'dataSpatialRepresentationType' | toString}}">
+                    {{$ctrl.record | getValue:'getRecord':'dataSpatialRepresentationType' | translate:$ctrl.codelists.MD_SpatialRepresentationTypeCode
+                    | toString}}
+                </span>
+            </div>
+            <div class="image">
+                <span ng-if="($ctrl.record | getValue: 'getRecord': 'srvBrowseGraphics').length" href="{{ ($ctrl.record | getValue:'getRecord': 'srvBrowseGraphics')[0] | getValue: 'getRecord': 'browseGraphicFileName' | toString}}"
+                    target="_blanck ">
+                    <img class="img-thumbnail img-responsive " ng-src="{{ ($ctrl.record | getValue:
+                    'getRecord': 'srvBrowseGraphics')[0] | getValue: 'getRecord': 'browseGraphicFileName' | toString}}"
+                        alt="{{ ($ctrl.record
+                    | getValue: 'getRecord': 'srvBrowseGraphics')[0] | getValue: 'getRecord': 'browseGraphicFileDescription'
+                    | toString}} " title="{{ ($ctrl.record | getValue: 'getRecord': 'srvBrowseGraphics')[0] | getValue:
+                    'getRecord': 'browseGraphicFileDescription' | toString}} " />
+                </span>
+                <img ng-if="!($ctrl.record | getValue: 'getRecord': 'srvBrowseGraphics').length" style="width:3cm " class="img-thumbnail img-responsive"
+                    src="img/logo_empty.jpg" alt="Image blanche" title="Logo non défini" />
+            </div>
+        </div>
+        <div id="sidebar" class="col-md-4 ">
+            <div class="panel panel-default ">
+                <div class="panel-body ">
+                    <p>
+                        <span ng-if="($ctrl.record | getValue:'getRecord':'srvGeographicExtents.dataGeographicExtentSouthBound').length" ng-repeat="geographicExtent in $ctrl.record | getValue:'getRecord':'srvGeographicExtents' track by $index ">
+                            <span ng-if="(geographicExtent | getValue:'getRecord':'dataGeographicExtentSouthBound').length">
+                                <a class="btn btn-xs btn-info ">
+                                    <i class="glyphicon glyphicon-screenshot " title="Couverture territoriale "></i>
+                                </a>
+                                <span title="S:{{dataGeographicExtent.dataGeographicExtentSouthBound}}, N:{{dataGeographicExtent.dataGeographicExtentNorthBound}},
+                    W:{{dataGeographicExtent.dataGeographicExtentWestBound}}, E:{{dataGeographicExtent.dataGeographicExtentEastBound}} ">
+                                    <span ng-if="(geographicExtent | getValue:'getRecord':'dataExtentName').length">{{geographicExtent | getValue:'getRecord':'dataExtentName' | toString}} (S:{{geographicExtent
+                                        | getValue:'getRecord':'dataGeographicExtentSouthBound' | toString}}, N:{{geographicExtent
+                                        | getValue:'getRecord':'dataGeographicExtentNorthBound' | toString}}, W:{{geographicExtent
+                                        | getValue:'getRecord':'dataGeographicExtentWestBound' | toString}}, E:{{geographicExtent
+                                        | getValue:'getRecord':'dataGeographicExtentEastBound' | toString}})</span>
+                                    <span ng-if="!(geographicExtent | getValue:'getRecord':'dataExtentName').length">Nom inconnu (S:{{geographicExtent | getValue:'getRecord':'dataGeographicExtentSouthBound'
+                                        | toString}}, N:{{geographicExtent | getValue:'getRecord':'dataGeographicExtentNorthBound'
+                                        | toString}}, W:{{geographicExtent | getValue:'getRecord':'dataGeographicExtentWestBound'
+                                        | toString}}, E:{{geographicExtent | getValue:'getRecord':'dataGeographicExtentEastBound'
+                                        | toString}})</span>
+                                </span>
+                                <br />
+                            </span>
+                        </span>
+                        <span ng-if="!($ctrl.record | getValue:'getRecord':'srvGeographicExtents.dataGeographicExtentSouthBound').length">
+                            <a class="btn btn-xs btn-info ">
+                                <i class="glyphicon glyphicon-screenshot " title="Couverture territoriale "></i>
+                            </a>
+                            <span class="pre " title="S:0.00, N:0.00, W:0.00, E:0.00 ">Couverture territoriale non renseignée</span>
+                            <br />
+                        </span>
+                    </p>
+                    <p>
+                        <a class="btn btn-xs btn-info ">
+                            <i class="glyphicon glyphicon-zoom-in " title="Echelle dutilisation "></i>
+                        </a>
+                        <span ng-if="($ctrl.record | getValue:'getRecord':'dataScaleDenominator').length">1/{{$ctrl.record | getValue:'getRecord':'dataScaleDenominator' | toString}}</span>
+                        <span ng-if="($ctrl.record | getValue:'getRecord':'dataScaleDistance').length">{{$ctrl.record | getValue:'getRecord':'dataScaleDistance' | toString}} mètre(s)</span>
+                        <span ng-if="!($ctrl.record | getValue:'getRecord':'dataScaleDenominator').length && !($ctrl.record | getValue:'getRecord':'dataScaleDistance').length ">Echelle et résolution non renseignées.</span>
+                    </p>
+                    <p>
+                        <span ng-if="($ctrl.record | getValue:'getRecord':'dataReferenceSystems').length">
+                            <span ng-repeat="dataReferenceSystem in $ctrl.record | getValue:'getRecord':'dataReferenceSystems' track by $index ">
+                                <a class="btn btn-xs btn-info ">
+                                    <i class="glyphicon glyphicon-globe " title="Système de projection "></i>
+                                </a> {{dataReferenceSystem | getValue:'getRecord':'code' | toString}}
+                                <span ng-if="(dataReferenceSystem | getValue:'getRecord':'codeSpace').length">({{dataReferenceSystem | getValue:'getRecord':'codeSpace' | toString}})</span>
+                                <br />
+                            </span>
+                        </span>
+                        <span ng-if="!($ctrl.record | getValue:'getRecord':'dataReferenceSystems').length">
+                            <a class="btn btn-xs btn-info ">
+                                <i class="glyphicon glyphicon-globe " title="Système de projection "></i>
+                            </a> Aucun système de projection renseigné.
+                        </span>
+                    </p>
+                    <hr />
+                    <div id="keywords ">
+                        <span ng-repeat="dataTopicCategory in $ctrl.record | getValue:'getRecord':'srvTopicCategories.topicCategory' track by $index">
+                            <span title="{{dataTopicCategory | toString}}" class="label label-warning">{{dataTopicCategory | translate:$ctrl.codelists.MD_TopicCategoryCode | toString}}</span>
+                        </span>
+                        <br />
+                        <span ng-repeat="dataKeyword in $ctrl.record | getValue:'getRecord':'srvKeywords' track by $index">
+                            <span ng-if="(dataKeyword | getValue:'getRecord':'thesaurusName').length">
+                                <!-- TODO: Voir si possible de gérer l'affichage uniquement via ng-class -->
+                                <span ng-if="(dataKeyword | getValue:'getRecord':'thesaurusName' | toString).toLowerCase().includes('inspire')" title="{{dataKeyword | getValue:'getRecord':'thesaurusName' | toString}}">
+                                    <span ng-repeat="keyword in dataKeyword | getValue:'getRecord':'keywords'" title="{{dataKeyword | getValue:'getRecord':'keywordType' | toString}}"
+                                        class="label label-primary">
+                                        {{keyword | translate:$ctrl.codelists.MD_InspireTopicCategoryCode | toString}}</span>
+                                </span>
+                                <span ng-if="!(dataKeyword | getValue:'getRecord':'thesaurusName' | toString).toLowerCase().includes('inspire')" title="{{dataKeyword | getValue:'getRecord':'keywordType' | toString}} - {{dataKeyword | getValue:'getRecord':'thesaurusName' | toString}}">
+                                    <span ng-repeat="keyword in dataKeyword | getValue:'getRecord':'keywords'" title="{{dataKeyword | getValue:'getRecord':'keywordType' | toString}}"
+                                        class="label label-info">
+                                        {{keyword | toString}}</span>
+                                </span>
+                            </span>
+                            <span ng-if="!(dataKeyword | getValue:'getRecord':'thesaurusName').length">
+                                <span title="{{dataKeyword | getValue:'getRecord':'keywords' | toString}}">
+                                    <span ng-repeat="keyword in dataKeyword | getValue:'getRecord':'keywords'" title="{{dataKeyword | getValue:'getRecord':'keywordType' | toString}}"
+                                        class="label label-default">
+                                        {{keyword | toString}}</span>
+                                </span>
+                            </span>
+                        </span>
+                    </div>
+                    <hr />
+                    <div>
+                        <strong>Ressources associés:</strong>
+                        <ul>
+                            <span ng-if="($ctrl.record | getValue:'getRecord':'dataLinkages').length">
+                                <span ng-repeat="dataLinkage in $ctrl.record | getValue:'getRecord':'dataLinkages' track by $index ">
+                                    <li>
+                                        <span ng-if="(dataLinkage | getValue:'getRecord':'linkageDescription').length">
+                                            <a ng-href="{{dataLinkage | getValue:'getRecord':'linkageUrl' | toString}} " target="_blanck " title="{{dataLinkage | getValue:'getRecord':'linkageName' | toString}} ">{{dataLinkage | getValue:'getRecord':'linkageDescription' | toString}}</a>
+                                            <br />
+                                            <span ng-if="(dataLinkage | getValue:'getRecord':'linkageProtocol' | toString).toLowerCase().includes('wfs') && ($ctrl.record | getValue:'getRecord':'mdHierarchyLevel' | toString) != 'service'">
+                                                <wfs-linkage url="{{dataLinkage | getValue:'getRecord':'linkageUrl' | toString}}" proxy="{{$ctrl.csw.proxy}}" name="{{dataLinkage | getValue:'getRecord':'linkageName' | toString}}"></wfs-linkage>
+                                            </span>
+                                        </span>
+                                        <span ng-if="!(dataLinkage | getValue:'getRecord':'linkageDescription').length">
+                                            <a ng-href="dataLinkage | getValue:'getRecord':'linkageUrl'" target="_blanck " title="{{dataLinkage | getValue:'getRecord':'linkageName'}}">{{dataLinkage | getValue:'getRecord':'linkageDescription}}</a>
+                                        </span>
+                                    </li>
+                                </span>
+                            </span>
+                            <span ng-if="!($ctrl.record | getValue:'getRecord':'dataLinkages').length">
+                                <li>Aucun lien reseigné</li>
+                            </span>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 ">
+        <div id="modal-footer ">
+            <small>
+                <span class="pull-right ">
+                    <em class="text-info ">Fiche
+                        <a ng-href="{{$ctrl.record.url}}" target="_blank">{{$ctrl.record | getValue:'getRecord':'mdFileIdentifier' | toString}}</a> ({{$ctrl.record | getValue:'getRecord':'mdLanguage'
+                        | toString}}) mise à jour le: {{$ctrl.record | getValue:'getRecord':'mdDateStamp' | toString}}</em>
+                </span>
+            </small>
+        </div>
+    </div>
+</div>

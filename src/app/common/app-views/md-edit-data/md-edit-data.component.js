@@ -27,7 +27,7 @@ const mdEditDataController = class MdEditDataController {
         // console.log(this.XmlConverterService.setValue(this.mdjs, space, field, fieldValue, separator), this.mdjs)
         // console.log(this.XmlConverterService.setValue(this.mdjs, space, field, fieldValue, separator));
         this.mdjs = this.XmlConverterService.setValue(this.mdjs, space, field, fieldValue, separator);
-        console.log(9, space, field, fieldValue, separator, this.mdjs);
+        // console.log(9, space, field, fieldValue, separator, this.mdjs);
         this.StoreService.setData({
             mdjs: this.mdjs
         });

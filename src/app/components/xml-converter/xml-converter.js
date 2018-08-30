@@ -30,14 +30,14 @@ export class XmlConverter {
 
     xml2js(xml, options) {
         this.mdjs = convert.xml2js(xml, options);
-        this.mdjs = renameKeys(this.mdjs, function(key, val) {
+        this.mdjs = renameKeys(this.mdjs, function (key, val) {
             return key.replace(':', '__');
         });
         return this.mdjs;
     }
 
     js2xml(js, options) {
-        js = renameKeys(js, function(key, val) {
+        js = renameKeys(js, function (key, val) {
             return key.replace('__', ':');
         });
         this.mdxml = convert.js2xml(js, options);
@@ -163,7 +163,7 @@ export class XmlConverter {
     }
 
     setValue(obj, space, field, values, separator) {
-        // console.log(obj, space, field, values, separator);
+        // console.log('setValue', obj, space, field, values, separator);
         var fields = this.getFields(space);
         var paths = fields[field].xpaths.paths;
 
@@ -183,7 +183,7 @@ export class XmlConverter {
             for (var v = 0; v < values.length; v++) {
                 // var xpath = xpaths.pop();
                 // var xpath = xpaths[xpaths.length - 1];
-                if (values[v]) {
+                if (v == 0 || values[v]) {
                     var o = lodash.set({}, fields[field].xpaths.value, values[v]);
                     if (fields[field].xpaths.hasOwnProperty('code')) {
                         o = lodash.set(o, fields[field].xpaths.code, values[v]);
@@ -193,7 +193,7 @@ export class XmlConverter {
             }
             // console.log(fields[field].name, obj, result);
             // paths.push(fields[field].xpaths.value);
-            paths = paths.map(function(val, key) {
+            paths = paths.map(function (val, key) {
                 // var value = val.replace('[*]', '[0]');
                 return val.replace('[*]', '[0]');
                 // return val.replace(/\[[\*|0]\]$/, '');
@@ -202,55 +202,6 @@ export class XmlConverter {
             // var results = 
             return lodash.set(obj, paths.join('.').replace(/\[0\]$/, ''), result);
         }
-
-        // var xpath = xpaths.pop();
-        // var isFirst = false;
-        // while (xpaths.length) {
-        //     isFirst = true;
-        //     var xpath = xpaths.pop();
-        //     if (isFirst) {
-        //         var result = [];
-        //         for (var v = 0; v < values.length; v++) {
-        //             var value = values[v];
-        //             // var results_array = [];
-        //             console.log(fields[field].name, xpath, value);
-        //             // value = jsonPath.value(o, xpath, value);
-        //             result.push(lodash.set({}, xpath, value));
-        //         }
-        //     }
-        //     if (!xpaths.length) {
-        //         o = obj;
-        //     }
-        //     lodash.set(o, xpath, result);
-        // }
-
-        // console.log(fields[field].name, obj, value);
-
-
-        // var xpath = this.getXpath(fields[field].xpaths);
-        // var result = obj;
-        // if (Array.isArray(fields[field].xpath)) {
-        //     for (var i = 0; i < fields[field].xpath.length; i++) {
-        //         result = lodash.set(obj, fields[field].xpath[i], value);
-        //     }
-        // } else {
-        //     if (fields[field].hasOwnProperty('children')) {
-        //         var values = value.split(separator)
-        //         var children = [];
-        //         for (var i = 0; i < values.length; i++) {
-        //             children.push(lodash.set({}, fields[field].children[0].xpath, values[i]));
-        //         }
-        //         result = lodash.set(obj, fields[field].xpath, children);
-        //         result = lodash.set(obj, this.getXpath(fields[field].xpath), children);
-        //     } else {
-        //         result = lodash.set(obj, fields[field].xpath, value);
-        //     }
-        // }
-        // return result;
-
-        // TODO: use xpath of codelist to set code
-        // return jsonPath.value(obj, fields[field].xpaths, value);
-        // return obj;
     }
 
 };

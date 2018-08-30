@@ -103,10 +103,14 @@ export const app = angular
                     'ngInject';
                     return $transition$.params().url;
                 },
-                xml: ($transition$, UtilsService, appConfig) => {
+                xml: ($transition$, UtilsService, appConfig, url) => {
                     'ngInject';
                     var template = $transition$.params().template || appConfig.app.template;
-                    return UtilsService.getFile(appConfig.models[template].file);
+                    var file = appConfig.models[template].file;
+                    if (url) {
+                        file = url;
+                    }
+                    return UtilsService.getFile(file);
                 },
                 // mdjs: ($transition$, XmlConverterService, mdxml) => {
                 //     'ngInject';

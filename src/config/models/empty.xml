@@ -179,7 +179,7 @@
                     </gmd:fileType>
                 </gmd:MD_BrowseGraphic>
             </gmd:graphicOverview>
-            <gmd:descriptiveKeywords>
+            <!-- <gmd:descriptiveKeywords>
                 <gmd:MD_Keywords>
                     <gmd:keyword>
                         <gco:CharacterString></gco:CharacterString>
@@ -202,7 +202,7 @@
                         </gmd:CI_Citation>
                     </gmd:thesaurusName>
                 </gmd:MD_Keywords>
-            </gmd:descriptiveKeywords>
+            </gmd:descriptiveKeywords> -->
             <gmd:resourceConstraints>
                 <gmd:MD_Constraints>
                     <gmd:useLimitation>

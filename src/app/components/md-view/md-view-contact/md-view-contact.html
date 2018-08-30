@@ -1,0 +1,53 @@
+<div ng-if="($ctrl.contact | getValue:'md':'role').length">
+    <p>
+        <strong>{{$ctrl.contact | getValue:'md':'role' | translate:$ctrl.roleCodes | toString}} {{$ctrl.locales[$ctrl.contactType]}}:</strong>
+    </p>
+</div>
+<div ng-if="!($ctrl.contact | getValue:'md':'role').length">
+    <p>
+        <strong>{{$ctrl.locales.ui.contact}} {{$ctrl.locales[$ctrl.contactType]}}</strong>
+    </p>
+</div>
+<div class="panel panel-default" style="margin-left: 20px;">
+    <address class="panel-body">
+        <div class="col-md-2">
+            <div ng-if="($ctrl.contact | getValue:'md':'logoUrl').length">
+                <img class="logo img-thumbnail" ng-src="{{$ctrl.contact | getValue:'md':'logoUrl' | toString }}" alt="{{$ctrl.contact | getValue:'md':'logoDescription' | toString}}"
+                    title="{{$ctrl.contact | getValue:'md':'logoDescription' | toString}}" />
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div ng-if="($ctrl.contact | getValue:'md':'individualName').length">
+                <div>{{$ctrl.contact | getValue:'md':'individualName' | toString}}</div>
+            </div>
+            <div ng-if="($ctrl.contact | getValue:'md':'positionName').length">
+                <div>{{$ctrl.contact | getValue:'md':'positionName' | toString}}</div>
+            </div>
+            <div ng-if="($ctrl.contact | getValue:'md':'organisationName').length">
+                <div>
+                    <strong>{{$ctrl.contact | getValue:'md':'organisationName' | toString}}</strong>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div ng-if="($ctrl.contact | getValue:'md':'city').length">
+                <div>
+                    <span ng-bind-html="$ctrl.contact | getValue:'md':'deliveryPoints.deliveryPoint' | toString | nl2br:true"></span>
+                    <br />{{$ctrl.contact | getValue:'md':'postalCode' | toString}} {{$ctrl.contact | getValue:'md':'city' | toString}}
+                </div>
+            </div>
+            <div ng-if="($ctrl.contact | getValue:'md':'phoneVoices').length">
+                <div>Tél.:
+                    <span>{{$ctrl.contact | getValue:'md':'phoneVoices' | toString:' / '}}</span>
+                </div>
+            </div>
+            <div ng-if="($ctrl.contact | getValue:'md':'emails').length">
+                <div>
+                    <strong>Email:
+                        <span>{{$ctrl.contact | getValue:'md':'emails' | toString:' / '}}</span>
+                    </strong>
+                </div>
+            </div>
+        </div>
+    </address>
+</div>

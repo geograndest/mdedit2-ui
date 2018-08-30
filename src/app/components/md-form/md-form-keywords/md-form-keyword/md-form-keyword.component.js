@@ -11,11 +11,10 @@ const mdFormKeywordController = class MdFormKeywordController {
         // console.log(1, this.fields, this.keyword);
     }
 
-    $onChanges(changes) {
-    }
+    $onChanges(changes) {}
 
     onSave(space, field, fieldValue, separator) {
-        console.log('save', this.key, fieldValue, field, this.keyword);
+        console.log('save 5', this.key, fieldValue, field, this.keyword);
         // Get fileName extension and save
         // if (field == 'fileName') {
         //     var ext = fieldValue[0].split('.').pop();

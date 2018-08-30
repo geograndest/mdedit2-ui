@@ -51,8 +51,9 @@ const mdFormReferencesystemsController = class MdFormReferencesystemsController 
     $onChanges(changes) {
         if (changes.md) {
             this.referencesystems = this.getValues();
-            // this.getValues();
-            console.log(this.referencesystems);
+            if (this.referencesystems.length == 0) {
+                this.referencesystems = [{}];
+            }
         }
     }
 

@@ -31,6 +31,7 @@ export class UtilsService {
     getFile(file, callback) {
         return this.$http.get(file)
             .then((response) => {
+                // callback(data);
                 return response.data;
             })
             .catch((reason) => {

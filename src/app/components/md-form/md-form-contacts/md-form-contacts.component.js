@@ -25,12 +25,10 @@ const mdFormContactsController = class MdFormContactsController {
 
     $onChanges(changes) {
         if (changes.md) {
-            // this.fieldValue = this.getValues();
             this.contacts = this.getValues();
-
-            // if (!changes.md.isFirstChange()) {
-            //     this.saveData();
-            // }
+            if (this.contacts.length == 0) {
+                this.contacts = [{}];
+            }
         }
     }
 
@@ -42,7 +40,6 @@ const mdFormContactsController = class MdFormContactsController {
     onRemoveContact(key) {
         console.log('remove contact', key);
         if (this.contacts.length > 1) {
-            // delete this.contacts[key];
             this.contacts.splice(key, 1);
         } else {
             this.contacts[key] = {};

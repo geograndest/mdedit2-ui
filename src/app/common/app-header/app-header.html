@@ -49,7 +49,7 @@
                     </a>
                 </li>
                 <!-- {{$ctrl.xmlSaveButton.xmlUrl}} -->
-                <li uib-tooltip="{{$ctrl.changeViewButton.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="bottom" ng-hide="$ctrl.changeViewButton.hide == true">
+                <li uib-tooltip="{{$ctrl.changeViewButton.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="bottom" ng-hide="$ctrl.changeViewButton.hide == true || $ctrl.changeViewButton.format == ''">
                     <a role="button">
                         <change-view format="{{$ctrl.changeViewButton.format}}" views="$ctrl.changeViewButton.views" view="$ctrl.changeViewButton.view"
                             icon="{{$ctrl.changeViewButton.icon}}" on-change="$ctrl.changeViewButton.onChangeView(view)" lang="$ctrl.lang"></change-view>

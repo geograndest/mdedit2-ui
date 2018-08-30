@@ -174,6 +174,12 @@ export const mdFields = {
             value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__citation[0].gmd__CI_Citation[0].gmd__title[0].gco__CharacterString[0]._text[0]'
         }
     },
+    srvTitle: {
+        name: 'srvTitle',
+        xpaths: {
+            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].srv__SV_ServiceIdentification[0].gmd__citation[0].gmd__CI_Citation[0].gmd__title[0].gco__CharacterString[0]._text[0]'
+        }
+    },
     dataDates: {
         name: 'dataDates',
         xpaths: {
@@ -272,10 +278,22 @@ export const mdFields = {
             value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__abstract[0].gco__CharacterString[0]._text[0]'
         }
     },
+    srvAbstract: {
+        name: 'srvAbstract',
+        xpaths: {
+            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].srv__SV_ServiceIdentification[0].gmd__abstract[0].gco__CharacterString[0]._text[0]'
+        }
+    },
     dataBrowseGraphics: {
         name: 'dataBrowseGraphics',
         xpaths: {
             value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__graphicOverview[*]'
+        }
+    },
+    srvBrowseGraphics: {
+        name: 'srvBrowseGraphics',
+        xpaths: {
+            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].srv__SV_ServiceIdentification[0].gmd__graphicOverview[*]'
         }
     },
     fileName: {
@@ -305,7 +323,8 @@ export const mdFields = {
     dataMaintenanceFrequency: {
         name: 'dataMaintenanceFrequency',
         xpaths: {
-            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceMaintenance[0].gmd__MD_MaintenanceInformation[0].gmd__maintenanceAndUpdateFrequency[0].gmd__MD_MaintenanceFrequencyCode[0]._attributes.codeListValue'
+            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceMaintenance[0].gmd__MD_MaintenanceInformation[0].gmd__maintenanceAndUpdateFrequency[0].gmd__MD_MaintenanceFrequencyCode[0]._attributes.codeListValue',
+            code: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceMaintenance[0].gmd__MD_MaintenanceInformation[0].gmd__maintenanceAndUpdateFrequency[0].gmd__MD_MaintenanceFrequencyCode[0]._attributes.codeListValue'
         }
     },
     dataLanguages: {
@@ -326,14 +345,15 @@ export const mdFields = {
             value: 'gmd__MD_TopicCategoryCode[0]._text[0]'
         }
     },
-    // dataTopicCategories: {
-    //     name: 'dataTopicCategories',
-    //     xpaths: { value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__topicCategory[*].gmd__MD_TopicCategoryCode[0]._text[0]'}
-    // },
-    // topicCategory: {
-    //     name: 'topicCategory',
-    //     xpaths: { value: 'gmd__MD_TopicCategoryCode[0]._text'}
-    // },
+    srvTopicCategories: {
+        name: 'srvTopicCategories',
+        xpaths: {
+            paths: [
+                'gmd__MD_Metadata[0].gmd__identificationInfo[0].srv__SV_ServiceIdentification[0].gmd__topicCategory[*]'
+            ],
+            value: 'gmd__MD_TopicCategoryCode[0]._text[0]'
+        }
+    },
     dataInspireKeywords: {
         name: 'dataInspireKeywords',
         xpaths: {
@@ -350,6 +370,12 @@ export const mdFields = {
         name: 'dataKeywords',
         xpaths: {
             value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__descriptiveKeywords[*]'
+        }
+    },
+    srvKeywords: {
+        name: 'srvKeywords',
+        xpaths: {
+            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].srv__SV_ServiceIdentification[0].gmd__descriptiveKeywords[*]'
         }
     },
     keyword: {
@@ -426,6 +452,12 @@ export const mdFields = {
         name: 'dataExtents',
         xpaths: {
             value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__extent[*]'
+        }
+    },
+    srvExtents: {
+        name: 'dataExtents',
+        xpaths: {
+            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].srv__SV_ServiceIdentification[0].gmd__extent[*]'
         }
     },
     extentName: {
@@ -511,7 +543,8 @@ export const mdFields = {
     dataSpatialRepresentationType: {
         name: 'dataSpatialRepresentationType',
         xpaths: {
-            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__spatialRepresentationType[0].gmd__MD_SpatialRepresentationTypeCode[0]._attributes.codeListValue'
+            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__spatialRepresentationType[0].gmd__MD_SpatialRepresentationTypeCode[0]._attributes.codeListValue',
+            code: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__spatialRepresentationType[0].gmd__MD_SpatialRepresentationTypeCode[0]._attributes.codeListValue'
         }
     },
     dataScaleDenominator: {
@@ -586,6 +619,16 @@ export const mdFields = {
         //         }
         //     }
         // }
+    },
+    srvUseLimitations: {
+        name: 'dataUseLimitations',
+        xpaths: {
+            paths: [
+                'gmd__MD_Metadata[0].gmd__identificationInfo[0].srv__SV_ServiceIdentification[0].gmd__resourceConstraints[*]',
+                'gmd__MD_Constraints[0].gmd__useLimitation[*]'
+            ],
+            value: 'gco__CharacterString[0]._text[0]'
+        }
     },
     dataLegalUseLimitations: {
         name: 'dataLegalUseLimitations',
@@ -689,22 +732,38 @@ export const mdFields = {
     dataSecurityUseLimitations: {
         name: 'dataSecurityUseLimitations',
         xpaths: {
-            value: ''
-        },
-        // children: {
-        //     name: {
-        //         name: '',
-        //         xpaths: {
-        //             value: ''
-        //         }
-        //     }
-        // }
+            paths: [
+                'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
+                'gmd__MD_SecurityConstraints[0].gmd__useLimitation[*]'
+            ],
+            value: 'gco__CharacterString[0]._text[0]'
+        }
+    },
+    srvSecurityUseLimitations: {
+        name: 'srvSecurityUseLimitations',
+        xpaths: {
+            paths: [
+                'gmd__MD_Metadata[0].gmd__identificationInfo[0].srv__SV_ServiceIdentification[0].gmd__resourceConstraints[*]',
+                'gmd__MD_SecurityConstraints[0].gmd__useLimitation[*]'
+            ],
+            value: 'gco__CharacterString[0]._text[0]'
+        }
     },
     dataSecurityClassification: {
         name: 'dataSecurityClassification',
         xpaths: {
             paths: [
                 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
+                'gmd__MD_SecurityConstraints[0].gmd__classification[*]'
+            ],
+            value: 'gmd__MD_ClassificationCode[0]._attributes.codeListValue'
+        }
+    },
+    srvSecurityClassification: {
+        name: 'dataSecurityClassification',
+        xpaths: {
+            paths: [
+                'gmd__MD_Metadata[0].gmd__identificationInfo[0].srv__SV_ServiceIdentification[0].gmd__resourceConstraints[*]',
                 'gmd__MD_SecurityConstraints[0].gmd__classification[*]'
             ],
             value: 'gmd__MD_ClassificationCode[0]._attributes.codeListValue'
