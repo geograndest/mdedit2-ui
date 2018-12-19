@@ -1,8 +1,6 @@
-// import template from './md-form-element.html'
 import tpl_text from "./md-form-text.html";
 import tpl_select from "./md-form-select.html";
 import tpl_textarea from "./md-form-textarea.html";
-// import tpl_date from "./md-form-date.html";
 
 const templates = {
     text: tpl_text,
@@ -15,7 +13,6 @@ const templates = {
 const mdFormElementController = class MdFormElementController {
     constructor(XmlConverterService) {
         "ngInject";
-
         this.XmlConverterService = XmlConverterService;
     }
 
@@ -34,21 +31,7 @@ const mdFormElementController = class MdFormElementController {
             this.isEdited[i] = edit;
         }
         this.edit = edit;
-        // console.log(12, this.fieldValue, this.isEdited, this.field.name);
 
-        // // Init default value
-        // var isFieldValueEmpty = this.fieldValue.some(function(i) {
-        //     return !!i;
-        // });
-        // if (this.field.value) {
-        //     this.fieldValue = isFieldValueEmpty || this.field.value;
-        //     this.saveData(this.fieldValue);
-        // }
-        // this.type = this.field.type || "text";
-
-        // this.getValues();
-
-        // Init default value
         var isFieldValueEmpty = this.fieldValue.every((value) => {
             return value == '';
         });
@@ -56,13 +39,10 @@ const mdFormElementController = class MdFormElementController {
             this.fieldValue = this.field.value;
             this.saveData(this.fieldValue);
         }
-        // console.log(77, this.field.name, isFieldValueEmpty, this.fieldValue)
         this.type = this.field.type || "text";
 
-        this.fieldValue = this.getValues();
-        // console.log(0, this.field.name)
 
-        // console.log(478, this.type, this.fieldValue, this.field.name);
+        this.fieldValue = this.getValues();
     }
 
     getValues() {
@@ -72,10 +52,10 @@ const mdFormElementController = class MdFormElementController {
             this.field.name
         );
         if (this.type == "date" || this.type == "datetime-local") {
-            // console.log(147, value.map(d => new Date(d)));
-            return value.map(d => new Date(d));
+            return value.map((d) => {
+                return new Date(d)
+            });
         }
-        // console.log(this.field.name, value, this.multi)
         return value;
     }
 
@@ -83,25 +63,30 @@ const mdFormElementController = class MdFormElementController {
         if (changes.md) {
             this.fieldValue = !this.getValues().length || this.getValues()[0] == "EMPTY" ? [""] : this.getValues();
             if (!changes.md.isFirstChange()) {
-                // this.saveData();
                 for (var i = 0; i < this.fieldValue.length; i++) {
                     this.isEdited[i] = this.edit;
                 }
             }
-            // console.log(7, this.field.name, this.fieldValue);
             this.saveData(this.fieldValue);
-            // console.log(2, this.field.name, this.fieldValue)
         }
     }
 
     saveData(items) {
-        // console.log(8, this.field.name, this.fieldValue, items);
         if (items !== undefined) {
-            // console.log('save items', items);
             if (this.type == "date") {
-                items = items.map(d => d.toISOString().slice(0, 10));
+                items = items.map((d) => {
+                    if (d instanceof Date && !isNaN(d)) {
+                        return d.toISOString().slice(0, 10);
+                    }
+                    return d;
+                });
             } else if (this.type == "datetime-local") {
-                items = items.map(d => d.toISOString());
+                items = items.map((d) => {
+                    if (d instanceof Date && !isNaN(d)) {
+                        return d.toISOString();
+                    }
+                    return d;
+                });
             }
             this.update({
                 space: this.space,
@@ -109,18 +94,16 @@ const mdFormElementController = class MdFormElementController {
                 fieldValue: items
             });
         }
-        // console.log(9, this.field.name, this.fieldValue, items);
     }
 
     onBlur(key, itemValue) {
-        // console.log('blur', this.field, this.md, key, itemValue);
+        console.log('blur', key, itemValue);
         this.changeEdit(key);
         this.fieldValue[key] = itemValue;
         this.saveData(this.fieldValue);
     }
 
     onSelectItem(item, model, label, index) {
-        // console.log('select', this.field, this.md);
         this.selectItem({
             item: item,
             model: model,
@@ -129,11 +112,18 @@ const mdFormElementController = class MdFormElementController {
         });
     }
 
+    onSelect(key, value) {
+        this.selectItem({
+            key: key,
+            value: this.fieldValue[key]
+        });
+    }
+
     isValidField(key) {
         if (
             this.field.mandatory == "true" &&
             this.fieldValue.length &&
-            this.fieldValue.every(function(i) {
+            this.fieldValue.every(function (i) {
                 if (i != undefined) {
                     return !i.length;
                 }

@@ -1,4 +1,3 @@
-// import angular from 'angular';
 import loader from 'angular-loading-bar';
 import {
     app

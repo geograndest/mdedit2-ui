@@ -1,9 +1,0 @@
-{
-    "lang": "fr",
-    "view": "mdView",
-    "ui": {
-        "mdView": {
-            "test": "test"
-        }
-    }
-}

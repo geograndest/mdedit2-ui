@@ -1,16 +1,11 @@
 const mdViewController = class MdViewController {
-    constructor() {
-        console.log(111)
-    }
+    constructor() {}
 
     $onInit() {}
 
 }
 
 export const mdViewComponent = {
-    bindings: {
-        // mdFormLocales: '<'
-    },
-    // template: template,
+    bindings: {},
     controller: mdViewController,
 };

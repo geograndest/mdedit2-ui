@@ -15,10 +15,10 @@ export const home = angular
             name: 'app.home',
             url: '/home?name',
             params: {
-                name: {
-                    value: 'none',
-                    squash: false
-                }
+                // name: {
+                //     value: 'none',
+                //     squash: false
+                // }
             },
             resolve: {
                 homeLocales: (UtilsService, appConfig, lang) => {

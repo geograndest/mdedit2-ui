@@ -1,27 +1,52 @@
 <div class="container">
-    <p>L’objectif de cette application est de proposer un catalogue des données géographiques décrites conformément
-        à la directive européenne Inspire.</p>
-    <p>Cet outil se veut simple et conviviale.
-        <br /> Pour plus d'information sur son utilisation, n'hésitez pas à consulter l'aide en ligne (cf. bouton (i) en haut à
-        droite).
-    </p>
 
-    <p>Liste des formulaires consultables:</p>
-    <ul>
-        <!-- <li ng-repeat="csw in $ctrl.cswList track by $index">
+    <div class="row">
+        <div class="col-md-7">
+            <p>L’objectif de cette application est de proposer un catalogue des données géographiques décrites
+                conformément
+                à la directive européenne Inspire.</p>
+            <p>Cet outil se veut simple et conviviale.
+                <br /> Pour plus d'information sur son utilisation, n'hésitez pas à consulter l'aide en ligne (cf.
+                bouton (i)
+                en haut à
+                droite).
+            </p>
+            <p>Bonne visite!</p>
+        </div>
+        <div class="col-md-5">
+            <p>Liste des modèles de fiches:</p>
+            <ul>
+                <!-- <li ng-repeat="csw in $ctrl.cswList track by $index">
             <a ui-sref="app.catalogGrid({cswUrl: csw.url})" ui-sref-opts="{ reload: true, inherit: true, notify: true }">
                 {{csw.title}}
             </a><br />
             <em class="small">{{csw.description}}</em>
         </li> -->
-        <li>
-            <a ui-sref="app.mdEditData" ui-sref-opts="{ reload: true, inherit: true, notify: true }">
-                mdEditData
-            </a><br />
-            <em class="small">description</em>
-        </li>
-    </ul>
-    <p>Bonne visite!</p>
+                <li>
+                    <a ui-sref="app.mdEditData" ui-sref-opts="{ reload: true, inherit: true, notify: true }">
+                        mdEditData
+                    </a><br />
+                    <em class="small">description</em>
+                </li>
+                <li>
+                    <a ui-sref="app.mdTest" ui-sref-opts="{ reload: true, inherit: true, notify: true }">
+                        mdTest
+                    </a><br />
+                    <em class="small">description</em>
+                </li>
+                <li>
+                    <a ui-sref="app.mdLive" ui-sref-opts="{ reload: true, inherit: true, notify: true }">
+                        mdLive
+                    </a><br />
+                    <em class="small">Formulaire d'édition du Laboratoire Image Ville Environnement (LIVE) de la
+                        faculté de
+                        Géographie de Strasbourg</em>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
     <!-- <br />
     <p>Vous pouvez également accéder directement au catalogue par défaut:</p>
     <div class="row">

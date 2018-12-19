@@ -1,17 +1,10 @@
-// import template from './md-view-details-data.html';
-
 const mdViewDataController = class MdViewDataController {
     constructor($window) {
         'ngInject';
         this.$window = $window;
     }
 
-    $onInit() {
-        // this.csw.md = this.md;
-        // this.CswCatalogServices.getRecord(this.csw, (data) => {
-        //     this.record = data;
-        // });
-    }
+    $onInit() {}
 
     onPrint() {
         this.$window.print();
@@ -26,7 +19,6 @@ const mdViewDataController = class MdViewDataController {
 export const mdViewDataComponent = {
     bindings: {
         tpl: '@',
-        // csw: '<',
         md: '@',
         locales: '<',
         codelists: '<',

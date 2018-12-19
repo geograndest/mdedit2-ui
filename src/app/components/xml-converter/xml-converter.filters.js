@@ -1,44 +1,22 @@
-var jsonPath = require('jsonpath/jsonpath');
-import {
-    mdFields
-} from './xml-converter.mdFields';
-
-// export function getValue($cacheFactory, StoreService, XmlConverterService) {
-//     'ngInject';
-//     var cache = {};
-//     var cache2 = $cacheFactory('cache'); 
-//     return (data, space, fieldPath) => {
-//         // var result = XmlConverterService.getValue(data, space, fieldPath);
-//         var xpath = mdFields[fieldPath].xpath;
-//         var result = jsonPath.query(data, xpath);
-
-//         cache2.put('data', result);
-//         return cache2.get('data');
-
-//     };
-// };
+// var jsonpath = require('jsonpath');
+// import {
+//     mdFields
+// } from './xml-converter.mdFields';
 
 export function getValue(XmlConverterService) {
     'ngInject';
     return (data, space, fieldPath) => {
-        // var result;
         if (data) {
             var paths = fieldPath.split('|');
             for (var i = 0; i < paths.length; i++) {
-                // console.log(111, paths[i]);
                 var fields = paths[i].split('.');
-                // console.log(222, fields);
-
                 for (var j = 0; j < fields.length; j++) {
-                    // console.log(333, fields[j], data);
                     data = XmlConverterService.getValue(data, space, fields[j]);
                 }
                 if (data[0]) {
                     break;
                 }
-                // result = XmlConverterService.getValue(data, space, paths[i]);
             }
-            // console.log(444, data);
             return data;
         }
         return '';
@@ -70,9 +48,6 @@ export function toString() {
         if (typeof data === 'string' || data instanceof String) {
             return data;
         }
-        // if (sep == 'date') {
-        //     return data[0];
-        // }
         return data.join(sep);
     }
 };
@@ -84,26 +59,13 @@ export function toArray() {
         if (typeof data === 'array' || data instanceof Array) {
             return data;
         }
-        // if (sep == 'date') {
-        //     return data[0];
-        // }
         return data.split(sep);
     }
 };
 
 export function toDate() {
     var result;
-    return (data, sep) => {
-        // // data = data || [];
-        // sep = sep || ', '
-        // // if (typeof data === 'string' || data instanceof String) {
-        // //     return new Date(data);
-        // // }
-        // // return data.map((val, id, arr) => { return new Date(val); }).join(sep);
-        // console.log(data, Date.parse(data));
-        // result = new Date(data).getTime();
-        // return result;
-    }
+    return (data, sep) => {}
 };
 
 export function translate() {

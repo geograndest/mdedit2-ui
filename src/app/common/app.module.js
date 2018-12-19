@@ -1,6 +1,4 @@
-// import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
-// import loader from 'angular-loading-bar';
 import {
     appComponent
 } from './app.component';
@@ -112,10 +110,6 @@ export const app = angular
                     }
                     return UtilsService.getFile(file);
                 },
-                // mdjs: ($transition$, XmlConverterService, mdxml) => {
-                //     'ngInject';
-                //     return XmlConverterService.xml2js(mdxml);
-                // },
             },
             component: 'app',
         };

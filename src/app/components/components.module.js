@@ -20,8 +20,14 @@ import {
     lodash
 } from './lodash/lodash.module';
 import {
+    downloadjs
+} from './downloadjs/downloadjs.module';
+import {
     xmlModalLoad
 } from './xml-modal-load/xml-modal-load.module';
+import {
+    xmlSaveButton
+} from './xml-save-button/xml-save-button.module';
 import {
     xmlModalSave
 } from './xml-modal-save/xml-modal-save.module';
@@ -40,6 +46,7 @@ export const components = angular
     .module('components', [
         utils,
         lodash,
+        downloadjs,
         xmlConverter,
         store,
         pageModal,
@@ -47,9 +54,9 @@ export const components = angular
         changeLang,
         xmlModalLoad,
         xmlModalSave,
+        xmlSaveButton,
         mdForm,
         mdView,
-        test,
-        // cswCatalog
+        test
     ])
     .name;

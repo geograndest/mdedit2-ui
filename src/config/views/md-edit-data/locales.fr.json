@@ -321,7 +321,7 @@
             "name": "dataDates",
             "label": "Dates",
             "description": "Dates relatives à la création, mise à jour et publication des données.",
-            "placeholder": "AAAA-MM-JJ",
+            "placeholder": "",
             "disabled": "",
             "editable": "both",
             "type": "date",
@@ -336,9 +336,9 @@
                     "name": "date",
                     "label": "Date de création",
                     "description": "Date de création de la base de données",
-                    "placeholder": "AAAA-MM-JJ",
+                    "placeholder": "",
                     "disabled": "",
-                    "type": "datetime-local",
+                    "type": "date",
                     "editable": "both",
                     "helpButton": {
                         "format": "button",
@@ -379,6 +379,7 @@
                 }
             }
         },
+
 
         "_dataDateCreation": {
             "name": "dataDateCreation",
@@ -1574,49 +1575,196 @@
             }
         },
         "dataDqInspireConformities": {
-            "name": "",
-            "label": "Identifiant",
-            "placeholder": "FR-SIREN-Idenfifiant",
-            "description": "Identifiant de la fiche descriptive des données.",
-            "_keywords": "identifiant, métadonnées",
-            "children": {
+            "name": "dataDqInspireConformities",
+            "label": "Conformité",
+            "placeholder": "",
+            "description": "Eléments relatifs à la conformité des données",
+            "disabled": "",
+            "editable": "",
+            "mandatory": "true",
+            "helpButton": {
+                "format": "button",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataDqInspireConformities.md",
+                "title": "Conformité",
+                "icon": "glyphicon-info-sign"
+            },
+            "inspireConformity": {
                 "specification": {
-                    "name": "",
-                    "label": "Identifiant",
-                    "placeholder": "FR-SIREN-Idenfifiant",
-                    "description": "Identifiant de la fiche descriptive des données.",
-                    "_keywords": "identifiant, métadonnées"
+                    "name": "specification",
+                    "label": "Spécification",
+                    "placeholder": "",
+                    "description": "Nom de la spécification utilisée pour les tests de conformité.",
+                    "disabled": "",
+                    "editable": "both",
+                    "mandatory": "true",
+                    "helpButton": {
+                        "format": "button",
+                        "contentUrl": "config/views/md-edit-data/help.fr/specification.md",
+                        "title": "Nom de la spécification",
+                        "icon": "glyphicon-info-sign"
+                    }
                 },
                 "explaination": {
-                    "name": "",
-                    "label": "Identifiant",
-                    "placeholder": "FR-SIREN-Idenfifiant",
-                    "description": "Identifiant de la fiche descriptive des données.",
-                    "_keywords": "identifiant, métadonnées"
+                    "name": "explaination",
+                    "label": "Description",
+                    "placeholder": "",
+                    "description": "Description des tests réalisés et des résultats obtenus.",
+                    "disabled": "",
+                    "editable": "both",
+                    "mandatory": "true",
+                    "helpButton": {
+                        "format": "button",
+                        "contentUrl": "config/views/md-edit-data/help.fr/explaination.md",
+                        "title": "Description des résultats de conformité",
+                        "icon": "glyphicon-info-sign"
+                    }
                 },
                 "pass": {
-                    "name": "",
-                    "label": "Identifiant",
-                    "placeholder": "FR-SIREN-Idenfifiant",
-                    "description": "Identifiant de la fiche descriptive des données.",
-                    "_keywords": "identifiant, métadonnées"
+                    "name": "pass",
+                    "label": "Degré",
+                    "placeholder": "",
+                    "description": "Degré de conformité.",
+                    "disabled": "",
+                    "editable": "both",
+                    "mandatory": "true",
+                    "helpButton": {
+                        "format": "button",
+                        "contentUrl": "config/views/md-edit-data/help.fr/pass.md",
+                        "title": "Degré de conformité",
+                        "icon": "glyphicon-info-sign"
+                    }
                 },
-                "dates": {
-                    "name": "",
+                "_datePublication": {
+                    "name": "datePublication",
+                    "label": "Date de publication",
+                    "placeholder": "",
+                    "description": "Date de publication.",
+                    "disabled": "",
+                    "editable": "both",
+                    "mandatory": "true",
+                    "helpButton": {
+                        "format": "button",
+                        "contentUrl": "config/views/md-edit-data/help.fr/pass.md",
+                        "title": "Date de publication",
+                        "icon": "glyphicon-info-sign"
+                    }
+                },
+                "_dates": {
+                    "name": "dates",
                     "label": "Identifiant",
                     "placeholder": "FR-SIREN-Idenfifiant",
                     "description": "Identifiant de la fiche descriptive des données.",
                     "_keywords": "identifiant, métadonnées",
                     "children": {
-                        "type": {
-                            "name": "",
+                        "dateType": {
+                            "name": "dateType",
                             "label": "Identifiant",
                             "placeholder": "FR-SIREN-Idenfifiant",
                             "description": "Identifiant de la fiche descriptive des données.",
                             "_keywords": "identifiant, métadonnées"
                         },
                         "date": {
-                            "name": "",
+                            "name": "date",
+                            "label": "Identifiant",
+                            "placeholder": "FR-SIREN-Idenfifiant",
+                            "description": "Identifiant de la fiche descriptive des données.",
+                            "_keywords": "identifiant, métadonnées"
+                        }
+                    }
+                }
+            }
+        },
+        "dataDqConformities": {
+            "name": "dataDqConformities",
+            "label": "Conformité",
+            "placeholder": "",
+            "description": "Eléments relatifs à la conformité des données",
+            "disabled": "",
+            "editable": "",
+            "mandatory": "true",
+            "helpButton": {
+                "format": "button",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataDqInspireConformities.md",
+                "title": "Conformité",
+                "icon": "glyphicon-info-sign"
+            },
+            "conformity": {
+                "specification": {
+                    "name": "specification",
+                    "label": "Spécification",
+                    "placeholder": "",
+                    "description": "Nom de la spécification utilisée pour les tests de conformité.",
+                    "disabled": "",
+                    "editable": "both",
+                    "mandatory": "true",
+                    "helpButton": {
+                        "format": "button",
+                        "contentUrl": "config/views/md-edit-data/help.fr/specification.md",
+                        "title": "Nom de la spécification",
+                        "icon": "glyphicon-info-sign"
+                    }
+                },
+                "explaination": {
+                    "name": "explaination",
+                    "label": "Description",
+                    "placeholder": "",
+                    "description": "Description des tests réalisés et des résultats obtenus.",
+                    "disabled": "",
+                    "editable": "both",
+                    "mandatory": "true",
+                    "helpButton": {
+                        "format": "button",
+                        "contentUrl": "config/views/md-edit-data/help.fr/explaination.md",
+                        "title": "Description des résultats de conformité",
+                        "icon": "glyphicon-info-sign"
+                    }
+                },
+                "pass": {
+                    "name": "pass",
+                    "label": "Degré",
+                    "placeholder": "",
+                    "description": "Degré de conformité.",
+                    "disabled": "",
+                    "editable": "both",
+                    "mandatory": "true",
+                    "helpButton": {
+                        "format": "button",
+                        "contentUrl": "config/views/md-edit-data/help.fr/pass.md",
+                        "title": "Degré de conformité",
+                        "icon": "glyphicon-info-sign"
+                    }
+                },
+                "datePublication": {
+                    "name": "datePublication",
+                    "label": "Date de publication",
+                    "placeholder": "",
+                    "description": "Date de publication.",
+                    "disabled": "",
+                    "editable": "both",
+                    "mandatory": "true",
+                    "helpButton": {
+                        "format": "button",
+                        "contentUrl": "config/views/md-edit-data/help.fr/pass.md",
+                        "title": "Date de publication",
+                        "icon": "glyphicon-info-sign"
+                    }
+                },
+                "_dates": {
+                    "name": "dates",
+                    "label": "Identifiant",
+                    "placeholder": "FR-SIREN-Idenfifiant",
+                    "description": "Identifiant de la fiche descriptive des données.",
+                    "_keywords": "identifiant, métadonnées",
+                    "children": {
+                        "dateType": {
+                            "name": "dateType",
+                            "label": "Identifiant",
+                            "placeholder": "FR-SIREN-Idenfifiant",
+                            "description": "Identifiant de la fiche descriptive des données.",
+                            "_keywords": "identifiant, métadonnées"
+                        },
+                        "date": {
+                            "name": "date",
                             "label": "Identifiant",
                             "placeholder": "FR-SIREN-Idenfifiant",
                             "description": "Identifiant de la fiche descriptive des données.",
@@ -2075,7 +2223,7 @@
             "name": "false",
             "value": "Non conforme"
         }, {
-            "name": "empty",
+            "name": "",
             "value": "Non évalué"
         }],
 

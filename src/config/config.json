@@ -12,8 +12,8 @@
         "lang": "fr",
         "_changeview_format": "'button' or 'list' value",
         "changeview": {
-            "format": "button",
-            "list": ["mdEditData", "mdViewData"],
+            "format": "list",
+            "list": ["mdEditData", "mdTest", "mdViewData"],
             "icon": "glyphicon-eye-open"
         },
         "template": "empty",
@@ -86,6 +86,55 @@
                 "de": "config/views/md-edit-data/locales.de.json"
             },
             "extentsFile": "config/views/md-edit-data/extents.json"
+        },
+        "mdTest": {
+            "url": "app.mdTest",
+            "_path": "config/views/md-test/md-test.html",
+            "model": "config/views/md-test/model.xml",
+            "icon": "glyphicon-eye-open",
+            "type": "mdEdit",
+            "default": true,
+            "hierarchyLevels": ["dataseries", "dataset"],
+            "keywords": {
+                "fr": ["données", "Données ouvertes"],
+                "en": ["data"],
+                "de": ["data"]
+            },
+            "name": {
+                "fr": "Vue test (FR)",
+                "en": "Test view (EN)",
+                "de": "Test view (DE)"
+            },
+            "locales": {
+                "fr": "config/views/md-test/locales.fr.json",
+                "en": "config/views/md-test/locales.en.json",
+                "de": "config/views/md-test/locales.de.json"
+            },
+            "extentsFile": "config/views/md-test/extents.json"
+        },
+        "mdLive": {
+            "url": "app.mdLive",
+            "path": "config/views/md-live/md-live.html",
+            "icon": "glyphicon-eye-open",
+            "type": "mdEdit",
+            "default": true,
+            "hierarchyLevels": ["dataseries", "dataset"],
+            "keywords": {
+                "fr": ["données", "Données ouvertes"],
+                "en": ["data"],
+                "de": ["data"]
+            },
+            "name": {
+                "fr": "Vue LIVE (FR)",
+                "en": "LIVE view (EN)",
+                "de": "LIVE view (DE)"
+            },
+            "locales": {
+                "fr": "config/views/md-live/locales.fr.json",
+                "en": "config/views/md-live/locales.en.json",
+                "de": "config/views/md-live/locales.de.json"
+            },
+            "extentsFile": "config/views/md-live/extents.json"
         },
         "mdEditMap": {
             "url": "app.mdEditMap",

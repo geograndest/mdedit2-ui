@@ -3,13 +3,11 @@ import template from './test.html';
 const testController = class TestController {
     constructor(XmlConverterService) {
         'ngInject';
-        
+
         this.XmlConverterService = XmlConverterService;
     }
 
-    $onInit() {
-        // this.fieldValue = this.getValues();
-    }
+    $onInit() {}
 
     $onChanges(changes) {
         if (changes.md) {
@@ -17,11 +15,9 @@ const testController = class TestController {
         }
     }
 
-
     getValues() {
         return this.XmlConverterService.getValue(this.md, this.space, this.field);
     }
-
 }
 
 export const testComponent = {

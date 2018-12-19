@@ -6,9 +6,7 @@ const homeController = class HomeController {
         this.UtilsService = UtilsService;
     }
 
-    $onInit() {
-        // this.cswList = this.appConfig.catalog.csw_list;
-    }
+    $onInit() {}
 
 }
 

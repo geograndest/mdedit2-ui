@@ -10,18 +10,15 @@ const mdViewDataController = class MdViewDataController {
     }
 
     $onInit() {
-        // this.codelists = this.appLocales.codelists;
         this.StoreService.onSetData(() => {
             this.mdjs = this.StoreService.getData().mdjs;
         });
-        // this.extentsFile = this.appConfig.views.mdEditData.extentsFile;
         this.codelists = this.appLocales.codelists;
     }
 
     onClose() {
         this.window.history.back();
     }
-
 }
 
 export const mdViewDataComponent = {
@@ -29,11 +26,6 @@ export const mdViewDataComponent = {
         appConfig: '<',
         appLocales: '<',
         mdViewLocales: '<'
-        // appLocales: '<',
-        // mdViewLocales: '<',
-        // md: '@',
-        // csw: '<',
-        // mdView: '<'
     },
     template: template,
     controller: mdViewDataController,

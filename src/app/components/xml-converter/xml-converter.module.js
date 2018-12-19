@@ -1,11 +1,27 @@
-import { XmlConverterService } from './xml-converter.service';
-import { getValue } from './xml-converter.filters';
-import { truncate } from './xml-converter.filters';
-import { translate } from './xml-converter.filters';
-import { toString } from './xml-converter.filters';
-import { toDate } from './xml-converter.filters';
-import { arrayContains } from './xml-converter.filters';
-import { toArray } from './xml-converter.filters';
+import {
+    XmlConverterService
+} from './xml-converter.service';
+import {
+    getValue
+} from './xml-converter.filters';
+import {
+    truncate
+} from './xml-converter.filters';
+import {
+    translate
+} from './xml-converter.filters';
+import {
+    toString
+} from './xml-converter.filters';
+import {
+    toDate
+} from './xml-converter.filters';
+import {
+    arrayContains
+} from './xml-converter.filters';
+import {
+    toArray
+} from './xml-converter.filters';
 
 export const xmlConverter = angular.module('xmlConverter', [])
     .service('XmlConverterService', XmlConverterService)

@@ -1,10 +1,10 @@
 import {
     XmlConverter
 } from './xml-converter';
-var jsonPath = require('jsonpath');
-import {
-    mdFields
-} from './xml-converter.mdFields';
+// var jsonpath = require('jsonpath');
+// import {
+//     mdFields
+// } from './xml-converter.mdFields';
 
 export class XmlConverterService {
     constructor() {}

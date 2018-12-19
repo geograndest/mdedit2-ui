@@ -3,13 +3,11 @@ import template from './md-form-image.html';
 const mdFormImageController = class MdFormImageController {
     constructor(XmlConverterService) {
         'ngInject';
-       // console.log('constructor: mdFormImageController controller');
-       this.XmlConverterService = XmlConverterService;
+        this.XmlConverterService = XmlConverterService;
     }
 
-    $onInit() {
-    }
-    
+    $onInit() {}
+
     getValues() {
         return this.XmlConverterService.getValue(this.md, this.space, this.field.name);
     }

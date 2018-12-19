@@ -4,7 +4,6 @@ const xmlModalLoadDialogController = class XmlModalLoadDialogController {
     constructor(XmlModalLoadDialogService) {
         'ngInject';
         this.XmlModalLoadDialogService = XmlModalLoadDialogService;
-        // this.XmlConverterService = XmlConverterService;
     }
 
     $onInit() {
@@ -30,9 +29,7 @@ const xmlModalLoadDialogController = class XmlModalLoadDialogController {
     }
 
     getFile(url) {
-        // console.log(2);
         if (url) {
-            // console.log(url);
             this.XmlModalLoadDialogService.getUrl(url, (data) => {
                 this.onLoad({
                     mdjs: data

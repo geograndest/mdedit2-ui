@@ -3,19 +3,14 @@ import template from './md-form-geographicextent.html';
 const mdFormGeographicextentController = class MdFormGeographicextentController {
     constructor(XmlConverterService) {
         'ngInject';
-        // console.log('constructor: mdFormContactController controller');
         this.XmlConverterService = XmlConverterService;
     }
 
-    $onInit() {
-        // console.log(this.fields);
-    }
+    $onInit() {}
 
-    $onChanges(changes) {
-    }
+    $onChanges(changes) {}
 
     onSave(space, field, fieldValue, separator) {
-        console.log('save', this.key, fieldValue);
         this.XmlConverterService.setValue(this.geographicextent, space, field, fieldValue, separator);
         this.updateExtent({
             key: this.key,
@@ -24,14 +19,12 @@ const mdFormGeographicextentController = class MdFormGeographicextentController 
     }
 
     removeExt() {
-        console.log('remove', this.key);
         this.removeExtent({
             key: this.key
         });
     }
 
     onSelectGeographixExtent(item, model, label, index) {
-        console.log('select', this.key);
         this.XmlConverterService.setValue(this.geographicextent, 'md', 'extentName', [item.name]);
         this.XmlConverterService.setValue(this.geographicextent, 'md', 'geographicExtentWestBound', [item.west]);
         this.XmlConverterService.setValue(this.geographicextent, 'md', 'geographicExtentEastBound', [item.east]);

@@ -5,7 +5,6 @@ const mdFormGeographicextentsController = class MdFormGeographicextentsControlle
         'ngInject';
         this.UtilsService = UtilsService;
         this.XmlConverterService = XmlConverterService;
-        // console.log('constructor: mdFormContactsController controller');
     }
 
     $onInit() {

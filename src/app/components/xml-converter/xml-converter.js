@@ -1,25 +1,25 @@
-var renameKeys = require('deep-rename-keys');
-var jsonPath = require('jsonpath');
+var renamekeys = require('deep-rename-keys');
+var jsonpath = require('jsonpath');
 import convert from 'xml-js';
 import * as lodash from 'lodash';
 import {
     mdFields
-} from './xml-converter.mdFields';
+} from './spaces/xml-converter.mdFields';
 import {
     getRecordFields
-} from './xml-converter.getRecordFields';
+} from './spaces/xml-converter.getRecordFields';
 import {
     getRecordsFields
-} from './xml-converter.getRecordsFields';
+} from './spaces/xml-converter.getRecordsFields';
 import {
     getCapabilitiesFields
-} from './xml-converter.getCapabilitiesFields';
+} from './spaces/xml-converter.getCapabilitiesFields';
 import {
     getCapabilitiesWfsFields
-} from './xml-converter.getCapabilitiesWfsFields';
+} from './spaces/xml-converter.getCapabilitiesWfsFields';
 import {
     getDomainsFields
-} from './xml-converter.getDomainsFields';
+} from './spaces/xml-converter.getDomainsFields';
 
 export class XmlConverter {
     constructor() {
@@ -30,14 +30,14 @@ export class XmlConverter {
 
     xml2js(xml, options) {
         this.mdjs = convert.xml2js(xml, options);
-        this.mdjs = renameKeys(this.mdjs, function (key, val) {
+        this.mdjs = renamekeys(this.mdjs, function(key, val) {
             return key.replace(':', '__');
         });
         return this.mdjs;
     }
 
     js2xml(js, options) {
-        js = renameKeys(js, function (key, val) {
+        js = renamekeys(js, function(key, val) {
             return key.replace('__', ':');
         });
         this.mdxml = convert.js2xml(js, options);
@@ -60,52 +60,6 @@ export class XmlConverter {
         }
     }
 
-    // getValue(obj, space, field) {
-    //     var data;
-    //     var result = [];
-    //     if (obj) {
-    //         var fields = this.getFields(space);
-    //         var fieldNames = field.split('.');
-    //         // var result = angular.copy(obj);
-    //         for (var i = 0; i < fieldNames.length; i++) {
-    //             var xpath = fields[fieldNames[i]].xpath;
-    //             if (Array.isArray(xpath)) {
-    //                 xpath = xpath[0];
-    //             }
-    //             if (Array.isArray(data)) {
-    //                 console.log(1, xpath);
-    //                 var values = [];
-    //                 for (var j = 0; j < data.length; j++) {
-    //                     values = values.concat(jsonPath.query(data[j], xpath));
-    //                 }
-    //                 data = values;
-    //             } else {
-    //                 console.log(2, xpath);
-    //                 // data = [];
-    //                 data = jsonPath.query(obj, xpath);
-    //                 // data = 'etsttt';
-    //             }
-
-    //             if (fields[fieldNames[i]].hasOwnProperty('filter')) {
-    //                 data = this.filterArray(data, fields[fieldNames[i]].filter[0], fields[fieldNames[i]].filter[1]);
-    //             }
-    //             // if (i == data.length) {
-    //             //     result.push.apply(result, data);
-    //             // }
-    //         }
-    //         // if (!Array.isArray(data)) {
-    //         //     data = [data];
-    //         // }
-    //     }
-    //     // if (!obj.result || !angular.equals(obj.result, result)) {
-    //     //     obj.result = result;
-    //     //   }
-    //     //   return obj.result;
-    //     // return result;
-    //     return data;
-    //     // return data = { data: data};
-    // }
-
     /**
      * Gestion des xpaths venant de mdFields.js
      * 
@@ -120,7 +74,6 @@ export class XmlConverter {
         if (xpaths.hasOwnProperty('code') && xpaths.code.length) {
             xpath_end = xpaths.code;
         }
-        // console.log(xpaths.paths, xpath_end);
         if (xpaths.hasOwnProperty('paths') && xpaths.paths.length) {
             return xpaths.paths.concat(xpath_end).join('.');
         } else {
@@ -141,8 +94,7 @@ export class XmlConverter {
     getValue(obj, space, field) {
         var fields = this.getFields(space);
         var xpath = this.getXpath(fields[field].xpaths);
-        var values = jsonPath.query(obj, xpath);
-        // console.log(124, field, fields, fields[field], values);
+        var values = jsonpath.query(obj, xpath);
         return values;
     }
 
@@ -163,26 +115,19 @@ export class XmlConverter {
     }
 
     setValue(obj, space, field, values, separator) {
-        // console.log('setValue', obj, space, field, values, separator);
         var fields = this.getFields(space);
         var paths = fields[field].xpaths.paths;
 
         // TODO: pb si values = empty...
-        // if ((!paths || paths.length == 0) && values[0]) {
         if (!paths || paths.length == 0) {
-            // console.log(1, fields[field].name);
-            // console.log(fields[field].xpaths.value);
             obj = lodash.set(obj, fields[field].xpaths.value.replace(/\[[\*|0]\]$/, ''), values);
             if (fields[field].xpaths.hasOwnProperty('code')) {
                 obj = lodash.set(obj, fields[field].xpaths.code, values[0]);
             }
             return obj;
         } else {
-            // console.log(2, fields[field].name);
             var result = [];
             for (var v = 0; v < values.length; v++) {
-                // var xpath = xpaths.pop();
-                // var xpath = xpaths[xpaths.length - 1];
                 if (v == 0 || values[v]) {
                     var o = lodash.set({}, fields[field].xpaths.value, values[v]);
                     if (fields[field].xpaths.hasOwnProperty('code')) {
@@ -191,15 +136,9 @@ export class XmlConverter {
                     result.push(o);
                 }
             }
-            // console.log(fields[field].name, obj, result);
-            // paths.push(fields[field].xpaths.value);
-            paths = paths.map(function (val, key) {
-                // var value = val.replace('[*]', '[0]');
+            paths = paths.map(function(val, key) {
                 return val.replace('[*]', '[0]');
-                // return val.replace(/\[[\*|0]\]$/, '');
             });
-            // console.log(paths, paths.join('.').replace(/\[0\]$/, ''), result);
-            // var results = 
             return lodash.set(obj, paths.join('.').replace(/\[0\]$/, ''), result);
         }
     }

@@ -1,28 +1,24 @@
-
-
-mdjs.model_xml.browseGraphic = 
-fileName: ''
+mdjs.model_xml.browseGraphic =
+    fileName: ''
 fileDescription: ''
 fileType: ''
 
-mdjs.model_xml.keyword = 
-// keyword:// //  'gmd:MD_Keywords/gmd:keyword/gco:CharacterString/_text'
-// 
-keywords: ''
-children:keyword: ''
+mdjs.model_xml.keyword =
+    keywords: ''
+children: keyword: ''
 keywordType: ''
 thesaurusName: ''
 thesaurusDates: ''
 children: mdjs.model_xml.date
 
-mdjs.model_xml.languageCode = 
-languageCode: ''
+mdjs.model_xml.languageCode =
+    languageCode: ''
 
-mdjs.model_xml.topicCategory = 
-topicCategory: ''
+mdjs.model_xml.topicCategory =
+    topicCategory: ''
 
-mdjs.model_xml.main = 
-mdFileIdentifier: '/gmd:MD_Metadata/gmd:fileIdentifier/gco:CharacterString/_text'
+mdjs.model_xml.main =
+    mdFileIdentifier: '/gmd:MD_Metadata/gmd:fileIdentifier/gco:CharacterString/_text'
 mdLanguage: ''
 mdCharacterSet: ''
 mdHierarchyLevel: ''
@@ -30,12 +26,12 @@ mdHierarchyLevelName: '/gmd:MD_Metadata/gmd:hierarchyLevelName/gco:CharacterStri
 mdContacts: ''
 children: mdjs.model_xml.contact
 mdDateStamp: '/gmd:MD_Metadata/gmd:dateStamp'
-children:date: 'gco:Date/_text'
+children: date: 'gco:Date/_text'
 dateTime: 'gco:DateTime/_text'
 mdStandardName: '/gmd:MD_Metadata/gmd:metadataStandardName/gco:CharacterString/_text'
 mdStandardVersion: '/gmd:MD_Metadata/gmd:metadataStandardVersion/gco:CharacterString/_text'
 dataReferenceSystems: '/gmd:MD_Metadata/gmd:referenceSystemInfo'
-children:code: 'gmd:MD_ReferenceSystem/gmd:referenceSystemIdentifier/gmd:RS_Identifier/gmd:code/gco:CharacterString/_text'
+children: code: 'gmd:MD_ReferenceSystem/gmd:referenceSystemIdentifier/gmd:RS_Identifier/gmd:code/gco:CharacterString/_text'
 codeAnchorLink: 'gmd:MD_ReferenceSystem/gmd:referenceSystemIdentifier/gmd:RS_Identifier/gmd:code/gmx:Anchor/@xlink:href'
 skip: true
 codeAnchor: 'gmd:MD_ReferenceSystem/gmd:referenceSystemIdentifier/gmd:RS_Identifier/gmd:code/gmx:Anchor/_text'
@@ -59,14 +55,14 @@ dataPresentationForm: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdenti
 // Identifiers
 // GRK - change dataIdentifiers par dataRSIdentifiers
 dataRsIdentifiers: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier'
-children:code: 'gmd:RS_Identifier/gmd:code/gco:CharacterString/_text'
+children: code: 'gmd:RS_Identifier/gmd:code/gco:CharacterString/_text'
 codeSpace: 'gmd:RS_Identifier/gmd:codeSpace/gco:CharacterString/_text'
 // GRK - Add dataMdIdentifiers
 dataMdIdentifiers: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier'
-children:code: 'gmd:MD_Identifier/gmd:code/gco:CharacterString/_text'
+children: code: 'gmd:MD_Identifier/gmd:code/gco:CharacterString/_text'
 // series
 dataSeries: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:series'
-children:name: 'gmd:CI_Series/gmd:name/gco:CharacterString/_text'
+children: name: 'gmd:CI_Series/gmd:name/gco:CharacterString/_text'
 issueIdentification: 'gmd:CI_Series/gmd:issueIdentification/gco:CharacterString/_text'
 page: 'gmd:CI_Series/gmd:page/gco:CharacterString/_text'
 dataAbstract: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract/gco:CharacterString/_text'
@@ -76,7 +72,7 @@ dataPurpose: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/
 xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:purpose/gco:CharacterString/_text'
 // status
 dataStatus: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:status'
-children:progressCode: 'gmd:MD_ProgressCode/@codeListValue'
+children: progressCode: 'gmd:MD_ProgressCode/@codeListValue'
 // Contacts: tableau d'objets
 dataPointOfContacts: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact'
 xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:pointOfContact/gmd:CI_ResponsibleParty'
@@ -85,7 +81,7 @@ dataMaintenanceFrequency: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataId
 xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceMaintenance/gmd:MD_MaintenanceInformation/gmd:maintenanceAndUpdateFrequency/gmd:MD_MaintenanceFrequencyCode/@codeListValue'
 dataMaintenanceNotes: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceMaintenance/gmd:MD_MaintenanceInformation/gmd:maintenanceNote'
 xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceMaintenance/gmd:MD_MaintenanceInformation/gmd:maintenanceNote'
-children:maintenanceNote: 'gco:CharacterString/_text'
+children: maintenanceNote: 'gco:CharacterString/_text'
 // Browsegraphic
 dataBrowseGraphics: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:graphicOverview'
 xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:graphicOverview'
@@ -97,7 +93,7 @@ children: mdjs.model_xml.keyword
 // Specific Usage
 dataUsages: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceSpecificUsage'
 xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceSpecificUsage'
-children:specificUsage: 'gmd:MD_Usage/gmd:specificUsage/gco:CharacterString/_text'
+children: specificUsage: 'gmd:MD_Usage/gmd:specificUsage/gco:CharacterString/_text'
 dateTime: 'gmd:MD_Usage/gmd:usageDateTime/gco:DateTime/_text'
 userDeterminedLimitations: 'gmd:MD_Usage/gmd:userDeterminedLimitations/gco:CharacterString/_text'
 userContactInfo: 'gmd:MD_Usage/gmd:userContactInfo'
@@ -106,22 +102,22 @@ children: mdjs.model_xml.contact
 // Limits and constraints
 // dataConstraints:dataUseLimitations: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints'
 xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceConstraints'
-children:dataUseLimitation: 'gmd:MD_Constraints/gmd:useLimitation/gco:CharacterString/_text'
+children: dataUseLimitation: 'gmd:MD_Constraints/gmd:useLimitation/gco:CharacterString/_text'
 // Legal Constraints
 dataLegalConstraints: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints'
 xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceConstraints'
-children:dataLegalUseLimitations: 'gmd:MD_LegalConstraints/gmd:useLimitation'
-children:legalUseLimitation: 'gco:CharacterString/_text'
+children: dataLegalUseLimitations: 'gmd:MD_LegalConstraints/gmd:useLimitation'
+children: legalUseLimitation: 'gco:CharacterString/_text'
 dataLegalAccessConstraints: 'gmd:MD_LegalConstraints/gmd:accessConstraints'
-children:legalAccessConstraints: 'gmd:MD_RestrictionCode/@codeListValue'
+children: legalAccessConstraints: 'gmd:MD_RestrictionCode/@codeListValue'
 dataLegalUseConstraints: 'gmd:MD_LegalConstraints/gmd:useConstraints'
-children:legalUseConstraints: 'gmd:MD_RestrictionCode/@codeListValue'
+children: legalUseConstraints: 'gmd:MD_RestrictionCode/@codeListValue'
 dataLegalOtherConstraints: 'gmd:MD_LegalConstraints/gmd:otherConstraints'
-children:legalOtherConstraint: 'gco:CharacterString/_text'
+children: legalOtherConstraint: 'gco:CharacterString/_text'
 dataSecurityConstraints: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints'
 xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceConstraints'
-children:dataSecurityUseLimitations: 'gmd:MD_SecurityConstraints/gmd:useLimitation'
-children:securityUseLimitation: 'gco:CharacterString/_text'
+children: dataSecurityUseLimitations: 'gmd:MD_SecurityConstraints/gmd:useLimitation'
+children: securityUseLimitation: 'gco:CharacterString/_text'
 dataSecurityClassification: 'gmd:MD_SecurityConstraints/gmd:classification/gmd:MD_ClassificationCode/@codeListValue'
 // Spatial Representation Type (vector/raster)
 dataSpatialRepresentationType: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:spatialRepresentationType/gmd:MD_SpatialRepresentationTypeCode/@codeListValue'
@@ -141,16 +137,16 @@ dataCharacterSet: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentifica
 dataTopicCategories: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:topicCategory'
 children: mdjs.model_xml.topicCategory
 // Service Type
-srvType:xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:serviceType/gco:LocalName/_text'
-srvAccessProperties:xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:accessProperties'
-children:fees: 'gmd:MD_StandardOrderProcess/gmd:fees/gco:CharacterString/_text'
+srvType: xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:serviceType/gco:LocalName/_text'
+srvAccessProperties: xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:accessProperties'
+children: fees: 'gmd:MD_StandardOrderProcess/gmd:fees/gco:CharacterString/_text'
 plannedAvailableDateTime: 'gmd:MD_StandardOrderProcess/gmd:plannedAvailableDateTime/gco:DateTime/_text'
 orderingInstructions: 'gmd:MD_StandardOrderProcess/gmd:orderingInstructions/gco:CharacterString/_text'
 turnarournd: 'gmd:MD_StandardOrderProcess/gmd:turnarournd/gco:CharacterString/_text'
 // Extents
 dataExtents: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent'
 xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent'
-children:dataExtentName: 'gmd:EX_Extent/gmd:description/gco:CharacterString/_text'
+children: dataExtentName: 'gmd:EX_Extent/gmd:description/gco:CharacterString/_text'
 // GeographicExtents
 dataGeographicExtentWestBound: 'gmd:EX_Extent/gmd:geographicElement/gmd:EX_GeographicBoundingBox/gmd:westBoundLongitude/gco:Decimal/_text'
 dataGeographicExtentEastBound: 'gmd:EX_Extent/gmd:geographicElement/gmd:EX_GeographicBoundingBox/gmd:eastBoundLongitude/gco:Decimal/_text'
@@ -169,28 +165,28 @@ dataVerticalExtent_Ref: ''
 // srvCoupledResource:// // xpath_srv: ''
 // children:// 
 // <srv:couplingType>
-srvCouplingType:xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:couplingType/srv:SV_CouplingType/@codeListValue'
+srvCouplingType: xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:couplingType/srv:SV_CouplingType/@codeListValue'
 // <srv:containsOperations>
-srvContainsOperations:xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations'
-children:operationName: 'srv:SV_OperationMetadata/srv:operationName/gco:CharacterString/_text'
+srvContainsOperations: xpath_srv: '/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations'
+children: operationName: 'srv:SV_OperationMetadata/srv:operationName/gco:CharacterString/_text'
 dcp: 'srv:SV_OperationMetadata/srv:DCP/srv:DCPList/@codeListValue'
 connectPoint: 'srv:SV_OperationMetadata/srv:connectPoint'
 children: mdjs.model_xml.onlineResource
 // DistributionFormats
 dataDistributionFormats: '/gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:distributionFormat'
-children:formatName: 'gmd:MD_Format/gmd:name/gco:CharacterString/_text'
+children: formatName: 'gmd:MD_Format/gmd:name/gco:CharacterString/_text'
 formatVersion: 'gmd:MD_Format/gmd:version/gco:CharacterString/_text'
 formatSpecification: 'gmd:MD_Format/gmd:specification/gco:CharacterString/_text'
 formatDistributor: 'gmd:MD_Format/gmd:formatDistributor/gmd:MD_Distributor/gmd:distributorContact'
 children: mdjs.model_xml.contact
 // Distributors
 dataDistributors: '/gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:distributor'
-children:distributorContact: 'gmd:MD_Distributor/gmd:distributorContact'
+children: distributorContact: 'gmd:MD_Distributor/gmd:distributorContact'
 children: mdjs.model_xml.contact
 // distributionOrderProcess:// //  'gmd:MD_Format/gmd:version/gco:CharacterString/_text'
 // 
 distributionOrderProcess: 'gmd:MD_Distributor/gmd:distributionOrderProcess'
-children:fees: 'gmd:MD_StandardOrderProcess/gmd:fees/gco:CharacterString/_text'
+children: fees: 'gmd:MD_StandardOrderProcess/gmd:fees/gco:CharacterString/_text'
 plannedAvailableDateTime: 'gmd:MD_StandardOrderProcess/gmd:plannedAvailableDateTime/gco:DateTime/_text'
 orderingInstructions: 'gmd:MD_StandardOrderProcess/gmd:orderingInstructions/gco:CharacterString/_text'
 turnarournd: 'gmd:MD_StandardOrderProcess/gmd:turnarournd/gco:CharacterString/_text'
@@ -206,24 +202,21 @@ children: mdjs.model_xml.onlineResource
 // Data Quality
 // Data Quality level
 dataQualityInfo: '/gmd:MD_Metadata/gmd:dataQualityInfo'
-children:dataDqLevel: 'gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:level/gmd:MD_ScopeCode/@codeListValue'
+children: dataDqLevel: 'gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:level/gmd:MD_ScopeCode/@codeListValue'
 // Data Lineage
 dataLiStatement: 'gmd:DQ_DataQuality/gmd:lineage/gmd:LI_Lineage/gmd:statement/gco:CharacterString/_text'
 // Data Process Steps
 //'Data_LI_ProcessStep':// //  ''
 // 
 // Data Source
-//'Data_LI_Source':// 
-//  ''
-// 
 // Data Conformities
 dataDqConformities: '/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report'
-children:dataDqConformityTest: 'gmd:DQ_DomainConsistency/gmd:result/gmd:DQ_ConformanceResult/gmd:specification/gmd:CI_Citation/gmd:title/gco:CharacterString/_text'
+children: dataDqConformityTest: 'gmd:DQ_DomainConsistency/gmd:result/gmd:DQ_ConformanceResult/gmd:specification/gmd:CI_Citation/gmd:title/gco:CharacterString/_text'
 dataDqConformityDates: 'gmd:DQ_DomainConsistency/gmd:result/gmd:DQ_ConformanceResult/gmd:specification/gmd:CI_Citation/gmd:date'
 children: mdjs.model_xml.date
 dataDqConformityResult: 'gmd:DQ_DomainConsistency/gmd:result/gmd:DQ_ConformanceResult/gmd:explanation/gco:CharacterString/_text'
 dataDqConformityPass: 'gmd:DQ_DomainConsistency/gmd:result/gmd:DQ_ConformanceResult/gmd:pass/gco:Boolean'
 mdSecurityConstraints: '/gmd:MD_Metadata/gmd:metadataConstraints'
-children:securityUseLimitations: 'gmd:MD_SecurityConstraints/gmd:useLimitation'
-children:securityUseLimitation: 'gco:CharacterString/_text'
+children: securityUseLimitations: 'gmd:MD_SecurityConstraints/gmd:useLimitation'
+children: securityUseLimitation: 'gco:CharacterString/_text'
 securityClassification: 'gmd:MD_SecurityConstraints/gmd:classification/gmd:MD_ClassificationCode/@codeListValue'

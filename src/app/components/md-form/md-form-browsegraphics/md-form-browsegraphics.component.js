@@ -3,21 +3,12 @@ import template from './md-form-browsegraphics.html';
 const mdFormBrowsegraphicsController = class MdFormBrowsegraphicsController {
     constructor(XmlConverterService) {
         'ngInject';
-        // this.UtilsService = UtilsService;
         this.XmlConverterService = XmlConverterService;
-        // console.log('constructor: mdFormContactsController controller');
     }
 
-    $onInit() {
-        // this.show = false;
-        // this.UtilsService.getJsonFile(this.extentsFile).then((data) => {
-        //     this.extents = data;
-        //     this.show = true;
-        // });
-    }
+    $onInit() {}
 
     getValues() {
-        // console.log(this.md, this.space, this.field.name);
         return this.XmlConverterService.getValue(this.md, this.space, this.field.name);
     }
 

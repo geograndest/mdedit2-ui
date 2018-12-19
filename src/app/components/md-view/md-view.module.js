@@ -18,9 +18,7 @@ import {
 export const mdView = angular
     .module('components.mdView', [
         uiRouter,
-        // mdViewContactComponent
     ])
-    // .component('mdView', mdViewComponent)
     .component('mdViewContact', mdViewContactComponent)
     .filter('nl2br', nl2br)
     .filter('removeFirstLetter', removeFirstLetter)

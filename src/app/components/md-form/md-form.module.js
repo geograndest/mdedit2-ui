@@ -2,18 +2,9 @@ import uiRouter from '@uirouter/angularjs';
 import {
     mdFormComponent
 } from './md-form.component';
-// import {
-//     mdFormInput
-// } from './md-form-input/md-form-input.module';
 import {
     mdFormElement
 } from './md-form-element/md-form-element.module';
-// import {
-//     mdFormSelect
-// } from './md-form-select/md-form-select.module';
-// import {
-//     mdFormTextarea
-// } from './md-form-textarea/md-form-textarea.module';
 import {
     mdFormImage
 } from './md-form-image/md-form-image.module';
@@ -48,11 +39,14 @@ import {
     mdFormLinkages
 } from './md-form-linkages/md-form-linkages.module';
 import {
+    mdFormConformities
+} from './md-form-conformities/md-form-conformities.module';
+import {
+    mdFormInspireconformities
+} from './md-form-inspireconformities/md-form-inspireconformities.module';
+import {
     mdFormDates
 } from './md-form-dates/md-form-dates.module';
-// import {
-//     mdFormElements
-// } from './md-form-elements/md-form-elements.module';
 import {
     nl2br
 } from './md-form.filters';
@@ -64,10 +58,7 @@ import {
 export const mdForm = angular
     .module('components.mdForm', [
         uiRouter,
-        // mdFormInput,
         mdFormElement,
-        // mdFormSelect,
-        // mdFormTextarea,
         mdFormImage,
         mdFormContacts,
         mdFormGeographicextents,
@@ -79,9 +70,9 @@ export const mdForm = angular
         mdFormDistributionformats,
         mdFormReferencesystems,
         mdFormLinkages,
+        mdFormConformities,
+        mdFormInspireconformities,
         mdFormDates
-        // mdFormMultiElement,
-        // mdFormElements
     ])
     .component('mdFormComponent', mdFormComponent)
     .filter('nl2br', nl2br)

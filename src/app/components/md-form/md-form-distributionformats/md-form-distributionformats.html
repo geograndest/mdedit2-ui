@@ -4,8 +4,9 @@
     <label ng-if="$ctrl.label.toLowerCase() == 'true'" class="control-label" for="{{$ctrl.field.name}}" uib-tooltip="{{$ctrl.field.description}}"
         tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
         {{$ctrl.field.label}}
-        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" class="link" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}"
-            text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}">
+        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" class="link" format="{{$ctrl.field.helpButton.format}}"
+            title="{{$ctrl.field.helpButton.title}}" text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl"
+            icon="{{$ctrl.field.helpButton.icon}}">
         </page-modal-button>
     </label>
     <div class="row">
@@ -13,37 +14,39 @@
             <label class="control-label" for="{{$ctrl.field.distributionFormat.formatName.name}}" uib-tooltip="{{$ctrl.field.distributionFormat.formatName.description}}"
                 tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
                 {{$ctrl.field.distributionFormat.formatName.label}}
-                <page-modal-button class="link" format="{{$ctrl.field.distributionFormat.formatName.helpButton.format}}" title="{{$ctrl.field.distributionFormat.formatName.helpButton.title}}"
-                    text="{{$ctrl.field.distributionFormat.formatName.helpButton.text}}" content-url="$ctrl.field.distributionFormat.formatName.helpButton.contentUrl"
-                    icon="{{$ctrl.field.distributionFormat.formatName.helpButton.icon}}">
+                <page-modal-button class="link" format="{{$ctrl.field.distributionFormat.formatName.helpButton.format}}"
+                    title="{{$ctrl.field.distributionFormat.formatName.helpButton.title}}" text="{{$ctrl.field.distributionFormat.formatName.helpButton.text}}"
+                    content-url="$ctrl.field.distributionFormat.formatName.helpButton.contentUrl" icon="{{$ctrl.field.distributionFormat.formatName.helpButton.icon}}">
                 </page-modal-button>
             </label>
         </div>
-        <div class="col-md-5">
-            <label class="control-label" for="{{$ctrl.field.distributionFormat.fomatVersion.name}}" uib-tooltip="{{$ctrl.field.distributionFormat.fomatVersion.description}}"
+        <div class="col-md-3">
+            <label class="control-label" for="{{$ctrl.field.distributionFormat.formatVersion.name}}" uib-tooltip="{{$ctrl.field.distributionFormat.formatVersion.description}}"
                 tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
-                {{$ctrl.field.distributionFormat.fomatVersion.label}}
-                <page-modal-button class="link" format="{{$ctrl.field.distributionFormat.fomatVersion.helpButton.format}}" title="{{$ctrl.field.distributionFormat.fomatVersion.helpButton.title}}"
-                    text="{{$ctrl.field.distributionFormat.fomatVersion.helpButton.text}}" content-url="$ctrl.field.distributionFormat.fomatVersion.helpButton.contentUrl"
-                    icon="{{$ctrl.field.distributionFormat.fomatVersion.helpButton.icon}}">
+                {{$ctrl.field.distributionFormat.formatVersion.label}}
+                <page-modal-button class="link" format="{{$ctrl.field.distributionFormat.formatVersion.helpButton.format}}"
+                    title="{{$ctrl.field.distributionFormat.formatVersion.helpButton.title}}" text="{{$ctrl.field.distributionFormat.formatVersion.helpButton.text}}"
+                    content-url="$ctrl.field.distributionFormat.formatVersion.helpButton.contentUrl" icon="{{$ctrl.field.distributionFormat.formatVersion.helpButton.icon}}">
                 </page-modal-button>
             </label>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-4">
             <label class="control-label" for="{{$ctrl.field.distributionFormat.formatSpecification.name}}" uib-tooltip="{{$ctrl.field.distributionFormat.formatSpecification.description}}"
                 tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
                 {{$ctrl.field.distributionFormat.formatSpecification.label}}
-                <page-modal-button class="link" format="{{$ctrl.field.distributionFormat.formatSpecification.helpButton.format}}" title="{{$ctrl.field.distributionFormat.formatSpecification.helpButton.title}}"
-                    text="{{$ctrl.field.distributionFormat.formatSpecification.helpButton.text}}" content-url="$ctrl.field.distributionFormat.formatSpecification.helpButton.contentUrl"
-                    icon="{{$ctrl.field.distributionFormat.formatSpecification.helpButton.icon}}">
+                <page-modal-button class="link" format="{{$ctrl.field.distributionFormat.formatSpecification.helpButton.format}}"
+                    title="{{$ctrl.field.distributionFormat.formatSpecification.helpButton.title}}" text="{{$ctrl.field.distributionFormat.formatSpecification.helpButton.text}}"
+                    content-url="$ctrl.field.distributionFormat.formatSpecification.helpButton.contentUrl" icon="{{$ctrl.field.distributionFormat.formatSpecification.helpButton.icon}}">
                 </page-modal-button>
             </label>
         </div>
         <div class="col-md-1">
-            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-plus" aria-hidden="true" ng-click="$ctrl.onAddDistributionformat()"></button>
+            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-plus" aria-hidden="true"
+                ng-click="$ctrl.onAddDistributionformat()"></button>
         </div>
     </div>
-    <md-form-distributionformat ng-repeat="(key, distributionformat) in $ctrl.distributionformats track by $index" multi="{{$ctrl.multi}}" distributionformat="distributionformat"
-        fields="$ctrl.field.distributionFormat" update-distributionformat="$ctrl.updateDistributionformats(key, distributionFormat)" key="{{key}}"
+    <md-form-distributionformat ng-repeat="(key, distributionformat) in $ctrl.distributionformats track by $index"
+        multi="{{$ctrl.multi}}" distributionformat="distributionformat" fields="$ctrl.field.distributionFormat"
+        update-distributionformat="$ctrl.updateDistributionformats(key, distributionformat)" key="{{key}}"
         remove-distributionformat="$ctrl.onRemoveDistributionformat(key)"></md-form-distributionformat>
 </div>

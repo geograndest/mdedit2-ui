@@ -99,7 +99,7 @@ module.exports = {
             template: "src/index.html",
             filename: "index.html",
             excludeAssets: [/bundle\.js$/]
-            // excludeAssets: [/bundle\.min\.js$/]
+                // excludeAssets: [/bundle\.min\.js$/]
         }),
         // Need to exclude "bundle.js" file in HtmlWebpackPlugin and keep only "bundle.min.js"
         new HtmlWebpackExcludeAssetsPlugin(),

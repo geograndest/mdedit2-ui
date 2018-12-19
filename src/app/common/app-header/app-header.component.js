@@ -13,8 +13,6 @@ export const appHeaderComponent = {
         lang: '<',
         helpButton: '<',
         changeViewButton: '<',
-        // changeCswButton: '<',
-        // cswSearchButton: '<',
         xmlLoadButton: '<',
         xmlSaveButton: '<',
         homeButton: '<'

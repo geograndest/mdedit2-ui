@@ -5,11 +5,9 @@ const AppComponentController = class AppComponentController {
         'ngInject';
         this.$state = $state;
         this.$stateParams = $stateParams;
-        // this.$window = $window;
         this.UtilsService = UtilsService;
         this.XmlConverterService = XmlConverterService;
         this.StoreService = StoreService;
-        // console.log('--- INIT 1 ---');
     }
 
     getViews(views, type) {
@@ -31,39 +29,19 @@ const AppComponentController = class AppComponentController {
     }
 
     $onInit() {
-        // console.log('--- INIT 2 ---');
         this.mdViews = this.getViews(this.appConfig.views, 'mdView');
         this.mdEditViews = this.getViews(this.appConfig.views, 'mdEdit');
         this.isHome = (this.$state.current.name === 'app.home');
         this.isMdView = (Object.keys(this.mdViews).includes(this.$state.current.name.split('.')[1]));
         this.isMdEditView = (Object.keys(this.mdEditViews).includes(this.$state.current.name.split('.')[1]));
 
-        console.log('url', this.url);
-
-        // if (this.url) {
-        //     this.UtilsService.getFile(this.url, (data) => {
-        //         console.log(111);
-        //         this.mdjs = this.XmlConverterService.xml2js(data);
-        //         this.StoreService.setData({
-        //             mdjs: this.mdjs
-        //         });
-        //         console.log('on load URL', this.mdjs);
-        //     });
-        // } else {
-        //     this.mdjs = this.StoreService.getData().mdjs;
-        // }
-
         this.mdjs = this.StoreService.getData().mdjs;
-        // console.log(888, this.mdjs);
         if (this.mdjs == undefined) {
             this.mdjs = this.XmlConverterService.xml2js(this.xml);
-            // if (this.mdjs)
             this.StoreService.setData({
                 mdjs: this.mdjs
             });
         }
-        console.log(888, this.mdjs);
-
         this.helpButton = {
             icon: 'glyphicon-info-sign',
             tooltip: this.appLocales.ui.bt_help,
@@ -108,14 +86,12 @@ const AppComponentController = class AppComponentController {
             format: 'button',
             text: this.appLocales.ui.bt_xml_save,
             title: this.appLocales.ui.bt_xml_save,
-            mdjs: this.mdjs,
-            onSave: (data) => {
-                // console.log('Save file', data);
-                return this.UtilsService.saveFile(this.appConfig.app.generate_xml_url, data.fileName, data.fileContent).then((response) => {
-                    // console.log(response.url);
-                    return this.appConfig.app.download_xml_url + response.url;
-                });
-            }
+            mdjs: this.mdjs
+                // onSave: (data) => {
+                //     return this.UtilsService.saveFile(this.appConfig.app.generate_xml_url, data.fileName, data.fileContent).then((response) => {
+                //         return this.appConfig.app.download_xml_url + response.url;
+                //     });
+                // }
         };
 
         if (!this.appConfig.app.view) {
@@ -129,10 +105,6 @@ const AppComponentController = class AppComponentController {
             format: this.appConfig.app.changeview.format,
             icon: this.appConfig.app.changeview.icon,
             onChangeView: (view) => {
-                // console.log(222, this.mdjs);
-                // this.StoreService.setData({
-                //     mdjs: this.mdjs
-                // });
                 this.$state.transitionTo(this.appConfig.views[view].url, this.$stateParams, {
                     reload: true,
                     inherit: true,
@@ -162,7 +134,6 @@ const AppComponentController = class AppComponentController {
             tooltip: this.appLocales.ui.tooltip_changelang,
             lang: this.lang,
             locales: this.appConfig.app.locales,
-            // TODO: ne fonctionne pas si utilisation d'une fonction en dehors de $onInti(): utiliser une fonction anonyme englobante
             onChangeLang: (lang) => {
                 this.lang = lang;
                 this.$state.transitionTo(this.$state.current, {

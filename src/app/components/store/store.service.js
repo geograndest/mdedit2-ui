@@ -1,6 +1,5 @@
 export class StoreService {
     constructor() {
-        // 'ngInject';
         this.state = {
             data: {}
         };

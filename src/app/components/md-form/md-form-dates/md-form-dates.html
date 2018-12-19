@@ -1,11 +1,14 @@
 <div class="">
     <div class="col-md-4 form-group has-feedback" ng-class="$ctrl.isValidField(0) ? '' : 'has-error'">
-        <md-form-element type="text" md="$ctrl.datesList.creation" field="$ctrl.field.dates.dateCreation" label="true" edit="true" space="md" update="$ctrl.updateDate(space, field, fieldValue, 'creation')"></md-form-element>
+        <md-form-element type="date" md="$ctrl.datecreation" field="$ctrl.field.dates.dateCreation" label="true" edit="true"
+            space="md" update="$ctrl.updateDate(space, field, fieldValue, 'creation')"></md-form-element>
     </div>
     <div class="col-md-4 form-group has-feedback" ng-class="$ctrl.isValidField(0) ? '' : 'has-error'">
-        <md-form-element type="text" md="$ctrl.datesList.edition" field="$ctrl.field.dates.dateEdition" label="true" edit="true" space="md" update="$ctrl.updateDate(space, field, fieldValue, 'edition')"></md-form-element>
+        <md-form-element type="date" md="$ctrl.dateedition" field="$ctrl.field.dates.dateEdition" label="true" edit="true"
+            space="md" update="$ctrl.updateDate(space, field, fieldValue, 'edition')"></md-form-element>
     </div>
     <div class="col-md-4 form-group has-feedback" ng-class="$ctrl.isValidField(0) ? '' : 'has-error'">
-        <md-form-element type="text" md="$ctrl.datesList.publication" field="$ctrl.field.dates.datePublication" label="true" edit="true" space="md" update="$ctrl.updateDate(space, field, fieldValue, 'publication')"></md-form-element>
+        <md-form-element type="date" md="$ctrl.datepublication" field="$ctrl.field.dates.datePublication" label="true"
+            edit="true" space="md" update="$ctrl.updateDate(space, field, fieldValue, 'publication')"></md-form-element>
     </div>
 </div>

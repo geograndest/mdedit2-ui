@@ -1,8 +1,7 @@
 <nav id="header" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -21,38 +20,39 @@
             <ul class="nav navbar-nav navbar-right">
                 <li uib-tooltip="{{$ctrl.homeButton.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="bottom" ng-hide="$ctrl.homeButton.hide == true">
                     <a role="button">
-                        <change-view format="{{$ctrl.homeButton.format}}" views="$ctrl.homeButton.views" view="$ctrl.homeButton.view" on-change="$ctrl.homeButton.onChangeView(view)"
-                            lang="$ctrl.lang"></change-view>
+                        <change-view format="{{$ctrl.homeButton.format}}" views="$ctrl.homeButton.views" view="$ctrl.homeButton.view" on-change="$ctrl.homeButton.onChangeView(view)" lang="$ctrl.lang"></change-view>
                     </a>
                 </li>
                 <li uib-tooltip="{{$ctrl.helpButton.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="bottom">
                     <a role="button">
-                        <page-modal-button format="{{$ctrl.helpButton.format}}" title="{{$ctrl.helpButton.title}}" text="{{$ctrl.helpButton.text}}"
-                            content-url="$ctrl.helpButton.contentUrl" icon="{{$ctrl.helpButton.icon}}"></page-modal-button>
+                        <page-modal-button format="{{$ctrl.helpButton.format}}" title="{{$ctrl.helpButton.title}}" text="{{$ctrl.helpButton.text}}" content-url="$ctrl.helpButton.contentUrl" icon="{{$ctrl.helpButton.icon}}"></page-modal-button>
                     </a>
                 </li>
                 <!-- TODO: add ng-if for hide -->
                 <!-- {{$ctrl.xmlLoadButton}} -->
                 <li uib-tooltip="{{$ctrl.xmlLoadButton.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="bottom">
                     <a role="button">
-                        <xml-modal-load-button format="{{$ctrl.xmlLoadButton.format}}" title="{{$ctrl.xmlLoadButton.title}}" text="{{$ctrl.xmlLoadButton.text}}"
-                            icon="{{$ctrl.xmlLoadButton.icon}}" models="$ctrl.xmlLoadButton.models" on-load="$ctrl.xmlLoadButton.onLoad(mdjs)">
+                        <xml-modal-load-button format="{{$ctrl.xmlLoadButton.format}}" title="{{$ctrl.xmlLoadButton.title}}" text="{{$ctrl.xmlLoadButton.text}}" icon="{{$ctrl.xmlLoadButton.icon}}" models="$ctrl.xmlLoadButton.models" on-load="$ctrl.xmlLoadButton.onLoad(mdjs)">
                         </xml-modal-load-button>
                     </a>
                 </li>
                 <!-- TODO: add ng-if for hide -->
+                <!-- <li uib-tooltip="{{$ctrl.xmlSaveButton.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="bottom">
+                    <a role="button">
+                        <xml-modal-save-button format="{{$ctrl.xmlSaveButton.format}}" title="{{$ctrl.xmlSaveButton.title}}" text="{{$ctrl.xmlSaveButton.text}}" icon="{{$ctrl.xmlSaveButton.icon}}" mdjs="$ctrl.xmlSaveButton.mdjs" on-save="$ctrl.xmlSaveButton.onSave(data)">
+                        </xml-modal-save-button>
+                    </a>
+                </li> -->
                 <li uib-tooltip="{{$ctrl.xmlSaveButton.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="bottom">
                     <a role="button">
-                        <xml-modal-save-button format="{{$ctrl.xmlSaveButton.format}}" title="{{$ctrl.xmlSaveButton.title}}" text="{{$ctrl.xmlSaveButton.text}}"
-                            icon="{{$ctrl.xmlSaveButton.icon}}" mdjs="$ctrl.xmlSaveButton.mdjs" on-save="$ctrl.xmlSaveButton.onSave(data)">
-                        </xml-modal-save-button>
+                        <xml-save-button format="{{$ctrl.xmlSaveButton.format}}" title="{{$ctrl.xmlSaveButton.title}}" text="{{$ctrl.xmlSaveButton.text}}" icon="{{$ctrl.xmlSaveButton.icon}}" mdjs="$ctrl.xmlSaveButton.mdjs">
+                        </xml-save-button>
                     </a>
                 </li>
                 <!-- {{$ctrl.xmlSaveButton.xmlUrl}} -->
                 <li uib-tooltip="{{$ctrl.changeViewButton.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="bottom" ng-hide="$ctrl.changeViewButton.hide == true || $ctrl.changeViewButton.format == ''">
                     <a role="button">
-                        <change-view format="{{$ctrl.changeViewButton.format}}" views="$ctrl.changeViewButton.views" view="$ctrl.changeViewButton.view"
-                            icon="{{$ctrl.changeViewButton.icon}}" on-change="$ctrl.changeViewButton.onChangeView(view)" lang="$ctrl.lang"></change-view>
+                        <change-view format="{{$ctrl.changeViewButton.format}}" views="$ctrl.changeViewButton.views" view="$ctrl.changeViewButton.view" icon="{{$ctrl.changeViewButton.icon}}" on-change="$ctrl.changeViewButton.onChangeView(view)" lang="$ctrl.lang"></change-view>
                     </a>
                 </li>
                 <!-- <li uib-tooltip="{{$ctrl.changeCswButton.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="bottom" ng-hide="$ctrl.changeCswButton.hide == true">

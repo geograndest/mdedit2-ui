@@ -1,0 +1,53 @@
+<div class="form-group has-feedback" ng-class="$ctrl.isValidField(0) ? '' : 'has-error'">
+    <!-- --{{$ctrl.field}} ------ -->
+    <div class="row">
+        <div class="col-md-5">
+            <label class="control-label" for="{{$ctrl.field.conformity.specification.name}}" uib-tooltip="{{$ctrl.field.conformity.specification.description}}"
+                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+                {{$ctrl.field.conformity.specification.label}}
+                <page-modal-button class="link" format="{{$ctrl.field.conformity.specification.helpButton.format}}"
+                    title="{{$ctrl.field.conformity.specification.helpButton.title}}" text="{{$ctrl.field.conformity.specification.helpButton.text}}"
+                    content-url="$ctrl.field.conformity.specification.helpButton.contentUrl" icon="{{$ctrl.field.conformity.specification.helpButton.icon}}">
+                </page-modal-button>
+            </label>
+        </div>
+        <!-- <div class="col-md-2">
+            <label class="control-label" for="{{$ctrl.field.conformity.datePublication.name}}" uib-tooltip="{{$ctrl.field.conformity.datePublication.description}}"
+                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+                {{$ctrl.field.conformity.datePublication.label}}
+                <page-modal-button class="link" format="{{$ctrl.field.conformity.datePublication.helpButton.format}}"
+                    title="{{$ctrl.field.conformity.datePublication.helpButton.title}}" text="{{$ctrl.field.conformity.datePublication.helpButton.text}}"
+                    content-url="$ctrl.field.conformity.datePublication.helpButton.contentUrl" icon="{{$ctrl.field.conformity.datePublication.helpButton.icon}}">
+                </page-modal-button>
+            </label>
+        </div> -->
+        <div class="col-md-4">
+            <label class="control-label" for="{{$ctrl.field.conformity.explaination.name}}" uib-tooltip="{{$ctrl.field.conformity.explaination.description}}"
+                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+                {{$ctrl.field.conformity.explaination.label}}
+                <page-modal-button class="link" format="{{$ctrl.field.conformity.explaination.helpButton.format}}"
+                    title="{{$ctrl.field.conformity.explaination.helpButton.title}}" text="{{$ctrl.field.conformity.explaination.helpButton.text}}"
+                    content-url="$ctrl.field.conformity.explaination.helpButton.contentUrl" icon="{{$ctrl.field.conformity.explaination.helpButton.icon}}">
+                </page-modal-button>
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="control-label" for="{{$ctrl.field.conformity.pass.name}}" uib-tooltip="{{$ctrl.field.conformity.pass.description}}"
+                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+                {{$ctrl.field.conformity.pass.label}}
+                <page-modal-button class="link" format="{{$ctrl.field.conformity.pass.helpButton.format}}" title="{{$ctrl.field.conformity.pass.helpButton.title}}"
+                    text="{{$ctrl.field.conformity.pass.helpButton.text}}" content-url="$ctrl.field.conformity.pass.helpButton.contentUrl"
+                    icon="{{$ctrl.field.conformity.pass.helpButton.icon}}">
+                </page-modal-button>
+            </label>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-plus" aria-hidden="true"
+                ng-click="$ctrl.onAddLinkage()"></button>
+        </div>
+    </div>
+    <!-- {{$ctrl.conformities}} -->
+    <md-form-conformity ng-repeat="(key, conformity) in $ctrl.conformities track by $index" multi="{{$ctrl.multi}}"
+        conformity="conformity" fields="$ctrl.field.conformity" update-conformity="$ctrl.updateConformities(key, conformity)"
+        key="{{key}}" remove-conformity="$ctrl.onRemoveConformity(key)" pass="$ctrl.pass"></md-form-conformity>
+</div>

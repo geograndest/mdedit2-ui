@@ -235,6 +235,13 @@
             </gmd:spatialRepresentationType>
             <gmd:spatialResolution>
                 <gmd:MD_Resolution>
+                    <gmd:distance>
+                        <gco:Distance uom="#m"></gco:Distance>
+                    </gmd:distance>
+                </gmd:MD_Resolution>
+            </gmd:spatialResolution>
+            <gmd:spatialResolution>
+                <gmd:MD_Resolution>
                     <gmd:equivalentScale>
                         <gmd:MD_RepresentativeFraction>
                             <gmd:denominator>
@@ -334,10 +341,41 @@
             <gmd:scope>
                 <gmd:DQ_Scope>
                     <gmd:level>
-                        <gmd:MD_ScopeCode codeListValue=""></gmd:MD_ScopeCode>
+                        <gmd:MD_ScopeCode codeListValue="" codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_ScopeCode"></gmd:MD_ScopeCode>
                     </gmd:level>
                 </gmd:DQ_Scope>
             </gmd:scope>
+            <gmd:report>
+                <gmd:DQ_DomainConsistency>
+                    <gmd:result>
+                        <gmd:DQ_ConformanceResult>
+                            <gmd:specification>
+                                <gmd:CI_Citation>
+                                    <gmd:title>
+                                        <gco:CharacterString></gco:CharacterString>
+                                    </gmd:title>
+                                    <gmd:date>
+                                        <gmd:CI_Date>
+                                            <gmd:date>
+                                                <gco:Date></gco:Date>
+                                            </gmd:date>
+                                            <gmd:dateType>
+                                                <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode" codeListValue=""></gmd:CI_DateTypeCode>
+                                            </gmd:dateType>
+                                        </gmd:CI_Date>
+                                    </gmd:date>
+                                </gmd:CI_Citation>
+                            </gmd:specification>
+                            <gmd:explanation>
+                                <gco:CharacterString></gco:CharacterString>
+                            </gmd:explanation>
+                            <gmd:pass>
+                                <gco:Boolean></gco:Boolean>
+                            </gmd:pass>
+                        </gmd:DQ_ConformanceResult>
+                    </gmd:result>
+                </gmd:DQ_DomainConsistency>
+            </gmd:report>
             <gmd:lineage>
                 <gmd:LI_Lineage>
                     <gmd:statement>

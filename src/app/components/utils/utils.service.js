@@ -8,13 +8,11 @@ export class UtilsService {
 
     sayHello(name = 'World') {
         var message = 'Hello ' + name + ' !';
-        console.log(message);
         return message;
     }
 
     getJsonFile(file, cache) {
         if ((cache && !promises[cache]) || (!cache)) {
-            console.log('Try UtilsService.getJsonFile(' + file + ', ' + cache + ').');
             return this.$http.get(file)
                 .then((response) => {
                     response.data.file = file;
@@ -31,7 +29,6 @@ export class UtilsService {
     getFile(file, callback) {
         return this.$http.get(file)
             .then((response) => {
-                // callback(data);
                 return response.data;
             })
             .catch((reason) => {

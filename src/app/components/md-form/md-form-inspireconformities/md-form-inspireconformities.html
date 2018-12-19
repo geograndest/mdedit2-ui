@@ -1,0 +1,52 @@
+<div class="form-group has-feedback" ng-class="$ctrl.isValidField(0) ? '' : 'has-error'">
+    <!-- --{{$ctrl.field}} ------ -->
+    <div class="row">
+        <div class="col-md-5">
+            <label class="control-label" for="{{$ctrl.field.inspireConformity.specification.name}}" uib-tooltip="{{$ctrl.field.inspireConformity.specification.description}}"
+                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+                {{$ctrl.field.inspireConformity.specification.label}}
+                <page-modal-button class="link" format="{{$ctrl.field.inspireConformity.specification.helpButton.format}}"
+                    title="{{$ctrl.field.inspireConformity.specification.helpButton.title}}" text="{{$ctrl.field.inspireConformity.specification.helpButton.text}}"
+                    content-url="$ctrl.field.inspireConformity.specification.helpButton.contentUrl" icon="{{$ctrl.field.inspireConformity.specification.helpButton.icon}}">
+                </page-modal-button>
+            </label>
+        </div>
+        <!-- <div class="col-md-2">
+            <label class="control-label" for="{{$ctrl.field.inspireConformity.datePublication.name}}" uib-tooltip="{{$ctrl.field.inspireConformity.datePublication.description}}"
+                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+                {{$ctrl.field.inspireConformity.datePublication.label}}
+                <page-modal-button class="link" format="{{$ctrl.field.inspireConformity.datePublication.helpButton.format}}"
+                    title="{{$ctrl.field.inspireConformity.datePublication.helpButton.title}}" text="{{$ctrl.field.inspireConformity.datePublication.helpButton.text}}"
+                    content-url="$ctrl.field.inspireConformity.datePublication.helpButton.contentUrl" icon="{{$ctrl.field.inspireConformity.datePublication.helpButton.icon}}">
+                </page-modal-button>
+            </label>
+        </div> -->
+        <div class="col-md-4">
+            <label class="control-label" for="{{$ctrl.field.inspireConformity.explaination.name}}" uib-tooltip="{{$ctrl.field.inspireConformity.explaination.description}}"
+                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+                {{$ctrl.field.inspireConformity.explaination.label}}
+                <page-modal-button class="link" format="{{$ctrl.field.inspireConformity.explaination.helpButton.format}}"
+                    title="{{$ctrl.field.inspireConformity.explaination.helpButton.title}}" text="{{$ctrl.field.inspireConformity.explaination.helpButton.text}}"
+                    content-url="$ctrl.field.inspireConformity.explaination.helpButton.contentUrl" icon="{{$ctrl.field.inspireConformity.explaination.helpButton.icon}}">
+                </page-modal-button>
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="control-label" for="{{$ctrl.field.inspireConformity.pass.name}}" uib-tooltip="{{$ctrl.field.inspireConformity.pass.description}}"
+                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+                {{$ctrl.field.inspireConformity.pass.label}}
+                <page-modal-button class="link" format="{{$ctrl.field.inspireConformity.pass.helpButton.format}}" title="{{$ctrl.field.inspireConformity.pass.helpButton.title}}"
+                    text="{{$ctrl.field.inspireConformity.pass.helpButton.text}}" content-url="$ctrl.field.inspireConformity.pass.helpButton.contentUrl"
+                    icon="{{$ctrl.field.inspireConformity.pass.helpButton.icon}}">
+                </page-modal-button>
+            </label>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-plus" aria-hidden="true"
+                ng-click="$ctrl.onAddLinkage()"></button>
+        </div>
+    </div>
+    <md-form-inspireconformity ng-repeat="(key, inspireconformity) in $ctrl.inspireconformities track by $index" multi="{{$ctrl.multi}}"
+        inspireconformity="inspireconformity" fields="$ctrl.field.inspireConformity" update-inspireconformity="$ctrl.updateInspireConformities(key, inspireconformity)"
+        key="{{key}}" remove-inspireconformity="$ctrl.onRemoveInspireConformity(key)" pass="$ctrl.pass" specifications="$ctrl.specifications"></md-form-inspireconformity>
+</div>

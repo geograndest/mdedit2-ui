@@ -56,7 +56,7 @@
         "_HasSecurityConstraints": "HasSecurityConstraints",
         "_KeywordType": "KeywordType"
     },
-    "codelists": {
+    "_codelists": {
         "CI_DateTypeCode": [{
             "id": "creation",
             "value": "Création"
@@ -469,7 +469,7 @@
             "id": "false",
             "value": "Non conforme"
         }, {
-            "id": "empty",
+            "id": "",
             "value": "Non évalué"
         }],
 
