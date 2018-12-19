@@ -101,7 +101,7 @@ export const mdFields = {
             value: 'gmd__CI_ResponsibleParty[0].gmd__contactInfo[0].gmd__CI_Contact[0].gmd__address[0].gmd__CI_Address[0].gmd__country[0].gco__CharacterString[0]._text[0]'
         }
     },
-    logo: {
+    _logo: {
         name: 'md_contact_logo',
         xpaths: {
             value: 'gmd__CI_ResponsibleParty[0].gmd__contactInfo[0].gmd__CI_Contact[0].gmd__contactInstructions[0].gmx__FileName[0]._attributes.src'
@@ -110,7 +110,7 @@ export const mdFields = {
     logoUrl: {
         name: 'logoUrl',
         xpaths: {
-            value: 'gmd__CI_ResponsibleParty[0].gmd__contactInfo[0].gmd__CI_Contact[0].gmd__contactInstructions[0].gmx__FileName[0]._attributes.src'
+            value: 'gmd__CI_ResponsibleParty[0].gmd__contactInfo[0].gmd__CI_Contact[0].gmd__contactInstructions[0].gmx__FileName[0]._attributes.src[0]'
         }
     },
     logoDescription: {
