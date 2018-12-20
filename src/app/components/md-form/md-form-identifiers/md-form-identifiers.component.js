@@ -28,6 +28,10 @@ const mdFormIdentifiersController = class MdFormIdentifiersController {
         }
     }
 
+    isValidField(key) {
+        return true;
+    }
+
     onAddIdentifier() {
         this.identifiersList.push({});
     }

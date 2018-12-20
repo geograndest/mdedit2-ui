@@ -23,6 +23,10 @@ const mdFormConformitiesController = class MdFormConformitiesController {
         }
     }
 
+    isValidField(key) {
+        return true;
+    }
+
     onAddConformity() {
         this.conformities.push({});
     }

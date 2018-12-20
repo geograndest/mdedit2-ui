@@ -104,7 +104,7 @@ export const mdFields = {
     _logo: {
         name: 'md_contact_logo',
         xpaths: {
-            value: 'gmd__CI_ResponsibleParty[0].gmd__contactInfo[0].gmd__CI_Contact[0].gmd__contactInstructions[0].gmx__FileName[0]._attributes.src'
+            value: 'gmd__CI_ResponsibleParty[0].gmd__contactInfo[0].gmd__CI_Contact[0].gmd__contactInstructions[0].gmx__FileName[0]._attributes.src[0]'
         }
     },
     logoUrl: {

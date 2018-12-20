@@ -18,6 +18,10 @@ const mdFormDatesController = class MdFormDatesController {
         this.datepublication = this.XmlConverterService.setValue({}, 'md', 'date', '');
     }
 
+    isValidField(key) {
+        return true;
+    }
+
     $onInit() {
         this.emptyValues();
     }

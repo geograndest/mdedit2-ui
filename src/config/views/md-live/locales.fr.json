@@ -25,7 +25,7 @@
             "disabled": "",
             "editable": "true",
             "type": "select",
-            "mandatory": "true",
+            "mandatory": "false",
             "value": ["fre"],
             "helpButton": {
                 "format": "button",
@@ -42,7 +42,7 @@
             "disabled": "",
             "editable": "true",
             "type": "select",
-            "mandatory": "true",
+            "mandatory": "false",
             "value": ["utf8"],
             "helpButton": {
                 "format": "button",
@@ -59,7 +59,7 @@
             "disabled": "",
             "value": ["dataset"],
             "editable": "true",
-            "mandatory": "true",
+            "mandatory": "false",
             "helpButton": {
                 "format": "button",
                 "contentUrl": "config/views/md-edit-data/help.fr/mdHierarchyLevel.md",
@@ -112,7 +112,7 @@
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/organisationName.md",
@@ -245,7 +245,7 @@
                     "description": "Rôle de ce contact.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/role.md",
@@ -263,7 +263,7 @@
             "type": "date",
             "disabled": "",
             "editable": "true",
-            "mandatory": "true",
+            "mandatory": "false",
             "helpButton": {
                 "format": "button",
                 "contentUrl": "config/views/md-edit-data/help.fr/mdDateStamp.md",
@@ -279,7 +279,7 @@
             "value": ["ISO 19115/19139"],
             "disabled": "",
             "editable": "true",
-            "mandatory": "true",
+            "mandatory": "false",
             "helpButton": {
                 "format": "button",
                 "contentUrl": "config/views/md-edit-data/help.fr/mdStandardName.md",
@@ -294,7 +294,7 @@
             "description": "Version du standard de description des données.",
             "disabled": "",
             "editable": "true",
-            "mandatory": "true",
+            "mandatory": "false",
             "value": ["Cor 1:2006"],
             "helpButton": {
                 "format": "button",
@@ -431,7 +431,7 @@
             "description": "Identifiant de la base de données.",
             "disabled": "",
             "editable": "true",
-            "mandatory": "true",
+            "mandatory": "false",
             "helpButton": {
                 "format": "button",
                 "contentUrl": "config/views/md-edit-data/help.fr/dataIdentifiers.md",
@@ -446,7 +446,7 @@
                     "description": "Identifiant de la base de données.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/code.md",
@@ -461,7 +461,7 @@
                     "description": "Espace de nommage pour les identifiants de la base de données.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/codeSpace.md",
@@ -492,7 +492,7 @@
             "description": "Lien vers une image illustrant la base de données.",
             "disabled": "",
             "editable": "true",
-            "mandatory": "true",
+            "mandatory": "false",
             "helpButton": {
                 "format": "button",
                 "contentUrl": "config/views/md-edit-data/help.fr/dataBrowseGraphics.md",
@@ -507,7 +507,7 @@
                     "description": "URL vers le fichier image illustrant la base de données.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/fileName.md",
@@ -522,7 +522,7 @@
                     "description": "Description de l'image.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/fileDescription.md",
@@ -537,7 +537,7 @@
                     "description": "Type de fichier image.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/fileType.md",
@@ -552,7 +552,7 @@
                     "description": "Aperçu du fichier image.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/image.md",
@@ -579,9 +579,10 @@
         },
         "_dataTemporalExtents": {
             "name": "dataTemporalExtents",
-            "label": "Etendues desciptionorelles",
+            "label": "Etendues desciptionelles",
             "placeholder": "",
-            "description": "Etendues desciptionorelles des des données.",
+            "description": "Etendues desciptionorelles des données.",
+            "mandatory": "false",
             "_keywords": "étendues desciptionorelles, données",
             "_children": {
                 "_dataTemporalExtentBegin": {
@@ -821,7 +822,7 @@
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/organisationName.md",
@@ -954,7 +955,7 @@
                     "description": "Rôle de ce contact.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/role.md",
@@ -964,14 +965,14 @@
                 }
             }
         },
-        "dataExtents": {
+        "dataGeographicExtents": {
             "name": "dataExtents",
             "label": "Emprise géographique de la base de données",
             "placeholder": "",
             "description": "Emprise géographique de la base de données (format WGS84).",
             "disabled": "",
             "editable": "true",
-            "mandatory": "true",
+            "mandatory": "false",
             "helpButton": {
                 "format": "button",
                 "contentUrl": "config/views/md-edit-data/help.fr/dataGeographicExtents.md",
@@ -986,7 +987,7 @@
                     "description": "Nom de l'emprise géographique de la base de données.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/extentName.md",
@@ -1001,7 +1002,7 @@
                     "description": "Longitude ouest WGS84 du rectangle d'emprise (Xmin).",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentWestBound.md",
@@ -1016,7 +1017,7 @@
                     "description": "Longitude est WGS84 du rectangle d'emprise (Xmax).",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentEastBound.md",
@@ -1031,7 +1032,7 @@
                     "description": "Latitude sud WGS84 du rectangle d'emprise (Ymin).",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentSouthBound.md",
@@ -1046,7 +1047,148 @@
                     "description": "Latitude nord WGS84 du rectangle d'emprise (Ymax).",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
+                    "mandatory": "false",
+                    "helpButton": {
+                        "format": "button",
+                        "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentNorthBound.md",
+                        "title": "Latitude nord",
+                        "icon": "glyphicon-info-sign"
+                    }
+                }
+            },
+            "_temporalExtent": {
+                "temporalExtentBegin": {
+                    "name": "temporalExtentBegin",
+                    "label": "Début",
+                    "placeholder": "",
+                    "description": "Date de début de l'étendue temporelle.",
+                    "disabled": "",
+                    "editable": "true",
+                    "mandatory": "false",
+                    "type": "date",
+                    "helpButton": {
+                        "format": "button",
+                        "contentUrl": "config/views/md-edit-data/help.fr/temporalExtentBegin.md",
+                        "title": "Latitude nord",
+                        "icon": "glyphicon-info-sign"
+                    }
+                },
+                "temporalExtentEnd": {
+                    "name": "temporalExtentEnd",
+                    "label": "Fin",
+                    "placeholder": "",
+                    "description": "Date de fin de l'étendue temporelle.",
+                    "disabled": "",
+                    "editable": "true",
+                    "type": "date",
+                    "mandatory": "false",
+                    "helpButton": {
+                        "format": "button",
+                        "contentUrl": "config/views/md-edit-data/help.fr/temporalExtentEnd.md",
+                        "title": "Latitude nord",
+                        "icon": "glyphicon-info-sign"
+                    }
+                },
+                "extentName": {
+                    "name": "extentName",
+                    "label": "Description",
+                    "placeholder": "",
+                    "description": "Description de l'étendue temporelle.",
+                    "disabled": "",
+                    "editable": "true",
+                    "mandatory": "false",
+                    "helpButton": {
+                        "format": "button",
+                        "contentUrl": "config/views/md-edit-data/help.fr/extentName.md",
+                        "title": "Latitude nord",
+                        "icon": "glyphicon-info-sign"
+                    }
+                }
+            }
+        },
+        "dataTemporalExtents": {
+            "name": "dataExtents",
+            "label": "Emprise temporelle de la base de données",
+            "placeholder": "",
+            "description": "Emprise temporelle de la base de données (format WGS84).",
+            "disabled": "",
+            "editable": "true",
+            "mandatory": "false",
+            "helpButton": {
+                "format": "button",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataTemporalExtents.md",
+                "title": "Emprise géographique",
+                "icon": "glyphicon-info-sign"
+            },
+            "_geographicExtent": {
+                "extentName": {
+                    "name": "extentName",
+                    "label": "Nom de l'emprise géographique",
+                    "placeholder": "ex.: Alsace",
+                    "description": "Nom de l'emprise géographique de la base de données.",
+                    "disabled": "",
+                    "editable": "true",
+                    "mandatory": "false",
+                    "helpButton": {
+                        "format": "button",
+                        "contentUrl": "config/views/md-edit-data/help.fr/extentName.md",
+                        "title": "Nom de l'emprise géographique",
+                        "icon": "glyphicon-info-sign"
+                    }
+                },
+                "geographicExtentWestBound": {
+                    "name": "geographicExtentWestBound",
+                    "label": "Long. Ouest",
+                    "placeholder": "6.8410134649126",
+                    "description": "Longitude ouest WGS84 du rectangle d'emprise (Xmin).",
+                    "disabled": "",
+                    "editable": "true",
+                    "mandatory": "false",
+                    "helpButton": {
+                        "format": "button",
+                        "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentWestBound.md",
+                        "title": "Longitude ouest",
+                        "icon": "glyphicon-info-sign"
+                    }
+                },
+                "geographicExtentEastBound": {
+                    "name": "geographicExtentEastBound",
+                    "label": "Long. Est",
+                    "placeholder": "8.23351958950571",
+                    "description": "Longitude est WGS84 du rectangle d'emprise (Xmax).",
+                    "disabled": "",
+                    "editable": "true",
+                    "mandatory": "false",
+                    "helpButton": {
+                        "format": "button",
+                        "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentEastBound.md",
+                        "title": "Longitude est",
+                        "icon": "glyphicon-info-sign"
+                    }
+                },
+                "geographicExtentSouthBound": {
+                    "name": "geographicExtentSouthBound",
+                    "label": "Lat. Sud",
+                    "placeholder": "47.4202517758332",
+                    "description": "Latitude sud WGS84 du rectangle d'emprise (Ymin).",
+                    "disabled": "",
+                    "editable": "true",
+                    "mandatory": "false",
+                    "helpButton": {
+                        "format": "button",
+                        "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentSouthBound.md",
+                        "title": "Latitude sud",
+                        "icon": "glyphicon-info-sign"
+                    }
+                },
+                "geographicExtentNorthBound": {
+                    "name": "geographicExtentNorthBound",
+                    "label": "Lat. Nord",
+                    "placeholder": "49.0778319799915",
+                    "description": "Latitude nord WGS84 du rectangle d'emprise (Ymax).",
+                    "disabled": "",
+                    "editable": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentNorthBound.md",
@@ -1166,7 +1308,7 @@
             "description": "Type de données: vecteur ou raster (image).",
             "disabled": "",
             "editable": "true",
-            "mandatory": "true",
+            "mandatory": "false",
             "helpButton": {
                 "format": "button",
                 "contentUrl": "config/views/md-edit-data/help.fr/dataSpatialRepresentationType.md",
@@ -1217,7 +1359,7 @@
             "disabled": "",
             "editable": "true",
             "type": "textarea",
-            "mandatory": "true",
+            "mandatory": "false",
             "value": [""],
             "helpButton": {
                 "format": "button",
@@ -1580,7 +1722,7 @@
             "description": "Eléments relatifs à la conformité des données",
             "disabled": "",
             "editable": "",
-            "mandatory": "true",
+            "mandatory": "false",
             "helpButton": {
                 "format": "button",
                 "contentUrl": "config/views/md-edit-data/help.fr/dataDqInspireConformities.md",
@@ -1595,7 +1737,7 @@
                     "description": "Nom de la spécification utilisée pour les tests de conformité.",
                     "disabled": "",
                     "editable": "both",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/specification.md",
@@ -1610,7 +1752,7 @@
                     "description": "Description des tests réalisés et des résultats obtenus.",
                     "disabled": "",
                     "editable": "both",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/explaination.md",
@@ -1625,7 +1767,7 @@
                     "description": "Degré de conformité.",
                     "disabled": "",
                     "editable": "both",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/pass.md",
@@ -1640,7 +1782,7 @@
                     "description": "Date de publication.",
                     "disabled": "",
                     "editable": "both",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "button",
                         "contentUrl": "config/views/md-edit-data/help.fr/pass.md",

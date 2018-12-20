@@ -11,34 +11,34 @@
                 title="Copier comme contact pour les données/métadonnées"></button> -->
             <!-- <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-duplicate" aria-hidden="true" ng-click="duplicateContact(contact)"
                 title="Dupliquer le contact"></button> -->
-            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-minus" aria-hidden="true" ng-click="$ctrl.removeCnt($ctrl.key)"
-                title="Supprimer le contact"></button>
+            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-minus" aria-hidden="true"
+                ng-click="$ctrl.removeCnt($ctrl.key)" title="Supprimer le contact"></button>
         </div>
     </div>
     <div class="row">
         <div class="col-md-5">
             <!-- DONE: contacts.individualName -->
-            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.individualName"
-                space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
+            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.individualName" space="md" label="true"
+                edit="true" update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
             <!-- DONE: contacts.positionName -->
-            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.positionName"
-                space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
+            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.positionName" space="md" label="true"
+                edit="true" update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
             <!-- DONE: contacts.organisationName -->
-            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.organisationName"
-                space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue)">
+            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.organisationName" space="md"
+                label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue)">
             </md-form-element>
         </div>
         <div class="col-md-7">
             <!-- DONE: contacts.deliveryPoint -->
-            <md-form-element type="textarea" md="$ctrl.contact.value"
-                field="$ctrl.fields.deliveryPoints" space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue, '\n')"></md-form-element>
+            <md-form-element type="textarea" md="$ctrl.contact.value" field="$ctrl.fields.deliveryPoints" space="md"
+                label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue, '\n')"></md-form-element>
         </div>
     </div>
     <div class="row">
         <!-- DONE: contacts.postalCode -->
         <div class="col-md-4">
-            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.postalCode" label="true"
-                edit="true" space="md" update="$ctrl.onSave(space, field, fieldValue)">
+            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.postalCode" label="true" edit="true"
+                space="md" update="$ctrl.onSave(space, field, fieldValue)">
             </md-form-element>
         </div>
         <!-- DONE: contacts.city -->
@@ -51,14 +51,14 @@
     <div class="row">
         <!-- DONE: contacts.phoneVoice -->
         <div class="col-md-5">
-            <md-form-element type="text" md="$ctrl.contact.value"
-                field="$ctrl.fields.phoneVoices" label="true" edit="true" multi="true" space="md" update="$ctrl.onSave(space, field, fieldValue, '|')">
+            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.phoneVoices" label="true" edit="true"
+                multi="true" space="md" update="$ctrl.onSave(space, field, fieldValue, '|')">
             </md-form-element>
         </div>
         <!-- DONE: contacts.email -->
         <div class="col-md-7">
-            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.emails"
-                space="md" label="true" edit="true" multi="true" update="$ctrl.onSave(space, field, fieldValue)">
+            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.emails" space="md" label="true"
+                edit="true" multi="true" update="$ctrl.onSave(space, field, fieldValue)">
             </md-form-element>
         </div>
     </div>
@@ -86,15 +86,15 @@
                         <input type="text" class="form-control input-sm" name="{{fields.children.logoDescription.label}}" id="{{fields.children.logoDescription.id}}"
                             placeholder="{{fields.children.logoDescription.placeholder}}" ng-model="contact.logoDescription" />
                     </div> -->
-            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.logoDescription"
-                space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
+            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.logoDescription" space="md" label="true"
+                edit="true" update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
         </div>
         <!-- </div> -->
         <div class="col-md-2">
             <!-- TODO: logoImage -->
             <!-- <md-form-image type="text" md="$ctrl.contact.value" field="$ctrl.fields.logo" edit="true"
                 space="md"></md-form-image> -->
-                <!-- {{$ctrl.contact.value}} -->
+            <!-- {{$ctrl.contact.value}} -->
             <md-form-image md="$ctrl.contact.value" field="$ctrl.fields.logoUrl" space="md"></md-form-image>
         </div>
     </div>

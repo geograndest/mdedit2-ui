@@ -13,7 +13,7 @@
         "_changeview_format": "'button' or 'list' value",
         "changeview": {
             "format": "list",
-            "list": ["mdEditData", "mdTest", "mdViewData"],
+            "list": ["mdEditData", "mdTest", "mdViewData", "mdLive"],
             "icon": "glyphicon-eye-open"
         },
         "template": "empty",
@@ -76,8 +76,8 @@
                 "de": ["data"]
             },
             "name": {
-                "fr": "Vue édition (FR)",
-                "en": "Edit view (EN)",
+                "fr": "Vue édition",
+                "en": "Edit view",
                 "de": "Edit view (DE)"
             },
             "locales": {
@@ -101,8 +101,8 @@
                 "de": ["data"]
             },
             "name": {
-                "fr": "Vue test (FR)",
-                "en": "Test view (EN)",
+                "fr": "Vue test",
+                "en": "Test view",
                 "de": "Test view (DE)"
             },
             "locales": {
@@ -125,8 +125,8 @@
                 "de": ["data"]
             },
             "name": {
-                "fr": "Vue LIVE (FR)",
-                "en": "LIVE view (EN)",
+                "fr": "Vue LIVE",
+                "en": "LIVE view",
                 "de": "LIVE view (DE)"
             },
             "locales": {
@@ -149,8 +149,8 @@
                 "de": ["data"]
             },
             "name": {
-                "fr": "Vue édition (FR)",
-                "en": "Edit view (EN)",
+                "fr": "Vue édition",
+                "en": "Edit view",
                 "de": "Edit view (DE)"
             },
             "locales": {

@@ -23,6 +23,10 @@ const mdFormInspireconformitiesController = class MdFormInspireconformitiesContr
         }
     }
 
+    isValidField(key) {
+        return true;
+    }
+
     onAddInspireConformity() {
         this.inspireconformities.push({});
     }

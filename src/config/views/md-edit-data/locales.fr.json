@@ -965,7 +965,7 @@
                 }
             }
         },
-        "dataExtents": {
+        "dataGeographicExtents": {
             "name": "dataExtents",
             "label": "Emprise géographique de la base de données",
             "placeholder": "",
@@ -1055,6 +1055,21 @@
                         "icon": "glyphicon-info-sign"
                     }
                 }
+            }
+        },
+        "dataTemporalExtents": {
+            "name": "dataExtents",
+            "label": "Emprise temporelle de la base de données",
+            "placeholder": "",
+            "description": "Emprise temporelle de la base de données.",
+            "disabled": "",
+            "editable": "both",
+            "mandatory": "true",
+            "helpButton": {
+                "format": "button",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataTemporalExtents.md",
+                "title": "Emprise géographique",
+                "icon": "glyphicon-info-sign"
             },
             "temporalExtent": {
                 "temporalExtentBegin": {

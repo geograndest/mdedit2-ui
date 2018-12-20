@@ -21,6 +21,10 @@ const mdFormBrowsegraphicsController = class MdFormBrowsegraphicsController {
         }
     }
 
+    isValidField(key) {
+        return true;
+    }
+
     onAddBrowseGraphic() {
         this.browsegraphics.push({});
     }

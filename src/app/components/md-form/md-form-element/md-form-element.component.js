@@ -61,7 +61,7 @@ const mdFormElementController = class MdFormElementController {
 
     $onChanges(changes) {
         if (changes.md) {
-            this.fieldValue = !this.getValues().length || this.getValues()[0] == "EMPTY" ? [""] : this.getValues();
+            this.fieldValue = !this.getValues().length ? [""] : this.getValues();
             if (!changes.md.isFirstChange()) {
                 for (var i = 0; i < this.fieldValue.length; i++) {
                     this.isEdited[i] = this.edit;

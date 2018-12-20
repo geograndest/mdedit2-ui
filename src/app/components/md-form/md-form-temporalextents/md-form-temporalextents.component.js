@@ -8,6 +8,10 @@ const mdFormTemporalextentsController = class MdFormTemporalextentsController {
 
     $onInit() {}
 
+    isValidField(key) {
+        return true;
+    }
+
     getValues() {
         var dataExtents = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
         var temporalExtents = [];

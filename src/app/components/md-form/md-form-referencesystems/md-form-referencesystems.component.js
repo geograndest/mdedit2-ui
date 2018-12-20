@@ -12,6 +12,10 @@ const mdFormReferencesystemsController = class MdFormReferencesystemsController 
         return this.XmlConverterService.getValue(this.md, this.space, this.field.name);
     }
 
+    isValidField(key) {
+        return true;
+    }
+
     $onChanges(changes) {
         if (changes.md) {
             this.referencesystems = this.getValues();

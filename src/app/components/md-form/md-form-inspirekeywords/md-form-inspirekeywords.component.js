@@ -8,6 +8,10 @@ const mdFormInspirekeywordsController = class MdFormInspirekeywordsController {
 
     $onInit() {}
 
+    isValidField(key) {
+        return true;
+    }
+
     getValues() {
         var keywords = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
         if (keywords.length == 0) {

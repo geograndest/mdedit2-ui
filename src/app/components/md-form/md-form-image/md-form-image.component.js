@@ -14,12 +14,16 @@ const mdFormImageController = class MdFormImageController {
 
     $onChanges(changes) {
         if (changes.md) {
-            this.fieldValue = (!this.getValues().length || this.getValues()[0] == 'EMPTY') ? [''] : this.getValues();
+            this.fieldValue = !this.getValues().length ? [''] : this.getValues();
         }
     }
 
     isEmptyField() {
         return (!this.getValues().length);
+    }
+
+    isValidField(key) {
+        return true;
     }
 }
 

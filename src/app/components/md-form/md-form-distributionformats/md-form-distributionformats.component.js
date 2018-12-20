@@ -8,6 +8,10 @@ const mdFormDistributionformatsController = class MdFormDistributionformatsContr
 
     $onInit() {}
 
+    isValidField(key) {
+        return true;
+    }
+
     getValues() {
         return this.XmlConverterService.getValue(this.md, this.space, this.field.name);
     }

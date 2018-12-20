@@ -21,6 +21,10 @@ const mdFormContactsController = class MdFormContactsController {
         }
     }
 
+    isValidField(key) {
+        return true;
+    }
+
     onAddContact() {
         this.contacts.push({});
     }
