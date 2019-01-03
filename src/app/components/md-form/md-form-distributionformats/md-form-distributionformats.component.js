@@ -51,6 +51,7 @@ export const mdFormDistributionformatsComponent = {
     bindings: {
         md: '<',
         field: '<',
+        locales: '<',
         multi: '@',
         label: '@',
         space: '@',

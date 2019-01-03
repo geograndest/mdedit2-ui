@@ -33,6 +33,7 @@ export const mdFormTemporalextentComponent = {
         temporalextent: '<',
         fields: '<',
         extents: '<',
+        locales: '<',
         updateExtent: '&',
         removeExtent: '&'
     },

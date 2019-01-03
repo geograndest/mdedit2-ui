@@ -12,14 +12,14 @@ const mdFormInspireconformityController = class MdFormInspireconformityControlle
 
     onSave(space, field, fieldValue, separator) {
         this.XmlConverterService.setValue(this.inspireconformity, space, field, fieldValue, separator);
-        this.updateInspireConformity({
+        this.updateInspireconformity({
             key: this.key,
             inspireconformity: this.inspireconformity
         });
     }
 
     onRemove() {
-        this.removeInspireConformity({
+        this.removeInspireconformity({
             key: this.key
         });
     }
@@ -41,9 +41,10 @@ export const mdFormInspireconformityComponent = {
         inspireconformity: '<',
         fields: '<',
         pass: '<',
+        locales: '<',
         specifications: '<',
-        updateInspireConformity: '&',
-        removeInspireConformity: '&'
+        updateInspireconformity: '&',
+        removeInspireconformity: '&'
     },
     template: template,
     controller: mdFormInspireconformityController,

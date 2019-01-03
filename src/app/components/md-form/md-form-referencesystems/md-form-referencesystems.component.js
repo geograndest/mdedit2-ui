@@ -53,6 +53,7 @@ export const mdFormReferencesystemsComponent = {
         md: '<',
         field: '<',
         list: '<',
+        locales: '<',
         multi: '@',
         label: '@',
         space: '@',

@@ -1,22 +1,20 @@
 <div class="row table-line">
-    <div class="col-md-5">
-        <md-form-element type="text" md="$ctrl.conformity" field="$ctrl.fields.specification" space="md" edit="true"
-            update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
+    <div class="col-md-8">
+        <md-form-element type="text" md="$ctrl.conformity" field="$ctrl.fields.specification" space="md" edit="true" label="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
     </div>
-    <!-- <div class="col-md-2">
-        <md-form-element type="text" md="$ctrl.conformity" field="$ctrl.fields.datePublication" space="md" edit="true"
-            update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
-    </div> -->
     <div class="col-md-4">
-        <md-form-element type="textarea" md="$ctrl.conformity" field="$ctrl.fields.explaination" space="md" edit="true"
-            update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
+        <md-form-element type="text" md="$ctrl.conformity" field="$ctrl.fields.datePublication" space="md" edit="true" label="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
     </div>
-    <div class="col-md-2">
-        <md-form-element type="select" md="$ctrl.conformity" field="$ctrl.fields.pass" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)"
-            list="$ctrl.pass"></md-form-element>
+</div>
+<div class="row table-line">
+    <div class="col-md-8">
+        <md-form-element type="textarea" md="$ctrl.conformity" field="$ctrl.fields.explaination" space="md" edit="true" label="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
+    </div>
+    <div class="col-md-3">
+        <md-form-element type="select" md="$ctrl.conformity" field="$ctrl.fields.pass" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)" label="true" list="$ctrl.pass" locales="$ctrl.locales"></md-form-element>
     </div>
     <div ng-show="($ctrl.multi).toLowerCase() == 'true'" class="col-md-1">
-        <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-minus" aria-hidden="true"
-            ng-click="$ctrl.onRemove()"></button>
+<button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-minus align-middle" aria-hidden="true"
+    label="true" ng-click="$ctrl.onRemove()"></button>
     </div>
 </div>

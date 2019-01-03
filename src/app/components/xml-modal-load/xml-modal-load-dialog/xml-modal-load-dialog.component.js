@@ -21,8 +21,9 @@ const xmlModalLoadDialogController = class XmlModalLoadDialogController {
 
     loadModel(key_model) {
         this.XmlModalLoadDialogService.getUrl(this.models[key_model].file, (data) => {
+            // console.log(data)
             this.onLoad({
-                mdjs: data
+                xml: data
             });
         });
         this.close();
@@ -32,14 +33,14 @@ const xmlModalLoadDialogController = class XmlModalLoadDialogController {
         if (url) {
             this.XmlModalLoadDialogService.getUrl(url, (data) => {
                 this.onLoad({
-                    mdjs: data
+                    xml: data
                 });
             });
         } else {
             var file = document.getElementById('file').files[0];
             this.XmlModalLoadDialogService.readFile(file, (data) => {
                 this.onLoad({
-                    mdjs: data
+                    xml: data
                 });
             });
         }

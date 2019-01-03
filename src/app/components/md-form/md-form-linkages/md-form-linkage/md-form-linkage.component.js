@@ -32,6 +32,7 @@ export const mdFormLinkageComponent = {
         linkage: '<',
         fields: '<',
         protocols: '<',
+        locales: '<',
         updateLinkage: '&',
         removeLinkage: '&'
     },

@@ -24,14 +24,6 @@ const mdFormConformityController = class MdFormConformityController {
         });
     }
 
-    // onSelectSpecification(key, value) {
-    //     for (let i = 0; i < this.specifications.length; i++) {
-    //         if (this.specifications[i].name == value) {
-    //             this.XmlConverterService.setValue(this.conformity, 'md', 'specificationDate', [this.specifications[i].date]);
-    //             this.XmlConverterService.setValue(this.conformity, 'md', 'specificationDateType', ['publication']);
-    //         }
-    //     }
-    // }
 }
 
 export const mdFormConformityComponent = {
@@ -41,6 +33,7 @@ export const mdFormConformityComponent = {
         conformity: '<',
         fields: '<',
         pass: '<',
+        locales: '<',
         updateConformity: '&',
         removeConformity: '&'
     },

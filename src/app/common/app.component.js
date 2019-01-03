@@ -1,13 +1,15 @@
 import template from './app.html';
 
 const AppComponentController = class AppComponentController {
-    constructor($state, $stateParams, UtilsService, XmlConverterService, StoreService) {
+    constructor($state, $stateParams, UtilsService, XmlConverterService, StoreService, LodashService) {
         'ngInject';
         this.$state = $state;
         this.$stateParams = $stateParams;
         this.UtilsService = UtilsService;
         this.XmlConverterService = XmlConverterService;
         this.StoreService = StoreService;
+        this.LodashService = LodashService;
+        // this.DownloadjsService = DownloadjsService;
     }
 
     getViews(views, type) {
@@ -42,8 +44,10 @@ const AppComponentController = class AppComponentController {
                 mdjs: this.mdjs
             });
         }
+        // console.log(this.mdjs);
+
         this.helpButton = {
-            icon: 'glyphicon-info-sign',
+            icon: 'fa-info-circle',
             tooltip: this.appLocales.ui.bt_help,
             format: 'button',
             text: this.appLocales.ui.bt_help,
@@ -65,33 +69,38 @@ const AppComponentController = class AppComponentController {
         };
 
         this.xmlLoadButton = {
-            icon: 'glyphicon-download',
+            icon: 'fa-file-download',
             tooltip: this.appLocales.ui.bt_xml_load,
             format: 'button',
             text: this.appLocales.ui.bt_xml_load,
             title: this.appLocales.ui.bt_xml_load,
             models: this.appConfig.models,
             onLoad: (xml) => {
-                this.mdjs = this.XmlConverterService.xml2js(xml);
+                var mdjs = this.XmlConverterService.xml2js(xml);
                 this.StoreService.setData({
-                    mdjs: this.mdjs
+                    mdjs: mdjs
                 });
-                console.log('onLoad', this.mdjs);
+                // console.log('onLoad', this.mdjs);
             }
         };
 
         this.xmlSaveButton = {
-            icon: 'glyphicon-upload',
+            icon: 'fa-file-upload',
             tooltip: this.appLocales.ui.bt_xml_save,
             format: 'button',
             text: this.appLocales.ui.bt_xml_save,
             title: this.appLocales.ui.bt_xml_save,
-            mdjs: this.mdjs
-                // onSave: (data) => {
-                //     return this.UtilsService.saveFile(this.appConfig.app.generate_xml_url, data.fileName, data.fileContent).then((response) => {
-                //         return this.appConfig.app.download_xml_url + response.url;
-                //     });
-                // }
+            // mdjs: this.mdjs,
+            getData: () => {
+                return this.StoreService.getData().mdjs;
+            },
+            saveData: (mdjs) => {
+                // this.mdjs = mdjs;
+                // console.log(angular.copy(mdjs))
+                this.StoreService.setData({
+                    mdjs: angular.copy(mdjs)
+                });
+            }
         };
 
         if (!this.appConfig.app.view) {

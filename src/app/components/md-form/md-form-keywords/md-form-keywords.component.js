@@ -69,6 +69,7 @@ export const mdFormKeywordsComponent = {
         md: '<',
         field: '<',
         list: '<',
+        locales: '<',
         multi: '@',
         label: '@',
         space: '@',

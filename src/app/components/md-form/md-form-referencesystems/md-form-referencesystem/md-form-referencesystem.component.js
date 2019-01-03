@@ -32,6 +32,7 @@ export const mdFormReferencesystemComponent = {
         referencesystem: '<',
         fields: '<',
         list: '<',
+        locales: '<',
         updateReferencesystem: '&',
         removeReferencesystem: '&'
     },

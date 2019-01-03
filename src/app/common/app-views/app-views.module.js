@@ -14,6 +14,9 @@ import {
     mdEditData
 } from './md-edit-data/md-edit-data.module';
 import {
+    mdEditData2
+} from './md-edit-data2/md-edit-data2.module';
+import {
     mdTest
 } from './md-test/md-test.module';
 import {
@@ -27,6 +30,7 @@ export const appViews = angular
         mdViewService,
         mdViewMap,
         mdEditData,
+        mdEditData2,
         mdTest,
         mdLive
     ])

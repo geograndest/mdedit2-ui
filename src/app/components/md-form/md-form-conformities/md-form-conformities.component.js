@@ -4,7 +4,7 @@ const mdFormConformitiesController = class MdFormConformitiesController {
     constructor(XmlConverterService) {
         'ngInject';
         this.XmlConverterService = XmlConverterService;
-        console.log('constructor: mdFormConformitiesController controller');
+        // console.log('constructor: mdFormConformitiesController controller');
     }
 
     $onInit() {}
@@ -54,7 +54,7 @@ export const mdFormConformitiesComponent = {
         md: '<',
         field: '<',
         pass: '<',
-        // specifications: '<',
+        locales: '<',
         multi: '@',
         label: '@',
         space: '@',

@@ -32,7 +32,8 @@ export const mdFormImageComponent = {
         space: '@',
         md: '<',
         fieldValue: '<',
-        field: '<'
+        field: '<',
+        locales: '<'
     },
     template: template,
     controller: mdFormImageController,

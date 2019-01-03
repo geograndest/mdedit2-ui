@@ -43,6 +43,7 @@ export const mdFormGeographicextentComponent = {
         geographicextent: '<',
         fields: '<',
         extents: '<',
+        locales: '<',
         updateExtent: '&',
         removeExtent: '&'
     },

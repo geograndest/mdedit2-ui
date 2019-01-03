@@ -6,6 +6,8 @@ La présente documentation est adressée aux personnes souhaitant installer mdEd
 
 Un [Guide d'utilisation de mdEdit](./documentation/userGuide/mdEdit_UserDocumentation.md) est également disponible.
 
+**_La version de développement est la version `master`. Pour la dernière version stable, consulter la branche `stable`._**
+
 ## Fonctionnalités principales
 
 -   Création de fiches de métadonnées ISO/INSPIRE
@@ -78,15 +80,21 @@ Les choix sont réalisés afin que:
 
 ### Principaux frameworks et bibliothèques utilisés
 
+Attention: migration de Bootstrap 3 vers Bootstrap 4 lors du passage de la version 2.0 à 2.1 de mdEdit.
+
 -   [jquery](https://jquery.com/) - version 3.3.1
--   [twitter bootstrap](http://getbootstrap.com/) - version 3.3.7
--   [angular js](https://angularjs.org/) - version 1.6.9
--   angularjs / ui router - version 1.0.15
--   [ui-bootstrap](https://angular-ui.github.io/bootstrap/) - version 1.3.0
--   [showdown](https://github.com/showdownjs/showdown) - version 1.8.6
--   xml-js - version 1.6.2
--   lodash - verison 4.17.4
+-   [twitter bootstrap](http://getbootstrap.com/) - version 4.1.3
+-   [angular js](https://angularjs.org/) - version 1.7.5
+-   angularjs / ui router - version 1.0.20
+-   [ui-bootstrap4](https://morgul.github.io/ui-bootstrap4/) - version 3.0.5
+-   [showdown](https://github.com/showdownjs/showdown) - version 1.9.0
+-   xml-js - version 1.6.8
+-   lodash - verison 4.17.11
+-   lodash-uuid - version 0.0.3
+-   rename-keys - version 2.0.1
 -   jsonpath - version 1.0.0
+
+_Pour plus de détails sur les versiond es librairies utilisées, consultez le fichier `package.json`._
 
 ## Contribution
 

@@ -13,7 +13,11 @@ const mdFormContactController = class MdFormContactController {
     onSave(space, field, fieldValue, separator) {
         var values = [];
         for (var v = 0; v < fieldValue.length; v++) {
-            values = values.concat(fieldValue[v].split(separator));
+            var splitValues = fieldValue[v];
+            if (fieldValue[v]) {
+                splitValues = fieldValue[v].split(separator).map((val) => val.trim())
+            }
+            values = values.concat(splitValues);
         }
         this.XmlConverterService.setValue(this.contact.value, space, field, values, separator);
         this.updateContact({
@@ -27,6 +31,18 @@ const mdFormContactController = class MdFormContactController {
             key: key
         });
     }
+
+    cloneCnt(key) {
+        this.cloneContact({
+            key: key
+        });
+    }
+
+    duplicateCnt(key) {
+        this.duplicateContact({
+            key: key
+        });
+    }
 }
 
 export const mdFormContactComponent = {
@@ -36,8 +52,11 @@ export const mdFormContactComponent = {
         contact: '<',
         fields: '<',
         lists: '<',
+        locales: '<',
         updateContact: '&',
-        removeContact: '&'
+        removeContact: '&',
+        cloneContact: '&',
+        duplicateContact: '&'
     },
     template: template,
     controller: mdFormContactController,

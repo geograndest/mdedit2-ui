@@ -1,18 +1,39 @@
-<span ng-if="$ctrl.format == 'button'" class="glyphicon {{$ctrl.views[$ctrl.view].icon}}" ng-click="$ctrl.getNextView()">
-    <span class="visible-xs-inline">
+<!-- <span ng-if="$ctrl.format == 'button'" class="fas {{$ctrl.views[$ctrl.view].icon}}" ng-click="$ctrl.getNextView()">
+    <span class="d-none d-sx-inline">
         {{$ctrl.views[$ctrl.view].name[$ctrl.lang]}}
     </span>
+</span> -->
+<!-- {{$ctrl.view}} -->
+<!-- if format = button -->
+<button type="button" ng-if="$ctrl.format == 'button'" class="btn btn-outline-dark" ng-click="$ctrl.getNextView()">
+    <i class="fas {{$ctrl.views[$ctrl.view].icon}}">
+    </i> {{$ctrl.views[$ctrl.view].name[$ctrl.lang]}}
+</button>
+<!-- if format = icon -->
+<span ng-if="$ctrl.format == 'icon'" ng-click="$ctrl.getNextView()" class="">
+    <i class="fas {{$ctrl.views[$ctrl.view].icon}}">
+    </i>
 </span>
-<span ng-if="$ctrl.format == 'list'" uib-dropdown uib-tooltip="{{$ctrl.tooltip}}" tooltip-trigger="mouseenter"
-    tooltip-placement="top">
-    <span class="glyphicon {{$ctrl.icon}}" id="change-view-dropdown" uib-dropdown-toggle>
-        <span class="visible-xs-inline">
-            {{$ctrl.view}}
+<!-- <span ng-if="$ctrl.format == 'list'" uib-dropdown uib-tooltip="{{$ctrl.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="top">
+    <span class="fas {{$ctrl.views[$ctrl.view].icon}}" id="change-view-dropdown" uib-dropdown-toggle>
+        <span class="d-none d-sx-inline">
+            {{$ctrl.views[$ctrl.view].name[$ctrl.lang]}}
         </span>
-    </span>
-    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="change-view-dropdown">
-        <li ng-repeat="(key, view) in $ctrl.views">
-            <a href ng-if="key != $ctrl.view" ng-click="$ctrl.getView(key)">{{view.name[$ctrl.lang]}}</a>
-        </li>
-    </ul>
 </span>
+<ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="change-view-dropdown">
+    <li ng-repeat="(key, view) in $ctrl.views">
+        <a href ng-if="key != $ctrl.view" ng-click="$ctrl.getView(key)">{{view.name[$ctrl.lang]}}</a>
+    </li>
+</ul>
+</span> -->
+
+<div ng-if="$ctrl.format == 'list'" class="btn-group" uib-dropdown uib-tooltip="{{$ctrl.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="left">
+    <button id="single-button" type="button" class="btn btn-outline-dark" uib-dropdown-toggle ng-disabled="disabled">
+        <i class="fas {{$ctrl.views[$ctrl.view].icon}}">
+        </i> {{$ctrl.views[$ctrl.view].name[$ctrl.lang]}} <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="change-view-dropdown">
+        <a href class="dropdown-item" ng-repeat="(key, view) in $ctrl.views" ng-if="key != $ctrl.view" ng-click="$ctrl.getView(key)">{{view.name[$ctrl.lang]}}
+        </a>
+    </div>
+</div>

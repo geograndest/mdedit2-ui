@@ -2,58 +2,53 @@
 
     <div class="row">
         <div class="col-md-7">
-            <p>L’objectif de cette application est de proposer un catalogue des données géographiques décrites
-                conformément
-                à la directive européenne Inspire.</p>
-            <p>Cet outil se veut simple et conviviale.
-                <br /> Pour plus d'information sur son utilisation, n'hésitez pas à consulter l'aide en ligne (cf.
-                bouton (i)
-                en haut à
-                droite).
+            <h1>Bienvenue sur mdEdit 2</h1>
+            <p>mdEdit est une application qui permet de décrire simplement des données géographiques conformément à la directive européenne Inspire.</p>
+            <p>Cet outil se veut conviviale et facile d'utilisation.
+                <br /> Il nécessite cependant quelques connaissances en matière de géomatique pour remplir les fiches de façon optimale (système de projection, emprise géographique, etc.).
+            </p>
+            <p>
+                Pour plus d'information sur son utilisation, n'hésitez pas à consulter l'aide en ligne (cf. bouton (i) en haut à droite).
             </p>
             <p>Bonne visite!</p>
         </div>
         <div class="col-md-5">
-            <p>Liste des modèles de fiches:</p>
-            <ul>
-                <!-- <li ng-repeat="csw in $ctrl.cswList track by $index">
-            <a ui-sref="app.catalogGrid({cswUrl: csw.url})" ui-sref-opts="{ reload: true, inherit: true, notify: true }">
-                {{csw.title}}
-            </a><br />
-            <em class="small">{{csw.description}}</em>
-        </li> -->
-                <li>
-                    <a ui-sref="app.mdEditData" ui-sref-opts="{ reload: true, inherit: true, notify: true }">
-                        mdEditData
-                    </a><br />
-                    <em class="small">description</em>
-                </li>
-                <li>
-                    <a ui-sref="app.mdTest" ui-sref-opts="{ reload: true, inherit: true, notify: true }">
-                        mdTest
-                    </a><br />
-                    <em class="small">description</em>
-                </li>
-                <li>
-                    <a ui-sref="app.mdLive" ui-sref-opts="{ reload: true, inherit: true, notify: true }">
-                        mdLive
-                    </a><br />
-                    <em class="small">Formulaire d'édition du Laboratoire Image Ville Environnement (LIVE) de la
-                        faculté de
-                        Géographie de Strasbourg</em>
-                </li>
-            </ul>
+            <div class="card">
+                <div class="card-header">
+                    <h5>Liste des modèles de fiches disponibles</h5>
+                </div>
+                <div class="card-body">
+                    <!-- <h5 class="card-title">Liste des modèles de fiches disponibles</h5> -->
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-action" ng-repeat="view in $ctrl.appConfig.app.changeview.list track by $index">
+                            <a class="text-dark" ui-sref="app.{{view}}" ui-sref-opts="{ reload: true, inherit: true, notify: true }">
+                                {{$ctrl.appConfig.views[view].name[$ctrl.appConfig.app.lang]}}
+                            </a><br />
+                            <em class="small">{{$ctrl.appConfig.views[view].description[$ctrl.appConfig.app.lang]}}</em>
+                        </li>
+                        <!-- {{$ctrl.views}} -- {{$ctrl.appConfig.views}}
+                        <li class="list-group-item">
+                            <a ui-sref="app.mdEditData" ui-sref-opts="{ reload: true, inherit: true, notify: true }">
+                                mdEditData
+                            </a><br />
+                            <em class="small">description</em>
+                        </li>
+                        <li class="list-group-item">
+                            <a ui-sref="app.mdTest" ui-sref-opts="{ reload: true, inherit: true, notify: true }">
+                                mdTest
+                            </a><br />
+                            <em class="small">description</em>
+                        </li>
+                        <li class="list-group-item">
+                            <a ui-sref="app.mdLive" ui-sref-opts="{ reload: true, inherit: true, notify: true }">
+                                mdLive
+                            </a><br />
+                            <em class="small">Formulaire d'édition du Laboratoire Image Ville Environnement (LIVE) de
+                                la faculté de Géographie de Strasbourg</em>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-
-
-    <!-- <br />
-    <p>Vous pouvez également accéder directement au catalogue par défaut:</p>
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <a role="button" ui-sref="app.catalogGrid" ui-sref-opts="{ reload: true, inherit: true, notify: true }" class="btn btn-primary btn-block center-block">
-                Catalogue
-            </a>
-        </div>
-    </div> -->
 </div>

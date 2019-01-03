@@ -1,29 +1,9 @@
-<!-- {{$ctrl.inspirekeyword}} -->
-<!-- --{{$ctrl.fields}}-- -->
 <div class="row table-line">
-    <!-- <div class="col-md-3">
-        <md-form-element type="text" md="$ctrl.keyword" field="$ctrl.fields.keyword" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
-    </div>
-    <div class="col-md-3">
-        <md-form-element type="select" md="$ctrl.keyword" field="$ctrl.fields.keywordType" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)" list="$ctrl.list"></md-form-element>
-    </div>
-    <div class="col-md-3">
-        <md-form-element type="text" md="$ctrl.keyword" field="$ctrl.fields.thesaurusName" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
-    </div>
-    <div class="col-md-2">
-        <md-form-element type="text" md="$ctrl.keyword" field="$ctrl.fields.thesaurusDatePublication" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)"></md-form-element>
-    </div> -->
-    <!-- {{$ctrl.type}} -->
-
-    <!-- <div class="hidden">
-        <md-form-element type="text" md="$ctrl.keyword" field="$ctrl.fields.thesaurusName" space="md" edit="true" update="$ctrl.onSave(space, field, 'Thesaurus INSPIRE')"></md-form-element>
-    </div> -->
-
     <div class="col-md-11">
         <md-form-element type="select" md="$ctrl.inspirekeyword" field="$ctrl.fields.keyword" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)"
-            list="$ctrl.list"></md-form-element>
+            list="$ctrl.list" locales="$ctrl.locales"></md-form-element>
     </div>
     <div ng-show="($ctrl.multi).toLowerCase() == 'true'" class="col-md-1">
-        <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-minus" aria-hidden="true" ng-click="$ctrl.onRemove()"></button>
+        <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-minus" aria-hidden="true" ng-click="$ctrl.onRemove()"></button>
     </div>
 </div>

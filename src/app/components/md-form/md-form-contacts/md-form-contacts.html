@@ -1,9 +1,10 @@
 <!-- Contacts: {{$ctrl.field.label}} -->
 <div>
-    <md-form-contact ng-if="contact" ng-repeat="(key, contact) in $ctrl.contacts track by $index" multi="{{$ctrl.multi}}" contact="{key: key, value: contact}" fields="$ctrl.field.contact" lists="$ctrl.lists" update-contact="$ctrl.updateContacts(key, contact)" key="{{key}}" remove-contact="$ctrl.onRemoveContact(key)"></md-form-contact>
+    <md-form-contact ng-if="contact" ng-repeat="(key, contact) in $ctrl.contacts track by $index" multi="{{$ctrl.multi}}" contact="{key: key, value: contact}" fields="$ctrl.field.contact" lists="$ctrl.lists" update-contact="$ctrl.updateContacts(key, contact)"
+        key="{{key}}" remove-contact="$ctrl.onRemoveContact(key)" clone-contact="$ctrl.onCloneContact(key)" duplicate-contact="$ctrl.onDuplicateContact(key)" locales="$ctrl.locales"></md-form-contact>
     <div class="row" ng-if="$ctrl.multi == 'true'">
-        <div class="col-md-12 btn-toolbar">
-            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-plus" aria-hidden="true" ng-click="$ctrl.onAddContact()"></button>
+        <div class="col-md-12">
+            <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-plus" aria-hidden="true" ng-click="$ctrl.onAddContact()"></button>
         </div>
     </div>
 </div>

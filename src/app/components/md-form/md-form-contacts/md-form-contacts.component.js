@@ -1,9 +1,10 @@
 import template from './md-form-contacts.html';
 
 const mdFormContactsController = class MdFormContactsController {
-    constructor(XmlConverterService) {
+    constructor(XmlConverterService, StoreService) {
         'ngInject';
         this.XmlConverterService = XmlConverterService;
+        this.StoreService = StoreService;
     }
 
     $onInit() {}
@@ -37,6 +38,30 @@ const mdFormContactsController = class MdFormContactsController {
         }
     }
 
+    duplicateContact(contactsFieldName, contact) {
+        var contacts = this.XmlConverterService.getValue(this.md, this.space, contactsFieldName);
+        contacts.push(angular.copy(contact))
+        this.XmlConverterService.setValue(this.md, this.space, contactsFieldName, contacts);
+        // Create a deep copy of this.md to change reference and force change of mdjs in StoreService to reload and update form data
+        this.StoreService.setData({
+            mdjs: angular.copy(this.md)
+        });
+    }
+
+    onDuplicateContact(key) {
+        if (this.field.name == 'mdContacts') {
+            this.duplicateContact('dataPointOfContacts', this.contacts[key])
+            console.log('Duplicate mdContact to dataPointOfContacts')
+        } else if (this.field.name == 'dataPointOfContacts') {
+            console.log('Duplicate dataPointOfContact to mdContacts')
+            this.duplicateContact('mdContacts', this.contacts[key])
+        }
+    }
+
+    onCloneContact(key) {
+        this.contacts.push(angular.copy(this.contacts[key]))
+    }
+
     updateContacts(key, contact) {
         this.contacts[key] = contact;
         this.update({
@@ -53,6 +78,7 @@ export const mdFormContactsComponent = {
         lists: '<',
         md: '<',
         field: '<',
+        locales: '<',
         multi: '@',
         space: '@',
         update: '&'

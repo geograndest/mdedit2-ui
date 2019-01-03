@@ -63,6 +63,7 @@ export const mdFormIdentifiersComponent = {
     bindings: {
         md: '<',
         field: '<',
+        locales: '<',
         multi: '@',
         label: '@',
         space: '@',

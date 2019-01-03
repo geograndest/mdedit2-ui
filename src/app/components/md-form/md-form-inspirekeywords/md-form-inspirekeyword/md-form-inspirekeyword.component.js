@@ -35,6 +35,7 @@ export const mdFormInspirekeywordComponent = {
         inspirekeyword: '<',
         fields: '<',
         list: '<',
+        locales: '<',
         updateInspirekeyword: '&',
         removeInspirekeyword: '&'
     },

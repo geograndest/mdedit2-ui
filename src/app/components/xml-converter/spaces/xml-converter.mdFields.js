@@ -77,7 +77,7 @@ export const mdFields = {
             value: 'gco__CharacterString[0]._text[0]'
         }
     },
-    deliveryPoint: {
+    _deliveryPoint: {
         name: 'deliveryPoint',
         xpaths: {
             value: 'gco__CharacterString[0]._text[0]'
@@ -110,7 +110,8 @@ export const mdFields = {
     logoUrl: {
         name: 'logoUrl',
         xpaths: {
-            value: 'gmd__CI_ResponsibleParty[0].gmd__contactInfo[0].gmd__CI_Contact[0].gmd__contactInstructions[0].gmx__FileName[0]._attributes.src[0]'
+            value: 'gmd__CI_ResponsibleParty[0].gmd__contactInfo[0].gmd__CI_Contact[0].gmd__contactInstructions[0].gmx__FileName[0]._attributes.src[0]',
+            code: 'gmd__CI_ResponsibleParty[0].gmd__contactInfo[0].gmd__CI_Contact[0].gmd__contactInstructions[0].gmx__FileName[0]._attributes.src'
         }
     },
     logoDescription: {
@@ -167,7 +168,8 @@ export const mdFields = {
     dateType: {
         name: 'type',
         xpaths: {
-            value: 'gmd__CI_Date[0].gmd__dateType[0].gmd__CI_DateTypeCode[0]._attributes.codeListValue'
+            value: 'gmd__CI_Date[0].gmd__dateType[0].gmd__CI_DateTypeCode[0]._text[0]',
+            code: 'gmd__CI_Date[0].gmd__dateType[0].gmd__CI_DateTypeCode[0]._attributes.codeListValue'
         }
     },
     dateTime: {
@@ -187,6 +189,13 @@ export const mdFields = {
         name: 'dataIdentifiers',
         xpaths: {
             value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__citation[0].gmd__CI_Citation[0].gmd__identifier[*]'
+        }
+    },
+    dataIdentifiersCodes: {
+        name: 'dataIdentifiers',
+        xpaths: {
+            paths: ['gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__citation[0].gmd__CI_Citation[0].gmd__identifier[*]'],
+            value: 'gmd__RS_Identifier[0].gmd__code[0].gco__CharacterString[0]._text[0]'
         }
     },
     code: {
@@ -252,7 +261,7 @@ export const mdFields = {
     dataMaintenanceFrequency: {
         name: 'dataMaintenanceFrequency',
         xpaths: {
-            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceMaintenance[0].gmd__MD_MaintenanceInformation[0].gmd__maintenanceAndUpdateFrequency[0].gmd__MD_MaintenanceFrequencyCode[0]._attributes.codeListValue',
+            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceMaintenance[0].gmd__MD_MaintenanceInformation[0].gmd__maintenanceAndUpdateFrequency[0].gmd__MD_MaintenanceFrequencyCode[0]._text[0]',
             code: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceMaintenance[0].gmd__MD_MaintenanceInformation[0].gmd__maintenanceAndUpdateFrequency[0].gmd__MD_MaintenanceFrequencyCode[0]._attributes.codeListValue'
         }
     },
@@ -262,7 +271,8 @@ export const mdFields = {
             paths: [
                 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__language[*]'
             ],
-            value: 'gmd__LanguageCode[0]._attributes.codeListValue'
+            value: 'gmd__LanguageCode[0]._text[0]',
+            code: 'gmd__LanguageCode[0]._attributes.codeListValue'
         }
     },
     dataTopicCategories: {
@@ -319,6 +329,7 @@ export const mdFields = {
     keywordType: {
         name: 'keywordType',
         xpaths: {
+            text: 'gmd__MD_Keywords[0].gmd__type[0].gmd__MD_KeywordTypeCode[0]._text[0]',
             value: 'gmd__MD_Keywords[0].gmd__type[0].gmd__MD_KeywordTypeCode[0]._attributes.codeListValue'
         }
     },
@@ -471,7 +482,7 @@ export const mdFields = {
     dataSpatialRepresentationType: {
         name: 'dataSpatialRepresentationType',
         xpaths: {
-            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__spatialRepresentationType[0].gmd__MD_SpatialRepresentationTypeCode[0]._attributes.codeListValue',
+            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__spatialRepresentationType[0].gmd__MD_SpatialRepresentationTypeCode[0]._text[0]',
             code: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__spatialRepresentationType[0].gmd__MD_SpatialRepresentationTypeCode[0]._attributes.codeListValue'
         }
     },
@@ -496,7 +507,8 @@ export const mdFields = {
     dataCharacterSet: {
         name: 'dataCharacterSet',
         xpaths: {
-            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__characterSet[0].gmd__MD_CharacterSetCode[0]._attributes.codeListValue'
+            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__characterSet[0].gmd__MD_CharacterSetCode[0]._text[0]',
+            code: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__characterSet[0].gmd__MD_CharacterSetCode[0]._attributes.codeListValue'
         }
     },
 
@@ -561,7 +573,8 @@ export const mdFields = {
                 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
                 'gmd__MD_LegalConstraints[0].gmd__useConstraints[*]'
             ],
-            value: 'gmd__MD_RestrictionCode[0]._attributes.codeListValue'
+            value: 'gmd__MD_RestrictionCode[0]._text[0]',
+            code: 'gmd__MD_RestrictionCode[0]._attributes.codeListValue'
         }
     },
     dataLegalAccessConstraints: {
@@ -627,7 +640,8 @@ export const mdFields = {
                 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
                 'gmd__MD_SecurityConstraints[0].gmd__classification[*]'
             ],
-            value: 'gmd__MD_ClassificationCode[0]._attributes.codeListValue'
+            value: 'gmd__MD_ClassificationCode[0]._text[0]',
+            code: 'gmd__MD_ClassificationCode[0]._attributes.codeListValue'
         }
     },
     srvSecurityClassification: {
@@ -637,7 +651,8 @@ export const mdFields = {
                 'gmd__MD_Metadata[0].gmd__identificationInfo[0].srv__SV_ServiceIdentification[0].gmd__resourceConstraints[*]',
                 'gmd__MD_SecurityConstraints[0].gmd__classification[*]'
             ],
-            value: 'gmd__MD_ClassificationCode[0]._attributes.codeListValue'
+            value: 'gmd__MD_ClassificationCode[0]._text[0]',
+            code: 'gmd__MD_ClassificationCode[0]._attributes.codeListValue'
         }
     },
     dataLinkages: {
@@ -691,7 +706,8 @@ export const mdFields = {
     specificationDateType: {
         name: 'type',
         xpaths: {
-            value: 'gmd__DQ_DomainConsistency[0].gmd__result[0].gmd__DQ_ConformanceResult[0].gmd__specification[0].gmd__CI_Citation[0].gmd__date[0].gmd__CI_Date[0].gmd__dateType[0].gmd__CI_DateTypeCode[0]._attributes.codeListValue'
+            value: 'gmd__DQ_DomainConsistency[0].gmd__result[0].gmd__DQ_ConformanceResult[0].gmd__specification[0].gmd__CI_Citation[0].gmd__date[0].gmd__CI_Date[0].gmd__dateType[0].gmd__CI_DateTypeCode[0]._text[0]',
+            code: 'gmd__DQ_DomainConsistency[0].gmd__result[0].gmd__DQ_ConformanceResult[0].gmd__specification[0].gmd__CI_Citation[0].gmd__date[0].gmd__CI_Date[0].gmd__dateType[0].gmd__CI_DateTypeCode[0]._attributes.codeListValue'
         }
     },
     specificationDate: {

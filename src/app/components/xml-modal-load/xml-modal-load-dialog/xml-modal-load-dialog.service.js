@@ -23,7 +23,7 @@ export class XmlModalLoadDialogService {
                 callback(response.data);
             },
             () => {
-               console.log("Error: can't get " + url + " file.");
+                console.log("Error: can't get " + url + " file.");
             }
         );
     }

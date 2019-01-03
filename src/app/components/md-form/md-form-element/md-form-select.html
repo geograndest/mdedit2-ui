@@ -1,14 +1,16 @@
+<!-- {{$ctrl.fieldValue}} -->
 <!-- Single field -->
 <div ng-if="$ctrl.multi != 'true'" ng-repeat="(key, fieldValue) in $ctrl.fieldValue track by $index" class="form-group has-feedback"
-    ng-class="$ctrl.isValidField(key) ? '' : 'has-error'">
+    ng-class="$ctrl.isValidField() ? '' : 'has-error'">
+    <!-- Label -->
     <label ng-if="$ctrl.label.toLowerCase() == 'true'" class="control-label" for="{{$ctrl.field.name}}" uib-tooltip="{{$ctrl.field.description}}"
-        tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(key)">
+        tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(key)" ng-class="$ctrl.isValidField() ? '' : 'text-danger font-weight-bold'">
         {{$ctrl.field.label}}
-        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" class="link" format="{{$ctrl.field.helpButton.format}}"
-            title="{{$ctrl.field.helpButton.title}}" text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl"
-            icon="{{$ctrl.field.helpButton.icon}}">
-            </modal-doc-button>
+        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}"
+            text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}">
+        </page-modal-button>
     </label>
+    <!-- Simple editable select -->
     <div ng-if="$ctrl.field.editable == 'true' && $ctrl.isEdited[key]">
         <select class="form-control input-sm" name="{{$ctrl.field.name}}" id="{{$ctrl.field.name}}" ng-options="item.name as item.value for item in $ctrl.list"
             ng-model="$ctrl.fieldValue[key]" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur(key, fieldValue)"
@@ -16,77 +18,87 @@
             <option ng-init="fieldValue = fieldValue || item[0].value" value="''">{{$ctrl.field.placeholder}}</option>
         </select>
     </div>
-    <!-- {{fieldValue}} -->
+    <!-- Slect with button (to validate) -->
     <div ng-if="$ctrl.field.editable == 'both' && $ctrl.isEdited[key]">
         <div class="input-group">
-            <select class="form-control input-sm" name="{{$ctrl.field.name}}" id="{{$ctrl.field.name}}" ng-options="item.name as item.value for item in $ctrl.list"
+            <select class="custom-select" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}" ng-options="item.name as item.value for item in $ctrl.list"
                 ng-model="$ctrl.fieldValue[key]" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur(key, fieldValue)"
                 ng-change="$ctrl.onSelect(key, fieldValue)">
-                <option ng-init=" fieldValue=fieldValue
-                || item[0].value" value="''">{{$ctrl.field.placeholder}}</option>
+                <option ng-init=" fieldValue=fieldValue || item[0].value" value="''">
+                    {{$ctrl.field.placeholder}}
+                </option>
             </select>
-            <a class="input-group-addon btn-sm" ng-class="$ctrl.isValidField(key) ? 'btn-default' : 'btn-error'" type="button"
+            <div class="input-group-append" ng-class="$ctrl.isValidField() ? 'btn-outline-dark' : 'btn-error'" type="button"
                 ng-click="$ctrl.onBlur(key, fieldValue)">
-                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-            </a>
+                <a class="input-group-text" for="{{$ctrl.field.name}}">
+                    <i class="fas fa-check" aria-hidden="true"></i>
+                </a>
+            </div>
         </div>
     </div>
-    <div ng-if="($ctrl.field.editable == 'false' || $ctrl.field.editable == 'both') && !($ctrl.isEdited[key])"
+    <!-- Text value only -->
+    <div ng-if="($ctrl.field.editable == 'false') || ($ctrl.field.editable == 'both' && !$ctrl.isEdited[key])"
         ng-dblclick="$ctrl.changeEdit(key)">
         <span ng-class="$ctrl.field.disabled ? 'text-muted' : ''">{{fieldValue | getCodeValue:$ctrl.list}}</span>
-        <span ng-show="$ctrl.isEmptyField(key)" class="help-block">Champ non renseigné [T]</span>
+        <span ng-show="$ctrl.isEmptyField(key)" class="help-block">{{$ctrl.locales.empty}}</span>
     </div>
-    <small ng-hide="$ctrl.isValidField(key)" class="help-block">Champ obligatoire [T]</small>
+    <!-- <small ng-hide="$ctrl.isValidField()" class="help-block text-danger">{{$ctrl.locales.mandatory}}</small> -->
 </div>
 
 <!-- Multi field: use table -->
-<table class="table table-condensed" ng-if="$ctrl.multi == 'true'">
+<table class="table table-sm" ng-if="$ctrl.multi == 'true'">
     <tr ng-if="$ctrl.label.toLowerCase() == 'true'">
         <th>
             <label class="control-label" for="{{$ctrl.field.name}}" uib-tooltip="{{$ctrl.field.description}}"
-                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)" ng-class="$ctrl.isValidField() ? '' : 'text-danger font-weight-bold'">
                 {{$ctrl.field.label}}
-                <page-modal-button class="link" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}"
+                <page-modal-button format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}"
                     text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}">
-                    </modal-doc-button>
+                </page-modal-button>
             </label>
         </th>
         <th>
-            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-plus" aria-hidden="true"
+            <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-plus" aria-hidden="true"
                 ng-click="$ctrl.addItem()"></button>
         </th>
     </tr>
     <tr ng-if="fieldValue !== undefined" ng-repeat="(key, fieldValue) in $ctrl.fieldValue track by $index" class="form-group has-feedback"
-        ng-class="$ctrl.isValidField(key) ? '' : 'has-error'">
+        ng-class="$ctrl.isValidField() ? '' : 'has-error'">
         <td>
+            <!-- Simple editable select -->
             <div ng-if="$ctrl.field.editable == 'true' && $ctrl.isEdited[key]">
                 <select class="form-control input-sm" name="{{$ctrl.field.name}}" id="{{$ctrl.field.name}}" ng-options="item.name as item.value for item in $ctrl.list"
                     ng-model="$ctrl.fieldValue[key]" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur(key, fieldValue)">
                     <option ng-init="fieldValue = fieldValue || item[0].value" value="''">{{$ctrl.field.placeholder}}</option>
                 </select>
             </div>
+            <!-- Select with validate button -->
             <div ng-if="($ctrl.field.editable == 'both') && $ctrl.isEdited[key]">
-                <div class="input-group my-group">
-                    <select class="form-control input-sm" name="{{$ctrl.field.name}}" id="{{$ctrl.field.name}}"
-                        ng-options="item.name as item.value for item in $ctrl.list" ng-model="$ctrl.fieldValue[key]"
-                        ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur(key, fieldValue)">
-                        <option ng-init="fieldValue = fieldValue || item[0].value" value="''">{{$ctrl.field.placeholder}}</option>
+                <div class="input-group">
+                    <select class="custom-select" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}" ng-options="item.name as item.value for item in $ctrl.list"
+                        ng-model="$ctrl.fieldValue[key]" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur(key, fieldValue)">
+                        <option ng-init=" fieldValue=fieldValue || item[0].value" value="''">
+                            {{$ctrl.field.placeholder}}
+                        </option>
                     </select>
-                    <a class="input-group-addon btn-sm" ng-class="$ctrl.isValidField(key) ? 'btn-default' : 'btn-error'"
+                    <div class="input-group-append" ng-class="$ctrl.isValidField() ? 'btn-outline-dark' : 'btn-error'"
                         type="button" ng-click="$ctrl.onBlur(key, fieldValue)">
-                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                    </a>
+                        <a class="input-group-text" for="{{$ctrl.field.name}}">
+                            <i class="fas fa-check"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div ng-if="($ctrl.field.editable == 'false' || $ctrl.field.editable == 'both') && !($ctrl.isEdited[key])"
+            <!-- Only text value -->
+            <div ng-if="($ctrl.field.editable == 'false') || ($ctrl.field.editable == 'both' && !$ctrl.isEdited[key])"
                 ng-dblclick="$ctrl.changeEdit(key)">
                 <span ng-class="$ctrl.field.disabled ? 'text-muted' : ''">{{fieldValue | getCodeValue:$ctrl.list}}</span>
-                <span ng-show="$ctrl.isEmptyField(key)" class="help-block">Champ non renseigné [T]</span>
+                <span ng-show="$ctrl.isEmptyField(key)" class="help-block">{{$ctrl.locales.empty}}</span>
             </div>
-            <small ng-hide="$ctrl.isValidField(key)" class="help-block">Champ obligatoire [T]</small>
+            <!-- <small ng-hide="$ctrl.isValidField()" class="help-block text-danger">{{$ctrl.locales.mandatory}}</small> -->
         </td>
         <td>
-            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-minus" aria-hidden="true"
+            <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-minus" aria-hidden="true"
                 ng-click="$ctrl.removeItem(key)"></button>
         </td>
     </tr>

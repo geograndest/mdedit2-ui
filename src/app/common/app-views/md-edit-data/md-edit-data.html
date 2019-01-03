@@ -1,40 +1,33 @@
 <div id="content" class="container">
-    <!-- <div class="row">
-        <div class="btn-group pull-right" role="group">
-            <a class="btn btn-default btn-sm" ui-sref="app.mdViewData">
-                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-            </a>
-        </div>
-    </div>
-    <div class="col-md-12"> -->
-    <div uib-accordion close-others="false" class="col col-sm-12 panel-group">
+    <div uib-accordion close-others="false" class="col col-sm-12">
         <form name="mdForm" novalidate>
             <!-- Panel 1 -->
-            <div uib-accordion-group is-open="true" class="panel-primary">
+            <div uib-accordion-group is-open="true" class="border-dark mb-3">
                 <div uib-accordion-heading>
-                    <span uib-tooltip="Informations sur la fiche de métadonnées" tooltip-popup-close-delay="100"
-                        tooltip-trigger="mouseenter" tooltip-placement="right">
+                    <span class="text-dark" uib-tooltip="Informations sur la fiche de métadonnées"
+                        tooltip-popup-close-delay="100" tooltip-trigger="mouseenter" tooltip-placement="right">
                         Informations sur la fiche de métadonnées
                     </span>
-                    <!-- <span class="bt-doc glyphicon glyphicon-info-sign" aria-hidden="true" ng-click="vm.openModalDoc('empty')"></span> -->
-                    <span class="glyphicon glyphicon-resize-vertical pull-right"></span>
+                    <span class="fas fa-arrows-alt-v float-right text-dark"></span>
                 </div>
                 <div>
                     <div class="row">
                         <div class="col-md-4 form-group">
                             <md-form-element type="text" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.mdFileIdentifier"
-                                label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"></md-form-element>
+                                label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
+                                locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                         <!-- mdLanguage -->
                         <div class="col-md-4 form-group">
                             <md-form-element type="select" multi="false" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.mdLanguage"
                                 label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
-                                list="$ctrl.mdEditLocales.codelists.MD_LanguageCode"></md-form-element>
+                                list="$ctrl.mdEditLocales.codelists.MD_LanguageCode" locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                         <!-- mdStandardName -->
                         <div class="col-md-4 form-group">
                             <md-form-element type="text" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.mdStandardName"
-                                label="true" edit="false" space="md" update="$ctrl.update(space, field, fieldValue)"></md-form-element>
+                                label="true" edit="false" space="md" update="$ctrl.update(space, field, fieldValue)"
+                                locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                     </div>
                     <div class="row">
@@ -42,170 +35,175 @@
                         <div class="col-md-4 form-group">
                             <md-form-element type="select" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.mdHierarchyLevel"
                                 label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
-                                list="$ctrl.mdEditLocales.codelists.MD_ScopeCode"></md-form-element>
+                                list="$ctrl.mdEditLocales.codelists.MD_ScopeCode" locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                         <!-- mdCharacterSet -->
                         <div class="col-md-4 form-group">
                             <md-form-element type="select" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.mdCharacterSet"
                                 label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
-                                list="$ctrl.mdEditLocales.codelists.MD_CharacterSetCode"></md-form-element>
+                                list="$ctrl.mdEditLocales.codelists.MD_CharacterSetCode" locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                         <!-- mdStandardVersion -->
                         <div class="col-md-4 form-group">
                             <md-form-element type="text" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.mdStandardVersion"
-                                label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"></md-form-element>
+                                label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
+                                locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                     </div>
                     <!-- mdDateStamp -->
                     <div class="row">
                         <div class="col-md-4 form-group">
                             <md-form-element type="date" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.mdDateStamp"
-                                label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"></md-form-element>
+                                label="true" edit="true" space="md" value="$ctrl.currentDate" update="$ctrl.update(space, field, fieldValue)"
+                                locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Panel 2 -->
-            <div uib-accordion-group is-open="true" class="panel-primary">
+            <div uib-accordion-group is-open="true" class="border-dark mb-3">
                 <div uib-accordion-heading>
-                    <span uib-tooltip="Informations relatives aux auteurs et contacts pour la fiche de métadonnées"
+                    <span class="text-dark" uib-tooltip="Informations relatives aux auteurs et contacts pour la fiche de métadonnées"
                         tooltip-popup-close-delay="100" tooltip-trigger="mouseenter" tooltip-placement="right">
                         Auteurs et contacts pour la fiche de métadonnées
                     </span>
-                    <!-- <span class="bt-doc glyphicon glyphicon-info-sign" aria-hidden="true" ng-click="vm.openModalDoc('mdContacts')"></span> -->
-                    <span class="glyphicon glyphicon-resize-vertical pull-right"></span>
+                    <span class="fas fa-arrows-alt-v float-right text-dark"></span>
                 </div>
                 <!-- mdContacts -->
                 <md-form-contacts multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.mdContacts"
-                    lists="$ctrl.mdEditLocales.codelists" update="$ctrl.update(space, field, fieldValue)"></md-form-contacts>
+                    lists="$ctrl.mdEditLocales.codelists" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-contacts>
             </div>
 
             <!-- Panel 3 -->
-            <div uib-accordion-group is-open="true" class="panel-primary">
+            <div uib-accordion-group is-open="true" class="border-dark mb-3">
                 <div uib-accordion-heading>
-                    <span uib-tooltip="Informations relatives à la description des données" tooltip-popup-close-delay="100"
-                        tooltip-trigger="mouseenter" tooltip-placement="right">
+                    <span class="text-dark" uib-tooltip="Informations relatives à la description des données"
+                        tooltip-popup-close-delay="100" tooltip-trigger="mouseenter" tooltip-placement="right">
                         Description des données
                     </span>
-                    <!-- <span class="bt-doc glyphicon glyphicon-info-sign" aria-hidden="true" ng-click="vm.openModalDoc('empty')"></span> -->
-                    <span class="glyphicon glyphicon-resize-vertical pull-right"></span>
+                    <span class="fas fa-arrows-alt-v float-right text-dark"></span>
                 </div>
                 <div>
                     <!-- dataTitle -->
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <md-form-element type="text" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataTitle"
-                                label="true" edit="false" space="md" update="$ctrl.update(space, field, fieldValue)"></md-form-element>
+                                label="true" edit="false" space="md" update="$ctrl.update(space, field, fieldValue)"
+                                locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                     </div>
                     <!-- dataAbstract -->
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <md-form-element type="textarea" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataAbstract"
-                                label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"></md-form-element>
+                                label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
+                                locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                     </div>
+                    <hr />
                     <div class="row">
-                        <hr />
                         <div class="col-md-12 form-group">
                             <!-- dataIdentifiers -->
                             <md-form-identifiers multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataIdentifiers"
-                                label="true" update="$ctrl.update(space, field, fieldValue)"></md-form-identifiers>
+                                label="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-identifiers>
                         </div>
                     </div>
+                    <hr />
                     <div class="row">
-                        <hr />
                         <div class="col-md-12 form-group">
                             <!-- dataBrowseGraphics -->
                             <md-form-browsegraphics multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataBrowseGraphics"
-                                label="true" update="$ctrl.update(space, field, fieldValue)"></md-form-browsegraphics>
+                                label="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-browsegraphics>
                         </div>
                     </div>
+                    <hr />
                     <div class="row">
-                        <hr />
-                        <!-- dataDates -->
-                        <md-form-dates multi="false" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataDates"
-                            label="true" update="$ctrl.update(space, field, fieldValue)"></md-form-dates>
+                        <div class="col-md-12 form-group">
+                            <!-- dataDates -->
+                            <md-form-dates multi="false" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataDates"
+                                label="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-dates>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 form-group">
                             <!-- dataMaintenanceFrequencyCode -->
                             <md-form-element type="select" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataMaintenanceFrequency"
                                 label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
-                                list="$ctrl.mdEditLocales.codelists.MD_MaintenanceFrequencyCode"></md-form-element>
+                                list="$ctrl.mdEditLocales.codelists.MD_MaintenanceFrequencyCode" locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                     </div>
+                    <hr />
                     <div class="row" ng-show="true">
-                        <hr />
                         <div class="col-md-12">
                             <!-- dataTemporalExtents -->
                             <md-form-temporalextents multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataTemporalExtents"
-                                label="true" update="$ctrl.update(space, field, fieldValue)"></md-form-temporalextents>
+                                label="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-temporalextents>
                         </div>
                     </div>
+                    <hr />
                     <div class="row" ng-show="true">
-                        <hr />
                         <div class="col-md-6 form-group">
                             <!-- dataLanguages -->
                             <md-form-element type="select" multi="true" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataLanguages"
                                 label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
-                                list="$ctrl.mdEditLocales.codelists.MD_LanguageCode"></md-form-element>
+                                list="$ctrl.mdEditLocales.codelists.MD_LanguageCode" locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                     </div>
+                    <hr />
                     <div class="row">
-                        <hr />
                         <div class="col-md-6 form-group">
                             <!-- dataTopicCategories -->
                             <md-form-element type="select" multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataTopicCategories"
-                                label="true" list="$ctrl.mdEditLocales.codelists.MD_TopicCategoryCode" update="$ctrl.update(space, field, fieldValue)"></md-form-element>
+                                label="true" list="$ctrl.mdEditLocales.codelists.MD_TopicCategoryCode" update="$ctrl.update(space, field, fieldValue)"
+                                locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                         <div class="col-md-6 form-group">
                             <!-- dataInspireKeywords -->
                             <md-form-inspirekeywords type="select" multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataInspireKeywords"
-                                label="true" list="$ctrl.mdEditLocales.codelists.MD_InspireTopicCategoryCode" update="$ctrl.update(space, field, fieldValue)">
+                                label="true" list="$ctrl.mdEditLocales.codelists.MD_InspireTopicCategoryCode" update="$ctrl.update(space, field, fieldValue)"
+                                locales="$ctrl.mdEditLocales.locales">
                                 </md-form-element>
                         </div>
                     </div>
                     <!-- dataKeywordsList -->
                     <!--<div class="row" ng-show="true">-->
+                    <hr />
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <hr />
                             <!-- dataKeywords -->
                             <md-form-keywords multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataKeywords"
-                                label="true" update="$ctrl.update(space, field, fieldValue)" list="$ctrl.mdEditLocales.codelists.MD_KeywordTypeCode"></md-form-keywords>
+                                label="true" update="$ctrl.update(space, field, fieldValue)" list="$ctrl.mdEditLocales.codelists.MD_KeywordTypeCode"
+                                locales="$ctrl.mdEditLocales.locales"></md-form-keywords>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Panel 4 -->
-            <div uib-accordion-group is-open="true" class="panel-primary">
+            <div uib-accordion-group is-open="true" class="border-dark mb-3">
                 <div uib-accordion-heading>
-                    <span uib-tooltip="Informations relatives aux contacts pour la base de données"
+                    <span class="text-dark" uib-tooltip="Informations relatives aux contacts pour la base de données"
                         tooltip-popup-close-delay="100" tooltip-trigger="mouseenter" tooltip-placement="right">
                         Contacts pour la base de données
                     </span>
-                    <!-- <span class="bt-doc glyphicon glyphicon-info-sign" aria-hidden="true" ng-click="vm.openModalDoc('dataPointsOfContacts')"></span> -->
-                    <span class="glyphicon glyphicon-resize-vertical pull-right"></span>
+                    <span class="fas fa-arrows-alt-v float-right text-dark"></span>
                 </div>
                 <div>
                     <!-- dataPointOfContacts -->
                     <md-form-contacts multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataPointOfContacts"
-                        lists="$ctrl.mdEditLocales.codelists" update="$ctrl.update(space, field, fieldValue)"></md-form-contacts>
+                        lists="$ctrl.mdEditLocales.codelists" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-contacts>
                 </div>
             </div>
 
             <!-- Panel 5 -->
-            <div uib-accordion-group is-open="true" class="panel-primary">
+            <div uib-accordion-group is-open="true" class="border-dark mb-3">
                 <div uib-accordion-heading>
-                    <span uib-tooltip="Informations relatives aux références géographiques et à la qualité de la base de données"
+                    <span class="text-dark" uib-tooltip="Informations relatives aux références géographiques et à la qualité de la base de données"
                         tooltip-popup-close-delay="100" tooltip-trigger="mouseenter" tooltip-placement="right">
                         Références géographiques et qualité des données
                     </span>
-                    <!-- <span class="bt-doc glyphicon glyphicon-info-sign" aria-hidden="true" ng-click="vm.openModalDoc('empty')"></span> -->
-                    <span class="glyphicon glyphicon-resize-vertical pull-right"></span>
+                    <span class="fas fa-arrows-alt-v float-right text-dark"></span>
                 </div>
                 <div>
                     <div class="row">
@@ -213,14 +211,15 @@
                             <!-- dataSpatialRepresentationType -->
                             <md-form-element type="select" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataSpatialRepresentationType"
                                 label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
-                                list="$ctrl.mdEditLocales.codelists.MD_SpatialRepresentationTypeCode"></md-form-element>
+                                list="$ctrl.mdEditLocales.codelists.MD_SpatialRepresentationTypeCode" locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <!-- dataGeographicExtents -->
                             <md-form-geographicextents multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataGeographicExtents"
-                                label="true" extents-file="{{$ctrl.extentsFile}}" update="$ctrl.update(space, field, fieldValue)"></md-form-geographicextents>
+                                label="true" extents-file="{{$ctrl.extentsFile}}" update="$ctrl.update(space, field, fieldValue)"
+                                locales="$ctrl.mdEditLocales.locales"></md-form-geographicextents>
                         </div>
                     </div>
                     <div class="row">
@@ -228,33 +227,37 @@
                             <!-- dataReferenceSystems -->
                             <md-form-referencesystems multi="true" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataReferenceSystems"
                                 label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
-                                list="$ctrl.mdEditLocales.codelists.MD_ReferenceSystemCode"></md-form-referencesystems>
+                                list="$ctrl.mdEditLocales.codelists.MD_ReferenceSystemCode" locales="$ctrl.mdEditLocales.locales"></md-form-referencesystems>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <!-- dataScaleDenominator -->
                             <md-form-element type="text" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataScaleDenominator"
-                                label="true" edit="false" space="md" update="$ctrl.update(space, field, fieldValue)"></md-form-element>
+                                label="true" edit="false" space="md" update="$ctrl.update(space, field, fieldValue)"
+                                locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                         <div class="col-md-6 form-group">
                             <!-- dataScaleDistance -->
                             <md-form-element type="text" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataScaleDistance"
-                                label="true" edit="false" space="md" update="$ctrl.update(space, field, fieldValue)"></md-form-element>
+                                label="true" edit="false" space="md" update="$ctrl.update(space, field, fieldValue)"
+                                locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <!-- dataLiStatement -->
                             <md-form-element type="textarea" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataLiStatement"
-                                label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"></md-form-element>
+                                label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
+                                locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                     </div>
                     <div class="row" ng-show="true">
                         <div class="col-md-12 form-group">
                             <!-- dataUseLimitations -->
                             <md-form-element type="textarea" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataUseLimitations"
-                                label="true" edit="true" space="md" multi="true" update="$ctrl.update(space, field, fieldValue)"></md-form-element>
+                                label="true" edit="true" space="md" multi="true" update="$ctrl.update(space, field, fieldValue)"
+                                locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                     </div>
                     <!-- dataCharacterSet -->
@@ -263,28 +266,27 @@
                             <!-- dataCharacterSet -->
                             <md-form-element type="select" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataCharacterSet"
                                 label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
-                                list="$ctrl.mdEditLocales.codelists.MD_CharacterSetCode"></md-form-element>
+                                list="$ctrl.mdEditLocales.codelists.MD_CharacterSetCode" locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <!-- dataDistributionFormats -->
                             <md-form-distributionformats multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataDistributionFormats"
-                                label="true" update="$ctrl.update(space, field, fieldValue)"></md-form-distributionformats>
+                                label="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-distributionformats>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Panel 6 -->
-            <div uib-accordion-group is-open="true" class="panel-primary">
+            <div uib-accordion-group is-open="true" class="border-dark mb-3">
                 <div uib-accordion-heading>
-                    <span uib-tooltip="Informations relatives aux conditions légales d'accès et d'usage de la base de données"
+                    <span class="text-dark" uib-tooltip="Informations relatives aux conditions légales d'accès et d'usage de la base de données"
                         tooltip-popup-close-delay="100" tooltip-trigger="mouseenter" tooltip-placement="right">
                         Conditions légales d'accès et d'usage
                     </span>
-                    <!-- <span class="bt-doc glyphicon glyphicon-info-sign" aria-hidden="true" ng-click="vm.openModalDoc('empty')"></span> -->
-                    <span class="glyphicon glyphicon-resize-vertical pull-right"></span>
+                    <span class="fas fa-arrows-alt-v float-right text-dark"></span>
                 </div>
                 <div>
                     <div class="row">
@@ -292,7 +294,7 @@
                             <!-- dataSecurityClassification -->
                             <md-form-element type="select" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataSecurityClassification"
                                 label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
-                                list="$ctrl.mdEditLocales.codelists.MD_ClassificationCode"></md-form-element>
+                                list="$ctrl.mdEditLocales.codelists.MD_ClassificationCode" locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                     </div>
                     <!-- dataLegalAccessInspireConstraints -->
@@ -301,7 +303,7 @@
                             <!-- dataLegalAccessInspireConstraints -->
                             <md-form-element type="select" multi="true" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataLegalAccessInspireConstraints"
                                 label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
-                                list="$ctrl.mdEditLocales.codelists.MD_InspireRestrictionCode"></md-form-element>
+                                list="$ctrl.mdEditLocales.codelists.MD_InspireRestrictionCode" locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                     </div>
                     <div class="row">
@@ -309,7 +311,7 @@
                             <!-- dataLegalAccessConstraints -->
                             <md-form-element type="select" multi="true" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataLegalAccessConstraints"
                                 label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
-                                list="$ctrl.mdEditLocales.codelists.MD_RestrictionCode"></md-form-element>
+                                list="$ctrl.mdEditLocales.codelists.MD_RestrictionCode" locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                     </div>
                     <div class="row">
@@ -317,28 +319,28 @@
                             <!-- dataLegalUseConstraints -->
                             <md-form-element type="select" multi="true" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataLegalUseConstraints"
                                 label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
-                                list="$ctrl.mdEditLocales.codelists.MD_RestrictionCode"></md-form-element>
+                                list="$ctrl.mdEditLocales.codelists.MD_RestrictionCode" locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <!-- dataLegalUseLimitations -->
                             <md-form-element type="textarea" multi="true" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataLegalUseLimitations"
-                                label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"></md-form-element>
+                                label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
+                                locales="$ctrl.mdEditLocales.locales"></md-form-element>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Panel 7 -->
-            <div uib-accordion-group is-open="true" class="panel-primary">
+            <div uib-accordion-group is-open="true" class="border-dark mb-3">
                 <div uib-accordion-heading>
-                    <span uib-tooltip="Ressorces associées à la base de données" tooltip-popup-close-delay="100"
-                        tooltip-trigger="mouseenter" tooltip-placement="right">
+                    <span class="text-dark" uib-tooltip="Ressorces associées à la base de données"
+                        tooltip-popup-close-delay="100" tooltip-trigger="mouseenter" tooltip-placement="right">
                         Ressources associées
                     </span>
-                    <!-- <span class="bt-doc glyphicon glyphicon-info-sign" aria-hidden="true" ng-click="vm.openModalDoc('empty')"></span> -->
-                    <span class="glyphicon glyphicon-resize-vertical pull-right"></span>
+                    <span class="fas fa-arrows-alt-v float-right text-dark"></span>
                 </div>
                 <div>
                     <div class="row">
@@ -346,30 +348,33 @@
                             <!-- dataLinkages -->
                             <md-form-linkages multi="true" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataLinkages"
                                 label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
-                                protocols="$ctrl.mdEditLocales.codelists.MD_LinkageProtocolCode"></md-form-linkages>
+                                protocols="$ctrl.mdEditLocales.codelists.MD_LinkageProtocolCode" locales="$ctrl.mdEditLocales.locales"></md-form-linkages>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Panel 8 -->
-            <div uib-accordion-group is-open="true" class="panel-primary">
+            <div uib-accordion-group is-open="true" class="border-dark mb-3">
                 <div uib-accordion-heading>
-                    <span uib-tooltip="Conformité de la base de données" tooltip-popup-close-delay="100"
+                    <span class="text-dark" uib-tooltip="Conformité de la base de données" tooltip-popup-close-delay="100"
                         tooltip-trigger="mouseenter" tooltip-placement="right">
                         Conformités
                     </span>
-                    <!-- <span class="bt-doc glyphicon glyphicon-info-sign" aria-hidden="true" ng-click="vm.openModalDoc('empty')"></span> -->
-                    <span class="glyphicon glyphicon-resize-vertical pull-right"></span>
+                    <span class="fas fa-arrows-alt-v float-right text-dark"></span>
                 </div>
                 <div>
-                    TODO: conformité
-                    <br /> - Spécifications Inspire
-                    <br /> - Autres spécifications
-                    <br />
                     <md-form-inspireconformities multi="true" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataDqInspireConformities"
                         label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
-                        specifications="$ctrl.mdEditLocales.codelists.MD_InspireSpecificationCode" pass="$ctrl.mdEditLocales.codelists.MD_PassCode"></md-form-inspireconformities>
+                        specifications="$ctrl.mdEditLocales.codelists.MD_InspireSpecificationCode" pass="$ctrl.mdEditLocales.codelists.MD_PassCode"
+                        locales="$ctrl.mdEditLocales.locales"></md-form-inspireconformities>
+                </div>
+                <hr />
+                <div>
+                    <md-form-conformities multi="true" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataDqConformities"
+                        label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" pass="$ctrl.mdEditLocales.codelists.MD_PassCode"
+                        locales="$ctrl.mdEditLocales.locales">
+                        </md-form-inspireconformities>
                 </div>
             </div>
         </form>

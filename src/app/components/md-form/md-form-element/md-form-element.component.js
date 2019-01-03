@@ -24,7 +24,7 @@ const mdFormElementController = class MdFormElementController {
         // Initi this.edit according "this.field.editable" value
         var edit = true;
         this.isEdited = [];
-        if (this.edit != "true" || this.field.editable == "false") {
+        if ((this.edit && this.edit != "true") || (this.field.editable && this.field.editable == "false")) {
             edit = false;
         }
         for (var i = 0; i < this.fieldValue.length; i++) {
@@ -32,15 +32,24 @@ const mdFormElementController = class MdFormElementController {
         }
         this.edit = edit;
 
+        // Initi this.fieldValue according config and attribute values
+        if (this.value) {
+            this.value = [this.value]
+        } else {
+            this.value = this.field.value
+        }
         var isFieldValueEmpty = this.fieldValue.every((value) => {
-            return value == '';
+            return (value !== false);
         });
-        if (isFieldValueEmpty && this.field.value) {
-            this.fieldValue = this.field.value;
+        if (isFieldValueEmpty && this.value) {
+            this.fieldValue = this.value;
             this.saveData(this.fieldValue);
         }
-        this.type = this.field.type || "text";
 
+        // Initi this.type according config and attribute values
+        if (!this.type) {
+            this.type = this.field.type || "text";
+        }
 
         this.fieldValue = this.getValues();
     }
@@ -56,7 +65,12 @@ const mdFormElementController = class MdFormElementController {
                 return new Date(d)
             });
         }
+        value = this.getUniqueValues(value)
         return value;
+    }
+
+    getUniqueValues(values) {
+        return values.filter((v, i, a) => a.indexOf(v) === i);
     }
 
     $onChanges(changes) {
@@ -88,6 +102,8 @@ const mdFormElementController = class MdFormElementController {
                     return d;
                 });
             }
+            // Filter array to keep only uniques values
+            items = this.getUniqueValues(items)
             this.update({
                 space: this.space,
                 field: this.field.name,
@@ -97,7 +113,6 @@ const mdFormElementController = class MdFormElementController {
     }
 
     onBlur(key, itemValue) {
-        console.log('blur', key, itemValue);
         this.changeEdit(key);
         this.fieldValue[key] = itemValue;
         this.saveData(this.fieldValue);
@@ -119,14 +134,15 @@ const mdFormElementController = class MdFormElementController {
         });
     }
 
-    isValidField(key) {
+    isValidField() {
         if (
             this.field.mandatory == "true" &&
             this.fieldValue.length &&
-            this.fieldValue.every(function (i) {
-                if (i != undefined) {
-                    return !i.length;
+            this.fieldValue.every((v) => {
+                if (v != undefined && v != null && v != '' && !(Object.prototype.toString.call(v) === "[object Date]" && isNaN(Date.parse(v)))) { // Seems to WORK
+                    return false
                 }
+                return true
             })
         ) {
             return false;
@@ -154,8 +170,11 @@ const mdFormElementController = class MdFormElementController {
 
     removeItem(key) {
         if (this.fieldValue.length > 1) {
-            this.fieldValue[key] = undefined;
+            this.fieldValue.splice(key, 1);
+        } else {
+            this.fieldValue[key] = '';
         }
+        this.saveData(this.fieldValue);
     }
 };
 
@@ -165,7 +184,10 @@ export const mdFormElementComponent = {
         multi: "@",
         label: "@",
         field: "<",
+        locales: "<",
         list: "<",
+        value: "<",
+        type: "@",
         edit: "@",
         md: "<",
         update: "&",

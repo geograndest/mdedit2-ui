@@ -1,41 +1,25 @@
 <div class="form-group has-feedback" ng-class="$ctrl.isValidField(0) ? '' : 'has-error'">
-    <!-- <label ng-if="$ctrl.label.toLowerCase() == 'true'" class="control-label" for="{{$ctrl.field.name}}" uib-tooltip="{{$ctrl.field.description}}"
-        tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
-        {{$ctrl.field.label}}
-        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" class="link" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}"
-            text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}">
-        </page-modal-button>
-    </label> -->
+    <div class="w-100">
+        <span class="h5" uib-tooltip="{{$ctrl.field.description}}" tooltip-trigger="mouseenter" tooltip-placement="right">{{$ctrl.field.label}}</span>
+        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}" text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}"></page-modal-button>
+        <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-plus" aria-hidden="true" ng-click="$ctrl.onAddConformity()"></button>
+    </div>
     <div class="row">
         <!-- --{{$ctrl.field.keywords.keyword.name}}-- -->
         <div class="col-md-11">
             <label class="control-label" for="{{$ctrl.field.name}}" uib-tooltip="{{$ctrl.field.description}}" tooltip-trigger="mouseenter"
                 tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
                 {{$ctrl.field.label}}
-                <page-modal-button class="link" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}" text="{{$ctrl.field.helpButton.text}}"
+                <page-modal-button format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}" text="{{$ctrl.field.helpButton.text}}"
                     content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}">
                 </page-modal-button>
             </label>
         </div>
         <div class="col-md-1">
-            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-plus" aria-hidden="true" ng-click="$ctrl.onAddInspirekeyword()"></button>
+            <!-- <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-plus" aria-hidden="true" ng-click="$ctrl.onAddInspirekeyword()"></button> -->
         </div>
     </div>
-    <!-- {{$ctrl.inspirekeywords}}  -->
-    <!-- {{$ctrl.inspirekeywordsList}} -->
-    <!-- {{$ctrl.field}} -->
     <md-form-inspirekeyword ng-repeat="(key, inspirekeyword) in $ctrl.inspirekeywordsList track by $index" multi="{{$ctrl.multi}}"
         inspirekeyword="inspirekeyword" fields="$ctrl.field.keywords" update-inspirekeyword="$ctrl.updateInspirekeywords(key, inspirekeyword)"
-        key="{{key}}" remove-inspirekeyword="$ctrl.onRemoveInspirekeyword(key)" list="$ctrl.list"></md-form-keyword>
-
-        <!-- <div class="row table-line" ng-repeat="(key, inspirekeyword) in $ctrl.inspirekeywordsList track by $index">
-            <div class="col-md-11">
-                <md-form-element type="select" md="inspirekeyword" field="$ctrl.field" space="md" edit="true" update="$ctrl.onSave(key, space, field, fieldValue)"
-                    list="$ctrl.list"></md-form-element>
-            </div>
-            <div ng-show="($ctrl.multi).toLowerCase() == 'true'" class="col-md-1">
-                <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-minus" aria-hidden="true" ng-click="$ctrl.onRemove(key)"></button>
-            </div>
-        </div> -->
-
+        key="{{key}}" remove-inspirekeyword="$ctrl.onRemoveInspirekeyword(key)" list="$ctrl.list" locales="$ctrl.locales"></md-form-keyword>
 </div>

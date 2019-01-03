@@ -75,6 +75,7 @@ export const mdFormGeographicextentsComponent = {
         extentsFile: '@',
         md: '<',
         field: '<',
+        locales: '<',
         multi: '@',
         label: '@',
         space: '@',

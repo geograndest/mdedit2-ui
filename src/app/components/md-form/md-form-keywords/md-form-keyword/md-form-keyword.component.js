@@ -32,6 +32,7 @@ export const mdFormKeywordComponent = {
         keyword: '<',
         fields: '<',
         list: '<',
+        locales: '<',
         updateKeyword: '&',
         removeKeyword: '&'
     },

@@ -1,10 +1,10 @@
-<span uib-dropdown uib-tooltip="{{$ctrl.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="top">
+<span uib-dropdown class="dropup" uib-tooltip="{{$ctrl.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="left">
   <a href id="lang-dropdown" uib-dropdown-toggle class="navbar-link">
     {{$ctrl.lang | uppercase}}
   </a>
-  <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="lang-dropdown">
-    <li ng-repeat="lang in $ctrl.locales">
-        <a href ng-click="$ctrl.changeLocale(lang)">{{lang | uppercase}}</a>
+  <div class="dropdown-menu" uib-dropdown-menu aria-labelledby="lang-dropdown" role="menu">
+    <a href class="dropdown-item" ng-repeat="lang in $ctrl.locales" ng-click="$ctrl.changeLocale(lang)">
+      {{lang | uppercase}}
     </li>
   </ul>
 </span>

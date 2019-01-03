@@ -70,6 +70,7 @@ export const mdFormTemporalextentsComponent = {
     bindings: {
         md: '<',
         field: '<',
+        locales: '<',
         multi: '@',
         label: '@',
         space: '@',

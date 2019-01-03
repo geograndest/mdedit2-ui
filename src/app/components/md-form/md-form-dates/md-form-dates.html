@@ -1,14 +1,14 @@
-<div class="">
+<div class="row">
     <div class="col-md-4 form-group has-feedback" ng-class="$ctrl.isValidField(0) ? '' : 'has-error'">
         <md-form-element type="date" md="$ctrl.datecreation" field="$ctrl.field.dates.dateCreation" label="true" edit="true"
-            space="md" update="$ctrl.updateDate(space, field, fieldValue, 'creation')"></md-form-element>
+            space="md" update="$ctrl.updateDate(space, field, fieldValue, 'creation')" locales="$ctrl.locales"></md-form-element>
     </div>
     <div class="col-md-4 form-group has-feedback" ng-class="$ctrl.isValidField(0) ? '' : 'has-error'">
         <md-form-element type="date" md="$ctrl.dateedition" field="$ctrl.field.dates.dateEdition" label="true" edit="true"
-            space="md" update="$ctrl.updateDate(space, field, fieldValue, 'edition')"></md-form-element>
+            space="md" update="$ctrl.updateDate(space, field, fieldValue, 'edition')" locales="$ctrl.locales"></md-form-element>
     </div>
     <div class="col-md-4 form-group has-feedback" ng-class="$ctrl.isValidField(0) ? '' : 'has-error'">
         <md-form-element type="date" md="$ctrl.datepublication" field="$ctrl.field.dates.datePublication" label="true"
-            edit="true" space="md" update="$ctrl.updateDate(space, field, fieldValue, 'publication')"></md-form-element>
+            edit="true" space="md" update="$ctrl.updateDate(space, field, fieldValue, 'publication')" locales="$ctrl.locales"></md-form-element>
     </div>
 </div>

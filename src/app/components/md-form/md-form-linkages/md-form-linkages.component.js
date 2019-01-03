@@ -53,6 +53,7 @@ export const mdFormLinkagesComponent = {
         md: '<',
         field: '<',
         protocols: '<',
+        locales: '<',
         multi: '@',
         label: '@',
         space: '@',

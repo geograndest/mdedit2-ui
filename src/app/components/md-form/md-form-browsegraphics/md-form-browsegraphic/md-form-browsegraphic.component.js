@@ -37,6 +37,7 @@ export const mdFormBrowsegraphicComponent = {
         browsegraphic: '<',
         fields: '<',
         extents: '<',
+        locales: '<',
         updateBrowsegraphic: '&',
         removeBrowsegraphic: '&'
     },

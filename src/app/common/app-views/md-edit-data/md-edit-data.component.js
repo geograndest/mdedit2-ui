@@ -13,6 +13,8 @@ const mdEditDataController = class MdEditDataController {
             this.mdjs = this.StoreService.getData().mdjs;
         });
         this.extentsFile = this.appConfig.views.mdEditData.extentsFile;
+        //  Just to have current date value and can use it in the view
+        this.currentDate = Date.now()
     }
 
     update(space, field, fieldValue, separator) {

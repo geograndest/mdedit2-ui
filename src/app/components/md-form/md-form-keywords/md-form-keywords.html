@@ -1,18 +1,23 @@
 <div class="form-group has-feedback" ng-class="$ctrl.isValidField(0) ? '' : 'has-error'">
-    <label ng-if="$ctrl.label.toLowerCase() == 'true'" class="control-label" for="{{$ctrl.field.name}}" uib-tooltip="{{$ctrl.field.description}}"
+    <!-- <label ng-if="$ctrl.label.toLowerCase() == 'true'" class="control-label" for="{{$ctrl.field.name}}" uib-tooltip="{{$ctrl.field.description}}"
         tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
         {{$ctrl.field.label}}
-        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" class="link" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}"
+        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}"
             text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}">
         </page-modal-button>
-    </label>
+    </label> -->
+    <div class="w-100">
+        <span class="h5" uib-tooltip="{{$ctrl.field.description}}" tooltip-trigger="mouseenter" tooltip-placement="right">{{$ctrl.field.label}}</span>
+        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}" text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}"></page-modal-button>
+        <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-plus" aria-hidden="true" ng-click="$ctrl.onAddConformity()"></button>
+    </div>
     <div class="row">
         <!-- --{{$ctrl.field.keywords.keyword.name}}-- -->
         <div class="col-md-3">
             <label class="control-label" for="{{$ctrl.field.keywords.keyword.name}}" uib-tooltip="{{$ctrl.field.keywords.keyword.description}}"
                 tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
                 {{$ctrl.field.keywords.keyword.label}}
-                <page-modal-button class="link" format="{{$ctrl.field.keywords.keyword.helpButton.format}}" title="{{$ctrl.field.keywords.keyword.helpButton.title}}"
+                <page-modal-button format="{{$ctrl.field.keywords.keyword.helpButton.format}}" title="{{$ctrl.field.keywords.keyword.helpButton.title}}"
                     text="{{$ctrl.field.keywords.keyword.helpButton.text}}" content-url="$ctrl.field.keywords.keyword.helpButton.contentUrl"
                     icon="{{$ctrl.field.keywords.keyword.helpButton.icon}}">
                 </page-modal-button>
@@ -22,7 +27,7 @@
             <label class="control-label" for="{{$ctrl.field.keywords.keywordType.name}}" uib-tooltip="{{$ctrl.field.keywords.keywordType.description}}"
                 tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
                 {{$ctrl.field.keywords.keywordType.label}}
-                <page-modal-button class="link" format="{{$ctrl.field.keywords.keywordType.helpButton.format}}" title="{{$ctrl.field.keywords.keywordType.helpButton.title}}"
+                <page-modal-button format="{{$ctrl.field.keywords.keywordType.helpButton.format}}" title="{{$ctrl.field.keywords.keywordType.helpButton.title}}"
                     text="{{$ctrl.field.keywords.keywordType.helpButton.text}}" content-url="$ctrl.field.keywords.keywordType.helpButton.contentUrl"
                     icon="{{$ctrl.field.keywords.keywordType.helpButton.icon}}">
                 </page-modal-button>
@@ -32,7 +37,7 @@
             <label class="control-label" for="{{$ctrl.field.keywords.thesaurusName.name}}" uib-tooltip="{{$ctrl.field.keywords.thesaurusName.description}}"
                 tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
                 {{$ctrl.field.keywords.thesaurusName.label}}
-                <page-modal-button class="link" format="{{$ctrl.field.keywords.thesaurusName.helpButton.format}}" title="{{$ctrl.field.keywords.thesaurusName.helpButton.title}}"
+                <page-modal-button format="{{$ctrl.field.keywords.thesaurusName.helpButton.format}}" title="{{$ctrl.field.keywords.thesaurusName.helpButton.title}}"
                     text="{{$ctrl.field.keywords.thesaurusName.helpButton.text}}" content-url="$ctrl.field.keywords.thesaurusName.helpButton.contentUrl"
                     icon="{{$ctrl.field.keywords.thesaurusName.helpButton.icon}}">
                 </page-modal-button>
@@ -42,16 +47,16 @@
             <label class="control-label" for="{{$ctrl.field.keywords.thesaurusDatePublication.name}}" uib-tooltip="{{$ctrl.field.keywords.thesaurusDatePublication.description}}"
                 tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
                 {{$ctrl.field.keywords.thesaurusDatePublication.label}}
-                <page-modal-button class="link" format="{{$ctrl.field.keywords.thesaurusDatePublication.helpButton.format}}" title="{{$ctrl.field.keywords.thesaurusDatePublication.helpButton.title}}"
+                <page-modal-button format="{{$ctrl.field.keywords.thesaurusDatePublication.helpButton.format}}" title="{{$ctrl.field.keywords.thesaurusDatePublication.helpButton.title}}"
                     text="{{$ctrl.field.keywords.thesaurusDatePublication.helpButton.text}}" content-url="$ctrl.field.keywords.thesaurusDatePublication.helpButton.contentUrl"
                     icon="{{$ctrl.field.keywords.thesaurusDatePublication.helpButton.icon}}">
                 </page-modal-button>
             </label>
         </div>
         <div class="col-md-1">
-            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-plus" aria-hidden="true" ng-click="$ctrl.onAddKeyword()"></button>
+            <!-- <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-plus" aria-hidden="true" ng-click="$ctrl.onAddKeyword()"></button> -->
         </div>
     </div>
     <!-- {{$ctrl.keywords}} -->
-    <md-form-keyword ng-repeat="(key, keyword) in $ctrl.keywordsList track by $index" multi="{{$ctrl.multi}}" keyword="keyword" fields="$ctrl.field.keywords" update-keyword="$ctrl.updateKeywords(key, keyword)" key="{{key}}" remove-keyword="$ctrl.onRemoveKeyword(key)" list="$ctrl.list"></md-form-keyword>
+    <md-form-keyword ng-repeat="(key, keyword) in $ctrl.keywordsList track by $index" multi="{{$ctrl.multi}}" keyword="keyword" fields="$ctrl.field.keywords" update-keyword="$ctrl.updateKeywords(key, keyword)" key="{{key}}" remove-keyword="$ctrl.onRemoveKeyword(key)" list="$ctrl.list" locales="$ctrl.locales"></md-form-keyword>
 </div>

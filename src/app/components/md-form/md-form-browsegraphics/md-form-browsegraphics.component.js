@@ -51,6 +51,7 @@ export const mdFormBrowsegraphicsComponent = {
     bindings: {
         md: '<',
         field: '<',
+        locales: '<',
         multi: '@',
         label: '@',
         space: '@',

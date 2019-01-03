@@ -32,6 +32,7 @@ export const mdFormIdentifierComponent = {
         identifier: '<',
         fields: '<',
         extents: '<',
+        locales: '<',
         updateIdentifier: '&',
         removeIdentifier: '&'
     },

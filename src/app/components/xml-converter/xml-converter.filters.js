@@ -76,7 +76,7 @@ export function translate() {
         if (data[0] && listName) {
             for (var i = 0; i < data.length; i++) {
                 for (var option in listName) {
-                    if (data[i].toLowerCase() == listName[option].id.toLowerCase()) {
+                    if (data[i].toLowerCase() == listName[option].name.toLowerCase()) {
                         data[i] = listName[option].value;
                     }
                 }

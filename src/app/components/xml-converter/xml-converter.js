@@ -34,14 +34,14 @@ export class XmlConverter {
 
     xml2js(xml, options) {
         this.mdjs = convert.xml2js(xml, options);
-        this.mdjs = renamekeys(this.mdjs, function (key, val) {
+        this.mdjs = renamekeys(this.mdjs, function(key, val) {
             return key.replace(":", "__");
         });
         return this.mdjs;
     }
 
     js2xml(js, options) {
-        js = renamekeys(js, function (key, val) {
+        js = renamekeys(js, function(key, val) {
             return key.replace("__", ":");
         });
         this.mdxml = convert.js2xml(js, options);
@@ -98,6 +98,9 @@ export class XmlConverter {
         var fields = this.getFields(space);
         var xpath = this.getXpath(fields[field].xpaths);
         var values = jsonpath.query(obj, xpath);
+        if (field == 'mdFileIdentifier') {
+            // console.log(field, obj, values)
+        }
         return values;
     }
 
@@ -147,7 +150,7 @@ export class XmlConverter {
                     result.push(o);
                 }
             }
-            paths = paths.map(function (val, key) {
+            paths = paths.map(function(val, key) {
                 return val.replace("[*]", "[0]");
             });
             return lodash.set(

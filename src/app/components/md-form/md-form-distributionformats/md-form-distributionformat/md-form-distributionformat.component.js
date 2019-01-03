@@ -32,6 +32,7 @@ export const mdFormDistributionformatComponent = {
         distributionformat: '<',
         fields: '<',
         extents: '<',
+        locales: '<',
         updateDistributionformat: '&',
         removeDistributionformat: '&'
     },

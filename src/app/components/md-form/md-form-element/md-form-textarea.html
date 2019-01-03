@@ -1,84 +1,76 @@
 <!-- Single field -->
-<div ng-if="$ctrl.multi != 'true'" ng-repeat="(key, fieldValue) in $ctrl.fieldValue track by $index" class="form-group has-feedback"
-    ng-class="$ctrl.isValidField(key) ? '' : 'has-error'">
-    <label ng-if="$ctrl.label.toLowerCase() == 'true'" class="control-label" for="{{$ctrl.field.name}}" uib-tooltip="{{$ctrl.field.description}}"
-        tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(key)">
+<div ng-if="$ctrl.multi != 'true'" ng-repeat="(key, fieldValue) in $ctrl.fieldValue track by $index" class="form-group has-feedback" ng-class="$ctrl.isValidField() ? '' : 'has-error'">
+    <label ng-if="$ctrl.label.toLowerCase() == 'true'" class="control-label" for="{{$ctrl.field.name}}" uib-tooltip="{{$ctrl.field.description}}" tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(key)" ng-class="$ctrl.isValidField() ? '' : 'text-danger font-weight-bold'">
         {{$ctrl.field.label}}
-        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" class="link" format="{{$ctrl.field.helpButton.format}}"
-            title="{{$ctrl.field.helpButton.title}}" text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl"
-            icon="{{$ctrl.field.helpButton.icon}}">
-            </modal-doc-button>
+        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}"
+            text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}">
+        </page-modal-button>
     </label>
     <div ng-if="$ctrl.field.editable == 'true' && $ctrl.isEdited[key]">
-        <textarea rows="3" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}"
-            placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue[key]" ng-disabled="$ctrl.field.disabled"
-            ng-blur="$ctrl.onBlur(key, fieldValue)"></textarea>
+        <textarea rows="3" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}" placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue[key]" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur(key, fieldValue)"></textarea>
     </div>
     <div ng-if="$ctrl.field.editable == 'both' && $ctrl.isEdited[key]">
         <div class="input-group">
-            <textarea rows="3" style="resize:vertical" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}"
-                placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue[key]" ng-disabled="$ctrl.field.disabled"
-                ng-blur="$ctrl.onBlur(key, fieldValue)"></textarea>
-            <a class="input-group-addon btn btn-sm" ng-class="$ctrl.isValidField(key) ? 'btn-default' : 'btn-error'"
+            <textarea rows="3" style="resize:vertical" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}" placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue[key]" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur(key, fieldValue)"></textarea>
+            <!-- <a class="input-group-addon btn btn-sm" ng-class="$ctrl.isValidField() ? 'btn-outline-dark' : 'btn-error'"
                 ng-click="$ctrl.onBlur(key, fieldValue)">
-                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-            </a>
+                <span class="fas fa-check" aria-hidden="true"></span>
+            </a> -->
+            <div class="input-group-append">
+                <a class="input-group-text" ng-class="$ctrl.isValidField() ? 'btn-outline-dark' : 'btn-error'" ng-click="$ctrl.onBlur(key, fieldValue)">
+                    <i class="fas fa-check"></i>
+                </a>
+            </div>
         </div>
     </div>
-    <div ng-if="($ctrl.field.editable == 'false' || $ctrl.field.editable == 'both') && !($ctrl.isEdited[key])"
-        ng-dblclick="$ctrl.changeEdit(key)">
+    <div ng-if="($ctrl.field.editable == 'false') || ($ctrl.field.editable == 'both' && !$ctrl.isEdited[key])" ng-dblclick="$ctrl.changeEdit(key)">
         <span ng-class="$ctrl.field.disabled ? 'text-muted' : ''" ng-bind-html="$ctrl.fieldValue | nl2br"></span>
-        <span ng-show="$ctrl.isEmptyField(key)" class="help-block">Champ non renseigné [T]</span>
+        <span ng-show="$ctrl.isEmptyField(key)" class="help-block">{{$ctrl.locales.empty}}</span>
     </div>
-    <small ng-hide="$ctrl.isValidField(key)" class="help-block">Champ obligatoire [T]</small>
+    <!-- <small ng-hide="$ctrl.isValidField()" class="help-block text-danger">{{$ctrl.locales.mandatory}}</small> -->
 </div>
 
 <!-- Multi field: use table -->
-<table class="table table-condensed" ng-if="$ctrl.multi == 'true'">
+<table class="table table-sm" ng-if="$ctrl.multi == 'true'">
     <tr ng-if="$ctrl.label.toLowerCase() == 'true'">
         <th>
-            <label class="control-label" for="{{$ctrl.field.name}}" uib-tooltip="{{$ctrl.field.description}}"
-                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+            <label class="control-label" for="{{$ctrl.field.name}}" uib-tooltip="{{$ctrl.field.description}}" tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)" ng-class="$ctrl.isValidField() ? '' : 'text-danger font-weight-bold'">
                 {{$ctrl.field.label}}
-                <page-modal-button class="link" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}"
+                <page-modal-button format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}"
                     text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}">
-                    </modal-doc-button>
+                </page-modal-button>
             </label>
         </th>
         <th>
-            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-plus" aria-hidden="true"
-                ng-click="$ctrl.addItem()"></button>
+            <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-plus" aria-hidden="true" ng-click="$ctrl.addItem()"></button>
         </th>
     </tr>
-    <tr ng-if="fieldValue !== undefined" ng-repeat="(key, fieldValue) in $ctrl.fieldValue track by $index" class="form-group has-feedback"
-        ng-class="$ctrl.isValidField(key) ? '' : 'has-error'">
+    <tr ng-if="fieldValue !== undefined" ng-repeat="(key, fieldValue) in $ctrl.fieldValue track by $index" class="form-group has-feedback" ng-class="$ctrl.isValidField() ? '' : 'has-error'">
         <td>
             <div ng-if="$ctrl.field.editable == 'true' && $ctrl.isEdited[key]">
-                <textarea rows="3" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}"
-                    placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue[key]" ng-disabled="$ctrl.field.disabled"
-                    ng-blur="$ctrl.onBlur(key, fieldValue)"></textarea>
+                <textarea rows="3" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}" placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue[key]" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur(key, fieldValue)"></textarea>
             </div>
             <div ng-if="($ctrl.field.editable == 'both') && $ctrl.isEdited[key]">
                 <div class="input-group my-group">
-                    <textarea rows="3" style="resize:vertical" class="form-control input-sm" id="{{$ctrl.field.name}}"
-                        name="{{$ctrl.field.name}}" placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue[key]"
-                        ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur(key, fieldValue)"></textarea>
-                    <a class="input-group-addon btn btn-sm" ng-class="$ctrl.isValidField(key) ? 'btn-default' : 'btn-error'"
-                        ng-click="$ctrl.onBlur(key, fieldValue)">
-                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                    </a>
+                    <textarea rows="3" style="resize:vertical" class="form-control input-sm" id="{{$ctrl.field.name}}" name="{{$ctrl.field.name}}" placeholder="{{$ctrl.field.placeholder}}" ng-model="$ctrl.fieldValue[key]" ng-disabled="$ctrl.field.disabled" ng-blur="$ctrl.onBlur(key, fieldValue)"></textarea>
+                    <!-- <a class="input-group-addon btn btn-sm" ng-class="$ctrl.isValidField() ? 'btn-outline-dark' : 'btn-error'" ng-click="$ctrl.onBlur(key, fieldValue)">
+                        <span class="fas fa-check" aria-hidden="true"></span>
+                    </a> -->
+                    <div class="input-group-append">
+                        <a class="input-group-text" ng-class="$ctrl.isValidField() ? 'btn-outline-dark' : 'btn-error'" ng-click="$ctrl.onBlur(key, fieldValue)">
+                            <i class="fas fa-check"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div ng-if="($ctrl.field.editable == 'false' || $ctrl.field.editable == 'both') && !($ctrl.isEdited[key])"
-                ng-dblclick="$ctrl.changeEdit(key)">
+            <div ng-if="($ctrl.field.editable == 'false') || ($ctrl.field.editable == 'both' && !$ctrl.isEdited[key])" ng-dblclick="$ctrl.changeEdit(key)">
                 <span ng-class="$ctrl.field.disabled ? 'text-muted' : ''" ng-bind-html="$ctrl.fieldValue | nl2br"></span>
-                <span ng-show="$ctrl.isEmptyField(key)" class="help-block">Champ non renseigné [T]</span>
+                <span ng-show="$ctrl.isEmptyField(key)" class="help-block">{{$ctrl.locales.empty}}</span>
             </div>
-            <small ng-hide="$ctrl.isValidField(key)" class="help-block">Champ obligatoire [T]</small>
+            <!-- <small ng-hide="$ctrl.isValidField()" class="help-block text-danger">{{$ctrl.locales.mandatory}}</small> -->
         </td>
         <td>
-            <button type="button" class="btn btn-default btn-xs pull-right glyphicon glyphicon-minus" aria-hidden="true"
-                ng-click="$ctrl.removeItem(key)"></button>
+            <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-minus" aria-hidden="true" ng-click="$ctrl.removeItem(key)"></button>
         </td>
     </tr>
 </table>

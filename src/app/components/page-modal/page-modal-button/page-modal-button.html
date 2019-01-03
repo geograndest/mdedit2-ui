@@ -1,8 +1,12 @@
 <!-- if format = button -->
-<span ng-if="$ctrl.format == 'button'" class="glyphicon {{$ctrl.icon}}" ng-click="$ctrl.open()">
-    <span class="visible-xs-inline">
-        {{$ctrl.text}}
-    </span>
-</span>
+<button type="button" ng-if="$ctrl.format == 'button'" class="btn btn-outline-dark" ng-click="$ctrl.open()">
+    <i class="fas {{$ctrl.icon}}">
+    </i> {{$ctrl.text}}
+</button>
+<!-- if format = icon -->
+<a href class="text-dark" ng-if="$ctrl.format == 'icon'" ng-click="$ctrl.open()">
+    <i class="fas {{$ctrl.icon}}">
+    </i>
+</a>
 <!-- else if format = text -->
 <a href="" ng-if="$ctrl.format == 'text'" class="navbar-link" ng-click="$ctrl.open()">{{$ctrl.text}}</a>

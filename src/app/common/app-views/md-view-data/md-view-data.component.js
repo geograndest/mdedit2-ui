@@ -13,7 +13,7 @@ const mdViewDataController = class MdViewDataController {
         this.StoreService.onSetData(() => {
             this.mdjs = this.StoreService.getData().mdjs;
         });
-        this.codelists = this.appLocales.codelists;
+        this.codelists = this.mdViewLocales.codelists;
     }
 
     onClose() {
