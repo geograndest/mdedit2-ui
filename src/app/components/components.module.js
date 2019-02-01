@@ -23,6 +23,10 @@ import {
     downloadjs
 } from './downloadjs/downloadjs.module';
 import {
+    cleandeep
+}
+from './cleandeep/cleandeep.module';
+import {
     xmlModalLoad
 } from './xml-modal-load/xml-modal-load.module';
 import {
@@ -47,6 +51,7 @@ export const components = angular
         utils,
         lodash,
         downloadjs,
+        cleandeep,
         xmlConverter,
         store,
         pageModal,

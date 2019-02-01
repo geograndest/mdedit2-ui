@@ -45,6 +45,7 @@ const mdFormIdentifiersController = class MdFormIdentifiersController {
     }
 
     updateIdentifiers(key, identifier) {
+        // Use 'mdCode' if no 'codeSpace'
         var codeSpace = this.XmlConverterService.getValue(identifier, this.space, 'codeSpace');
         if (!codeSpace.length) {
             var code = this.XmlConverterService.getValue(identifier, this.space, 'code');

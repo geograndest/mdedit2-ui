@@ -1,19 +1,25 @@
 {
     "app": {
-        "name": "mdEdit2",
-        "title": "mdEdit2",
-        "version": "2.0.0",
-        "copyrights": "(c) CIGAL / GéoGrandEst 2018",
-        "copyrights_url": "https://www.cigalsace.org",
-        "_proxy": "php/index.php?url=",
+        "name": "mdEdit2 [béta]",
+        "title": "mdEdit2 [béta]",
+        "version": "2.1.0b",
+        "copyrights": "(c) CIGAL / GéoGrandEst 2019",
+        "copyrights_url": "https://www.geograndest.fr",
+        "_proxy": "php/proxy.php?url=",
         "proxy": "",
-        "generate_xml_url": "http://localhost:8000/?act=getXML",
-        "download_xml_url": "http://localhost:8000/?act=downloadXML&url=",
+        "_generate_xml_url": "http://localhost:8000/?act=getXML",
+        "_download_xml_url": "http://localhost:8000/?act=downloadXML&url=",
+        "api": {
+            "isAuth": "http://localhost:8000/src/php/api.php?action=isAuth&debug=1",
+            "getFiles": "http://localhost:8000/src/php/api.php?action=getFiles&debug=1",
+            "saveFile": "http://localhost:8000/src/php/api.php?action=saveFile&debug=1",
+            "deleteFile": "http://localhost:8000/src/php/api.php?action=deleteFile&debug=1"
+        },
         "lang": "fr",
         "_changeview_format": "'button' or 'list' value",
         "changeview": {
             "format": "list",
-            "list": ["mdEditData", "mdEditData2", "mdLive", "mdViewData", "mdTest"],
+            "list": ["mdEditData", "mdEditData2", "mdLive", "mdEditMap", "mdViewData"],
             "icon": "far fa-eye"
         },
         "template": "empty",
@@ -36,13 +42,23 @@
     },
     "models": {
         "empty": {
-            "name": "Modèle vide",
+            "name": "Vide",
             "description": "Modèle vide",
             "file": "config/models/empty.xml"
         },
+        "opendata": {
+            "name": "Données ouvertes",
+            "description": "Modèle données ouvertes (open data)",
+            "file": "config/models/opendata.xml"
+        },
+        "map": {
+            "name": "Carte",
+            "description": "Modèle pour les cartes",
+            "file": "config/models/map.xml"
+        },
         "bdocs": {
             "name": "BdOCS CIGAL 2000, 2008, 2011/12",
-            "description": "BdOCS CIGAL 2000, 2008, 2011/12",
+            "description": "Exemple de fiche préremplie: BdOCS CIGAL 2000, 2008, 2011/12",
             "file": "config/models/bdocs.xml"
         }
     },
@@ -57,16 +73,42 @@
                 "en": "Home (EN)",
                 "de": "Home (DE)"
             },
+            "description": {
+                "fr": "Page d'accueil de l'application.",
+                "en": "Home view",
+                "de": "Home view (DE)"
+            },
             "locales": {
                 "fr": "config/views/home/locales.fr.json",
                 "en": "config/views/home/locales.en.json",
                 "de": "config/views/home/locales.de.json"
             }
         },
+        "mdList": {
+            "url": "app.mdList",
+            "path": "config/views/md-list/md-list.html",
+            "icon": "fas fa-list-alt",
+            "name": {
+                "fr": "Liste de vos fichiers XML",
+                "en": "mdList view (EN)",
+                "de": "mdList view (DE)"
+            },
+            "description": {
+                "fr": "Cette vue spécifique vous permet de lister les fichiers XML présents sur votre espace de travail Pydio.",
+                "en": "mdList view",
+                "de": "mdList view (DE)"
+            },
+            "locales": {
+                "fr": "config/views/md-list/locales.fr.json",
+                "en": "config/views/md-list/locales.en.json",
+                "de": "config/views/md-list/locales.de.json"
+            }
+        },
         "mdEditData": {
             "url": "app.mdEditData",
             "path": "config/views/md-edit-data/md-edit-data.html",
-            "icon": "fas fa-pencil-alt",
+            "model": "empty",
+            "icon": "fas fa-database",
             "type": "mdEdit",
             "default": true,
             "hierarchyLevels": ["dataseries", "dataset"],
@@ -95,7 +137,8 @@
         "mdEditData2": {
             "url": "app.mdEditData2",
             "path": "config/views/md-edit-data2/md-edit-data2.html",
-            "icon": "fas fa-pencil-alt",
+            "model": "opendata",
+            "icon": "fas fa-database",
             "type": "mdEdit",
             "default": true,
             "hierarchyLevels": ["dataseries", "dataset"],
@@ -110,7 +153,7 @@
                 "de": "Edit view (DE)"
             },
             "description": {
-                "fr": "Formulaire de saisie des métadonnées de mdEdit 2. Il est basé sur un système d'onglets verticaux servant de sommaire dans l'affichage des différents groueps de champs.",
+                "fr": "Formulaire de saisie des métadonnées de mdEdit 2. Il est basé sur un système d'onglets verticaux servant de sommaire dans l'affichage des différents groupes de champs.",
                 "en": "Edit view",
                 "de": "Edit view (DE)"
             },
@@ -124,7 +167,8 @@
         "mdTest": {
             "url": "app.mdTest",
             "_path": "config/views/md-test/md-test.html",
-            "model": "config/views/md-test/model.xml",
+            "_model": "config/views/md-test/model.xml",
+            "model": "bdocs",
             "icon": "fas fa-question",
             "type": "mdEdit",
             "default": true,
@@ -140,7 +184,7 @@
                 "de": "Test form (DE)"
             },
             "description": {
-                "fr": "Formulaire de test. Il ne dois pas être utilisé pour la saisie des métadonnées.",
+                "fr": "Formulaire de test. Utilisé pour le développement de l'application, il ne dois pas servir à la saisie des métadonnées.",
                 "en": "Test form",
                 "de": "Test form (DE)"
             },
@@ -154,7 +198,8 @@
         "mdLive": {
             "url": "app.mdLive",
             "path": "config/views/md-live/md-live.html",
-            "icon": "fas fa-pencil-alt",
+            "model": "empty",
+            "icon": "fas fa-database",
             "type": "mdEdit",
             "default": true,
             "hierarchyLevels": ["dataseries", "dataset"],
@@ -164,12 +209,12 @@
                 "de": ["data"]
             },
             "name": {
-                "fr": "Formulaire LIVE/ZAEU",
+                "fr": "Formulaire LIVE",
                 "en": "LIVE/ZAEU form",
                 "de": "LIVE/ZAEU form (DE)"
             },
             "description": {
-                "fr": "Formulaire de saisie des fiches de métadonnées du Laboratoire Image Ville Environnement (LIVE) de la faculté de Géographie de Strasbourg.",
+                "fr": "Formulaire de saisie des fiches de métadonnées du Laboratoire Image Ville Environnement - UMR 7362 CNRS– UNISTRA.",
                 "en": "LIVE/ZAEU form",
                 "de": "LIVE/ZAEU form (DE)"
             },
@@ -183,7 +228,8 @@
         "mdEditMap": {
             "url": "app.mdEditMap",
             "path": "config/views/md-edit-map/md-edit-map.html",
-            "icon": "fa-pencil-alt",
+            "model": "map",
+            "icon": "fas fa-map",
             "type": "mdEdit",
             "default": true,
             "hierarchyLevels": ["dataseries", "dataset"],
@@ -193,20 +239,26 @@
                 "de": ["data"]
             },
             "name": {
-                "fr": "Vue édition",
-                "en": "Edit view",
-                "de": "Edit view (DE)"
+                "fr": "Formulaire pour les cartes",
+                "en": "Edit map",
+                "de": "Karte (DE)"
+            },
+            "description": {
+                "fr": "Formulaire de saisie des fiches de métadonnées de cartes.",
+                "en": "Map form",
+                "de": "Karte form (DE)"
             },
             "locales": {
                 "fr": "config/views/md-edit-map/locales.fr.json",
                 "en": "config/views/md-edit-map/locales.en.json",
                 "de": "config/views/md-edit-map/locales.de.json"
-            }
+            },
+            "extentsFile": "config/views/md-edit-map/extents.json"
         },
         "mdViewData": {
             "url": "app.mdViewData",
             "_path": "config/views/md-view-data/md-view-data.html",
-            "icon": "far fa-eye",
+            "icon": "fas fa-eye",
             "type": "mdView",
             "default": false,
             "hierarchyLevels": ["dataseries", "dataset"],

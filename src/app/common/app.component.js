@@ -9,7 +9,6 @@ const AppComponentController = class AppComponentController {
         this.XmlConverterService = XmlConverterService;
         this.StoreService = StoreService;
         this.LodashService = LodashService;
-        // this.DownloadjsService = DownloadjsService;
     }
 
     getViews(views, type) {
@@ -30,21 +29,29 @@ const AppComponentController = class AppComponentController {
         return changeViews;
     }
 
+    initMdjs() {
+        // this.mdjs = this.XmlConverterService.xml2js(this.xml)
+        this.mdjs = this.LodashService.lodash.merge(
+            this.XmlConverterService.xml2js(this.defaultXml),
+            this.XmlConverterService.xml2js(this.xml)
+        );
+        this.StoreService.setData({
+            mdjs: this.mdjs
+        });
+    }
+
     $onInit() {
         this.mdViews = this.getViews(this.appConfig.views, 'mdView');
         this.mdEditViews = this.getViews(this.appConfig.views, 'mdEdit');
         this.isHome = (this.$state.current.name === 'app.home');
         this.isMdView = (Object.keys(this.mdViews).includes(this.$state.current.name.split('.')[1]));
         this.isMdEditView = (Object.keys(this.mdEditViews).includes(this.$state.current.name.split('.')[1]));
+        this.isMdListView = (this.$state.current.name === 'app.mdList');
 
         this.mdjs = this.StoreService.getData().mdjs;
-        if (this.mdjs == undefined) {
-            this.mdjs = this.XmlConverterService.xml2js(this.xml);
-            this.StoreService.setData({
-                mdjs: this.mdjs
-            });
+        if (this.mdjs == undefined || this.url) {
+            this.initMdjs();
         }
-        // console.log(this.mdjs);
 
         this.helpButton = {
             icon: 'fa-info-circle',
@@ -69,36 +76,50 @@ const AppComponentController = class AppComponentController {
         };
 
         this.xmlLoadButton = {
+            hide: this.isHome || this.isMdListView,
             icon: 'fa-file-download',
             tooltip: this.appLocales.ui.bt_xml_load,
             format: 'button',
             text: this.appLocales.ui.bt_xml_load,
             title: this.appLocales.ui.bt_xml_load,
             models: this.appConfig.models,
+            proxy: this.appConfig.app.proxy,
             onLoad: (xml) => {
-                var mdjs = this.XmlConverterService.xml2js(xml);
+                var mdjs = this.LodashService.lodash.merge(
+                    this.XmlConverterService.xml2js(this.defaultXml),
+                    this.XmlConverterService.xml2js(xml)
+                );
                 this.StoreService.setData({
                     mdjs: mdjs
                 });
-                // console.log('onLoad', this.mdjs);
             }
         };
 
         this.xmlSaveButton = {
-            icon: 'fa-file-upload',
+            hide: this.isHome || this.isMdListView,
+            icon: {
+                download: 'fa-file-upload',
+                save: 'fa-save'
+            },
             tooltip: this.appLocales.ui.bt_xml_save,
             format: 'button',
-            text: this.appLocales.ui.bt_xml_save,
+            text: {
+                save: this.appLocales.ui.bt_xml_save,
+                download: this.appLocales.ui.bt_xml_download
+            },
             title: this.appLocales.ui.bt_xml_save,
-            // mdjs: this.mdjs,
             getData: () => {
                 return this.StoreService.getData().mdjs;
             },
-            saveData: (mdjs) => {
-                // this.mdjs = mdjs;
-                // console.log(angular.copy(mdjs))
+            setData: (mdjs) => {
                 this.StoreService.setData({
                     mdjs: angular.copy(mdjs)
+                });
+            },
+            saveData: (filename, content) => {
+                this.UtilsService.post(this.appConfig.app.api.saveFile, {
+                    filename: filename,
+                    content: content
                 });
             }
         };
@@ -107,17 +128,17 @@ const AppComponentController = class AppComponentController {
             this.appConfig.app.view = this.$state.current.name.split('.').pop();
         }
         this.changeViewButton = {
-            hide: this.isHome,
+            hide: this.isHome || this.isMdListView,
             tooltip: this.appLocales.ui.tooltip_changeview,
             views: this.getChangeViews(this.appConfig.views, this.appConfig.app.changeview.list),
             view: this.appConfig.app.view,
             format: this.appConfig.app.changeview.format,
             icon: this.appConfig.app.changeview.icon,
             onChangeView: (view) => {
-                this.$state.transitionTo(this.appConfig.views[view].url, this.$stateParams, {
-                    reload: true,
-                    inherit: true,
-                    notify: true
+                this.$state.transitionTo(this.appConfig.views[view].url, false, {
+                    reload: false,
+                    inherit: false,
+                    notify: false
                 });
             }
         };
@@ -129,6 +150,24 @@ const AppComponentController = class AppComponentController {
                 home: this.appConfig.views['home']
             },
             view: 'home',
+            format: 'button',
+            onChangeView: (view) => {
+                this.initMdjs();
+                this.$state.transitionTo(this.appConfig.views[view].url, false, {
+                    reload: true,
+                    inherit: false,
+                    notify: false
+                });
+            }
+        };
+
+        this.mdListButton = {
+            hide: this.isMdListView || this.isHome || !this.auth.sec_editor,
+            tooltip: this.appLocales.ui.tooltip_mdlist,
+            views: {
+                mdList: this.appConfig.views['mdList']
+            },
+            view: 'mdList',
             format: 'button',
             onChangeView: (view) => {
                 this.$state.transitionTo(this.appConfig.views[view].url, false, {
@@ -166,7 +205,9 @@ export const appComponent = {
         header: '<',
         footer: '<',
         xml: '<',
-        url: '@'
+        defaultXml: '<',
+        url: '@',
+        auth: '<'
     },
     template: template,
     controller: AppComponentController

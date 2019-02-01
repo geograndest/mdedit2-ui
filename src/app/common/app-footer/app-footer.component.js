@@ -10,7 +10,8 @@ export const appFooterComponent = {
     bindings: {
         copyrights: '<',
         mentionsButton: '<',
-        changeLangButton: '<'
+        changeLangButton: '<',
+        auth: '<'
     },
     template: template,
     controller: appFooterController,

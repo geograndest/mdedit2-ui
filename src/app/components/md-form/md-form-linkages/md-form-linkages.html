@@ -8,8 +8,9 @@
     </label> -->
     <div class="w-100">
         <span class="h5" uib-tooltip="{{$ctrl.field.description}}" tooltip-trigger="mouseenter" tooltip-placement="right">{{$ctrl.field.label}}</span>
-        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}" text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}"></page-modal-button>
-        <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-plus" aria-hidden="true" ng-click="$ctrl.onAddConformity()"></button>
+        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}"
+            text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}"></page-modal-button>
+        <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-plus" aria-hidden="true" ng-click="$ctrl.onAddLinkage()"></button>
     </div>
     <div class="row">
         <div class="col-md-3">
@@ -57,5 +58,7 @@
         </div>
     </div>
     <!-- {{$ctrl.linkages}} -->
-    <md-form-linkage ng-repeat="(key, linkage) in $ctrl.linkages track by $index" multi="{{$ctrl.multi}}" linkage="linkage" fields="$ctrl.field.linkage" update-linkage="$ctrl.updateLinkages(key, linkage)" key="{{key}}" remove-linkage="$ctrl.onRemoveLinkage(key)" protocols="$ctrl.protocols" locales="$ctrl.locales"></md-form-linkage>
+    <md-form-linkage ng-repeat="(key, linkage) in $ctrl.linkages track by $index" multi="{{$ctrl.multi}}" linkage="linkage"
+        fields="$ctrl.field.linkage" update-linkage="$ctrl.updateLinkages(key, linkage)" key="{{key}}" remove-linkage="$ctrl.onRemoveLinkage(key)"
+        protocols="$ctrl.protocols" locales="$ctrl.locales"></md-form-linkage>
 </div>

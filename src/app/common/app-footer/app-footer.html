@@ -3,22 +3,9 @@
         <div class="container-fluid">
             <div class="navbar-text navbar-left">
                 <a ng-href="{{$ctrl.copyrights.url}}" target="_blank" class="navbar-link">{{$ctrl.copyrights.text}}</a>
-                <!-- <span ng-hide="$ctrl.cswInfos.hide == true">
-                    - 
-                    <csw-infos csw-url="{{$ctrl.cswInfos.cswUrl}}" capabilities="$ctrl.cswInfos.capabilities"></csw-infos>
-                </span> -->
-                <!-- <a ng-href="{{$ctrl.config.catalog.csw.capabilities.url}}" target="_blank" class="navbar-link" popover-trigger="'mouseenter'" uib-popover-template="'config/catalog/popover-csw-url.html'" popover-placement="top" popover-popup-close-delay="2000" popover-title="CSW GetCapabilities information">{{$ctrl.config.locale.app.ui.csw_url}}</a> -->
+                <!-- <div ng-if="$ctrl.auth.sec_editor" class="p-1 badge badge-primary">{{$ctrl.auth.sec_username}}</div> -->
             </div>
-            <!-- <div ng-hide="$ctrl.loading.value === 0" id="alert" class="navbar-text navbar-left" role="alert">
-                <uib-progressbar class="progress-striped active" value="1 / $ctrl.loading * 100" type="info">{{$ctrl.config.locale.app.ui.loading}}</uib-progressbar>
-            </div> -->
             <div class="navbar-text navbar-right">
-                <!-- <span ng-hide="$ctrl.config.module != 'catalog'">
-                    {{$ctrl.config.catalog.csw.nb_records_visible}} / {{$ctrl.config.catalog.csw.nb_records_matched}} -
-                </span> -->
-                <!-- <span ng-hide="$ctrl.cswStats.hide == true">
-                    <csw-stats visible-records="{{$ctrl.cswStats.visibleRecords}}" matched-records="{{$ctrl.cswStats.matchedRecords}}"></csw-stats>
-                </span> -->
                 <page-modal-button format="{{$ctrl.mentionsButton.format}}" text="{{$ctrl.mentionsButton.text}}" title="{{$ctrl.mentionsButton.title}}" content-url="$ctrl.mentionsButton.contentUrl">
                 </page-modal-button>
                 -

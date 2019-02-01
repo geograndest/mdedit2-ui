@@ -14,7 +14,7 @@ const mdLiveController = class MdLiveController {
         });
         this.extentsFile = this.appConfig.views.mdLive.extentsFile;
         //  Just to have current date value and can use it in the view
-        this.currentDate = Date.now()
+        this.currentDate = new Date()
     }
 
     update(space, field, fieldValue, separator) {

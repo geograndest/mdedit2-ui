@@ -11377,6 +11377,9 @@ a[ng-click] {
 .table-line {
   margin-top: 5px; }
 
+.modal-lg {
+  max-width: 45% !important; }
+
 /* Make clicks pass-through */
 #loading-bar,
 #loading-bar-spinner {

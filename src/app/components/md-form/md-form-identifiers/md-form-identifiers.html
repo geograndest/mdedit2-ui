@@ -22,7 +22,7 @@
                 </page-modal-button>
             </label>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5" ng-if="$ctrl.fields.codeSpace.display !== 'none'">
             <label class="control-label" for="{{$ctrl.field.identifier.codeSpace.name}}" uib-tooltip="{{$ctrl.field.identifier.codeSpace.description}}" tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
                 {{$ctrl.field.identifier.codeSpace.label}}
                 <page-modal-button format="{{$ctrl.field.identifier.codeSpace.helpButton.format}}" title="{{$ctrl.field.identifier.codeSpace.helpButton.title}}"

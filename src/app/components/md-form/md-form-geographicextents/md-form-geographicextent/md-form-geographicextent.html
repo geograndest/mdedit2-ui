@@ -1,18 +1,24 @@
 <div class="row table-line">
     <div class="col-md-3">
-        <md-form-element type="text" md="$ctrl.geographicextent" field="$ctrl.fields.extentName" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)" list="$ctrl.extents" select-item="$ctrl.onSelectGeographixExtent(item, model, label, index)" locales="$ctrl.locales"></md-form-element>
+        <md-form-element type="text" md="$ctrl.geographicextent" field="$ctrl.fields.extentName" space="md" edit="true"
+            update="$ctrl.onSave(space, field, fieldValue)" list="$ctrl.extents" select-item="$ctrl.onSelectGeographixExtent(item, model, label, index)"
+            locales="$ctrl.locales"></md-form-element>
     </div>
     <div class="col-md-2">
-        <md-form-element type="text" md="$ctrl.geographicextent" field="$ctrl.fields.geographicExtentWestBound" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
+        <md-form-element type="text" md="$ctrl.geographicextent" field="$ctrl.fields.geographicExtentWestBound" space="md"
+            edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
     </div>
     <div class="col-md-2">
-        <md-form-element type="text" md="$ctrl.geographicextent" field="$ctrl.fields.geographicExtentEastBound" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
+        <md-form-element type="text" md="$ctrl.geographicextent" field="$ctrl.fields.geographicExtentEastBound" space="md"
+            edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
     </div>
     <div class="col-md-2">
-        <md-form-element type="text" md="$ctrl.geographicextent" field="$ctrl.fields.geographicExtentSouthBound" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
+        <md-form-element type="text" md="$ctrl.geographicextent" field="$ctrl.fields.geographicExtentSouthBound" space="md"
+            edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
     </div>
     <div class="col-md-2">
-        <md-form-element type="text" md="$ctrl.geographicextent" field="$ctrl.fields.geographicExtentNorthBound" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
+        <md-form-element type="text" md="$ctrl.geographicextent" field="$ctrl.fields.geographicExtentNorthBound" space="md"
+            edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
     </div>
     <div ng-show="($ctrl.multi).toLowerCase() == 'true'" class="col-md-1">
         <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-minus" aria-hidden="true" ng-click="$ctrl.removeExt()"></button>

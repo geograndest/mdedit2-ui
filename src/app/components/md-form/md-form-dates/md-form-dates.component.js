@@ -12,22 +12,13 @@ const mdFormDatesController = class MdFormDatesController {
         this.XmlConverterService = XmlConverterService;
     }
 
-    emptyValues() {
-        this.datecreation = this.XmlConverterService.setValue({}, 'md', 'date', '');
-        this.dateedition = this.XmlConverterService.setValue({}, 'md', 'date', '');
-        this.datepublication = this.XmlConverterService.setValue({}, 'md', 'date', '');
-    }
-
     isValidField(key) {
         return true;
     }
 
-    $onInit() {
-        this.emptyValues();
-    }
+    $onInit() {}
 
     getValues() {
-        this.emptyValues();
         var dates = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
         for (var i = 0; i < dates.length; i++) {
             var dateType = this.XmlConverterService.getValue(dates[i], this.space, 'dateType');
@@ -41,6 +32,9 @@ const mdFormDatesController = class MdFormDatesController {
                 this.datepublication = dates[i];
             }
         }
+        this.datecreation = this.datecreation || {};
+        this.dateedition = this.dateedition || {};
+        this.datepublication = this.datepublication || {};
     }
 
     $onChanges(changes) {
@@ -51,13 +45,16 @@ const mdFormDatesController = class MdFormDatesController {
 
     updateDate(space, field, fieldValue, dateType) {
         if (dateType == 'creation') {
-            this.XmlConverterService.setValue(this.datecreation, space, field, fieldValue);
+            this.datecreation = this.XmlConverterService.setValue(this.datecreation, space, field, fieldValue);
+            this.XmlConverterService.setValue(this.datecreation, space, 'dateType', [dateType]);
         }
         if (dateType == 'edition') {
             this.dateedition = this.XmlConverterService.setValue(this.dateedition, space, field, fieldValue);
+            this.XmlConverterService.setValue(this.dateedition, space, 'dateType', [dateType]);
         }
         if (dateType == 'publication') {
             this.datepublication = this.XmlConverterService.setValue(this.datepublication, space, field, fieldValue);
+            this.XmlConverterService.setValue(this.datepublication, space, 'dateType', [dateType]);
         }
         var dates = [this.datecreation, this.dateedition, this.datepublication];
         this.update({

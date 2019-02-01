@@ -32,18 +32,41 @@
         <div class="col-md-7">
             <!-- DONE: contacts.deliveryPoint -->
             <md-form-element type="textarea" md="$ctrl.contact.value" field="$ctrl.fields.deliveryPoints" space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue, '\n')" locales="$ctrl.locales"></md-form-element>
+            <div class="row">
+                <!-- DONE: contacts.postalCode -->
+                <div class="col-md-4">
+                    <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.postalCode" label="true" edit="true" space="md" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales">
+                    </md-form-element>
+                </div>
+                <!-- DONE: contacts.city -->
+                <div class="col-md-8">
+                    <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.city" space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales">
+                    </md-form-element>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <!-- DONE: contacts.postalCode -->
-        <div class="col-md-4">
-            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.postalCode" label="true" edit="true" space="md" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales">
+    <div class="row" ng-if="$ctrl.fields.logoDescription.display !== 'none'">
+        <!-- DONE: logo -->
+        <div class="col-md-5">
+            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.logoUrl" space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales">
             </md-form-element>
         </div>
-        <!-- DONE: contacts.city -->
-        <div class="col-md-8">
-            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.city" space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales">
+        <div class="col-md-5">
+            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.logoDescription" space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
+        </div>
+        <div class="col-md-2">
+            <md-form-image md="$ctrl.contact.value" field="$ctrl.fields.logoUrl" space="md" locales="$ctrl.locales"></md-form-image>
+        </div>
+    </div>
+    <div class="row" ng-if="$ctrl.fields.logoDescription.display == 'none'">
+        <!-- DONE: logo -->
+        <div class="col-md-10">
+            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.logoUrl" space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales">
             </md-form-element>
+        </div>
+        <div class="col-md-2">
+            <md-form-image md="$ctrl.contact.value" field="$ctrl.fields.logoUrl" space="md" locales="$ctrl.locales"></md-form-image>
         </div>
     </div>
     <div class="row">
@@ -56,20 +79,6 @@
         <div class="col-md-7">
             <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.emails" space="md" label="true" edit="true" multi="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales">
             </md-form-element>
-        </div>
-    </div>
-    <div class="row">
-        <!-- TODO: Logo -->
-        <div class="col-md-5">
-            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.logoUrl" space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales">
-            </md-form-element>
-        </div>
-        <div class="col-md-5">
-            <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.logoDescription" space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
-        </div>
-        <!-- </div> -->
-        <div class="col-md-2">
-            <md-form-image md="$ctrl.contact.value" field="$ctrl.fields.logoUrl" space="md" locales="$ctrl.locales"></md-form-image>
         </div>
     </div>
     <hr />

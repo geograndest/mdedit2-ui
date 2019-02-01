@@ -22,6 +22,9 @@ import {
 import {
     toArray
 } from './xml-converter.filters';
+import {
+    toCode
+} from './xml-converter.filters';
 
 export const xmlConverter = angular.module('xmlConverter', [])
     .service('XmlConverterService', XmlConverterService)
@@ -31,5 +34,6 @@ export const xmlConverter = angular.module('xmlConverter', [])
     .filter('toString', toString)
     .filter('toDate', toDate)
     .filter('toArray', toArray)
+    .filter('toCode', toCode)
     .filter('arrayContains', arrayContains)
     .name;

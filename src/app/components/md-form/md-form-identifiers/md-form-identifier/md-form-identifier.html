@@ -4,7 +4,7 @@
     <div class="col-md-6">
         <md-form-element type="text" md="$ctrl.identifier" field="$ctrl.fields.code" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5" ng-if="$ctrl.fields.codeSpace.display !== 'none'">
         <md-form-element type="text" md="$ctrl.identifier" field="$ctrl.fields.codeSpace" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
     </div>
     <div ng-show="($ctrl.multi).toLowerCase() == 'true'" class="col-md-1">

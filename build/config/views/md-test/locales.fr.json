@@ -265,7 +265,7 @@
             "label": "Date de création/mise à jour de la fiche",
             "placeholder": "",
             "description": "Date de création ou dernière mise à jour de la fiche descriptive des données",
-            "type": "datetime",
+            "type": "date",
             "disabled": "",
             "editable": "true",
             "mandatory": "true",

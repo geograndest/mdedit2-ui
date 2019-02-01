@@ -98,28 +98,8 @@ export class XmlConverter {
         var fields = this.getFields(space);
         var xpath = this.getXpath(fields[field].xpaths);
         var values = jsonpath.query(obj, xpath);
-        if (field == 'mdFileIdentifier') {
-            // console.log(field, obj, values)
-        }
         return values;
     }
-
-    // TODO: Vérifier si utilisé... ?
-    // filterArray(arr, path, filter) {
-    //     var result = [];
-    //     filter = filter || "";
-    //     var fieldNames = path.split(".");
-    //     for (var a = 0; a < arr.length; a++) {
-    //         var item = arr[a];
-    //         for (var f = 0; f < fieldNames.length; f++) {
-    //             item = item[fieldNames[f]];
-    //             if (f == fieldNames.length - 1 && item == filter) {
-    //                 result.push(arr[a]);
-    //             }
-    //         }
-    //     }
-    //     return result;
-    // }
 
     setValue(obj, space, field, values, separator) {
         var fields = this.getFields(space);

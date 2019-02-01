@@ -161,9 +161,9 @@
                         <div class="col-md-6 form-group">
                             <!-- dataInspireKeywords -->
                             <md-form-inspirekeywords type="select" multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataInspireKeywords"
-                                label="true" edit="true" list="$ctrl.mdEditLocales.codelists.MD_InspireTopicCategoryCode"
+                                label="true" edit="true" hide-title="true" list="$ctrl.mdEditLocales.codelists.MD_InspireTopicCategoryCode"
                                 update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales">
-                                </md-form-element>
+                            </md-form-inspirekeywords>
                         </div>
                     </div>
                     <!-- dataKeywordsList -->
@@ -374,7 +374,7 @@
                     <md-form-conformities multi="true" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataDqConformities"
                         label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" pass="$ctrl.mdEditLocales.codelists.MD_PassCode"
                         locales="$ctrl.mdEditLocales.locales">
-                        </md-form-inspireconformities>
+                    </md-form-conformities>
                 </div>
             </div>
         </form>

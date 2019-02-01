@@ -17,8 +17,14 @@ import {
     mdEditData2
 } from './md-edit-data2/md-edit-data2.module';
 import {
+    mdEditMap
+} from './md-edit-map/md-edit-map.module';
+import {
     mdTest
 } from './md-test/md-test.module';
+import {
+    mdList
+} from './md-list/md-list.module';
 import {
     mdLive
 } from './md-live/md-live.module';
@@ -31,7 +37,9 @@ export const appViews = angular
         mdViewMap,
         mdEditData,
         mdEditData2,
+        mdEditMap,
         mdTest,
+        mdList,
         mdLive
     ])
     .name;

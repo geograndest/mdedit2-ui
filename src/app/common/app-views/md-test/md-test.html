@@ -27,11 +27,22 @@
                     </div> -->
                     <div class="row">
                         <div class="col-md-4 form-group">
-                            <md-form-element type="datetime" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.mdDateStamp"
+                            <!-- <md-form-element type="date" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.mdDateStamp"
                                 label="true" edit="true" space="md" value="$ctrl.currentDate" update="$ctrl.update(space, field, fieldValue)"
-                                locales="$ctrl.mdEditLocales.locales"></md-form-element>
+                                locales="$ctrl.mdEditLocales.locales"></md-form-element> -->
                         </div>
                     </div>
+                    <!-- <md-form-temporalextents multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataTemporalExtents"
+                        label="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-temporalextents> -->
+                    <div class="col-md-12 form-group">
+                        <!-- dataDates -->
+                        <md-form-dates multi="false" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataDates"
+                            label="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-dates>
+                    </div>
+                    <!-- dataGeographicExtents -->
+                    <!-- <md-form-geographicextents multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataGeographicExtents"
+                        label="true" extents-file="{{$ctrl.extentsFile}}" update="$ctrl.update(space, field, fieldValue)"
+                        locales="$ctrl.mdEditLocales.locales"></md-form-geographicextents> -->
                 </div>
             </div>
         </form>
