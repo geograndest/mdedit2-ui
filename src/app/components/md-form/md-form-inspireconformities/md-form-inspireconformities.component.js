@@ -4,7 +4,6 @@ const mdFormInspireconformitiesController = class MdFormInspireconformitiesContr
     constructor(XmlConverterService) {
         'ngInject';
         this.XmlConverterService = XmlConverterService;
-        // console.log('constructor: mdFormInspireconformitiesController controller');
     }
 
     $onInit() {}

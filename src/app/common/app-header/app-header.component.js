@@ -15,7 +15,9 @@ export const appHeaderComponent = {
         changeViewButton: '<',
         xmlLoadButton: '<',
         xmlSaveButton: '<',
-        homeButton: '<'
+        homeButton: '<',
+        mdListButton: '<',
+        auth: '<'
     },
     template: template,
     controller: appHeaderController,

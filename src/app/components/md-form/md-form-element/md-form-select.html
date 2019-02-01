@@ -48,7 +48,7 @@
 <!-- Multi field: use table -->
 <table class="table table-sm" ng-if="$ctrl.multi == 'true'">
     <tr ng-if="$ctrl.label.toLowerCase() == 'true'">
-        <th>
+        <td>
             <label class="control-label" for="{{$ctrl.field.name}}" uib-tooltip="{{$ctrl.field.description}}"
                 tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)" ng-class="$ctrl.isValidField() ? '' : 'text-danger font-weight-bold'">
                 {{$ctrl.field.label}}
@@ -56,11 +56,11 @@
                     text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}">
                 </page-modal-button>
             </label>
-        </th>
-        <th>
+        </td>
+        <td>
             <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-plus" aria-hidden="true"
                 ng-click="$ctrl.addItem()"></button>
-        </th>
+        </td>
     </tr>
     <tr ng-if="fieldValue !== undefined" ng-repeat="(key, fieldValue) in $ctrl.fieldValue track by $index" class="form-group has-feedback"
         ng-class="$ctrl.isValidField() ? '' : 'has-error'">

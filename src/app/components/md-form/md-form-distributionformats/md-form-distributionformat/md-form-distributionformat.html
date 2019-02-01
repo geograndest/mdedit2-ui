@@ -5,15 +5,15 @@
         <md-form-element type="text" md="$ctrl.distributionformat" field="$ctrl.fields.formatName" space="md" edit="true"
             update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
         <md-form-element type="text" md="$ctrl.distributionformat" field="$ctrl.fields.formatVersion" space="md" edit="true"
             update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
     </div>
-    <div class="col-md-4">
-        <md-form-element type="text" md="$ctrl.distributionformat" field="$ctrl.fields.formatSpecification" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
+    <div class="col-md-5">
+        <md-form-element type="text" md="$ctrl.distributionformat" field="$ctrl.fields.formatSpecification" space="md"
+            edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
     </div>
     <div ng-show="($ctrl.multi).toLowerCase() == 'true'" class="col-md-1">
-        <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-minus" aria-hidden="true"
-            ng-click="$ctrl.onRemove()"></button>
+        <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-minus" aria-hidden="true" ng-click="$ctrl.onRemove()"></button>
     </div>
 </div>

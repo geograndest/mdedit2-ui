@@ -1,7 +1,7 @@
 <!-- if format = button -->
 <button type="button" ng-if="$ctrl.format == 'button'" class="btn btn-outline-dark" ng-click="$ctrl.open()">
     <i class="fas {{$ctrl.icon}}">
-    </i> {{$ctrl.text}}
+    </i> <span class="d-none d-lg-inline">{{$ctrl.text}}</span>
 </button>
 <!-- if format = icon -->
 <span ng-if="$ctrl.format == 'icon'" ng-click="$ctrl.open()" class="">

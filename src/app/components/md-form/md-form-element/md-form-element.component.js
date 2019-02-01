@@ -61,8 +61,11 @@ const mdFormElementController = class MdFormElementController {
             this.field.name
         );
         if (this.type == "date" || this.type == "datetime-local") {
-            return value.map((d) => {
-                return new Date(d)
+            value = value.map(function(d) {
+                if (d) {
+                    return new Date(d)
+                }
+                return d
             });
         }
         value = this.getUniqueValues(value)
@@ -89,14 +92,16 @@ const mdFormElementController = class MdFormElementController {
         if (items !== undefined) {
             if (this.type == "date") {
                 items = items.map((d) => {
-                    if (d instanceof Date && !isNaN(d)) {
+                    if (d && d instanceof Date && !isNaN(d)) {
+                        // Set datetime minutes according to local timezone offset
+                        d.setMinutes(d.getMinutes() - d.getTimezoneOffset())
                         return d.toISOString().slice(0, 10);
                     }
                     return d;
                 });
             } else if (this.type == "datetime-local") {
                 items = items.map((d) => {
-                    if (d instanceof Date && !isNaN(d)) {
+                    if (d && d instanceof Date && !isNaN(d)) {
                         return d.toISOString();
                     }
                     return d;

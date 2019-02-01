@@ -38,7 +38,7 @@ const mdFormLinkagesController = class MdFormLinkagesController {
     }
 
     updateLinkages(key, linkage) {
-        linkage = this.XmlConverterService.setValue(linkage, this.space, 'referenceSystemCodeSpace', 'EPSG');
+        // linkage = this.XmlConverterService.setValue(linkage, this.space, 'referenceSystemCodeSpace', 'EPSG');
         this.linkages[key] = linkage;
         this.update({
             space: this.space,

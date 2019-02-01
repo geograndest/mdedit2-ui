@@ -13,9 +13,9 @@ export const home = angular
 
         const homeState = {
             name: 'app.home',
-            url: '/home?name',
+            url: '/home',
             params: {
-                // name: {
+                // url: {
                 //     value: 'none',
                 //     squash: false
                 // }
@@ -24,6 +24,10 @@ export const home = angular
                 homeLocales: (UtilsService, appConfig, lang) => {
                     'ngInject';
                     return UtilsService.getJsonFile(appConfig.views.home.locales[lang]);
+                },
+                homeAuth: (auth) => {
+                    'ngInject';
+                    return auth;
                 }
             },
             component: 'homeComponent'

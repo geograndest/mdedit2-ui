@@ -97,7 +97,27 @@
                                 <gco:Date></gco:Date>
                             </gmd:date>
                             <gmd:dateType>
-                                <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_DateTypeCode" codeListValue=""></gmd:CI_DateTypeCode>
+                                <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_DateTypeCode" codeListValue="creation"></gmd:CI_DateTypeCode>
+                            </gmd:dateType>
+                        </gmd:CI_Date>
+                    </gmd:date>
+                    <gmd:date>
+                        <gmd:CI_Date>
+                            <gmd:date>
+                                <gco:Date></gco:Date>
+                            </gmd:date>
+                            <gmd:dateType>
+                                <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_DateTypeCode" codeListValue="edition"></gmd:CI_DateTypeCode>
+                            </gmd:dateType>
+                        </gmd:CI_Date>
+                    </gmd:date>
+                    <gmd:date>
+                        <gmd:CI_Date>
+                            <gmd:date>
+                                <gco:Date></gco:Date>
+                            </gmd:date>
+                            <gmd:dateType>
+                                <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_DateTypeCode" codeListValue="publication"></gmd:CI_DateTypeCode>
                             </gmd:dateType>
                         </gmd:CI_Date>
                     </gmd:date>

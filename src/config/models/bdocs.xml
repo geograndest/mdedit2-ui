@@ -128,6 +128,17 @@ Parc de la Cimaise</gco:CharacterString>
             </gmd:referenceSystemIdentifier>
         </gmd:MD_ReferenceSystem>
     </gmd:referenceSystemInfo>
+    <gmd:referenceSystemInfo>
+        <gmd:MD_ReferenceSystem>
+            <gmd:referenceSystemIdentifier>
+                <gmd:RS_Identifier>
+                    <gmd:code>
+                        <gco:CharacterString>2154</gco:CharacterString>
+                    </gmd:code>
+                </gmd:RS_Identifier>
+            </gmd:referenceSystemIdentifier>
+        </gmd:MD_ReferenceSystem>
+    </gmd:referenceSystemInfo>
     <gmd:identificationInfo>
         <gmd:MD_DataIdentification>
             <gmd:citation>

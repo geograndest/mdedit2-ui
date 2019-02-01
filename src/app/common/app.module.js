@@ -108,8 +108,19 @@ export const app = angular
                     if (url) {
                         file = url;
                     }
-                    return UtilsService.getFile(file);
+                    return UtilsService.get(file);
                 },
+                defaultXml: (UtilsService, appConfig) => {
+                    'ngInject';
+                    var template = appConfig.app.template;
+                    var file = appConfig.models[template].file;
+                    return UtilsService.get(file);
+                },
+                auth: (UtilsService, appConfig) => {
+                    'ngInject';
+                    var url = appConfig.app.api.isAuth;
+                    return UtilsService.get(url);
+                }
             },
             component: 'app',
         };

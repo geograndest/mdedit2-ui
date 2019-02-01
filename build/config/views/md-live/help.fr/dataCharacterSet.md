@@ -10,11 +10,11 @@ Parmi les valeurs possibles d’encodage des caractères de la fiche définies p
 
 ## Recommandations
 
-La valeur par défaut est « utf8 ».
+La valeur par défaut est « utf8 ». En cas de doute, il ne pas la modifier.
 
 ## Exemples
 
-- Jeu de caractères : « utf8 »
-- Jeu de caractères : « 8859part1 »
+-   Jeu de caractères : « utf8 »
+-   Jeu de caractères : « 8859part1 »
 
 <!-- End @dataCharacterSet.md -->

@@ -88,6 +88,7 @@ export const mdFormInspirekeywordsComponent = {
         field: '<',
         list: '<',
         locales: '<',
+        hideTitle: '@',
         multi: '@',
         label: '@',
         space: '@',

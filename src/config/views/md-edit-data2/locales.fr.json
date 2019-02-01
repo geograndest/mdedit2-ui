@@ -275,6 +275,7 @@
                     "placeholder": "ex.: Logo du partenariat CIGAL",
                     "description": "Description du logo de l'organisme",
                     "disabled": "",
+                    "display": "none",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
@@ -464,6 +465,7 @@
                     "description": "Espace de nommage pour les identifiants de la base de données",
                     "disabled": "",
                     "editable": "true",
+                    "display": "none",
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",

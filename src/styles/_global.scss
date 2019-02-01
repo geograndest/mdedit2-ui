@@ -25,6 +25,7 @@ a[ng-click] {
     margin-bottom: 2px;
 }
 
+
 /* borderless table */
 
 // .table.table-borderless td, .table.table-borderless th {
@@ -44,4 +45,8 @@ a[ng-click] {
 
 .table-line {
     margin-top: 5px;
+}
+
+.modal-lg {
+    max-width: 45% !important;
 }

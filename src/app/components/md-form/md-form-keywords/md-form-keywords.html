@@ -8,12 +8,13 @@
     </label> -->
     <div class="w-100">
         <span class="h5" uib-tooltip="{{$ctrl.field.description}}" tooltip-trigger="mouseenter" tooltip-placement="right">{{$ctrl.field.label}}</span>
-        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}" text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}"></page-modal-button>
-        <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-plus" aria-hidden="true" ng-click="$ctrl.onAddConformity()"></button>
+        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}"
+            text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}"></page-modal-button>
+        <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-plus" aria-hidden="true" ng-click="$ctrl.onAddKeyword()"></button>
     </div>
     <div class="row">
         <!-- --{{$ctrl.field.keywords.keyword.name}}-- -->
-        <div class="col-md-3">
+        <div class="col-md-4">
             <label class="control-label" for="{{$ctrl.field.keywords.keyword.name}}" uib-tooltip="{{$ctrl.field.keywords.keyword.description}}"
                 tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
                 {{$ctrl.field.keywords.keyword.label}}
@@ -23,7 +24,7 @@
                 </page-modal-button>
             </label>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label class="control-label" for="{{$ctrl.field.keywords.keywordType.name}}" uib-tooltip="{{$ctrl.field.keywords.keywordType.description}}"
                 tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
                 {{$ctrl.field.keywords.keywordType.label}}
@@ -58,5 +59,7 @@
         </div>
     </div>
     <!-- {{$ctrl.keywords}} -->
-    <md-form-keyword ng-repeat="(key, keyword) in $ctrl.keywordsList track by $index" multi="{{$ctrl.multi}}" keyword="keyword" fields="$ctrl.field.keywords" update-keyword="$ctrl.updateKeywords(key, keyword)" key="{{key}}" remove-keyword="$ctrl.onRemoveKeyword(key)" list="$ctrl.list" locales="$ctrl.locales"></md-form-keyword>
+    <md-form-keyword ng-repeat="(key, keyword) in $ctrl.keywordsList track by $index" multi="{{$ctrl.multi}}" keyword="keyword"
+        fields="$ctrl.field.keywords" update-keyword="$ctrl.updateKeywords(key, keyword)" key="{{key}}" remove-keyword="$ctrl.onRemoveKeyword(key)"
+        list="$ctrl.list" locales="$ctrl.locales"></md-form-keyword>
 </div>

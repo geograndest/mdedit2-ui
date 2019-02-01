@@ -16,7 +16,7 @@ const mdEditData2Controller = class MdEditData2Controller {
         this.active = this.mdEditLocales.defaultActiveTab
         this.tabs = this.mdEditLocales.tabs
         //  Just to have current date value and can use it in the view
-        this.currentDate = Date.now()
+        this.currentDate = new Date()
     }
 
     update(space, field, fieldValue, separator) {

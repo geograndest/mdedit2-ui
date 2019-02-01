@@ -15,7 +15,7 @@ export const mdTest = angular
             name: 'app.mdTest',
             url: '/md-test',
             resolve: {
-                mdEditLocales: (UtilsService, appConfig, lang) => {
+                mdTestLocales: (UtilsService, appConfig, lang) => {
                     'ngInject';
                     return UtilsService.getJsonFile(appConfig.views.mdTest.locales[lang]);
                 }

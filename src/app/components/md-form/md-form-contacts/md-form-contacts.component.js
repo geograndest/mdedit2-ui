@@ -51,9 +51,7 @@ const mdFormContactsController = class MdFormContactsController {
     onDuplicateContact(key) {
         if (this.field.name == 'mdContacts') {
             this.duplicateContact('dataPointOfContacts', this.contacts[key])
-            console.log('Duplicate mdContact to dataPointOfContacts')
         } else if (this.field.name == 'dataPointOfContacts') {
-            console.log('Duplicate dataPointOfContact to mdContacts')
             this.duplicateContact('mdContacts', this.contacts[key])
         }
     }

@@ -6,10 +6,12 @@
 </div>
 <div class="modal-body" id="modal-body">
     <div class="form-group mb-3">
-        <label class="bt-doc control-label" for="" uib-tooltip="$ctrl.model" tooltip-trigger="mouseenter" tooltip-placement="right" ng-click="$ctrl.openModalDoc('doc/html/empty.html')">
+        <label class="bt-doc control-label" for="" uib-tooltip="$ctrl.model" tooltip-trigger="mouseenter"
+            tooltip-placement="right" ng-click="$ctrl.openModalDoc('doc/html/empty.html')">
             Charger un modèle de fiche prérempli
         </label>
-        <select class="form-control input-sm" name="models" ng-options="key as model.name for (key, model) in $ctrl.models" ng-model="key" ng-change="$ctrl.loadModel(key)">
+        <select class="form-control input-sm" name="models" ng-options="key as model.name for (key, model) in $ctrl.models"
+            ng-model="key" ng-change="$ctrl.loadModel(key)">
             <option value="">Sélectionnez un modèle</option>
         </select>
     </div>
@@ -22,15 +24,17 @@
     <div>Charger un fichier XML</div>
     <div class="custom-file mb-3">
         <input type="file" class="custom-file-input" id="file" accept=".xml">
-        <label class="custom-file-label" for="file_input" uib-tooltip="Fichier XML à charger" tooltip-trigger="mouseenter" tooltip-placement="right" data-browse="Sélectionner">
+        <label class="custom-file-label" for="file_input" uib-tooltip="Fichier XML à charger" tooltip-trigger="mouseenter"
+            tooltip-placement="right" data-browse="Sélectionner">
             Sélectionner un fichier
         </label>
     </div>
     <div class="form-group mb-3">
-        <label class="control-label" for="url_input" uib-tooltip="URL à charger" tooltip-trigger="mouseenter" tooltip-placement="right">
+        <label class="control-label" for="url_input" uib-tooltip="URL à charger" tooltip-trigger="mouseenter"
+            tooltip-placement="right">
             Charger une fiche à partir d'un URL (XML)
         </label>
-        <input class="form-control input-sm" type="text" id="url_input" ng-model="$ctrl.url" ng-init="$ctrl.url='https://www.cigalsace.org/geonetwork/srv/fre/xml.metadata.get?uuid=FR-130015258-20170629_md1_BDFPwms'" />
+        <input class="form-control input-sm" type="text" id="url_input" ng-model="$ctrl.url" ng-init="$ctrl.url='https://www.geograndest.fr/geonetwork/srv/fre/xml.metadata.get?uuid=FR-130015258-20170629_md1_BDFPwms'" />
     </div>
 </div>
 <div class="modal-footer">

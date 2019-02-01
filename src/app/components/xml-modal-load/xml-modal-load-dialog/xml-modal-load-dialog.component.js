@@ -8,6 +8,7 @@ const xmlModalLoadDialogController = class XmlModalLoadDialogController {
 
     $onInit() {
         this.title = this.resolve.title;
+        this.proxy = this.resolve.proxy;
         this.models = this.resolve.models;
         this.onLoad = this.resolve.onLoad;
 
@@ -20,8 +21,7 @@ const xmlModalLoadDialogController = class XmlModalLoadDialogController {
     }
 
     loadModel(key_model) {
-        this.XmlModalLoadDialogService.getUrl(this.models[key_model].file, (data) => {
-            // console.log(data)
+        this.XmlModalLoadDialogService.getUrl(this.proxy, this.models[key_model].file, (data) => {
             this.onLoad({
                 xml: data
             });
@@ -31,7 +31,7 @@ const xmlModalLoadDialogController = class XmlModalLoadDialogController {
 
     getFile(url) {
         if (url) {
-            this.XmlModalLoadDialogService.getUrl(url, (data) => {
+            this.XmlModalLoadDialogService.getUrl(this.proxy, url, (data) => {
                 this.onLoad({
                     xml: data
                 });

@@ -1,0 +1,52 @@
+<div id="content" class="container">
+    List des fichiers XML
+    <!-- <button><i class="fas fa-plus-square"></i></button> -->
+
+    <!-- <a class="list-group-item list-group-item-action" ng-repeat="file in $ctrl.files track by $index" ui-sref="app.{{view}}({url:$ctrl.appConfig.models[$ctrl.appConfig.views[view].model].file})" ui-sref-opts="{
+reload: true, inherit: true, notify: true }"> -->
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">File</th>
+                    <th scope="col">Modified</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="file in $ctrl.mdListFiles.files track by $index">
+                    <td class="col-md-1" scope="row">{{$index}}</th>
+                    <td class="col-md-6">
+                        <!-- <a class="font-weight-bold" ng-click="$ctrl.loadFile('app.mdViewData', {url: file.filename})"> -->
+                        <a ui-sref="app.mdViewData({url: file.filename})" ui-sref-opts="{reload: true, inherit: false, notify: false }"
+                            class="text-dark font-weight-bold">
+                            <i class="far fa-file-alt"></i> {{file.title}}
+                        </a>
+                        <div class="small" title="{{file.filename}}"> {{file.basename}}</div>
+                    </td>
+                    <td class="col-md-3">{{file.mtime * 1000 | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                    <td class="col-md-2">
+                        <!-- <div class="btn-group" role="group" aria-label="Basic example"> -->
+                        <!-- <a class="btn btn-outline-dark btn-sm" ng-click="$ctrl.loadFile('app.mdViewData', {url: file.filename})"> -->
+                        <a class="btn btn-outline-dark btn-sm" ui-sref="app.mdViewData({url: file.filename})"
+                            ui-sref-opts="{reload: true, inherit: false, notify: false }">
+                            <i class="far fa-eye"></i>
+                        </a>
+                        <!-- <button type="button" class="btn btn-outline-warning btn-sm" ng-click="$ctrl.loadFile('app.mdEditData2', {url: file.filename})"><i -->
+                        <a class="btn btn-outline-warning btn-sm" ui-sref="app.mdEditData2({url: file.filename})"
+                            ui-sref-opts="{reload: true, inherit: false, notify: false }">
+                            <i class="far fa-edit"></i>
+                        </a>
+                        <button type="button" class="btn btn-outline-danger btn-sm" ng-click="$ctrl.deleteFile(file.basename)">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                        <!-- </div> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

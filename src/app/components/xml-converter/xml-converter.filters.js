@@ -86,6 +86,19 @@ export function translate() {
     }
 };
 
+export function toCode() {
+    return (data, listName) => {
+        if (data && listName) {
+            for (var option in listName) {
+                if (data.toLowerCase().includes(listName[option].search.toLowerCase())) {
+                    data = listName[option].name;
+                }
+            }
+        }
+        return data;
+    }
+};
+
 export function arrayContains() {
     return (data, word, operator) => {
         operator = operator || 'contains';
@@ -114,5 +127,6 @@ export default {
     toArray,
     toDate,
     translate,
+    toCode,
     arrayContains
 };

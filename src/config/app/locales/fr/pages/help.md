@@ -1,69 +1,102 @@
-<!-- title: Aide -->
+# mdedit - Documentation utilisateur (v.160917)
 
-# cswReader - Documentation utilisateur (v.20180301)
+**La présente documentation issue de mdEdit 1. Le fonctionnement reste trés similaire. Cependatn, certaines modifications peuvent appraître. Si vous rencontrez des difficultés, n'hésitez pas à contacter le partenariat [GéoGrandEst](https://www.geograndest.fr).**
 
-cswreader est un outil simple et ouvert de consultation de catalogues de métadonnées conformes au format ISO 19139 / INSPIRE (flux CSW).
+mdEdit est un outil simple et ouvert de saisie, modification et consultation de fiches de métadonnées conformes au format ISO 19139 / INSPIRE et recommandations associées.
 
 Cette application se veut facile d'usage. La présente documentation constitue un simple guide de prise en main.
 
 ## Fonctionnalités principales
 
-cswReader permet :
+mdEdit permet :
 
-- La consultation de flux CSW de métadonnées ISO/INSPIRE sous forme de grille et de liste
-- La recherche de fiches de métadonnées ISO/INSPIRE
-- La consultation d'une fiche de métadonnées ISO/INSPIRE spécifique
+-   La création de fiches de métadonnées ISO/INSPIRE
+-   La modification de fiches de métadonnées ISO/INSPIRE
+-   La visualisation/consultation de fiches de métadonnées ISO/INSPIRE
+-   L'import de fichiers au format XML ISO/Inspire
+-   L'export de fichiers au format XML ISO/Inspire
 
-## Se connecter à cswReader
+**NB**: l'application mdEdit ne propose pas d'espace de stockage. Les fichiers vers lesquels pointe la fiche de métadonnées (miniature, documentation, données, etc.) doivent être stockés sur un serveur public pour ensuite être accessible facilement.
+Pour les partenaires CIGAL, un espace de stockage "Pydio" peut être mis à disposition sur la plateforme https://www.cigalsace.org.
 
-cswReader ne nécessite pas d'authentification pour fonctionner.
+## Se connecter à mdEdit
 
-## Description de l'interface utilisateur
+mdEdit ne nécessite pas d'authentification pour fonctionner. Il vous suffit de vous rendre à l'adresse https://www.cigalsace.org/tools/mdedit pour accéder à l'application et commencer à décrire vos données.
 
-### La page d'accueil
+**NB**: Les personnes authentifiées sur la Géoplateforme CIGAL ont cependant la possibilité d'éditer et d'exporter les fichiers XML directement dans leur espace Pydio.
 
-La page d'accueil présente l'application ainsi que la liste des catalogues consultables.
+## Saisir une fiche de métadonnées
 
-![home.jpg](img/help/home.jpg)
+mdEdit s'ouvre directement sur la vue "édition".
+Une fois l'application chargée, pour décrire vos données, il vous suffit de remplir le formulaire proposé.
 
-### Le catalogue
+![screen_mdedit.jpg](img/help/screen_mdedit.jpg)
 
-Le catalogue liste l'ensemble des fiches disponibles.
-Le nombre total de fiche et celui des fiches visibles (selon filtre et recherche) est présenté en bas de page sous la forme: ![stats.jpg](img/help/stats.jpg)
+L'interface propose les fonctionnalités suivantes:
 
-Pour afficher le détail d'une fiche, il suffit de cliquer sur la fiche correspondante.
+-   Consultation de la documentation de chaque champ. Un clic sur l'intitulé du champ permet d'accéder directement à la documentation de ce champ.
+-   Affichage en vue "Consultation" via le bouton ![bt_view.jpg](img/help/bt_view.jpg)
+-   Masquage des ensemble de champs. Pour cela, cliquez sur le bouton ![bt_accordion.jpg](img/help/bt_accordion.jpg)
+-   Affichage de champs supplémentaires. Le bouton ![bt_showall.jpg](img/help/bt_showall.jpg) permet d'afficher des champs plus techniques ou généralement auto-générés par l'application (identifiant de la fiche, encodage des caratères, etc.).
+-   Gestion des champs multiples. Certains champs, comme les contacts peuvent être multiples. Utilisez les boutons ![bt_plus.jpg](img/help/bt_plus.jpg) et ![bt_minus.jpg](img/help/bt_minus.jpg) pour ajouter ou supprimer une valeur.
 
-Il est possible d'effectuer une recherche et filtrer les résultats (cf. "Détail des fonctionnalités de filtre et de recherche"):
-![search.jpg](img/help/search.jpg)
+**NB**: les utilisateur authentifiés sur la Géoplateforme CIGAL disposent d'un bouton supplémentaire ![bt_listxml.jpg](img/help/bt_listxml.jpg) leur permettant de lister et d'éditer les fichiers de leur espace Pydio. L'utilisateur doit être administrateur de son catalogue.
 
-Les autres boutons de l'interface sont:
-- ![btn_help.jpg](img/help/btn_help.jpg) : afficher la présente fenêtre d'aide
-- ![btn_home.jpg](img/help/btn_home.jpg) : revenir à la page d'accueil
-- ![btn_views.jpg](img/help/btn_views.jpg) : changer l'affichage du catalogue (passer de la vue "grille" à la vue "liste")
-- ![btn_catalog.jpg](img/help/btn_catalog.jpg) : changer de catalogue
-- ![btn_lang.jpg](img/help/btn_lang.jpg) : changer de lang
+## Visualiser/consulter une fiche de métadonnées
 
-La copie d'écran suivante présente la page principale du catalogue.
+Le bouton ![bt_view.jpg](img/help/bt_view.jpg) permet de basculer en vue "consultation". La fiche est alors réorganisée selon une présentation plus adaptée à la lecture.
+Pour revenir à la vue "édition", utilisez le bouton ![bt_edit.jpg](img/help/bt_edit.jpg).
 
-![catalog.jpg](img/help/catalog.jpg)
+## Importer une fiche de métadonnées
 
-### La fiche détaillée
+Pour importer une fiche de métadonnées, cliquez sur le bouton ![bt_import.jpg](img/help/bt_import.jpg).
 
-Lorsque que l'on clique sur une fiche du catalogue, la vue détaillée s'ouvre.
-Pour fermer la fiche, utilisez le bouton ![close.jpg](img/help/btn_close.jpg)
-Vous pouvez également imprimer la fiche pour en disposer au format papier ou l'enregistrer au format PDF (sélectionnez "Microsoft print to PDF" par exemple dans la liste des imprimantes), grâce au bouton ![print.jpg](img/help/btn_print.jpg).
+La fenêtre offre plusieurs possibilités d'import:
 
-![fiche.jpg](img/help/metadata.jpg)
+![modal_import.jpg](img/help/modal_import.jpg)
 
-Si la fiche conteint un lien WFS permettant le téléchargement des données, des boutons avec les formats téléchargeables s'affichent de la façon suivante (fonctionnalité expérimentale).
+Ces possibilités sont:
 
-![wfs-linkages.jpg](img/help/wfs-linkages.jpg)
+-   Import à partir d'un modèle prédéfini proposé directement par mdEdit
+-   Import d'un fichier XML local. Cette opération peut se faire par un simple glisser/déposer sur le bouton "parcourir".
+-   Import d'un fichier XML distant. Pour cela, renseigner l'URL du fichier avant de valider. Cette fonctionnalité permet d'utiliser un fichier existant pour l'adapter ou le mettre à jour.
 
-## Détail des fonctionnalités de filtre et de recherche
+**Astuce**: Grâce à cette troisième possibilité, les parenaires CIGAL peuvent charger un fichier XML à partir de leur espace Pydio, le mettre à jour et ensuite l'enregistrer directement.
 
-Cette fonctionnalité permet de lister les fiches répondant à un critère particulier.
-Pour cela, vous devez utiliser le formulaire suivant:
+## Exporter une fiche de métadonnées
 
-![search.jpg](img/help/search.jpg)
+Pour exporter une fiche au format XML, cliquez sur le bouton ![bt_export.jpg](img/help/bt_export.jpg).
+La fenêtre qui s'ouvre vous permet de visualiser le résultat de la conversion.
 
-Par défaut, la recherche se fait sur l'ensemble du contenu de la fiche.
+![modal_export.jpg](img/help/modal_export.jpg)
+
+Le bouton "Download file" permet soit:
+
+-   D'enregistrer le fichier XML sur votre ordinateur. Le nom du fichier généré correspond à l'identifiant de la fiche.
+-   D'exporter le fichier XML dans votre espace Pydio. Cela nécessite à l'utilisateur d'être authentifié sur la Géoplateforme CIGAL.
+
+**NB**: Pour les utilisateurs authentifié, le fichier est exporté dans _metdata/ORG/filename/filename.xml_ ou ORG est le nom/sigle de l'organisme et filename le nom du fichier. Cela impose d'utiliser l'identifiant de la fiche de métadonnées comme nom de fichier et de respecter l'arborescence ci-dessus.
+
+## Changer la langue de l'interface
+
+Le bouton ![bt_lang.jpg](img/help/bt_lang.jpg) en bas à droite de l'écran propose une liste des langues disponibles pour l'interface. Il vous suffit de choisir celle qui vous convient.
+
+<!-- ## Obtenir un permalien
+
+Le bouton ![bt_link.jpg](img/help/bt_link.jpg) en bas à droite de l'écran permet d'obtenir un permalien.
+Le permalien permet de préciser:
+
+-   le model
+-   la vue
+-   un fichier XML si précisé dans l'URL
+-   la langue -->
+
+<!-- ## Création et mise à jour d'une fiche de l'espace Pydio (utilisateurs authentifiés)
+
+Comme indiqué précédemment, les utilisateurs authentifiés de la Géoplateforme CIGAL peuvent:
+
+- Lister les fichiers XML de leur espace Pydio (bouton ![bt_listxml.jpg](img/help/bt_listxml.jpg))
+- Editer les fichiers XMl de leur espace Pydio
+- Téléverser les nouvelles fiches sur leur espace Pydio
+
+![screen_listxml.jpg](img/help/screen_listxml.jpg) -->

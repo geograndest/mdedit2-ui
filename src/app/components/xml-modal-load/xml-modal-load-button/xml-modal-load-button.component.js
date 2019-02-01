@@ -17,6 +17,9 @@ const xmlModalLoadButtonController = class XmlModalLoadButtonController {
                 title: () => {
                     return this.title;
                 },
+                proxy: () => {
+                    return this.proxy;
+                },
                 models: () => {
                     return this.models;
                 },
@@ -38,6 +41,7 @@ export const xmlModalLoadButtonComponent = {
         icon: '@',
         text: '@',
         title: '@',
+        proxy: '@',
         models: "<",
         onLoad: '&'
     },

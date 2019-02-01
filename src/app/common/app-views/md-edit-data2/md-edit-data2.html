@@ -1,7 +1,7 @@
 <div id="content" class="container-fluid mt-3">
 
     <div class="row">
-        <div class="nav flex-column nav-pills col-3 border-secondary border-right" id="v-pills-tab" role="tablist"
+        <div class="nav flex-column nav-pills col-3 border-secondary border-right pl-2" id="v-pills-tab" role="tablist"
             aria-orientation="vertical">
             <a class="nav-link" ng-class="{'active': tab.active}" href role="tab" ng-click="$ctrl.changeTab(index)"
                 ng-repeat="(index, tab) in $ctrl.tabs" uib-tooltip="{{tab.description}}" tooltip-popup-close-delay="100"
@@ -157,7 +157,7 @@
                                     <md-form-inspirekeywords type="select" multi="true" md="$ctrl.mdjs" space="md"
                                         field="$ctrl.mdEditLocales.fields.dataInspireKeywords" label="true" list="$ctrl.mdEditLocales.codelists.MD_InspireTopicCategoryCode"
                                         update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales">
-                                        </md-form-element>
+                                    </md-form-inspirekeywords>
                                 </div>
                             </div>
                             <!-- dataKeywordsList -->
@@ -334,7 +334,7 @@
                             <md-form-conformities multi="true" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataDqConformities"
                                 label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
                                 pass="$ctrl.mdEditLocales.codelists.MD_PassCode" locales="$ctrl.mdEditLocales.locales">
-                                </md-form-inspireconformities>
+                            </md-form-conformities>
                         </div>
                     </uib-tab>
 

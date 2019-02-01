@@ -2,7 +2,9 @@
 <!-- --{{$ctrl.fields}}-- -->
 <div class="row table-line">
     <div class="col-md-11">
-        <md-form-element type="select" md="$ctrl.referencesystem" field="$ctrl.fields.code" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)" list="$ctrl.list" locales="$ctrl.locales"></md-form-element>
+        <!-- {{$ctrl.referencesystem}} -->
+        <md-form-element type="select" md="$ctrl.referencesystem" field="$ctrl.fields.code" space="md" edit="true"
+            update="$ctrl.onSave(space, field, fieldValue)" list="$ctrl.list" locales="$ctrl.locales"></md-form-element>
     </div>
     <div ng-show="($ctrl.multi).toLowerCase() == 'true'" class="col-md-1">
         <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-minus" aria-hidden="true" ng-click="$ctrl.onRemove()"></button>

@@ -163,7 +163,7 @@ export const mdFields = {
         name: 'dataDates',
         xpaths: {
             value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__citation[0].gmd__CI_Citation[0].gmd__date[*]'
-        },
+        }
     },
     dateType: {
         name: 'type',
@@ -191,11 +191,13 @@ export const mdFields = {
             value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__citation[0].gmd__CI_Citation[0].gmd__identifier[*]'
         }
     },
+    // Only for read data
     dataIdentifiersCodes: {
-        name: 'dataIdentifiers',
+        name: 'dataIdentifiersCode',
+        description: 'only for read',
         xpaths: {
             paths: ['gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__citation[0].gmd__CI_Citation[0].gmd__identifier[*]'],
-            value: 'gmd__RS_Identifier[0].gmd__code[0].gco__CharacterString[0]._text[0]'
+            value: '.gmd__code[0].gco__CharacterString[0]._text[0]'
         }
     },
     code: {
@@ -211,7 +213,7 @@ export const mdFields = {
         }
     },
     mdCode: {
-        name: 'code',
+        name: 'mdCode',
         xpaths: {
             value: 'gmd__MD_Identifier[0].gmd__code[0].gco__CharacterString[0]._text[0]'
         }

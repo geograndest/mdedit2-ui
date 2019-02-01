@@ -10,6 +10,11 @@ export class StoreService {
         return this.state.data;
     }
 
+    // clearData() {
+    //     this.setData({})
+    //     return undefined
+    // }
+
     setData(data) {
         Object.assign(this.state.data, data);
         for (var i = 0; i < this.callbacks.length; i++) {

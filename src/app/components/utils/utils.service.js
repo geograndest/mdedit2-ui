@@ -26,9 +26,12 @@ export class UtilsService {
         }
     }
 
-    getFile(file, callback) {
+    get(file, callback) {
         return this.$http.get(file)
             .then((response) => {
+                if (callback) {
+                    callback(response.data);
+                }
                 return response.data;
             })
             .catch((reason) => {
@@ -36,21 +39,29 @@ export class UtilsService {
             });
     }
 
-    saveFile(serverUrl, fileName, fileContent) {
-        var data = {
-            'filename': fileName,
-            'filecontent': fileContent
-        };
+    post(url, data, callback) {
+        // var data = {
+        //     'filename': fileName,
+        //     'filecontent': fileContent
+        // };
+        // return this.$http({
+        //         method: 'POST',
+        //         url: url,
+        //         dataType: 'json',
+        //         data: data
+        //     })
+        //     .then(function (response) {
+        //         return response.data;
+        //     })
+        return this.$http.post(url, data).then(
+            function(response) {
+                callback(response.data);
+            },
+            function(response) {
+                console.log('Error', data, response)
+            }
+        );
 
-        return this.$http({
-                method: 'POST',
-                url: serverUrl,
-                dataType: 'json',
-                data: data
-            })
-            .then(function (response) {
-                return response.data;
-            })
     }
 
     testRequest(url) {

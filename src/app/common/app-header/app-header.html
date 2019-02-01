@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" ui-sref="app.home" ui-sref-opts="{ reload: true, inherit: false, notify: false }">
         <i class="fas fa-globe-europe"></i> {{:: $ctrl.headerTitle}}
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
-        aria-expanded="false" aria-label="Toggle navigation">
+    <div ng-if="$ctrl.auth.sec_editor" class="mt-1 p-1 badge badge-light border border-primary text-primary">{{$ctrl.auth.sec_username}}</div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -14,66 +14,39 @@
             </li>
         </ul>
         <ul class="navbar-nav mt-2 mt-md-0">
-            <li class="nav-item" uib-tooltip="{{$ctrl.homeButton.tooltip}}" tooltip-trigger="mouseenter"
-                tooltip-placement="bottom" ng-hide="$ctrl.homeButton.hide == true">
+            <li class="nav-item" uib-tooltip="{{$ctrl.homeButton.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="left" ng-hide="$ctrl.homeButton.hide == true">
                 <a role="button" class="mr-3">
-                    <change-view format="{{$ctrl.homeButton.format}}" views="$ctrl.homeButton.views" view="$ctrl.homeButton.view"
-                        on-change="$ctrl.homeButton.onChangeView(view)" lang="$ctrl.lang"></change-view>
+                    <change-view format="{{$ctrl.homeButton.format}}" views="$ctrl.homeButton.views" view="$ctrl.homeButton.view" on-change="$ctrl.homeButton.onChangeView(view)" lang="$ctrl.lang"></change-view>
                 </a>
             </li>
-            <!-- TODO: add ng-if for hide -->
-            <!-- {{$ctrl.xmlLoadButton}} -->
-            <li class="nav-item" uib-tooltip="{{$ctrl.xmlLoadButton.tooltip}}" tooltip-trigger="mouseenter"
-                tooltip-placement="bottom">
+            <li class="nav-item" uib-tooltip="{{$ctrl.mdListButton.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="left" ng-hide="$ctrl.mdListButton.hide == true">
                 <a role="button" class="mr-3">
-                    <xml-modal-load-button format="{{$ctrl.xmlLoadButton.format}}" title="{{$ctrl.xmlLoadButton.title}}"
-                        text="{{$ctrl.xmlLoadButton.text}}" icon="{{$ctrl.xmlLoadButton.icon}}" models="$ctrl.xmlLoadButton.models"
-                        on-load="$ctrl.xmlLoadButton.onLoad(xml)">
+                    <change-view format="{{$ctrl.mdListButton.format}}" views="$ctrl.mdListButton.views" view="$ctrl.mdListButton.view" on-change="$ctrl.mdListButton.onChangeView(view)" lang="$ctrl.lang"></change-view>
+                </a>
+            </li>
+            <li class="nav-item" uib-tooltip="{{$ctrl.xmlLoadButton.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="left" ng-hide="$ctrl.xmlLoadButton.hide == true">
+                <a role="button" class="mr-3">
+                    <xml-modal-load-button format="{{$ctrl.xmlLoadButton.format}}" title="{{$ctrl.xmlLoadButton.title}}" text="{{$ctrl.xmlLoadButton.text}}" icon="{{$ctrl.xmlLoadButton.icon}}" models="$ctrl.xmlLoadButton.models" proxy="{{$ctrl.xmlLoadButton.proxy}}" on-load="$ctrl.xmlLoadButton.onLoad(xml)">
                     </xml-modal-load-button>
                 </a>
             </li>
-            <!-- TODO: add ng-if for hide -->
-            <!-- <li uib-tooltip="{{$ctrl.xmlSaveButton.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="bottom">
-                    <a role="button">
-                        <xml-modal-save-button format="{{$ctrl.xmlSaveButton.format}}" title="{{$ctrl.xmlSaveButton.title}}" text="{{$ctrl.xmlSaveButton.text}}" icon="{{$ctrl.xmlSaveButton.icon}}" mdjs="$ctrl.xmlSaveButton.mdjs" on-save="$ctrl.xmlSaveButton.onSave(data)">
-                        </xml-modal-save-button>
-                    </a>
-                </li> -->
-            <li class="nav-item" uib-tooltip="{{$ctrl.xmlSaveButton.tooltip}}" tooltip-trigger="mouseenter"
-                tooltip-placement="bottom">
+            <li class="nav-item" uib-tooltip="{{$ctrl.xmlSaveButton.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="left" ng-hide="$ctrl.xmlSaveButton.hide == true">
                 <a role="button" class="mr-3">
-                    <xml-save-button format="{{$ctrl.xmlSaveButton.format}}" title="{{$ctrl.xmlSaveButton.title}}" text="{{$ctrl.xmlSaveButton.text}}"
-                        icon="{{$ctrl.xmlSaveButton.icon}}" get-data="$ctrl.xmlSaveButton.getData()" save-data="$ctrl.xmlSaveButton.saveData(mdjs)">
+                    <xml-save-button format="{{$ctrl.xmlSaveButton.format}}" title="{{$ctrl.xmlSaveButton.title}}" text="$ctrl.xmlSaveButton.text" icon="$ctrl.xmlSaveButton.icon" get-data="$ctrl.xmlSaveButton.getData()" set-data="$ctrl.xmlSaveButton.setData(mdjs)" save-data="$ctrl.xmlSaveButton.saveData(filename, content)" auth="$ctrl.auth">
                     </xml-save-button>
                 </a>
             </li>
-            <!-- {{$ctrl.xmlSaveButton.xmlUrl}} -->
-            <li class="nav-item" uib-tooltip="{{$ctrl.changeViewButton.tooltip}}" tooltip-trigger="mouseenter"
-                tooltip-placement="left" ng-hide="$ctrl.changeViewButton.hide == true || $ctrl.changeViewButton.format == ''">
+            <li class="nav-item" uib-tooltip="{{$ctrl.changeViewButton.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="left" ng-hide="$ctrl.changeViewButton.hide == true || $ctrl.changeViewButton.format == ''">
                 <a role="button" class="mr-3">
-                    <change-view format="{{$ctrl.changeViewButton.format}}" views="$ctrl.changeViewButton.views" view="$ctrl.changeViewButton.view"
-                        icon="{{$ctrl.changeViewButton.icon}}" on-change="$ctrl.changeViewButton.onChangeView(view)"
-                        lang="{{$ctrl.lang}}"></change-view>
+                    <change-view format="{{$ctrl.changeViewButton.format}}" views="$ctrl.changeViewButton.views" view="$ctrl.changeViewButton.view" icon="{{$ctrl.changeViewButton.icon}}" on-change="$ctrl.changeViewButton.onChangeView(view)" lang="{{$ctrl.lang}}"></change-view>
                 </a>
             </li>
-            <li class="nav-item" uib-tooltip="{{$ctrl.helpButton.tooltip}}" tooltip-trigger="mouseenter"
-                tooltip-placement="bottom">
+            <li class="nav-item" uib-tooltip="{{$ctrl.helpButton.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="left">
                 <a role="button" class="mr-3">
-                    <page-modal-button format="{{$ctrl.helpButton.format}}" title="{{$ctrl.helpButton.title}}" text="{{$ctrl.helpButton.text}}"
-                        content-url="$ctrl.helpButton.contentUrl" icon="{{$ctrl.helpButton.icon}}"></page-modal-button>
+                    <page-modal-button format="{{$ctrl.helpButton.format}}" title="{{$ctrl.helpButton.title}}" text="{{$ctrl.helpButton.text}}" content-url="$ctrl.helpButton.contentUrl" icon="{{$ctrl.helpButton.icon}}"></page-modal-button>
                 </a>
             </li>
-            <!-- <li uib-tooltip="{{$ctrl.changeCswButton.tooltip}}" tooltip-trigger="mouseenter" tooltip-placement="bottom" ng-hide="$ctrl.changeCswButton.hide == true">
-                    <a role="button">
-                        <change-csw uib-dropdown ng-click="$event.stopPropagation()" button="{text: $ctrl.changeCswButton.text, icon: $ctrl.changeCswButton.icon}" csw-list="$ctrl.changeCswButton.cswList" placeholder="$ctrl.changeCswButton.placeholder" csw-url="$ctrl.changeCswButton.cswUrl"
-                        on-change="$ctrl.changeCswButton.onChangeCsw(cswUrl)"></change-csw>
-                    </a>
-                </li> -->
 
         </ul>
-        <!-- <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form> -->
     </div>
 </nav>
