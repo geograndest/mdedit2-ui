@@ -5,26 +5,43 @@ export const mdFields = {
             value: 'gmd__MD_Metadata[0].gmd__fileIdentifier[0].gco__CharacterString[0]._text[0]'
         }
     },
+    mdParentIdentifier: {
+        name: 'mdParentIdentifier',
+        xpaths: {
+            value: 'gmd__MD_Metadata[0].gmd__parentIdentifier[0].gco__CharacterString[0]._text[0]'
+        }
+    },
     mdLanguage: {
         name: 'mdLanguage',
         xpaths: {
             value: 'gmd__MD_Metadata[0].gmd__language[0].gmd__LanguageCode[0]._text[0]',
-            code: 'gmd__MD_Metadata[0].gmd__language[0].gmd__LanguageCode[0]._attributes.codeListValue'
+            code: 'gmd__MD_Metadata[0].gmd__language[0].gmd__LanguageCode[0]._attributes.codeListValue',
+            codelist: 'gmd__MD_Metadata[0].gmd__language[0].gmd__LanguageCode[0]._attributes.codeList',
+        },
+        values: {
+            codelist: 'http://www.loc.gov/standards/iso639-2/'
         }
-
     },
     mdCharacterSet: {
         name: 'mdCharacterSet',
         xpaths: {
             value: 'gmd__MD_Metadata[0].gmd__characterSet[0].gmd__MD_CharacterSetCode[0]._text[0]',
-            code: 'gmd__MD_Metadata[0].gmd__characterSet[0].gmd__MD_CharacterSetCode[0]._attributes.codeListValue'
+            code: 'gmd__MD_Metadata[0].gmd__characterSet[0].gmd__MD_CharacterSetCode[0]._attributes.codeListValue',
+            codelist: 'gmd__MD_Metadata[0].gmd__characterSet[0].gmd__MD_CharacterSetCode[0]._attributes.codeList',
+        },
+        values: {
+            codelist: 'http://www.isotc211.org/2005/resources/codeList.xml#MD_CharacterSetCode'
         }
     },
     mdHierarchyLevel: {
         name: 'mdHierarchyLevel',
         xpaths: {
             value: 'gmd__MD_Metadata[0].gmd__hierarchyLevel[0].gmd__MD_ScopeCode[0]._text[0]',
-            code: 'gmd__MD_Metadata[0].gmd__hierarchyLevel[0].gmd__MD_ScopeCode[0]._attributes.codeListValue'
+            code: 'gmd__MD_Metadata[0].gmd__hierarchyLevel[0].gmd__MD_ScopeCode[0]._attributes.codeListValue',
+            codelist: 'gmd__MD_Metadata[0].gmd__hierarchyLevel[0].gmd__MD_ScopeCode[0]._attributes.codeList',
+        },
+        values: {
+            codelist: 'http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_ScopeCode'
         }
     },
     mdContacts: {
@@ -124,7 +141,11 @@ export const mdFields = {
         name: 'role',
         xpaths: {
             value: 'gmd__CI_ResponsibleParty[0].gmd__role[0].gmd__CI_RoleCode[0]._text[0]',
-            code: 'gmd__CI_ResponsibleParty[0].gmd__role[0].gmd__CI_RoleCode[0]._attributes.codeListValue'
+            code: 'gmd__CI_ResponsibleParty[0].gmd__role[0].gmd__CI_RoleCode[0]._attributes.codeListValue',
+            codelist: 'gmd__CI_ResponsibleParty[0].gmd__role[0].gmd__CI_RoleCode[0]._attributes.codeList',
+        },
+        values: {
+            codelist: 'http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_RoleCode'
         }
     },
     // CONTACT - end
@@ -133,6 +154,12 @@ export const mdFields = {
         name: 'mdDateStamp',
         xpaths: {
             value: 'gmd__MD_Metadata[0].gmd__dateStamp[0].gco__Date[0]._text[0]'
+        }
+    },
+    mdDateTimeStamp: {
+        name: 'mdDateStamp',
+        xpaths: {
+            value: 'gmd__MD_Metadata[0].gmd__dateStamp[0].gco__DateTime[0]._text[0]'
         }
     },
     mdStandardName: {
@@ -169,7 +196,11 @@ export const mdFields = {
         name: 'type',
         xpaths: {
             value: 'gmd__CI_Date[0].gmd__dateType[0].gmd__CI_DateTypeCode[0]._text[0]',
-            code: 'gmd__CI_Date[0].gmd__dateType[0].gmd__CI_DateTypeCode[0]._attributes.codeListValue'
+            code: 'gmd__CI_Date[0].gmd__dateType[0].gmd__CI_DateTypeCode[0]._attributes.codeListValue',
+            codelist: 'gmd__CI_Date[0].gmd__dateType[0].gmd__CI_DateTypeCode[0]._attributes.codeList',
+        },
+        values: {
+            codelist: 'http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_DateTypeCode'
         }
     },
     dateTime: {
@@ -264,7 +295,11 @@ export const mdFields = {
         name: 'dataMaintenanceFrequency',
         xpaths: {
             value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceMaintenance[0].gmd__MD_MaintenanceInformation[0].gmd__maintenanceAndUpdateFrequency[0].gmd__MD_MaintenanceFrequencyCode[0]._text[0]',
-            code: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceMaintenance[0].gmd__MD_MaintenanceInformation[0].gmd__maintenanceAndUpdateFrequency[0].gmd__MD_MaintenanceFrequencyCode[0]._attributes.codeListValue'
+            code: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceMaintenance[0].gmd__MD_MaintenanceInformation[0].gmd__maintenanceAndUpdateFrequency[0].gmd__MD_MaintenanceFrequencyCode[0]._attributes.codeListValue',
+            codelist: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceMaintenance[0].gmd__MD_MaintenanceInformation[0].gmd__maintenanceAndUpdateFrequency[0].gmd__MD_MaintenanceFrequencyCode[0]._attributes.codeList',
+        },
+        values: {
+            codelist: 'http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_MaintenanceFrequencyCode'
         }
     },
     dataLanguages: {
@@ -274,7 +309,11 @@ export const mdFields = {
                 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__language[*]'
             ],
             value: 'gmd__LanguageCode[0]._text[0]',
-            code: 'gmd__LanguageCode[0]._attributes.codeListValue'
+            code: 'gmd__LanguageCode[0]._attributes.codeListValue',
+            codelist: 'gmd__LanguageCode[0]._attributes.codeList',
+        },
+        values: {
+            codelist: 'http://www.loc.gov/standards/iso639-2/'
         }
     },
     dataTopicCategories: {
@@ -332,7 +371,11 @@ export const mdFields = {
         name: 'keywordType',
         xpaths: {
             text: 'gmd__MD_Keywords[0].gmd__type[0].gmd__MD_KeywordTypeCode[0]._text[0]',
-            value: 'gmd__MD_Keywords[0].gmd__type[0].gmd__MD_KeywordTypeCode[0]._attributes.codeListValue'
+            value: 'gmd__MD_Keywords[0].gmd__type[0].gmd__MD_KeywordTypeCode[0]._attributes.codeListValue',
+            codelist: 'gmd__MD_Keywords[0].gmd__type[0].gmd__MD_KeywordTypeCode[0]._attributes.codeList',
+        },
+        values: {
+            codelist: 'http://www.isotc211.org/2005/resources/codeList.xml#MD_KeywordTypeCode'
         }
     },
     thesaurusName: {
@@ -485,7 +528,11 @@ export const mdFields = {
         name: 'dataSpatialRepresentationType',
         xpaths: {
             value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__spatialRepresentationType[0].gmd__MD_SpatialRepresentationTypeCode[0]._text[0]',
-            code: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__spatialRepresentationType[0].gmd__MD_SpatialRepresentationTypeCode[0]._attributes.codeListValue'
+            code: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__spatialRepresentationType[0].gmd__MD_SpatialRepresentationTypeCode[0]._attributes.codeListValue',
+            codelist: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__spatialRepresentationType[0].gmd__MD_SpatialRepresentationTypeCode[0]._attributes.codeList',
+        },
+        values: {
+            codelist: 'http://www.isotc211.org/2005/resources/codeList.xml#MD_SpatialRepresentationTypeCode'
         }
     },
     dataScaleDenominator: {
@@ -510,7 +557,11 @@ export const mdFields = {
         name: 'dataCharacterSet',
         xpaths: {
             value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__characterSet[0].gmd__MD_CharacterSetCode[0]._text[0]',
-            code: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__characterSet[0].gmd__MD_CharacterSetCode[0]._attributes.codeListValue'
+            code: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__characterSet[0].gmd__MD_CharacterSetCode[0]._attributes.codeListValue',
+            codelist: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__characterSet[0].gmd__MD_CharacterSetCode[0]._attributes.codeList',
+        },
+        values: {
+            codelist: 'http://www.isotc211.org/2005/resources/codeList.xml#MD_CharacterSetCode'
         }
     },
 
@@ -576,7 +627,11 @@ export const mdFields = {
                 'gmd__MD_LegalConstraints[0].gmd__useConstraints[*]'
             ],
             value: 'gmd__MD_RestrictionCode[0]._text[0]',
-            code: 'gmd__MD_RestrictionCode[0]._attributes.codeListValue'
+            code: 'gmd__MD_RestrictionCode[0]._attributes.codeListValue',
+            codelist: 'gmd__MD_RestrictionCode[0]._attributes.codeList',
+        },
+        values: {
+            codelist: 'http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_RestrictionCode'
         }
     },
     dataLegalAccessConstraints: {
@@ -585,10 +640,13 @@ export const mdFields = {
             paths: [
                 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
                 'gmd__MD_LegalConstraints[0].gmd__accessConstraints[*]'
-
             ],
             value: 'gmd__MD_RestrictionCode[0]._text[0]',
-            code: 'gmd__MD_RestrictionCode[0]._attributes.codeListValue'
+            code: 'gmd__MD_RestrictionCode[0]._attributes.codeListValue',
+            codelist: 'gmd__MD_RestrictionCode[0]._attributes.codeList',
+        },
+        values: {
+            codelist: 'http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_RestrictionCode'
         }
     },
     dataLegalAccessInspireConstraints: {
@@ -597,12 +655,25 @@ export const mdFields = {
             paths: [
                 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
                 'gmd__MD_LegalConstraints[0].gmd__otherConstraints[*]'
-
             ],
-            value: 'gco__CharacterString[0]._text[0]',
-            _code: 'gmd__MD_RestrictionCode[0]._attributes.codeListValue'
+            value: 'gco__CharacterString[0]._text[0]'
         }
     },
+    // dataLegalAccessInspireConstraints: {
+    //     name: 'dataLegalAccessInspireConstraints',
+    //     xpaths: {
+    //         paths: [
+    //             'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
+    //         ],
+    //         value: 'gmd__MD_LegalConstraints[0].gmd__otherConstraints[*]'
+    //     }
+    // },
+    // legalAccessInspireConstraint: {
+    //     name: 'legalAccessInspireConstraint',
+    //     xpaths: {
+    //         value: 'gco__CharacterString[0]._text[0]'
+    //     }
+    // },
     dataLegalOtherConstraints: {
         name: 'dataLegalOtherConstraints',
         xpaths: {
@@ -611,8 +682,7 @@ export const mdFields = {
                 'gmd__MD_LegalConstraints[0].gmd__otherConstraints[*]'
 
             ],
-            value: 'gco__CharacterString[0]._text[0]',
-            _code: 'gmd__MD_RestrictionCode[0]._attributes.codeListValue'
+            value: 'gco__CharacterString[0]._text[0]'
         }
     },
     dataSecurityUseLimitations: {
@@ -643,7 +713,11 @@ export const mdFields = {
                 'gmd__MD_SecurityConstraints[0].gmd__classification[*]'
             ],
             value: 'gmd__MD_ClassificationCode[0]._text[0]',
-            code: 'gmd__MD_ClassificationCode[0]._attributes.codeListValue'
+            code: 'gmd__MD_ClassificationCode[0]._attributes.codeListValue',
+            codelist: 'gmd__MD_ClassificationCode[0]._attributes.codeList',
+        },
+        values: {
+            codelist: 'http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_ClassificationCode'
         }
     },
     srvSecurityClassification: {
@@ -654,7 +728,11 @@ export const mdFields = {
                 'gmd__MD_SecurityConstraints[0].gmd__classification[*]'
             ],
             value: 'gmd__MD_ClassificationCode[0]._text[0]',
-            code: 'gmd__MD_ClassificationCode[0]._attributes.codeListValue'
+            code: 'gmd__MD_ClassificationCode[0]._attributes.codeListValue',
+            codelist: 'gmd__MD_ClassificationCode[0]._attributes.codeList',
+        },
+        values: {
+            codelist: 'http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_ClassificationCode'
         }
     },
     dataLinkages: {
@@ -709,7 +787,11 @@ export const mdFields = {
         name: 'type',
         xpaths: {
             value: 'gmd__DQ_DomainConsistency[0].gmd__result[0].gmd__DQ_ConformanceResult[0].gmd__specification[0].gmd__CI_Citation[0].gmd__date[0].gmd__CI_Date[0].gmd__dateType[0].gmd__CI_DateTypeCode[0]._text[0]',
-            code: 'gmd__DQ_DomainConsistency[0].gmd__result[0].gmd__DQ_ConformanceResult[0].gmd__specification[0].gmd__CI_Citation[0].gmd__date[0].gmd__CI_Date[0].gmd__dateType[0].gmd__CI_DateTypeCode[0]._attributes.codeListValue'
+            code: 'gmd__DQ_DomainConsistency[0].gmd__result[0].gmd__DQ_ConformanceResult[0].gmd__specification[0].gmd__CI_Citation[0].gmd__date[0].gmd__CI_Date[0].gmd__dateType[0].gmd__CI_DateTypeCode[0]._attributes.codeListValue',
+            codelist: 'gmd__DQ_DomainConsistency[0].gmd__result[0].gmd__DQ_ConformanceResult[0].gmd__specification[0].gmd__CI_Citation[0].gmd__date[0].gmd__CI_Date[0].gmd__dateType[0].gmd__CI_DateTypeCode[0]._attributes.codeList',
+        },
+        values: {
+            codelist: 'http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_DateTypeCode'
         }
     },
     specificationDate: {

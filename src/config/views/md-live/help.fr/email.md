@@ -1,5 +1,5 @@
 <!-- Begin @email.md -->
 
-Email du contact. Plusieurs emails peuvent être renseignés séparés par un caractère "|".
+Email(s) du contact.
 
 <!-- End @email.md -->

@@ -29,8 +29,9 @@ const AppComponentController = class AppComponentController {
         return changeViews;
     }
 
-    initMdjs() {
-        // this.mdjs = this.XmlConverterService.xml2js(this.xml)
+    loadMdjs(xml) {
+        // this.mdjs = this.XmlConverterService.xml2js(this.xml);
+        this.xml = xml;
         this.mdjs = this.LodashService.lodash.merge(
             this.XmlConverterService.xml2js(this.defaultXml),
             this.XmlConverterService.xml2js(this.xml)
@@ -41,6 +42,7 @@ const AppComponentController = class AppComponentController {
     }
 
     $onInit() {
+        this.auth = this.auth || {};
         this.mdViews = this.getViews(this.appConfig.views, 'mdView');
         this.mdEditViews = this.getViews(this.appConfig.views, 'mdEdit');
         this.isHome = (this.$state.current.name === 'app.home');
@@ -49,8 +51,8 @@ const AppComponentController = class AppComponentController {
         this.isMdListView = (this.$state.current.name === 'app.mdList');
 
         this.mdjs = this.StoreService.getData().mdjs;
-        if (this.mdjs == undefined || this.url) {
-            this.initMdjs();
+        if (this.mdjs == undefined || this.url || this.template) {
+            this.loadMdjs(this.xml);
         }
 
         this.helpButton = {
@@ -85,13 +87,7 @@ const AppComponentController = class AppComponentController {
             models: this.appConfig.models,
             proxy: this.appConfig.app.proxy,
             onLoad: (xml) => {
-                var mdjs = this.LodashService.lodash.merge(
-                    this.XmlConverterService.xml2js(this.defaultXml),
-                    this.XmlConverterService.xml2js(xml)
-                );
-                this.StoreService.setData({
-                    mdjs: mdjs
-                });
+                this.loadMdjs(xml);
             }
         };
 
@@ -152,7 +148,7 @@ const AppComponentController = class AppComponentController {
             view: 'home',
             format: 'button',
             onChangeView: (view) => {
-                this.initMdjs();
+                this.loadMdjs(this.xml);
                 this.$state.transitionTo(this.appConfig.views[view].url, false, {
                     reload: true,
                     inherit: false,
@@ -206,6 +202,7 @@ export const appComponent = {
         footer: '<',
         xml: '<',
         defaultXml: '<',
+        template: '@',
         url: '@',
         auth: '<'
     },

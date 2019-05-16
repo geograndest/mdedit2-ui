@@ -41,16 +41,12 @@
                 </div>
                 <div ng-if="($ctrl.contact | getValue:'md':'phoneVoices').length">
                     <div ng-repeat="phone in $ctrl.contact | getValue:'md':'phoneVoices' track by $index">
-                        <!-- <div>Tél.: {{phone}}</div> -->
                         <div><i class="fas fa-phone"></i> {{phone}}</div>
-                        <!-- <span>{{$ctrl.contact | getValue:'md':'phoneVoices' | toString:' / '}}</span> -->
                     </div>
                 </div>
                 <div ng-if="($ctrl.contact | getValue:'md':'emails').length">
                     <div ng-repeat="email in $ctrl.contact | getValue:'md':'emails' track by $index">
-                        <!-- <div>Email: <a ng-href="mailto:{{email}}">{{email}}</a> -->
                         <div><i class="fas fa-at"></i> <a ng-href="mailto:{{email}}">{{email}}</a>
-                            <!-- <a href="mailto:">{{$ctrl.contact | getValue:'md':'emails' | toString:' / '}}</a> -->
                         </div>
                     </div>
                 </div>

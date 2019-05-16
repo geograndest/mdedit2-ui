@@ -4,10 +4,12 @@ import tpl_textarea from "./md-form-textarea.html";
 
 const templates = {
     text: tpl_text,
+    text_array: tpl_text,
     date: tpl_text,
     datetime: tpl_text,
     select: tpl_select,
-    textarea: tpl_textarea
+    textarea: tpl_textarea,
+    textarea_array: tpl_textarea
 };
 
 const mdFormElementController = class MdFormElementController {
@@ -17,6 +19,11 @@ const mdFormElementController = class MdFormElementController {
     }
 
     $onInit() {
+        // define rows attribute
+        if (!this.rows) {
+            this.rows = 2;
+        }
+
         // Disabled field if not editable
         if (this.field.editable == "false") {
             this.field.disabled = true;
@@ -55,25 +62,32 @@ const mdFormElementController = class MdFormElementController {
     }
 
     getValues() {
-        var value = this.XmlConverterService.getValue(
+        var values = this.XmlConverterService.getValue(
             this.md,
             this.space,
             this.field.name
         );
         if (this.type == "date" || this.type == "datetime-local") {
-            value = value.map(function(d) {
+            values = values.map(function (d) {
                 if (d) {
                     return new Date(d)
                 }
                 return d
             });
         }
-        value = this.getUniqueValues(value)
-        return value;
+        if (['textarea_array', 'text_array'].includes(this.type)) {
+            values = [values.flat(1).map((v) => v.trim()).join(', ')];
+        }
+        values = this.getUniqueValues(values);
+        return values;
     }
 
     getUniqueValues(values) {
-        return values.filter((v, i, a) => a.indexOf(v) === i);
+        values = values.flat(1).filter((el) => el).filter((v, i, a) => a.indexOf(v) === i);
+        if (values.length == 0) {
+            values = [""];
+        }
+        return values;
     }
 
     $onChanges(changes) {
@@ -106,9 +120,10 @@ const mdFormElementController = class MdFormElementController {
                     }
                     return d;
                 });
+            } else if (['textarea_array', 'text_array'].includes(this.type)) {
+                items = items.map((v) => v.split(',')).flat(1).map((v) => v.trim());
             }
-            // Filter array to keep only uniques values
-            items = this.getUniqueValues(items)
+            items = this.getUniqueValues(items);
             this.update({
                 space: this.space,
                 field: this.field.name,
@@ -121,6 +136,13 @@ const mdFormElementController = class MdFormElementController {
         this.changeEdit(key);
         this.fieldValue[key] = itemValue;
         this.saveData(this.fieldValue);
+    }
+
+    onChange(key) {
+        if (this.type == "date") {
+            // console.log(key, this.fieldValue[key]);
+            this.onBlur(key, this.fieldValue[key]);
+        }
     }
 
     onSelectItem(item, model, label, index) {
@@ -140,20 +162,19 @@ const mdFormElementController = class MdFormElementController {
     }
 
     isValidField() {
-        if (
-            this.field.mandatory == "true" &&
-            this.fieldValue.length &&
-            this.fieldValue.every((v) => {
-                if (v != undefined && v != null && v != '' && !(Object.prototype.toString.call(v) === "[object Date]" && isNaN(Date.parse(v)))) { // Seems to WORK
-                    return false
-                }
-                return true
-            })
-        ) {
+        if (this.valid == 0 || (!this.valid && this.field.mandatory == "true" &&
+                this.fieldValue.length &&
+                this.fieldValue.every((v) => {
+                    if (v != undefined && v != null && v != '' && !(Object.prototype.toString.call(v) === "[object Date]" && isNaN(Date.parse(v)))) { // Seems to WORK
+                        return false
+                    }
+                    return true
+                }))) {
             return false;
         }
         return true;
     }
+
     isEmptyField(key) {
         return !this.fieldValue[key];
     }
@@ -190,9 +211,11 @@ export const mdFormElementComponent = {
         label: "@",
         field: "<",
         locales: "<",
+        valid: "<",
         list: "<",
         value: "<",
         type: "@",
+        rows: "@",
         edit: "@",
         md: "<",
         update: "&",

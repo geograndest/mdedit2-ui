@@ -13,11 +13,28 @@
             "placeholder": "",
             "disabled": "",
             "editable": "true",
+            "mandatory": "true",
             "type": "text",
             "helpButton": {
                 "format": "icon",
                 "contentUrl": "config/views/md-edit-data/help.fr/mdFileIdentifier.md",
                 "title": "Identifiant",
+                "icon": "fa-info-circle"
+            }
+        },
+        "mdParentIdentifier": {
+            "name": "mdParentIdentifier",
+            "label": "Fiche parent",
+            "description": "Identifiant de la fiche de métadonnées parent",
+            "placeholder": "",
+            "disabled": "",
+            "editable": "true",
+            "type": "text",
+            "mandatory": "false",
+            "helpButton": {
+                "format": "icon",
+                "contentUrl": "config/views/md-edit-data/help.fr/mdParentIdentifier.md",
+                "title": "Identifiant du parent",
                 "icon": "fa-info-circle"
             }
         },
@@ -44,7 +61,7 @@
             "placeholder": "Sélectionnez un encodage",
             "description": "Jeu de caractère (encodage) de la fiche descriptive des données",
             "disabled": "",
-            "editable": "true",
+            "editable": "false",
             "type": "select",
             "mandatory": "true",
             "value": ["utf8"],
@@ -62,7 +79,7 @@
             "placeholder": "Sélectionnez un type de ressource",
             "disabled": "",
             "value": ["dataset"],
-            "editable": "true",
+            "editable": "false",
             "mandatory": "true",
             "helpButton": {
                 "format": "icon",
@@ -157,9 +174,9 @@
                 },
                 "deliveryPoints": {
                     "name": "deliveryPoints",
-                    "label": "Addresse",
-                    "placeholder": "Addresse",
-                    "description": "Addresse du contact",
+                    "label": "Adresse",
+                    "placeholder": "Adresse",
+                    "description": "Adresse du contact",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
@@ -315,6 +332,7 @@
             "placeholder": "DONNEES: ..",
             "disabled": "",
             "editable": "true",
+            "mandatory": "true",
             "helpButton": {
                 "format": "icon",
                 "contentUrl": "config/views/md-edit-data/help.fr/dataTitle.md",
@@ -438,6 +456,7 @@
             "placeholder": "..",
             "disabled": "",
             "editable": "true",
+            "mandatory": "true",
             "helpButton": {
                 "format": "icon",
                 "contentUrl": "config/views/md-edit-data/help.fr/dataAbstract.md",
@@ -467,7 +486,7 @@
                     "description": "URL vers le fichier image illustrant la base de données",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
                         "contentUrl": "config/views/md-edit-data/help.fr/fileName.md",
@@ -544,6 +563,8 @@
             "description": "Langues utilisées pour les données (notament attributaires)",
             "disabled": "",
             "editable": "true",
+            "mandatory": "true",
+            "value": ["fre"],
             "type": "select",
             "helpButton": {
                 "format": "icon",
@@ -559,6 +580,7 @@
             "description": "Thème ISO auquel se rapporte la base de données",
             "disabled": "",
             "editable": "true",
+            "mandatory": "true",
             "type": "select",
             "helpButton": {
                 "format": "icon",
@@ -575,6 +597,7 @@
             "disabled": "",
             "editable": "true",
             "type": "select",
+            "mandatory": "false",
             "helpButton": {
                 "format": "icon",
                 "contentUrl": "config/views/md-edit-data/help.fr/dataInspireKeywords.md",
@@ -588,6 +611,7 @@
                     "placeholder": "",
                     "description": "Intitulé du mot-clé",
                     "disabled": "",
+                    "mandatory": "true",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
@@ -761,9 +785,9 @@
                 },
                 "deliveryPoints": {
                     "name": "deliveryPoints",
-                    "label": "Addresse",
-                    "placeholder": "Addresse",
-                    "description": "Addresse du contact",
+                    "label": "Adresse",
+                    "placeholder": "Adresse",
+                    "description": "Adresse du contact",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
@@ -901,7 +925,7 @@
                     "description": "Longitude ouest WGS84 du rectangle d'emprise (Xmin)",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
                         "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentWestBound.md",
@@ -916,7 +940,7 @@
                     "description": "Longitude est WGS84 du rectangle d'emprise (Xmax)",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
                         "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentEastBound.md",
@@ -931,7 +955,7 @@
                     "description": "Latitude sud WGS84 du rectangle d'emprise (Ymin)",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
                         "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentSouthBound.md",
@@ -946,7 +970,7 @@
                     "description": "Latitude nord WGS84 du rectangle d'emprise (Ymax)",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
                         "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentNorthBound.md",
@@ -963,7 +987,7 @@
             "description": "Emprise temporelle de la base de données",
             "disabled": "",
             "editable": "true",
-            "mandatory": "true",
+            "mandatory": "false",
             "helpButton": {
                 "format": "icon",
                 "contentUrl": "config/views/md-edit-data/help.fr/dataTemporalExtents.md",
@@ -1042,7 +1066,7 @@
                     "description": "Nom du système de projection de la base de données",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
                         "contentUrl": "config/views/md-edit-data/help.fr/dataReferenceSystems.md",
@@ -1142,7 +1166,7 @@
             "description": "Identifiant de la fiche descriptive des données",
             "disabled": "",
             "editable": "true",
-            "mandatory": "false",
+            "mandatory": "true",
             "helpButton": {
                 "format": "icon",
                 "contentUrl": "config/views/md-edit-data/help.fr/dataCharacterSet.md",
@@ -1172,7 +1196,7 @@
                     "description": "Nom du formats de diffusion des données",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
                         "contentUrl": "config/views/md-edit-data/help.fr/dataCharacterSet.md",
@@ -1187,7 +1211,7 @@
                     "description": "Version du formats de diffusion des données",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
                         "contentUrl": "config/views/md-edit-data/help.fr/dataCharacterSet.md",
@@ -1293,7 +1317,7 @@
             "multi": "true",
             "editable": "true",
             "type": "select",
-            "mandatory": "false",
+            "mandatory": "true",
             "value": [""],
             "helpButton": {
                 "format": "icon",
@@ -1323,7 +1347,8 @@
             "description": "Niveau de confidentialité des données",
             "disabled": "",
             "editable": "true",
-            "mandatory": "false",
+            "mandatory": "true",
+            "value": ["unclassified"],
             "helpButton": {
                 "format": "icon",
                 "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
@@ -1341,7 +1366,7 @@
             "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataLinkage.md",
                 "title": "Niveau de confidentialité",
                 "icon": "fa-info-circle"
             },
@@ -1356,7 +1381,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataLinkage.md",
                         "title": "Niveau de confidentialité",
                         "icon": "fa-info-circle"
                     }
@@ -1371,7 +1396,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataLinkage.md",
                         "title": "Niveau de confidentialité",
                         "icon": "fa-info-circle"
                     }
@@ -1386,7 +1411,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataLinkage.md",
                         "title": "Niveau de confidentialité",
                         "icon": "fa-info-circle"
                     }
@@ -1401,7 +1426,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataLinkage.md",
                         "title": "Niveau de confidentialité",
                         "icon": "fa-info-circle"
                     }
@@ -1580,7 +1605,7 @@
             "value": "Topographie"
         }, {
             "name": "environment",
-            "value": "Ressources et gestion de l’environnement"
+            "value": "Ressources et gestion de l'environnement"
         }, {
             "name": "geoscientificInformation",
             "value": "Géosciences"
@@ -1616,7 +1641,7 @@
             "value": "Infrastructures de transport"
         }, {
             "name": "utilitiesCommunication",
-            "value": "Réseaux de télécommunication, d’énergie"
+            "value": "Réseaux de télécommunication, d'énergie"
         }],
         "MD_CharacterSetCode": [{
             "name": "ucs2",
@@ -1730,7 +1755,7 @@
             "value": "Commanditaire"
         }, {
             "name": "principalInvestigator",
-            "value": "Producteur / Maître d’œuvre principal ou d'ensemble"
+            "value": "Producteur / Maître d'œuvre principal ou d'ensemble"
         }, {
             "name": "processor",
             "value": "Intégrateur / Exécutant secondaire"
@@ -1766,11 +1791,11 @@
             "search": "13.1.b"
         }, {
             "name": "L124-5-II-2 du code de l'environnement (Directive 2007/2/CE (INSPIRE), Article 13.1.c)",
-            "value": "La bonne marche de la justice, la possibilité pour toute personne d’être jugée équitablement ou la capacité d’une autorité publique d’effectuer une enquête d’ordre pénal ou disciplinaire",
+            "value": "La bonne marche de la justice, la possibilité pour toute personne d'être jugée équitablement ou la capacité d'une autorité publique d'effectuer une enquête d'ordre pénal ou disciplinaire",
             "search": "13.1.c"
         }, {
             "name": "L124-4-I-1 du code de l'environnement (Directive 2007/2/CE (INSPIRE), Article 13.1.d)",
-            "value": "La confidentialité des informations commerciales ou industrielles, lorsque cette confidentialité est prévue par la législation nationale ou communautaire afin de protéger un intérêt économique légitime, notamment l’intérêt public lié à la préservation de la confidentialité des statistiques et du secret fiscal",
+            "value": "La confidentialité des informations commerciales ou industrielles, lorsque cette confidentialité est prévue par la législation nationale ou communautaire afin de protéger un intérêt économique légitime, notamment l'intérêt public lié à la préservation de la confidentialité des statistiques et du secret fiscal",
             "search": "13.1.d"
         }, {
             "name": "L124-5-II-3 du code de l'environnement (Directive 2007/2/CE (INSPIRE), Article 13.1.e)",
@@ -1778,19 +1803,19 @@
             "search": "13.1.e"
         }, {
             "name": "L124-4-I-1 du code de l'environnement (Directive 2007/2/CE (INSPIRE), Article 13.1.f)",
-            "value": "La confidentialité des données à caractère personnel et/ou des fichiers concernant une personne physique lorsque cette personne n’a pas consenti à la divulgation de ces informations au public, lorsque la confidentialité de ce type d’information est prévue par la législation nationale ou communautaire",
+            "value": "La confidentialité des données à caractère personnel et/ou des fichiers concernant une personne physique lorsque cette personne n'a pas consenti à la divulgation de ces informations au public, lorsque la confidentialité de ce type d'information est prévue par la législation nationale ou communautaire",
             "search": "13.1.f"
         }, {
             "name": "L124-4-I-3 du code de l'environnement (Directive 2007/2/CE (INSPIRE), Article 13.1.g)",
-            "value": "Les intérêts ou la protection de toute personne qui a fourni les informations demandées sur une base volontaire sans y être contrainte par la loi ou sans que la loi puisse l’y contraindre, à moins que cette personne n’ait consenti à la divulgation de ces données",
+            "value": "Les intérêts ou la protection de toute personne qui a fourni les informations demandées sur une base volontaire sans y être contrainte par la loi ou sans que la loi puisse l'y contraindre, à moins que cette personne n'ait consenti à la divulgation de ces données",
             "search": "13.1.g"
         }, {
             "name": "L124-4-I-2 du code de l'environnement (Directive 2007/2/CE (INSPIRE), Article 13.1.h)",
-            "value": "La protection de l’environnement auquel ces informations ont trait, comme par exemple la localisation d’espèces rares",
+            "value": "La protection de l'environnement auquel ces informations ont trait, comme par exemple la localisation d'espèces rares",
             "search": "13.1.h"
         }, {
-            "name": "Pas de restriction d'accès public selon INSPIRE",
-            "value": "Aucun des articles de la loi ne peut être invoqué pour justifier d’une restriction d’accès public",
+            "name": "Pas de restriction d'accès public",
+            "value": "Aucun des articles de la loi ne peut être invoqué pour justifier d'une restriction d'accès public",
             "search": "pas de restriction"
         }],
 
@@ -2007,7 +2032,7 @@
 
         "MD_RestrictionCode": [{
             "name": "copyright",
-            "value": "Droit d’auteur / Droit moral (copyright)"
+            "value": "Droit d'auteur / Droit moral (copyright)"
         }, {
             "name": "patent",
             "value": "Brevet"
@@ -2026,9 +2051,6 @@
         }, {
             "name": "restricted",
             "value": "Restreint"
-        }, {
-            "name": "otherRestrictions",
-            "value": "Autres restrictions"
         }],
 
         "MD_ScopeCode": [{
@@ -2036,7 +2058,7 @@
             "value": "Attribut"
         }, {
             "name": "attributeType",
-            "value": "Type d’attribut"
+            "value": "Type d'attribut"
         }, {
             "name": "collectionHardware",
             "value": "Collection matérielle"
@@ -2054,13 +2076,13 @@
             "value": "Jeu de données non géographique"
         }, {
             "name": "dimensionGroup",
-            "value": "Dimension d’un groupe"
+            "value": "Dimension d'un groupe"
         }, {
             "name": "feature",
             "value": "Entité"
         }, {
             "name": "featureType",
-            "value": "Type d’entité"
+            "value": "Type d'entité"
         }, {
             "name": "propertyType",
             "value": "Type de propriété"

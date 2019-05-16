@@ -8,8 +8,13 @@ const mdFormInspirekeywordsController = class MdFormInspirekeywordsController {
 
     $onInit() {}
 
-    isValidField(key) {
-        return true;
+    isValidField() {
+        for (var i = 0; i < this.inspirekeywordsList.length; i++) {
+            if (this.XmlConverterService.getValue(this.inspirekeywordsList[i], this.space, 'keyword').length && this.XmlConverterService.getValue(this.inspirekeywordsList[i], this.space, 'keyword')[0]) {
+                return true;
+            }
+        }
+        return false;
     }
 
     getValues() {
@@ -42,12 +47,13 @@ const mdFormInspirekeywordsController = class MdFormInspirekeywordsController {
     }
 
     onAddInspirekeyword() {
-        if (this.inspirekeywordsList.length) {
-            var keyword = this.XmlConverterService.getValue(this.inspirekeywordsList[this.inspirekeywordsList.length - 1], this.space, 'keyword');
-            if (keyword[0]) {
-                this.inspirekeywordsList.push({});
-            }
-        }
+        this.inspirekeywordsList.push({});
+        // if (this.inspirekeywordsList.length) {
+        //     var keyword = this.XmlConverterService.getValue(this.inspirekeywordsList[this.inspirekeywordsList.length - 1], this.space, 'keyword');
+        //     if (keyword[0]) {
+        //         this.inspirekeywordsList.push({});
+        //     }
+        // }
     }
 
     onRemoveInspirekeyword(key) {

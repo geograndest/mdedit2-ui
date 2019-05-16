@@ -6,7 +6,9 @@ const mdFormIdentifiersController = class MdFormIdentifiersController {
         this.XmlConverterService = XmlConverterService;
     }
 
-    $onInit() {}
+    $onInit() {
+        // this.isValid = false;
+    }
 
     getValues() {
         this.identifiers = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
@@ -28,8 +30,13 @@ const mdFormIdentifiersController = class MdFormIdentifiersController {
         }
     }
 
-    isValidField(key) {
-        return true;
+    isValidField() {
+        for (var i = 0; i < this.identifiers.length; i++) {
+            if (this.XmlConverterService.getValue(this.identifiers[i], this.space, 'mdCode').length && this.XmlConverterService.getValue(this.identifiers[i], this.space, 'mdCode')[0]) {
+                return true;
+            }
+        }
+        return false;
     }
 
     onAddIdentifier() {

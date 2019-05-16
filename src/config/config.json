@@ -1,14 +1,12 @@
 {
     "app": {
-        "name": "mdEdit2 [béta]",
-        "title": "mdEdit2 [béta]",
+        "name": "mdEdit2",
+        "title": "mdEdit2",
         "version": "2.1.0b",
         "copyrights": "(c) CIGAL / GéoGrandEst 2019",
         "copyrights_url": "https://www.geograndest.fr",
         "_proxy": "php/proxy.php?url=",
         "proxy": "",
-        "_generate_xml_url": "http://localhost:8000/?act=getXML",
-        "_download_xml_url": "http://localhost:8000/?act=downloadXML&url=",
         "api": {
             "isAuth": "http://localhost:8000/src/php/api.php?action=isAuth&debug=1",
             "getFiles": "http://localhost:8000/src/php/api.php?action=getFiles&debug=1",
@@ -131,6 +129,46 @@
                 "fr": "config/views/md-edit-data/locales.fr.json",
                 "en": "config/views/md-edit-data/locales.en.json",
                 "de": "config/views/md-edit-data/locales.de.json"
+            },
+            "extentsFile": "config/views/md-edit-data/extents.json"
+        },
+        "mdEditOpendata": {
+            "url": "app.mdEditOpendata",
+            "path": "config/views/md-edit-data/md-edit-opendata.html",
+            "model": "opendata",
+            "icon": "fas fa-database",
+            "type": "mdEdit",
+            "default": true,
+            "hierarchyLevels": [
+                "dataseries",
+                "dataset"
+            ],
+            "keywords": {
+                "fr": [
+                    "données",
+                    "Données ouvertes"
+                ],
+                "en": [
+                    "data"
+                ],
+                "de": [
+                    "data"
+                ]
+            },
+            "name": {
+                "fr": "Formulaire open data",
+                "en": "Edit view",
+                "de": "Edit view (DE)"
+            },
+            "description": {
+                "fr": "Formulaire de saisie des métadonnées open data non géographiques. Il est basé sur un système \"d'accordéons\" permettant de masquer et d'afficher des groupes de champs.",
+                "en": "Edit view",
+                "de": "Edit view (DE)"
+            },
+            "locales": {
+                "fr": "config/views/md-edit-opendata/locales.fr.json",
+                "en": "config/views/md-edit-opendata/locales.en.json",
+                "de": "config/views/md-edit-opendata/locales.de.json"
             },
             "extentsFile": "config/views/md-edit-data/extents.json"
         },

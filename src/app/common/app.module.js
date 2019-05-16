@@ -97,9 +97,13 @@ export const app = angular
                     'ngInject';
                     return $transition$.params().footer;
                 },
-                url: ($transition$, appConfig) => {
+                url: ($transition$) => {
                     'ngInject';
                     return $transition$.params().url;
+                },
+                template: ($transition$) => {
+                    'ngInject';
+                    return $transition$.params().template;
                 },
                 xml: ($transition$, UtilsService, appConfig, url) => {
                     'ngInject';

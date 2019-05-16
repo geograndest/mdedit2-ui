@@ -20,7 +20,7 @@
         </gmd:CI_ResponsibleParty>
     </gmd:contact>
     <gmd:dateStamp>
-        <gco:Date>2019-01-28</gco:Date>
+        <gco:Date>2019-02-01</gco:Date>
     </gmd:dateStamp>
     <gmd:metadataStandardName>
         <gco:CharacterString>ISO 19115/19139</gco:CharacterString>
@@ -33,7 +33,7 @@
             <gmd:citation>
                 <gmd:CI_Citation>
                     <gmd:title>
-                        <gco:CharacterString>Test 123</gco:CharacterString>
+                        <gco:CharacterString>ccccccaaaaaaaabbbbb</gco:CharacterString>
                     </gmd:title>
                     <gmd:date>
                         <gmd:CI_Date>
@@ -72,6 +72,9 @@
                     </gmd:identifier>
                 </gmd:CI_Citation>
             </gmd:citation>
+            <gmd:abstract>
+                <gco:CharacterString>test</gco:CharacterString>
+            </gmd:abstract>
             <gmd:pointOfContact>
                 <gmd:CI_ResponsibleParty>
                     <gmd:role>

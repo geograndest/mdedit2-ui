@@ -1,4 +1,4 @@
-# mdEdit2
+# mdEdit 2
 
 Outil simple et ouvert de saisie, modification et consultation de fiches de métadonnées conformes au format ISO 19139 / INSPIRE.
 
@@ -10,28 +10,28 @@ Un [Guide d'utilisation de mdEdit](./documentation/userGuide/mdEdit_UserDocument
 
 ## Fonctionnalités principales
 
--   Création de fiches de métadonnées ISO/INSPIRE
--   Modification de fiches de métadonnées ISO/INSPIRE
--   Visualisation/consultation de fiches de métadonnées ISO/INSPIRE
--   Import de fichiers au format XML ISO/Inspire
--   Export de fichiers au format XML ISO/Inspire
+- Création de fiches de métadonnées ISO/INSPIRE
+- Modification de fiches de métadonnées ISO/INSPIRE
+- Visualisation/consultation de fiches de métadonnées ISO/INSPIRE
+- Import de fichiers au format XML ISO/Inspire
+- Export de fichiers au format XML ISO/Inspire
 
-**NB**: l'application mdEdit ne propose pas de zone de stockage. Les fichiers vers lesquels pointe la fiche de métadonnées (miniature, documentation, données, etc.) doivent être stockés sur un serveur public (ex.: dropbox) pour ensuite être accessibles facilement.
+**NB**: l'application mdEdit 2 ne propose pas de zone de stockage. Les fichiers vers lesquels pointe la fiche de métadonnées (miniature, documentation, données, etc.) doivent être stockés sur un serveur public (ex.: dropbox) pour ensuite être accessibles facilement.
 
 ## Installation de l'application
 
 ### Prérequis
 
-Un serveur web avec PHP (testé avec les versions 5.6 et 7.0).
+Aucun prérequis n'est exigé pour installer mdEdit 2.
 
 ### Procédure
 
 mdEdit ne nécessite pas d'installation particulière.
-Il suffit de placer les fichiers contenus dans le dossier `build` sur un serveur web fonctionnant avec PHP.
+Il suffit de placer les fichiers contenus dans le dossier `build` sur un serveur web.
 
 ## Configuration
 
-La configuration de mdEdit se fait principalement via les fichiers contenus dans le répertoire [`config`](https://github.com/geograndest/mdedit2/tree/master/build/config).
+La configuration de mdEdit 2 se fait principalement via les fichiers contenus dans le répertoire [`config`](https://github.com/geograndest/mdedit2/tree/master/build/config).
 
 ## Utilisation
 
@@ -39,60 +39,38 @@ La configuration de mdEdit se fait principalement via les fichiers contenus dans
 
 L'interface a été conçue pour être simple et facilement utilisable par toute personne disposant d'un minimum de connaissance en terme de description de données géographiques.
 
-_A compléter_
-
-### Permaliens et paramètre d'URL
-
-Il est possible de définir plusieurs propriétés via des paramètres d'URL.
-Cela permet entre autre de personnaliser l'interface de l'application en se connectant via une URL spécifique.
-
-#### "model"
-
-Un modèle spécifique de la liste contenue dans "config/models/models.json" peut être utilisé en précisant son identifiant, c'est à dire son numéro d'ordre dans le fichier en commençant à 1.
-Ainsi, pour utiliser le premier modèle de la liste, il faut ajouter dans l'URL `index.html?model=1` ou `&model=1`.
-
-#### "view"
-
-Une vue spécifique de la liste contenue dans `config/views/views.json` peut-être utitisée en précisant son identifiant, c'est à dire son numéro d'ordre dans le fichier en commençant à 1.
-Ainsi si l'on souhaite utiliser la deuxième vue de la liste, il faut ajouter dans l'URL `index.html?view=2` ou `&view=2`.
-
-#### "lang"
-
-Une langue spécifique peut-être utilisée en précisant le paramètre "lang" et le code de la langue sur 2 caratères (`fr` pour français, `de` pour allemand, `en` pour anglais, etc.).
-Aini, pour forcer l'affichage en allemand (pour peut que cette traduction existe...), il faut ajouter dans l'URL `index.html?lang=de` ou `&lang=de`.
+Pou plus d'information concernant l'utilisation de l'application, merci de vosu référer au [Guide d'utilisation de mdEdit](./documentation/userGuide/mdEdit_UserDocumentation.md).
 
 ## Choix techniques et développement
 
 Les choix sont réalisés afin que:
 
--   L'application soit moderne dans son graphisme et ses fonctionnalités
--   L'application reste légère et maintenable
--   L'application n'impose pas d'exigences particulières pour l'installation et l'utilisation
--   L'application puisse fonctionner en mode connecté et déconnecté
--   L'application ne nécessite pas d'authentification (possibilité d'ajouter une authentification HTTP côté serveur si nécessaire)
+- L'application soit moderne dans son graphisme et ses fonctionnalités
+- L'application reste légère et maintenable
+- L'application n'impose pas d'exigences particulières pour l'installation et l'utilisation
+- L'application puisse fonctionner en mode connecté et déconnecté
+- L'application ne nécessite pas d'authentification (possibilité d'ajouter une authentification HTTP côté serveur si nécessaire)
 
 ### Langages utilisés
 
--   JS, HTML et CSS côté interface utilisateur
--   PHP pour le téléchargement des fichiers XML (version web)
--   Python (serveur embarqué pour usage [desktop](https://github.com/cigalsace/mdedit/tree/master/desktop))
--   Markdown pour la documentation
+- JS, HTML et CSS côté interface utilisateur
+- Markdown pour la documentation
 
 ### Principaux frameworks et bibliothèques utilisés
 
 Attention: migration de Bootstrap 3 vers Bootstrap 4 lors du passage de la version 2.0 à 2.1 de mdEdit.
 
--   [jquery](https://jquery.com/) - version 3.3.1
--   [twitter bootstrap](http://getbootstrap.com/) - version 4.1.3
--   [angular js](https://angularjs.org/) - version 1.7.5
--   angularjs / ui router - version 1.0.20
--   [ui-bootstrap4](https://morgul.github.io/ui-bootstrap4/) - version 3.0.5
--   [showdown](https://github.com/showdownjs/showdown) - version 1.9.0
--   xml-js - version 1.6.8
--   lodash - verison 4.17.11
--   lodash-uuid - version 0.0.3
--   rename-keys - version 2.0.1
--   jsonpath - version 1.0.0
+- [jquery](https://jquery.com/) - version 3.3.1
+- [twitter bootstrap](http://getbootstrap.com/) - version 4.2.x
+- [angular js](https://angularjs.org/) - version 1.7.x
+- angularjs / ui router - version 1.0.x
+- [ui-bootstrap4](https://morgul.github.io/ui-bootstrap4/) - version 3.0.x
+- [showdown](https://github.com/showdownjs/showdown) - version 1.9.x
+- xml-js - version 1.6.x
+- lodash - verison 4.17.x
+- lodash-uuid - version 0.0.3
+- rename-keys - version 2.0.x
+- jsonpath - version 1.0.x
 
 _Pour plus de détails sur les versiond es librairies utilisées, consultez le fichier `package.json`._
 

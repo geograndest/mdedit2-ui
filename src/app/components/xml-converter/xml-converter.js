@@ -6,24 +6,12 @@ import * as lodash from "lodash";
 // TODO: étudier possibilité de charger dynamiquement le fichier en mettant:
 // - export default() dans les fichiers source
 // - en important avec "import {fields} from './spaces/xml-converter.'+space+'Fields';"
-import {
-    mdFields
-} from "./spaces/xml-converter.mdFields";
-import {
-    getRecordFields
-} from "./spaces/xml-converter.getRecordFields";
-import {
-    getRecordsFields
-} from "./spaces/xml-converter.getRecordsFields";
-import {
-    getCapabilitiesFields
-} from "./spaces/xml-converter.getCapabilitiesFields";
-import {
-    getCapabilitiesWfsFields
-} from "./spaces/xml-converter.getCapabilitiesWfsFields";
-import {
-    getDomainsFields
-} from "./spaces/xml-converter.getDomainsFields";
+import { mdFields } from "./spaces/xml-converter.mdFields";
+import { getRecordFields } from "./spaces/xml-converter.getRecordFields";
+import { getRecordsFields } from "./spaces/xml-converter.getRecordsFields";
+import { getCapabilitiesFields } from "./spaces/xml-converter.getCapabilitiesFields";
+import { getCapabilitiesWfsFields } from "./spaces/xml-converter.getCapabilitiesWfsFields";
+import { getDomainsFields } from "./spaces/xml-converter.getDomainsFields";
 
 export class XmlConverter {
     constructor() {
@@ -35,6 +23,16 @@ export class XmlConverter {
     xml2js(xml, options) {
         this.mdjs = convert.xml2js(xml, options);
         this.mdjs = renamekeys(this.mdjs, function(key, val) {
+            if (
+                key.indexOf(":") == -1 &&
+                !key.startsWith("_") &&
+                key != "codeList" &&
+                key != "codeListValue" &&
+                key != "version" &&
+                key != "encoding"
+            ) {
+                key = "gmd:" + key;
+            }
             return key.replace(":", "__");
         });
         return this.mdjs;
@@ -99,10 +97,20 @@ export class XmlConverter {
         var xpath = this.getXpath(fields[field].xpaths);
         var values = jsonpath.query(obj, xpath);
         return values;
+        // var values = [];
+        // var fieldNames = field.split('|');
+        // for (var i = 0 ; i < fieldNames.length; i++) {
+        //     // var xpath1 = this.getXpath(fields[fieldNames[i]].xpaths);
+        //     values = values.concat(jsonpath.query(obj, this.getXpath(fields[fieldNames[i]].xpaths)));
+        // }
+        // return values;
+        // var xpath = this.getXpath(fields[fieldNames[i]].xpaths);
     }
 
     setValue(obj, space, field, values, separator) {
         var fields = this.getFields(space);
+        // var fieldName = field.split('|')[0];
+        // console.log(field)
         var paths = fields[field].xpaths.paths;
 
         // TODO: pb si values = empty...
@@ -114,18 +122,33 @@ export class XmlConverter {
             );
             if (fields[field].xpaths.hasOwnProperty("code")) {
                 obj = lodash.set(obj, fields[field].xpaths.code, values[0]);
+                if (fields[field].xpaths.hasOwnProperty("codelist")) {
+                    obj = lodash.set(
+                        obj,
+                        fields[field].xpaths.codelist,
+                        fields[field].values.codelist
+                    );
+                }
             }
             return obj;
         } else {
             var result = [];
             for (var v = 0; v < values.length; v++) {
                 if (v == 0 || values[v]) {
-                    var o = lodash.set({},
+                    var o = lodash.set(
+                        {},
                         fields[field].xpaths.value,
                         values[v]
                     );
                     if (fields[field].xpaths.hasOwnProperty("code")) {
                         o = lodash.set(o, fields[field].xpaths.code, values[v]);
+                        if (fields[field].xpaths.hasOwnProperty("codelist")) {
+                            o = lodash.set(
+                                o,
+                                fields[field].xpaths.codelist,
+                                fields[field].values.codelist
+                            );
+                        }
                     }
                     result.push(o);
                 }

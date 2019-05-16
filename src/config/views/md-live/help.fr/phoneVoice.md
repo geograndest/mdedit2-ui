@@ -1,5 +1,5 @@
 <!-- Begin @phoneVoice.md -->
 
-Téléphone du contact. Plusieurs numéros peuvent être renseignés séparés par un caractère "|".
+Numéro(s) de téléphone du contact.
 
 <!-- End @phoneVoice.md -->

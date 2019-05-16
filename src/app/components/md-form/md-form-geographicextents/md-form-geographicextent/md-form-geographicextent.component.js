@@ -10,11 +10,13 @@ const mdFormGeographicextentController = class MdFormGeographicextentController 
 
     $onChanges(changes) {}
 
-    onSave(space, field, fieldValue, separator) {
-        if (!fieldValue.length || isNaN(fieldValue[0]) || !fieldValue[0]) {
-            fieldValue = ['']
-        } else {
-            fieldValue = [Math.round(parseFloat(fieldValue[0]) * 100) / 100]
+    onSave(space, field, fieldValue, type, separator) {
+        if (type == 'digit') {
+            if (!fieldValue.length || isNaN(fieldValue[0]) || !fieldValue[0]) {
+                fieldValue = ['']
+            } else {
+                fieldValue = [Math.round(parseFloat(fieldValue[0]) * 100) / 100]
+            }
         }
         this.XmlConverterService.setValue(this.geographicextent, space, field, fieldValue, separator);
         this.updateExtent({

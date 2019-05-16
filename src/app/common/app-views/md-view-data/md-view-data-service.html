@@ -310,7 +310,7 @@
                 <span class="pull-right ">
                     <em class="text-info ">Fiche
                         <a ng-href="{{$ctrl.mdjs.url}}" target="_blank">{{$ctrl.mdjs | getValue:'md':'mdFileIdentifier' | toString}}</a> ({{$ctrl.mdjs | getValue:'md':'mdLanguage'
-                        | toString}}) mise à jour le: {{$ctrl.mdjs | getValue:'md':'mdDateStamp' | toString}}</em>
+                        | toString}}) mise à jour le: {{$ctrl.mdjs | getValue:'md':'mdDateStamp|mdDateTimeStamp' | toString}}</em>
                 </span>
             </small>
         </div>

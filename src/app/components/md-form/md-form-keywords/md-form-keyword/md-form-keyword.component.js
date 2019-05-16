@@ -11,6 +11,9 @@ const mdFormKeywordController = class MdFormKeywordController {
     $onChanges(changes) {}
 
     onSave(space, field, fieldValue, separator) {
+        if (separator) {
+            fieldValue = fieldValue.map((value) => value.split(separator)).flat(1).map((value) => value.trim());
+        }
         this.XmlConverterService.setValue(this.keyword, space, field, fieldValue, separator);
         this.updateKeyword({
             key: this.key,

@@ -7,15 +7,13 @@
         </page-modal-button>
     </label> -->
     <div uib-tooltip="{{$ctrl.field.description}}" tooltip-trigger="mouseenter" tooltip-placement="top-left">
-        <span class="h5">{{$ctrl.field.label}}</span>
-        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}"
-            text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}"></page-modal-button>
+        <span class="h5" ng-class="$ctrl.isValidField() ? '' : 'text-danger font-weight-bold'">{{$ctrl.field.label}}</span>
+        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}" text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}"></page-modal-button>
         <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-plus" aria-hidden="true" ng-click="$ctrl.onAddExtent()"></button>
     </div>
     <div class="row">
         <div class="col-md-3">
-            <label class="control-label" for="{{$ctrl.field.geographicExtent.extentName.name}}" uib-tooltip="{{$ctrl.field.geographicExtent.extentName.description}}"
-                tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+            <label class="control-label" for="{{$ctrl.field.geographicExtent.extentName.name}}" uib-tooltip="{{$ctrl.field.geographicExtent.extentName.description}}" tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
                 {{$ctrl.field.geographicExtent.extentName.label}}
                 <page-modal-button format="{{$ctrl.field.geographicExtent.extentName.helpButton.format}}" title="{{$ctrl.field.geographicExtent.extentName.helpButton.title}}"
                     text="{{$ctrl.field.geographicExtent.extentName.helpButton.text}}" content-url="$ctrl.field.geographicExtent.extentName.helpButton.contentUrl"
@@ -24,9 +22,7 @@
             </label>
         </div>
         <div class="col-md-2">
-            <label class="control-label" for="{{$ctrl.field.geographicExtent.geographicExtentWestBound.name}}"
-                uib-tooltip="{{$ctrl.field.geographicExtent.geographicExtentWestBound.description}}" tooltip-trigger="mouseenter"
-                tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+            <label class="control-label" for="{{$ctrl.field.geographicExtent.geographicExtentWestBound.name}}" uib-tooltip="{{$ctrl.field.geographicExtent.geographicExtentWestBound.description}}" tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
                 {{$ctrl.field.geographicExtent.geographicExtentWestBound.label}}
                 <page-modal-button format="{{$ctrl.field.geographicExtent.geographicExtentWestBound.helpButton.format}}"
                     title="{{$ctrl.field.geographicExtent.geographicExtentWestBound.helpButton.title}}" text="{{$ctrl.field.geographicExtent.geographicExtentWestBound.helpButton.text}}"
@@ -35,9 +31,7 @@
             </label>
         </div>
         <div class="col-md-2">
-            <label class="control-label" for="{{$ctrl.field.geographicExtent.geographicExtentEastBound.name}}"
-                uib-tooltip="{{$ctrl.field.geographicExtent.geographicExtentEastBound.description}}" tooltip-trigger="mouseenter"
-                tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+            <label class="control-label" for="{{$ctrl.field.geographicExtent.geographicExtentEastBound.name}}" uib-tooltip="{{$ctrl.field.geographicExtent.geographicExtentEastBound.description}}" tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
                 {{$ctrl.field.geographicExtent.geographicExtentEastBound.label}}
                 <page-modal-button format="{{$ctrl.field.geographicExtent.geographicExtentEastBound.helpButton.format}}"
                     title="{{$ctrl.field.geographicExtent.geographicExtentEastBound.helpButton.title}}" text="{{$ctrl.field.geographicExtent.geographicExtentEastBound.helpButton.text}}"
@@ -46,9 +40,7 @@
             </label>
         </div>
         <div class="col-md-2">
-            <label class="control-label" for="{{$ctrl.field.geographicExtent.geographicExtenSouthBound.name}}"
-                uib-tooltip="{{$ctrl.field.geographicExtent.geographicExtentSouthBound.description}}" tooltip-trigger="mouseenter"
-                tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+            <label class="control-label" for="{{$ctrl.field.geographicExtent.geographicExtenSouthBound.name}}" uib-tooltip="{{$ctrl.field.geographicExtent.geographicExtentSouthBound.description}}" tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
                 {{$ctrl.field.geographicExtent.geographicExtentSouthBound.label}}
                 <page-modal-button format="{{$ctrl.field.geographicExtent.geographicExtentSouthBound.helpButton.format}}"
                     title="{{$ctrl.field.geographicExtent.geographicExtentSouthBound.helpButton.title}}" text="{{$ctrl.field.geographicExtent.geographicExtentSouthBound.helpButton.text}}"
@@ -57,9 +49,7 @@
             </label>
         </div>
         <div class="col-md-2">
-            <label class="control-label" for="{{$ctrl.field.geographicExtent.geographicExtentNorthBound.name}}"
-                uib-tooltip="{{$ctrl.field.geographicExtent.geographicExtentNorthBound.description}}" tooltip-trigger="mouseenter"
-                tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
+            <label class="control-label" for="{{$ctrl.field.geographicExtent.geographicExtentNorthBound.name}}" uib-tooltip="{{$ctrl.field.geographicExtent.geographicExtentNorthBound.description}}" tooltip-trigger="mouseenter" tooltip-placement="right" ng-dblclick="$ctrl.changeEdit(0)">
                 {{$ctrl.field.geographicExtent.geographicExtentNorthBound.label}}
                 <page-modal-button format="{{$ctrl.field.geographicExtent.geographicExtentNorthBound.helpButton.format}}"
                     title="{{$ctrl.field.geographicExtent.geographicExtentNorthBound.helpButton.title}}" text="{{$ctrl.field.geographicExtent.geographicExtentNorthBound.helpButton.text}}"
@@ -71,10 +61,8 @@
             <!-- <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-plus" aria-hidden="true" ng-click="$ctrl.onAddExtent()"></button> -->
         </div>
     </div>
-    <md-form-geographicextent ng-if="$ctrl.show" ng-repeat="(key, geographicextent) in $ctrl.geographicextents track by $index"
-        multi="{{$ctrl.multi}}" geographicextent="geographicextent" fields="$ctrl.field.geographicExtent" extents="$ctrl.extents"
-        update-extent="$ctrl.updateExtents(key, geographicextent)" key="{{key}}" remove-extent="$ctrl.onRemoveExtent(key)"
-        locales="$ctrl.locales"></md-form-geographicextent>
+    <md-form-geographicextent ng-if="$ctrl.show" ng-repeat="(key, geographicextent) in $ctrl.geographicextents track by $index" multi="{{$ctrl.multi}}" geographicextent="geographicextent" fields="$ctrl.field.geographicExtent" extents="$ctrl.extents" update-extent="$ctrl.updateExtents(key, geographicextent)"
+        key="{{key}}" remove-extent="$ctrl.onRemoveExtent(key)" locales="$ctrl.locales"></md-form-geographicextent>
     <!-- <div class="col-md-12">
         <small class="form-text text-muted">NB1: utilisez le point (".") comme séparateur de décimales.</small>
         <small class="form-text text-muted">NB2: lors de la sauvegarde, les coordonnées sont arrondies à 2 décimales.</small>

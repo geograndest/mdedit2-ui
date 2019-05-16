@@ -8,7 +8,14 @@ const mdFormDistributionformatsController = class MdFormDistributionformatsContr
 
     $onInit() {}
 
-    isValidField(key) {
+    isValidField() {
+        for (var i = 0; i < this.distributionformats.length; i++) {
+            var formatName = this.XmlConverterService.getValue(this.distributionformats[i], this.space, 'formatName')
+            var formatVersion = this.XmlConverterService.getValue(this.distributionformats[i], this.space, 'formatVersion')
+            if (!formatName[0] || !formatVersion[0]) {
+                return false;
+            }
+        }
         return true;
     }
 

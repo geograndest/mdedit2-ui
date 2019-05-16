@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
             <!-- DONE: contacts.individualName -->
             <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.individualName" space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
             <!-- DONE: contacts.positionName -->
@@ -29,7 +29,7 @@
             <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.organisationName" space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales">
             </md-form-element>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-6">
             <!-- DONE: contacts.deliveryPoint -->
             <md-form-element type="textarea" md="$ctrl.contact.value" field="$ctrl.fields.deliveryPoints" space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue, '\n')" locales="$ctrl.locales"></md-form-element>
             <div class="row">
@@ -48,11 +48,11 @@
     </div>
     <div class="row" ng-if="$ctrl.fields.logoDescription.display !== 'none'">
         <!-- DONE: logo -->
-        <div class="col-md-5">
+        <div class="col-md-6">
             <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.logoUrl" space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales">
             </md-form-element>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-4">
             <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.logoDescription" space="md" label="true" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
         </div>
         <div class="col-md-2">
@@ -71,12 +71,12 @@
     </div>
     <div class="row">
         <!-- DONE: contacts.phoneVoice -->
-        <div class="col-md-5">
+        <div class="col-md-6">
             <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.phoneVoices" label="true" edit="true" multi="true" space="md" update="$ctrl.onSave(space, field, fieldValue, '|')" locales="$ctrl.locales">
             </md-form-element>
         </div>
         <!-- DONE: contacts.email -->
-        <div class="col-md-7">
+        <div class="col-md-6">
             <md-form-element type="text" md="$ctrl.contact.value" field="$ctrl.fields.emails" space="md" label="true" edit="true" multi="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales">
             </md-form-element>
         </div>

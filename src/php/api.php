@@ -2,15 +2,17 @@
 
 /**
  * Documentation
- * 
+ *
  * Script permettant de gérer les fihes de métadonnées (fichiers XML) d'un utilisateur geOrchestra.
- * 
+ *
  * Limites:
  * - Ne fonctionne que si l'utilisateur appartient à un seul groupe EL_* car sinon, réelle difficulté pour gérer les fichiers sans ouvrir trop de failles de sécurité
- * - 
+ * - Le nom du fichier XML doit obligatoirement être l'identifiant de la fiche
+ * - Nécessité de respecter une arborescence de fichiers tel qu'une fiche et l'ensemble de ses ressources soient localisées dans un dossier ayant pour non l'identifiant de la fiche (de la forme /metadata/org/mdfile/mdfile.xml)
+ * - Le dossier d'une fiche doit être localisé obligatoirement à la racine du dossier metadata du partenaire (de la forme /metadata/org/fileid/fileid.xml)
+ * - Le dossier d'une fiche ne peut pas comporter de sous dossiers
  */
-
-
+ 
 // CORS enable
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Credentials: true");
@@ -18,19 +20,20 @@ header("Access-Control-Allow-Credentials: true");
 header('Access-Control-Allow-Methods: GET, POST');
 header('Access-Control-Max-Age: 1000');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
-
+ 
 // Config
 $config = array();
 $config['role_prefix'] = 'ROLE_EL_';
 $config['md_absolute_path'] = '../ '; // Non utilisé
 // Chemin relatif vers le dossier metadata à partir de l'emplacement du script api.php
 $config['md_relative_path'] = '../../metadata/';
-$config['extentions'] = array('xml');
+$config['extentions'] = array();
 $config['edit_roles'] = array('ROLE_GN_REVIEWER', 'ROLE_GN_ADMIN');
 $config['el_role_exclude'] = array('CAD_CNIL1', 'CAD_CNIL2');
 // $config['actions'] = array('isAuth', 'getFiles', 'getFile', 'saveFile');
 $config['roles_directories'] = array(
-    'files' => 'files2',
+    'files2' => 'files2',
+    'files' => 'files',
     'AAA' => 'aaa',
     'ACHEO_ALSACE' => 'acheologie-alsace',
     'ADAUHR' => 'adauhr',
@@ -96,7 +99,7 @@ $config['roles_directories'] = array(
     'UDS' => 'uds',
     'ZAEU' => 'zaeu'
 );
-
+ 
 //========================================================================
 // FUNCTIONS
 //========================================================================
@@ -155,33 +158,41 @@ function connect($config)
             $result['sec_editor'] = true;
         }
     }
+    // TODO: à reprendre
     if ($result['sec_org'] and $result['sec_editor']) {
+        $result['sec_dir'] = $config['roles_directories'][$result['sec_org']];
         return $result;
     }
     return false;
 }
-
+ 
 //========================================================================
-
+ 
 // Get URL parameters
 $action = get('action', false);
 $filename = get('filename', false);
+$exts = get('exts', false);
 $debug = get('debug', false);
 $data = postdata(false);
-
+ 
+// Update config if exts is defined
+if ($exts) {
+    $config['extentions'] = explode(',', $exts);
+}
+ 
 // Init reponse array
 $response = array();
 $response['success'] = false;
 $response['message'] = "Erreur lors de la connection. Vérifiez si vous êtes bien authentifié.";
 $response['action'] = $action;
 $response['filename'] = $filename;
-
+ 
 // Get connexion
 $conn = connect($config);
-
+ 
 // For tests
 if ($debug) {
-    $config['md_relative_path'] = '\\src\\php\\';
+    $config['md_relative_path'] = '\\';
     $conn = array();
     $conn['success'] = true;
     $conn['message'] = "Debug";
@@ -192,7 +203,8 @@ if ($debug) {
     $conn['sec_username'] = 'debug';
     $conn['sec_email'] = 'debug@mail.com';
     $conn['sec_orgs'] = ['files', 'files2'];
-    $conn['sec_org'] = 'files';
+    // $conn['sec_org'] = 'files';
+    // $conn['sec_dir'] = $config['roles_directories'][$conn['sec_org']];
 }
 
 if ($conn) {
@@ -203,63 +215,88 @@ if ($conn) {
             break;
 
         case 'getFiles':
-            $response['files'] = array();
+            $response['files'] = [];
+            $response['orgs'] = $conn['sec_orgs'];
             // TODO: change to get all files from différents directories => pas possible car trop complexe à gérer pour la création de fiches côté mdEdit
-            // foreach ($conn['sec_orgs'] as $org) {
-            $path = getHeader('DOCUMENT_ROOT') . $config['md_relative_path'] . $conn['sec_org'];
-            $response['path'] = $path;
-            // Gets files from org directory
-            $files = new RecursiveDirectoryIterator($path);
-            foreach (new RecursiveIteratorIterator($files) as $file) {
-                $pathinfo = pathinfo($file);
-                $fileinfo = stat($file);
-                $f = array();
-                $ext = $pathinfo['extension'];
-                if (in_array(strtolower($ext), $config['extentions'])) {
-                    $f['title'] = 'Error';
-                    libxml_use_internal_errors(true);
-                    $xml = simplexml_load_file($file);
-                    if ($xml !== false) {
-                        $namespaces = $xml->getDocNamespaces();
-                        foreach ($namespaces as $key => $value) {
-                            $xml->registerXPathNamespace($key, $value);
+            foreach ($conn['sec_orgs'] as $org) {
+                // $path = getHeader('DOCUMENT_ROOT') . $config['md_relative_path'] . $conn['sec_dir'];
+                $path = getHeader('DOCUMENT_ROOT') . $config['md_relative_path'] . $config['roles_directories'][$org];
+                // $response['path'] = $path;
+                // Gets files from org directory
+                $files = new RecursiveDirectoryIterator($path);
+                foreach (new RecursiveIteratorIterator($files) as $file) {
+                    $pathinfo = pathinfo($file);
+                    $fileinfo = stat($file);
+                    $f = array();
+                    $ext = $pathinfo['extension'];
+                    if (in_array(strtolower($ext), $config['extentions'])) {
+                        $f['title'] = 'Error';
+                        libxml_use_internal_errors(true);
+                        $xml = simplexml_load_file($file);
+                        if ($xml !== false) {
+                            $namespaces = $xml->getDocNamespaces();
+                            foreach ($namespaces as $key => $value) {
+                                $xml->registerXPathNamespace($key, $value);
+                            }
+                            $xpath_title = "gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString/text()";
+                            $f['title'] = implode('', $xml->xpath($xpath_title));
                         }
-                        $xpath_title = "gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString/text()";
-                        $f['title'] = implode('', $xml->xpath($xpath_title));
+                        // $f['dir'] = str_replace(getHeader('DOCUMENT_ROOT'), '', $pathinfo['dirname']);
+                        $f['path'] = str_replace(getHeader('DOCUMENT_ROOT'), '', $pathinfo['dirname']);
+                        $f['org'] = $org;
+                        $f['basename'] = $pathinfo['basename'];
+                        $f['ext'] = $ext;
+                        $f['file'] = $pathinfo['filename'];
+                        $f['filename'] = $f['path'] . DIRECTORY_SEPARATOR . $f['basename'];
+                        // $f['url'] = "http" . (!empty($_SERVER['HTTPS'] ) ? "s" : "") . "://" .$_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+                        $f['size'] = $fileinfo['size'];
+                        $f['atime'] = $fileinfo['atime'];
+                        $f['mtime'] = $fileinfo['mtime'];
+                        $f['ctime'] = $fileinfo['ctime'];
+                        $response['files'][$org][] = $f;
                     }
-                    $f['path'] = str_replace(getHeader('DOCUMENT_ROOT'), '', $pathinfo['dirname']);
-                    $f['basename'] = $pathinfo['basename'];
-                    $f['ext'] = $ext;
-                    $f['file'] = $pathinfo['filename'];
-                    $f['filename'] = $f['path'] . '/' . $f['basename'];
-                    $f['size'] = $fileinfo['size'];
-                    $f['atime'] = $fileinfo['atime'];
-                    $f['mtime'] = $fileinfo['mtime'];
-                    $f['ctime'] = $fileinfo['ctime'];
-                    $response['files'][] = $f;
                 }
             }
-            // }
             $response['message'] = "Affichage de la liste des fichiers";
             $response['success'] = true;
             break;
 
         case 'getFile':
-            // Pour récupérer un fichier XML, utiliser directement l'URL vers le fichier. 
+            // Pour récupérer un fichier XML, utiliser directement l'URL vers le fichier.
             // Les métadonnées doivent être en consultation libre.
             $response['message'] = "Affichage d'un fichier: fonction non implémentée. Utilisez directment l'URL du fichier";
             $response['success'] = false;
             break;
 
         case 'deleteFile':
-            $response['message'] = "Suppression d'un fichier.";
+            $response['message'] = "Suppression d'une fiche XML et du dossier associé.";
             $response['success'] = false;
             if ($data) {
-                $filename = getHeader('DOCUMENT_ROOT') . $config['md_relative_path'] . $conn['sec_org'] . '/' . $data->filename;
-                if (file_exists($filename)) {
-                    unlink($filename);
-                    $response['message'] = "Suppression du fichier: " + $filename;
-                    $response['success'] = true;
+                // var_dump($data);
+                // echo $data->file->org;
+                // var_dump( $conn['sec_orgs']);
+                // TODO: Vérifier si l'utilisateur a le droit d'accéder au dossier $org
+                if (in_array($data->file->org, $conn['sec_orgs'])) {
+                    // echo 11111;
+                    // $dirname = getHeader('DOCUMENT_ROOT') . $config['md_relative_path'] . $conn['sec_dir'] . DIRECTORY_SEPARATOR . $data->filename . DIRECTORY_SEPARATOR;
+                    $dirname = getHeader('DOCUMENT_ROOT') . $config['md_relative_path'] . $config['roles_directories'][$data->file->org] . $data->file->file . DIRECTORY_SEPARATOR;
+                    $filename = getHeader('DOCUMENT_ROOT') . $config['md_relative_path'] . $config['roles_directories'][$data->file->org] . $data->file->filename;
+                    // print_r($data);
+                    // print($dirname);
+                    echo $filename;
+                    // echo $dirname;
+                    if (is_file($filename)) {
+                        unlink($filename);
+                        $response['message'] = "Suppression du fichier: " + $filename + ".";
+                        $response['success'] = true;
+                    }
+                    if (is_dir($dirname)) {
+                        // TODO: Supprimer également le dossier! ou du moins le renommer! => deleted_filename/deleted_filenement.xml_
+                        array_map('unlink', glob($dirname . '*'));
+                        rmdir($dirname);
+                        $response['message'] = "Suppression du fichier: " + $filename + " et du dossier associé.";
+                        $response['success'] = true;
+                    }
                 }
             }
             break;
@@ -273,7 +310,8 @@ if ($conn) {
             $response['message'] = "Update file.";
             $response['success'] = false;
             if ($data) {
-                $path = getHeader('DOCUMENT_ROOT') . $config['md_relative_path'] . $conn['sec_org'] . '/';
+                // $path = getHeader('DOCUMENT_ROOT') . $config['md_relative_path'] . $conn['sec_dir'] . DIRECTORY_SEPARATOR . $data->filename . DIRECTORY_SEPARATOR;
+                $path = getHeader('DOCUMENT_ROOT') . $config['md_relative_path'] . $config['roles_directories'][$org] . DIRECTORY_SEPARATOR . $data->filename . DIRECTORY_SEPARATOR;
                 if (!is_dir($path)) {
                     if (!mkdir($path, 0777, true)) {
                         $response['message'] = "Le dossier " . $path . " ne peut pas être créé.";
@@ -281,13 +319,13 @@ if ($conn) {
                 }
                 if (is_dir($path) and $data->filename and $data->content) {
                     chmod($path, 0777);
-                    $success = copy($path . $data->filename, $path . $data->filename . '.save_' . time());
-                    file_put_contents($path . $data->filename, $data->content);
-                    chmod($path . $data->filename, 0777);
+                    $success = copy($path . $data->filename . '.xml', $path . $data->filename . '.save_' . time());
+                    file_put_contents($path . $data->filename . '.xml', $data->content);
+                    chmod($path . $data->filename . '.xml', 0777);
                     $response['success'] = true;
                     $response['path'] = $path;
                     $response['filename'] = $filename;
-                    $response['message'] = "Le fichier a été transmis au serveur.";
+                    $response['message'] = "Le fichier a été sauvegardé.";
                 }
             }
             break;
@@ -300,8 +338,12 @@ if ($conn) {
 }
 
 echo json_encode($response);
-
-
-
-
-?>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

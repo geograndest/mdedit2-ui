@@ -1,14 +1,13 @@
 <!-- {{$ctrl.identifier}} -->
 <!-- --{{$ctrl.fields}}-- -->
 <div class="row table-line">
-    <div class="col-md-6">
+    <div ng-class="$ctrl.field.identifier.codeSpace.display ? 'col-md-7' : 'col-md-11'">
         <md-form-element type="text" md="$ctrl.identifier" field="$ctrl.fields.code" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
     </div>
-    <div class="col-md-5" ng-if="$ctrl.fields.codeSpace.display !== 'none'">
+    <div class="col-md-4" ng-if="$ctrl.fields.codeSpace.display !== 'none'">
         <md-form-element type="text" md="$ctrl.identifier" field="$ctrl.fields.codeSpace" space="md" edit="true" update="$ctrl.onSave(space, field, fieldValue)" locales="$ctrl.locales"></md-form-element>
     </div>
     <div ng-show="($ctrl.multi).toLowerCase() == 'true'" class="col-md-1">
-        <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-minus" aria-hidden="true"
-            ng-click="$ctrl.onRemove()"></button>
+        <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-minus" aria-hidden="true" ng-click="$ctrl.onRemove()"></button>
     </div>
 </div>

@@ -12,11 +12,21 @@ const mdFormDatesController = class MdFormDatesController {
         this.XmlConverterService = XmlConverterService;
     }
 
-    isValidField(key) {
-        return true;
+    isValid() {
+        var datecreation = this.XmlConverterService.getValue(this.datecreation, this.space, this.field.dates.dateCreation.name).filter((el) => {
+            return el;
+        });
+        var dateedition = this.XmlConverterService.getValue(this.dateedition, this.space, this.field.dates.dateEdition.name).filter((el) => {
+            return el;
+        });
+        var datepublication = this.XmlConverterService.getValue(this.datepublication, this.space, this.field.dates.datePublication.name).filter((el) => {
+            return el;
+        });
+        return (datecreation.length || dateedition.length || datepublication.length);
     }
 
-    $onInit() {}
+    $onInit() {
+    }
 
     getValues() {
         var dates = this.XmlConverterService.getValue(this.md, this.space, this.field.name);

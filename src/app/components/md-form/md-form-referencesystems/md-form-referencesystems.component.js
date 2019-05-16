@@ -9,7 +9,6 @@ const mdFormReferencesystemsController = class MdFormReferencesystemsController 
     $onInit() {}
 
     getValues() {
-
         var referencesystems = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
         if (referencesystems.length === 0) {
             referencesystems = [{}];
@@ -31,8 +30,13 @@ const mdFormReferencesystemsController = class MdFormReferencesystemsController 
         }
     }
 
-    isValidField(key) {
-        return true;
+    isValidField() {
+        for (var i = 0; i < this.referencesystems.length; i++) {
+            if (this.XmlConverterService.getValue(this.referencesystems[i], this.space, 'referenceSystemCode').length && this.XmlConverterService.getValue(this.referencesystems[i], this.space, 'referenceSystemCode')[0]) {
+                return true;
+            }
+        }
+        return false;
     }
 
     $onChanges(changes) {

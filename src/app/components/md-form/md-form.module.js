@@ -33,6 +33,10 @@ import {
     mdFormInspirekeywords
 } from './md-form-inspirekeywords/md-form-inspirekeywords.module';
 import {
+    mdFormInspireconstraints
+}
+from './md-form-inspireconstraints/md-form-inspireconstraints.module';
+import {
     mdFormReferencesystems
 } from './md-form-referencesystems/md-form-referencesystems.module';
 import {
@@ -47,6 +51,9 @@ import {
 import {
     mdFormDates
 } from './md-form-dates/md-form-dates.module';
+import {
+    mdFormSpatialresolution
+} from './md-form-spatialresolution/md-form-spatialresolution.module';
 import {
     nl2br
 } from './md-form.filters';
@@ -67,12 +74,14 @@ export const mdForm = angular
         mdFormIdentifiers,
         mdFormKeywords,
         mdFormInspirekeywords,
+        mdFormInspireconstraints,
         mdFormDistributionformats,
         mdFormReferencesystems,
         mdFormLinkages,
         mdFormConformities,
         mdFormInspireconformities,
-        mdFormDates
+        mdFormDates,
+        mdFormSpatialresolution
     ])
     .component('mdFormComponent', mdFormComponent)
     .filter('nl2br', nl2br)

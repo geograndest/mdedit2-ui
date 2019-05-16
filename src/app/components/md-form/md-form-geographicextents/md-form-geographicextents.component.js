@@ -13,9 +13,29 @@ const mdFormGeographicextentsController = class MdFormGeographicextentsControlle
             this.extents = data;
             this.show = true;
         });
+        // this.geographicextents = []
     }
 
     isValidField(key) {
+        for (var i = 0; i < this.geographicextents.length; i++) {
+            var geographicExtentWestBound = this.XmlConverterService.getValue(this.geographicextents[i], this.space, 'geographicExtentWestBound')[0];
+            var geographicExtentEastBound = this.XmlConverterService.getValue(this.geographicextents[i], this.space, 'geographicExtentEastBound')[0];
+            var geographicExtentSouthBound = this.XmlConverterService.getValue(this.geographicextents[i], this.space, 'geographicExtentSouthBound')[0];
+            var geographicExtentNorthBound = this.XmlConverterService.getValue(this.geographicextents[i], this.space, 'geographicExtentNorthBound')[0];
+
+            var isValidWestBound = (geographicExtentWestBound > -180 && geographicExtentWestBound < 180)
+            var isValidEastBound = (geographicExtentEastBound > -180 && geographicExtentEastBound < 180)
+            var isValidSouthBound = (geographicExtentSouthBound > -180 && geographicExtentSouthBound < 180)
+            var isValidNorthBound = (geographicExtentNorthBound > -180 && geographicExtentNorthBound < 180)
+
+            var areValidLongitudes = (isValidWestBound && isValidEastBound && geographicExtentWestBound < geographicExtentEastBound)
+            var areValidLatitudes = (isValidSouthBound && isValidNorthBound && geographicExtentSouthBound < geographicExtentNorthBound)
+
+            if (!areValidLongitudes || !areValidLatitudes) {
+                return false
+            }
+            
+        }
         return true;
     }
 

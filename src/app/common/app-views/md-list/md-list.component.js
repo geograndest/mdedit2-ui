@@ -10,7 +10,7 @@ const mdListController = class MdListController {
     $onInit() {}
 
     deleteFile(filename) {
-        var response = confirm("Voulez-vous vraiment supprimer le fichier " + filename + " ?");
+        var response = confirm("Voulez-vous vraiment supprimer le fichier '" + filename + ".xml' et du dossier '/" + filename + "/' associé ?");
         if (response == true) {
             this.UtilsService.post(this.appConfig.app.api.deleteFile, {
                 filename: filename

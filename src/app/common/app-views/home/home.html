@@ -34,7 +34,7 @@
                     <h5>Modèles de formulaires disponibles</h5>
                 </div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action" ng-repeat="view in $ctrl.appConfig.app.changeview.list track by $index" ui-sref="app.{{view}}({url:$ctrl.appConfig.models[$ctrl.appConfig.views[view].model].file})" ui-sref-opts="{reload: true, inherit: true, notify: true }">
+                    <a class="list-group-item list-group-item-action" ng-repeat="view in $ctrl.appConfig.app.changeview.list track by $index" ui-sref="app.{{view}}({template:$ctrl.appConfig.views[view].model})" ui-sref-opts="{reload: true, inherit: true, notify: true }">
                         <div class="text-dark card-link">
                             <i class="{{$ctrl.appConfig.views[view].icon}}"></i> {{$ctrl.appConfig.views[view].name[$ctrl.appConfig.app.lang]}}
                         </div>
