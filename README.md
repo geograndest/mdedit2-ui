@@ -4,7 +4,7 @@ Outil simple et ouvert de saisie, modification et consultation de fiches de mét
 
 La présente documentation est adressée aux personnes souhaitant installer mdEdit et contribuer au projet.
 
-Un [Guide d'utilisation de mdEdit](./documentation/userGuide/mdEdit_UserDocumentation.md) est également disponible.
+<!-- Un [Guide d'utilisation de mdEdit](./documentation/userGuide/mdEdit_UserDocumentation.md) est également disponible. -->
 
 **_La version de développement est la version `master`. Pour la dernière version stable, consulter la branche `stable`._**
 

@@ -15,13 +15,13 @@ mdEdit permet :
 -   L'export de fichiers au format XML ISO/Inspire
 
 **NB**: l'application mdEdit ne propose pas d'espace de stockage. Les fichiers vers lesquels pointe la fiche de métadonnées (miniature, documentation, données, etc.) doivent être stockés sur un serveur public pour ensuite être accessible facilement.
-Pour les partenaires CIGAL, un espace de stockage "Pydio" peut être mis à disposition sur la plateforme https://www.cigalsace.org.
+Pour les partenaires GéoGrandEst, un espace de stockage "Pydio" peut être mis à disposition sur la plateforme https://www.geograndest.fr.
 
 ## Se connecter à mdEdit
 
-mdEdit ne nécessite pas d'authentification pour fonctionner. Il vous suffit de vous rendre à l'adresse https://www.cigalsace.org/tools/mdedit pour accéder à l'application et commencer à décrire vos données.
+mdEdit ne nécessite pas d'authentification pour fonctionner. Il vous suffit de vous rendre à l'adresse https://www.geograndest.fr/tools/mdedit pour accéder à l'application et commencer à décrire vos données.
 
-**NB**: Les personnes authentifiées sur la Géoplateforme CIGAL ont cependant la possibilité d'éditer et d'exporter les fichiers XML directement dans leur espace Pydio.
+**NB**: Les personnes authentifiées sur la Géoplateforme GéoGrandEst ont cependant la possibilité d'éditer et d'exporter les fichiers XML directement dans leur espace Pydio.
 
 ## Accueil de l'application
 
@@ -52,7 +52,7 @@ L'interface propose les fonctionnalités suivantes:
 -   Retour à la page d'accueil. Attention, le retour à la page d'accueil efface le formulaire en cours.
 
 <!--
-**NB**: les utilisateur authentifiés sur la Géoplateforme CIGAL disposent d'un bouton supplémentaire ![bt_listxml.jpg](userGuideImages/bt_listxml.jpg) leur permettant de lister et d'éditer les fichiers de leur espace Pydio. L'utilisateur doit être administrateur de son catalogue.
+**NB**: les utilisateur authentifiés sur la Géoplateforme geograndest.fr disposent d'un bouton supplémentaire ![bt_listxml.jpg](userGuideImages/bt_listxml.jpg) leur permettant de lister et d'éditer les fichiers de leur espace Pydio. L'utilisateur doit être administrateur de son catalogue.
 -->
 
 ## Visualiser/consulter une fiche de métadonnées
@@ -77,7 +77,7 @@ Ces possibilités sont:
 -   Import d'un fichier XML local. Cette opération peut se faire par un simple glisser/déposer sur le bouton "parcourir".
 -   Import d'un fichier XML distant. Pour cela, renseigner l'URL du fichier avant de valider. Cette fonctionnalité permet d'utiliser un fichier existant pour l'adapter ou le mettre à jour.
 
-**Astuce**: Grâce à cette troisième possibilité, les parenaires CIGAL peuvent charger un fichier XML à partir de leur espace Pydio et ensuite le mettre à jour après l'avoir sauvegardé.
+**Astuce**: Grâce à cette troisième possibilité, les parenaires GéoGrandEst peuvent charger un fichier XML à partir de leur espace Pydio et ensuite le mettre à jour après l'avoir sauvegardé.
 
 ## Exporter une fiche de métadonnées
 
@@ -86,12 +86,7 @@ La fenêtre qui s'ouvre vous permet de visualiser le résultat de la conversion.
 
 ![modal_export.jpg](userGuideImages/modal_export.jpg)
 
-Le bouton "Download file" permet soit:
-
--   D'enregistrer le fichier XML sur votre ordinateur. Le nom du fichier généré correspond à l'identifiant de la fiche.
--   D'exporter le fichier XML dans votre espace Pydio. Cela nécessite à l'utilisateur d'être authentifié sur la Géoplateforme CIGAL.
-
-**NB**: Pour les utilisateurs authentifié, le fichier est exporté dans _metdata/ORG/filename/filename.xml_ ou ORG est le nom/sigle de l'organisme et filename le nom du fichier. Cela impose d'utiliser l'identifiant de la fiche de métadonnées comme nom de fichier et de respecter l'arborescence ci-dessus.
+Le bouton "Download file" permet d'enregistrer le fichier XML sur votre ordinateur. Le nom du fichier généré correspond à l'identifiant de la fiche.
 
 ## Changer la langue de l'interface
 
@@ -112,7 +107,7 @@ Le permalien permet de préciser:
 <!--
 ## Création et mise à jour d'une fiche de l'espace Pydio (utilisateurs authentifiés)
 
-Comme indiqué précédemment, les utilisateurs authentifiés de la Géoplateforme CIGAL peuvent:
+Comme indiqué précédemment, les utilisateurs authentifiés de la Géoplateforme GéoGrandEst peuvent:
 
 - Lister les fichiers XML de leur espace Pydio (bouton ![bt_listxml.jpg](userGuideImages/bt_listxml.jpg))
 - Editer les fichiers XMl de leur espace Pydio
