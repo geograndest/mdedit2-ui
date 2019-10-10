@@ -1,9 +1,0 @@
-{
-    "lang": "fr",
-    "view": "mdViewData",
-    "ui": {
-        "test": "test",
-        "data": "des données",
-        "metadata": "des métadonnées"
-    }
-}

@@ -55,6 +55,9 @@ import {
     mdFormSpatialresolution
 } from './md-form-spatialresolution/md-form-spatialresolution.module';
 import {
+    mdFormSecurityconstraints
+} from './md-form-securityconstraints/md-form-securityconstraints.module';
+import {
     nl2br
 } from './md-form.filters';
 import {
@@ -81,7 +84,8 @@ export const mdForm = angular
         mdFormConformities,
         mdFormInspireconformities,
         mdFormDates,
-        mdFormSpatialresolution
+        mdFormSpatialresolution,
+        mdFormSecurityconstraints
     ])
     .component('mdFormComponent', mdFormComponent)
     .filter('nl2br', nl2br)

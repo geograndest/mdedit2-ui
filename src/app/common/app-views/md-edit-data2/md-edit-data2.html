@@ -333,16 +333,17 @@
                         <div>
                             <h3 class="mb-3">{{$ctrl.tabs[5].title}}</h3>
                             <!-- NO MANDATORY FOR PUBLIC DATA -->
-                            <!-- <div class="row"> -->
-                            <!-- <div class="col-md-12 form-group"> -->
-                            <!-- dataSecurityClassification -->
-                            <!-- <md-form-element type="select" md="$ctrl.mdjs"
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <!-- dataSecurityClassification -->
+                                    <!-- <md-form-element type="select" md="$ctrl.mdjs"
                                         field="$ctrl.mdEditLocales.fields.dataSecurityClassification" label="true"
                                         edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
                                         list="$ctrl.mdEditLocales.codelists.MD_ClassificationCode"
                                         locales="$ctrl.mdEditLocales.locales"></md-form-element> -->
-                            <!-- </div> -->
-                            <!-- </div> -->
+                                    <md-form-securityconstraints md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataSecurityClassification" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" list="$ctrl.mdEditLocales.codelists.MD_ClassificationCode" locales="$ctrl.mdEditLocales.locales"></md-form-securityconstraints>
+                                </div>
+                            </div>
                             <!-- dataLegalAccessInspireConstraints -->
                             <div class="row">
                                 <div class="col-md-12">

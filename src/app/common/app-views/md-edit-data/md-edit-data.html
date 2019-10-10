@@ -345,14 +345,25 @@
                     <span class="fas fa-arrows-alt-v float-right text-dark"></span>
                 </div>
                 <div>
-                    <div class="row">
-                        <div class="col-md-12 form-group">
+                    <!-- <div class="row"> -->
+                        <!-- <div class="col-md-12 form-group"> -->
                             <!-- dataSecurityClassification -->
-                            <md-form-element type="select" md="$ctrl.mdjs"
+                            <!-- <md-form-element type="select" md="$ctrl.mdjs"
                                 field="$ctrl.mdEditLocales.fields.dataSecurityClassification" label="true" edit="true"
                                 space="md" update="$ctrl.update(space, field, fieldValue)"
                                 list="$ctrl.mdEditLocales.codelists.MD_ClassificationCode"
-                                locales="$ctrl.mdEditLocales.locales"></md-form-element>
+                                locales="$ctrl.mdEditLocales.locales"></md-form-element> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <!-- dataSecurityClassification -->
+                            <!-- <md-form-element type="select" md="$ctrl.mdjs"
+                                field="$ctrl.mdEditLocales.fields.dataSecurityClassification" label="true"
+                                edit="true" space="md" update="$ctrl.update(space, field, fieldValue)"
+                                list="$ctrl.mdEditLocales.codelists.MD_ClassificationCode"
+                                locales="$ctrl.mdEditLocales.locales"></md-form-element> -->
+                            <md-form-securityconstraints md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataSecurityClassification" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" list="$ctrl.mdEditLocales.codelists.MD_ClassificationCode" locales="$ctrl.mdEditLocales.locales"></md-form-securityconstraints>
                         </div>
                     </div>
                     <!-- dataLegalAccessInspireConstraints -->

@@ -589,6 +589,18 @@ export const mdFields = {
             value: 'gmd__MD_Format[0].gmd__specification[0].gco__CharacterString[0]._text[0]'
         }
     },
+    dataResourceConstraints: {
+        name: 'dataResourceConstraints',
+        xpaths: {
+            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]'
+        }
+    },
+    srvResourceConstraints: {
+        name: 'dataResourceConstraints',
+        xpaths: {
+            value: 'gmd__MD_Metadata[0].gmd__identificationInfo[0].srv__SV_ServiceIdentification[0].gmd__resourceConstraints[*]'
+        }
+    },
     dataUseLimitations: {
         name: 'dataUseLimitations',
         xpaths: {
@@ -709,6 +721,20 @@ export const mdFields = {
         name: 'dataSecurityClassification',
         xpaths: {
             paths: [
+                'gmd__MD_SecurityConstraints[0].gmd__classification[*]'
+            ],
+            value: 'gmd__MD_ClassificationCode[0]._text[0]',
+            code: 'gmd__MD_ClassificationCode[0]._attributes.codeListValue',
+            codelist: 'gmd__MD_ClassificationCode[0]._attributes.codeList',
+        },
+        values: {
+            codelist: 'http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_ClassificationCode'
+        }
+    },
+    _dataSecurityClassification: {
+        name: 'dataSecurityClassification',
+        xpaths: {
+            paths: [
                 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
                 'gmd__MD_SecurityConstraints[0].gmd__classification[*]'
             ],
@@ -720,7 +746,7 @@ export const mdFields = {
             codelist: 'http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#MD_ClassificationCode'
         }
     },
-    srvSecurityClassification: {
+    _srvSecurityClassification: {
         name: 'dataSecurityClassification',
         xpaths: {
             paths: [
