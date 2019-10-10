@@ -5,43 +5,65 @@
         "mandatory": "Champs obligatoire",
         "empty": "Champ non renseigné"
     },
-    "defaultActiveTab": 0,
+    "defaultActiveTab": 1,
     "tabs": [{
-            "title": "Informations sur les métadonnées",
+            "id": 0,
+            "title": "Description de la fiche",
+            "description": "Informations sur la fiche de métadonnées",
+            "active": false,
+            "disabled": true
+        },
+        {
+            "id": 1,
+            "title": "Informations techniques",
             "description": "Informations sur la fiche de métadonnées",
             "active": true
         },
         {
-            "title": "Contacts pour les métadonnées",
+            "id": 2,
+            "title": "Points de contact",
             "description": "Contacts pour la fiche de métadonnées (auteur, gestionnaire, etc.)",
             "active": false
         },
         {
+            "id": 3,
             "title": "Description des données",
+            "description": "Informations sur les données",
+            "active": false,
+            "disabled": true
+        },
+        {
+            "id": 4,
+            "title": "Description générale",
             "description": "Description essentielles des données",
             "active": false
         },
         {
-            "title": "Contacts pour les données",
+            "id": 5,
+            "title": "Points de contact",
             "description": "Contacts pour les données (commanditaire, propriétaire, gestionnaire, etc.)",
             "active": false
         },
         {
-            "title": "Références géographiques et qualité ",
+            "id": 6,
+            "title": "Références géographiques et qualité",
             "description": "Références géographiques et qualité des données",
             "active": false
         },
         {
+            "id": 7,
             "title": "Conditions légales d'accès et d'usage",
             "description": "Conditions légales d'accès et d'usage",
             "active": false
         },
         {
+            "id": 8,
             "title": "Ressources associées",
             "description": "Ressources associées aux données (guide méthodologique, table attributaire, documents, etc.)",
             "active": false
         },
         {
+            "id": 9,
             "title": "Conformités des données",
             "description": "Conformités des données au regard de la directive europénne Inspire et des autres standards en vigueur",
             "active": false
