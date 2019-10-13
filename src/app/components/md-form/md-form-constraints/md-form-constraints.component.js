@@ -1,6 +1,6 @@
-import template from "./md-form-securityconstraints.html";
+import template from "./md-form-constraints.html";
 
-const mdFormSecurityconstraintsController = class MdFormSecurityconstraintsController {
+const mdFormConstraintsController = class MdFormConstraintsController {
     constructor(XmlConverterService) {
         "ngInject";
         this.XmlConverterService = XmlConverterService;
@@ -14,37 +14,39 @@ const mdFormSecurityconstraintsController = class MdFormSecurityconstraintsContr
             this.space,
             "dataResourceConstraints"
         );
-        var classification;
+        var useLimitations = [];
         for (var i = 0; i < dataResourceConstraints.length; i++) {
             if (
                 this.XmlConverterService.getValue(
                     dataResourceConstraints[i],
                     this.space,
-                    "dataSecurityClassification"
+                    "dataUseLimitations"
                 ).length
             ) {
-                classification = dataResourceConstraints[i];
+                useLimitations = useLimitations.concat(this.XmlConverterService.getValue(
+                    dataResourceConstraints[i],
+                    this.space,
+                    "dataUseLimitations"
+                ));
             }
         }
-        return classification;
+        if (!useLimitations.length) {
+            useLimitations.push('');
+        }
+        return this.XmlConverterService.setValue({}, this.space, "dataUseLimitations", useLimitations);
     }
 
     $onChanges(changes) {
         if (changes.md) {
             this.md = angular.copy(this.md);
-            this.classification = this.getValues();
+            this.useLimitations = this.getValues();
         }
     }
 
     updateConstraints(space, field, fieldValue) {
-        this.XmlConverterService.setValue(
-            this.classification,
-            space,
-            field,
-            fieldValue
-        );
+        var useLimitations = this.XmlConverterService.setValue({}, space, field, fieldValue);
 
-        // Get all resourceConstraints except securityConstraints
+        // Get all resourceConstraints except constraints
         var dataResourceConstraints = this.XmlConverterService.getValue(
             this.md,
             this.space,
@@ -55,28 +57,25 @@ const mdFormSecurityconstraintsController = class MdFormSecurityconstraintsContr
             if (!this.XmlConverterService.getValue(
                     dataResourceConstraints[i],
                     this.space,
-                    "dataSecurityClassification"
+                    "dataUseLimitations"
                 ).length) {
                 resourcesConstraints.push(dataResourceConstraints[i]);
             }
         }
-        resourcesConstraints = resourcesConstraints.concat(this.classification);
+        resourcesConstraints = resourcesConstraints.concat(useLimitations);
 
         this.update({
             space: this.space,
-            // field: field,
-            field: 'dataResourceConstraints',
+            field: "dataResourceConstraints",
             fieldValue: resourcesConstraints
         });
     }
-
 };
 
-export const mdFormSecurityconstraintsComponent = {
+export const mdFormConstraintsComponent = {
     bindings: {
         md: "<",
         field: "<",
-        list: "<",
         locales: "<",
         multi: "@",
         label: "@",
@@ -84,5 +83,5 @@ export const mdFormSecurityconstraintsComponent = {
         update: "&"
     },
     template: template,
-    controller: mdFormSecurityconstraintsController
+    controller: mdFormConstraintsController
 };

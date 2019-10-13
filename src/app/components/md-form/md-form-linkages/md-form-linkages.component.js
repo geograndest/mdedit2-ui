@@ -18,6 +18,7 @@ const mdFormLinkagesController = class MdFormLinkagesController {
 
     $onChanges(changes) {
         if (changes.md) {
+            this.md = angular.copy(this.md);
             this.linkages = this.getValues();
             if (this.linkages.length == 0) {
                 this.linkages = [{}];

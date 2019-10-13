@@ -15,13 +15,13 @@ const xmlSaveButtonController = class XmlSaveButtonController {
 
     formatDate(datetime) {
         var dd = datetime.getDate();
-        var mm = datetime.getMonth()+1; 
+        var mm = datetime.getMonth() + 1;
         var yyyy = datetime.getFullYear();
-        if(dd < 10) {
-            dd = '0'+dd;
+        if (dd < 10) {
+            dd = '0' + dd;
         }
-        if(mm < 10) {
-            mm = '0'+mm;
+        if (mm < 10) {
+            mm = '0' + mm;
         }
         return yyyy + '-' + mm + '-' + dd;
     }

@@ -25,8 +25,7 @@ const mdFormDatesController = class MdFormDatesController {
         return (datecreation.length || dateedition.length || datepublication.length);
     }
 
-    $onInit() {
-    }
+    $onInit() {}
 
     getValues() {
         var dates = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
@@ -49,6 +48,7 @@ const mdFormDatesController = class MdFormDatesController {
 
     $onChanges(changes) {
         if (changes.md) {
+            this.md = angular.copy(this.md);
             this.getValues();
         }
     }

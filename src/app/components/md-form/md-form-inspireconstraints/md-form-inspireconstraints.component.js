@@ -43,6 +43,7 @@ const mdFormInspireconstraintsController = class MdFormInspireconstraintsControl
 
     $onChanges(changes) {
         if (changes.md) {
+            this.md = angular.copy(this.md);
             this.getValues();
         }
     }
@@ -56,7 +57,7 @@ const mdFormInspireconstraintsController = class MdFormInspireconstraintsControl
             // field: field,
             field: 'dataLegalAccessInspireConstraints',
             fieldValue: this.inspireConstraints
-            // fieldValue: inspireConstraints
+                // fieldValue: inspireConstraints
         });
     }
 }

@@ -62,13 +62,24 @@ const mdFormElementController = class MdFormElementController {
     }
 
     getValues() {
+        if (this.field.name == "dataUseLimitations") {
+            console.log(this.md,
+                this.space,
+                this.field.name,
+                this.XmlConverterService.getValue(
+                    this.md,
+                    this.space,
+                    this.field.name
+                )
+            )
+        }
         var values = this.XmlConverterService.getValue(
             this.md,
             this.space,
             this.field.name
         );
         if (this.type == "date" || this.type == "datetime-local") {
-            values = values.map(function (d) {
+            values = values.map(function(d) {
                 if (d) {
                     return new Date(d)
                 }
@@ -92,6 +103,7 @@ const mdFormElementController = class MdFormElementController {
 
     $onChanges(changes) {
         if (changes.md) {
+            this.md = angular.copy(this.md);
             this.fieldValue = !this.getValues().length ? [""] : this.getValues();
             if (!changes.md.isFirstChange()) {
                 for (var i = 0; i < this.fieldValue.length; i++) {
@@ -102,7 +114,7 @@ const mdFormElementController = class MdFormElementController {
         }
     }
 
-    saveData(items) {
+    saveData(items, key) {
         if (items !== undefined) {
             if (this.type == "date") {
                 items = items.map((d) => {
@@ -127,7 +139,8 @@ const mdFormElementController = class MdFormElementController {
             this.update({
                 space: this.space,
                 field: this.field.name,
-                fieldValue: items
+                fieldValue: items,
+                key: key
             });
         }
     }
@@ -135,7 +148,7 @@ const mdFormElementController = class MdFormElementController {
     onBlur(key, itemValue) {
         this.changeEdit(key);
         this.fieldValue[key] = itemValue;
-        this.saveData(this.fieldValue);
+        this.saveData(this.fieldValue, key);
     }
 
     onChange(key) {

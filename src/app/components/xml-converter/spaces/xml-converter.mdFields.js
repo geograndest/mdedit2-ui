@@ -605,17 +605,18 @@ export const mdFields = {
         name: 'dataUseLimitations',
         xpaths: {
             paths: [
-                'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
+                // 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
+                // 'gmd__resourceConstraints[*]',
                 'gmd__MD_Constraints[0].gmd__useLimitation[*]'
             ],
-            value: 'gco__CharacterString[0]._text[0]'
+            value: 'gco__CharacterString[0]._text'
         }
     },
     srvUseLimitations: {
         name: 'dataUseLimitations',
         xpaths: {
             paths: [
-                'gmd__MD_Metadata[0].gmd__identificationInfo[0].srv__SV_ServiceIdentification[0].gmd__resourceConstraints[*]',
+                // 'gmd__MD_Metadata[0].gmd__identificationInfo[0].srv__SV_ServiceIdentification[0].gmd__resourceConstraints[*]',
                 'gmd__MD_Constraints[0].gmd__useLimitation[*]'
             ],
             value: 'gco__CharacterString[0]._text[0]'

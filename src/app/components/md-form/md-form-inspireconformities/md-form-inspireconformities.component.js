@@ -18,6 +18,7 @@ const mdFormInspireconformitiesController = class MdFormInspireconformitiesContr
 
     $onChanges(changes) {
         if (changes.md) {
+            this.md = angular.copy(this.md);
             this.inspireconformities = this.getValues();
         }
     }

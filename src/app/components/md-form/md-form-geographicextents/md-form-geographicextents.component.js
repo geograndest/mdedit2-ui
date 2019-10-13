@@ -34,7 +34,7 @@ const mdFormGeographicextentsController = class MdFormGeographicextentsControlle
             if (!areValidLongitudes || !areValidLatitudes) {
                 return false
             }
-            
+
         }
         return true;
     }
@@ -52,6 +52,7 @@ const mdFormGeographicextentsController = class MdFormGeographicextentsControlle
 
     $onChanges(changes) {
         if (changes.md) {
+            this.md = angular.copy(this.md);
             this.geographicextents = this.getValues();
         }
     }
