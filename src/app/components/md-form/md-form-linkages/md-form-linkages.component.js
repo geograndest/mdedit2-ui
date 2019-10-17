@@ -18,7 +18,6 @@ const mdFormLinkagesController = class MdFormLinkagesController {
 
     $onChanges(changes) {
         if (changes.md) {
-            this.md = angular.copy(this.md);
             this.linkages = this.getValues();
             if (this.linkages.length == 0) {
                 this.linkages = [{}];
@@ -39,7 +38,6 @@ const mdFormLinkagesController = class MdFormLinkagesController {
     }
 
     updateLinkages(key, linkage) {
-        // linkage = this.XmlConverterService.setValue(linkage, this.space, 'referenceSystemCodeSpace', 'EPSG');
         this.linkages[key] = linkage;
         this.update({
             space: this.space,

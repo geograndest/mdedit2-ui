@@ -1370,91 +1370,109 @@
                 "icon": "fa-info-circle"
             }
         },
-        "dataLegalUseLimitations": {
-            "name": "dataLegalUseLimitations",
-            "label": "Mentions et conditions légales d'utilisation",
+        "dataLegalConstraints": {
+            "name": "dataLegalConstraints",
+            "label": "Contraintes légales",
             "placeholder": "",
-            "description": "Mentions et conditions légales d'utilisation des données",
+            "description": "Contraintes légales d'accès et d'utilisation des données",
             "disabled": "",
-            "multi": "true",
-            "editable": "true",
-            "type": "textarea",
+            "_multi": "false",
+            "_editable": "true",
+            "_type": "textarea",
             "mandatory": "false",
-            "value": [""],
+            "_value": [""],
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataLegalUseLimitations.md",
-                "title": "Limites techniques d'usage de la base de données",
-                "icon": "fa-info-circle"
-            }
-        },
-        "dataLegalUseConstraints": {
-            "name": "dataLegalUseConstraints",
-            "label": "Contraintes légales d'usage",
-            "placeholder": "",
-            "description": "Contraintes légales d'usage des données",
-            "disabled": "",
-            "multi": "true",
-            "editable": "true",
-            "type": "select",
-            "mandatory": "false",
-            "value": [""],
-            "helpButton": {
-                "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataLegalUseConstraints.md",
-                "title": "Contraintes légales d'usage des données",
-                "icon": "fa-info-circle"
-            }
-        },
-        "dataLegalAccessConstraints": {
-            "name": "dataLegalAccessConstraints",
-            "label": "Contraintes légales d'accès",
-            "placeholder": "",
-            "description": "Contraintes légales d'accès des données",
-            "disabled": "",
-            "multi": "true",
-            "editable": "true",
-            "type": "select",
-            "mandatory": "false",
-            "value": [""],
-            "helpButton": {
-                "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataLegalAccessConstraints.md",
-                "title": "Contraintes légales d'accès aux données",
-                "icon": "fa-info-circle"
-            }
-        },
-        "dataLegalAccessInspireConstraints": {
-            "name": "dataLegalAccessInspireConstraints",
-            "label": "Contraintes d'accès liées à Inspire",
-            "placeholder": "",
-            "description": "Contraintes légales d'accès des données liées à Inspire",
-            "disabled": "",
-            "multi": "true",
-            "editable": "true",
-            "type": "select",
-            "mandatory": "true",
-            "value": [""],
-            "helpButton": {
-                "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataLegalAccessInspireConstraints.md",
-                "title": "Contraintes légales d'accès des données liées à Inspire",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataLegalConstraints.md",
+                "title": "Contraintes légales d'accès et d'utilisation des données",
                 "icon": "fa-info-circle"
             },
-            "legalAccessInspireConstraint": {
-                "name": "legalAccessInspireConstraint",
+            "dataLegalUseLimitations": {
+                "name": "dataLegalUseLimitations",
+                "label": "Mentions et conditions légales d'utilisation",
+                "placeholder": "",
+                "description": "Mentions et conditions légales d'utilisation des données",
+                "disabled": "",
+                "multi": "true",
+                "editable": "true",
+                "type": "textarea",
+                "mandatory": "false",
+                "value": [""],
+                "helpButton": {
+                    "format": "icon",
+                    "contentUrl": "config/views/md-edit-data/help.fr/dataLegalUseLimitations.md",
+                    "title": "Limites techniques d'usage de la base de données",
+                    "icon": "fa-info-circle"
+                }
+            },
+            "dataLegalUseConstraints": {
+                "name": "dataLegalUseConstraints",
+                "label": "Contraintes légales d'usage",
+                "placeholder": "",
+                "description": "Contraintes légales d'usage des données",
+                "disabled": "",
+                "multi": "true",
+                "editable": "true",
+                "type": "select",
+                "mandatory": "false",
+                "value": [""],
+                "helpButton": {
+                    "format": "icon",
+                    "contentUrl": "config/views/md-edit-data/help.fr/dataLegalUseConstraints.md",
+                    "title": "Contraintes légales d'usage des données",
+                    "icon": "fa-info-circle"
+                }
+            },
+            "dataLegalAccessConstraints": {
+                "name": "dataLegalAccessConstraints",
+                "label": "Contraintes légales d'accès",
+                "placeholder": "",
+                "description": "Contraintes légales d'accès des données",
+                "disabled": "",
+                "multi": "true",
+                "editable": "true",
+                "type": "select",
+                "mandatory": "false",
+                "value": [""],
+                "helpButton": {
+                    "format": "icon",
+                    "contentUrl": "config/views/md-edit-data/help.fr/dataLegalAccessConstraints.md",
+                    "title": "Contraintes légales d'accès aux données",
+                    "icon": "fa-info-circle"
+                }
+            },
+            "dataLegalAccessInspireConstraints": {
+                "name": "dataLegalAccessInspireConstraints",
                 "label": "Contraintes d'accès liées à Inspire",
                 "placeholder": "",
                 "description": "Contraintes légales d'accès des données liées à Inspire",
                 "disabled": "",
+                "multi": "true",
                 "editable": "true",
-                "mandatory": "false",
                 "type": "select",
+                "mandatory": "true",
+                "value": [""],
                 "helpButton": {
                     "format": "icon",
                     "contentUrl": "config/views/md-edit-data/help.fr/dataLegalAccessInspireConstraints.md",
                     "title": "Contraintes légales d'accès des données liées à Inspire",
                     "icon": "fa-info-circle"
+                },
+                "legalAccessInspireConstraint": {
+                    "name": "legalAccessInspireConstraint",
+                    "label": "Contraintes d'accès liées à Inspire",
+                    "placeholder": "",
+                    "description": "Contraintes légales d'accès des données liées à Inspire",
+                    "disabled": "",
+                    "editable": "true",
+                    "mandatory": "false",
+                    "type": "select",
+                    "helpButton": {
+                        "format": "icon",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataLegalAccessInspireConstraints.md",
+                        "title": "Contraintes légales d'accès des données liées à Inspire",
+                        "icon": "fa-info-circle"
+                    }
                 }
             }
         },

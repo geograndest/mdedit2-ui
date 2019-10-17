@@ -16,25 +16,15 @@ const mdFormSpatialresolutionController = class MdFormSpatialresolutionControlle
         return (scaleDistance.length || scaleDenominator.length);
     }
 
-    $onInit() {
+    $onInit() {}
+
+    getValues() {}
+
+    $onChanges(changes) {
+        if (changes.md) {}
     }
 
-    // getValues() {
-    //     var scaleDistance = this.XmlConverterService.getValue(this.md, this.space, this.field.scale.dataScaleDistance.name);
-    //     this.scaleDistance = scaleDistance || {};
-    //     var scaleDenominator = this.XmlConverterService.getValue(this.md, this.space, this.field.scale.dataScaleDenominator.name);
-    //     this.scaleDenominator = scaleDenominator || {};
-    //     console.log(1, this.scaleDistance, this.scaleDenominator, this.md, this.space, this.field.scale.dataScaleDistance.name);
-    // }
-
-    // $onChanges(changes) {
-    //     if (changes.md) {
-    //         this.getValues();
-    //     }
-    // }
-
     updateResolution(space, field, fieldValue) {
-        // console.log(2, space, field, fieldValue);
         this.update({
             space: this.space,
             field: field,

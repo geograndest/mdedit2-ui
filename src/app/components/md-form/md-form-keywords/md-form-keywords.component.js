@@ -32,74 +32,8 @@ const mdFormKeywordsController = class MdFormKeywordsController {
         }
     }
 
-    // mergeKeywords(keywordsList) {
-    //     var keywords = [];
-    //     if (keywordsList.length) {
-    //         var thesaurusDone = [];
-    //         for (var i = 0; i < keywordsList.length; i++) {
-    //             var thesaurusName1 = this.XmlConverterService.getValue(
-    //                 keywordsList[i],
-    //                 this.space,
-    //                 "thesaurusName"
-    //             )[0];
-    //             if (thesaurusName1) {
-    //                 thesaurusName1 = thesaurusName1.trim();
-    //             }
-    //             if (!thesaurusDone.includes(thesaurusName1)) {
-    //                 var keywords1 = this.XmlConverterService.getValue(
-    //                     keywordsList[i],
-    //                     this.space,
-    //                     "keyword"
-    //                 );
-    //                 for (var j = 0; j < keywordsList.length; j++) {
-    //                     var thesaurusName2 = this.XmlConverterService.getValue(
-    //                         keywordsList[j],
-    //                         this.space,
-    //                         "thesaurusName"
-    //                     )[0];
-    //                     if (thesaurusName2) {
-    //                         thesaurusName2 = thesaurusName2.trim();
-    //                     }
-    //                     if (
-    //                         i !== j &&
-    //                         thesaurusName2 === thesaurusName1
-    //                     ) {
-    //                         var keywords2 = this.XmlConverterService.getValue(
-    //                             keywordsList[j],
-    //                             this.space,
-    //                             "keyword"
-    //                         );
-    //                         keywords1 = keywords1.concat(keywords2);
-    //                     }
-    //                 }
-    //                 // Get unique keywords from list
-    //                 keywords1.map((val) => val.trim());
-    //                 keywords1 = keywords1.filter(
-    //                     (v, i) => keywords1.indexOf(v) === i
-    //                 );
-    //                 keywords.push(
-    //                     this.XmlConverterService.setValue(
-    //                         keywordsList[i],
-    //                         this.space,
-    //                         "keyword",
-    //                         keywords1
-    //                     )
-    //                 );
-    //                 thesaurusDone.push(thesaurusName1);
-    //             }
-    //         }
-    //         keywordsList = keywords;
-    //         // console.log(keywordsList)
-    //         // this.updateKeywords();
-    //     } else if (!keywordsList.length) {
-    //         keywords.push({});
-    //     }
-    //     return keywords;
-    // }
-
     $onChanges(changes) {
         if (changes.md) {
-            this.md = angular.copy(this.md);
             this.getValues();
         }
     }
@@ -122,7 +56,6 @@ const mdFormKeywordsController = class MdFormKeywordsController {
             this.getValues();
             this.keywordsList[key] = keyword;
         }
-        // var keywords = this.mergeKeywords(this.keywordsList).concat(this.inspirekeywordsList)
         this.update({
             space: this.space,
             field: this.field.name,

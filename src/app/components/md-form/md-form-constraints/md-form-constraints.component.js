@@ -38,7 +38,6 @@ const mdFormConstraintsController = class MdFormConstraintsController {
 
     $onChanges(changes) {
         if (changes.md) {
-            this.md = angular.copy(this.md);
             this.useLimitations = this.getValues();
         }
     }

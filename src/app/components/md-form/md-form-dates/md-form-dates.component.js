@@ -48,7 +48,6 @@ const mdFormDatesController = class MdFormDatesController {
 
     $onChanges(changes) {
         if (changes.md) {
-            this.md = angular.copy(this.md);
             this.getValues();
         }
     }

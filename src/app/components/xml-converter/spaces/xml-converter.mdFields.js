@@ -622,11 +622,23 @@ export const mdFields = {
             value: 'gco__CharacterString[0]._text[0]'
         }
     },
+    dataLegalConstraints: {
+        name: 'dataLegalConstraints',
+        xpaths: {
+            // paths: [
+            //     // 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
+            //     // 'gmd__resourceConstraints[*]',
+            //     'gmd__MD_LegalConstraints[*]'
+            // ],
+            value: 'gmd__MD_LegalConstraints[*]'
+        }
+    },
     dataLegalUseLimitations: {
         name: 'dataLegalUseLimitations',
         xpaths: {
             paths: [
-                'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
+                // 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
+                // 'gmd__resourceConstraints[*]',
                 'gmd__MD_LegalConstraints[0].gmd__useLimitation[*]'
             ],
             value: 'gco__CharacterString[0]._text[0]'
@@ -636,7 +648,7 @@ export const mdFields = {
         name: 'dataLegalUseConstraints',
         xpaths: {
             paths: [
-                'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
+                // 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
                 'gmd__MD_LegalConstraints[0].gmd__useConstraints[*]'
             ],
             value: 'gmd__MD_RestrictionCode[0]._text[0]',
@@ -651,7 +663,7 @@ export const mdFields = {
         name: 'dataLegalAccessConstraints',
         xpaths: {
             paths: [
-                'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
+                // 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
                 'gmd__MD_LegalConstraints[0].gmd__accessConstraints[*]'
             ],
             value: 'gmd__MD_RestrictionCode[0]._text[0]',
@@ -666,7 +678,7 @@ export const mdFields = {
         name: 'dataLegalAccessInspireConstraints',
         xpaths: {
             paths: [
-                'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
+                // 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
                 'gmd__MD_LegalConstraints[0].gmd__otherConstraints[*]'
             ],
             value: 'gco__CharacterString[0]._text[0]'
@@ -691,7 +703,7 @@ export const mdFields = {
         name: 'dataLegalOtherConstraints',
         xpaths: {
             paths: [
-                'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
+                // 'gmd__MD_Metadata[0].gmd__identificationInfo[0].gmd__MD_DataIdentification[0].gmd__resourceConstraints[*]',
                 'gmd__MD_LegalConstraints[0].gmd__otherConstraints[*]'
 
             ],

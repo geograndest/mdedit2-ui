@@ -30,10 +30,10 @@ const AppComponentController = class AppComponentController {
     }
 
     loadMdjs(xml) {
-        // this.mdjs = this.XmlConverterService.xml2js(this.xml);
         this.xml = xml;
+        // this.mdjs = this.XmlConverterService.xml2js(this.xml);
         this.mdjs = this.LodashService.lodash.merge(
-            // this.XmlConverterService.xml2js(this.defaultXml),
+            this.XmlConverterService.xml2js(this.defaultXml),
             this.XmlConverterService.xml2js(this.xml)
         );
         this.StoreService.setData({

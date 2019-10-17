@@ -42,19 +42,12 @@ const mdFormInspirekeywordsController = class MdFormInspirekeywordsController {
 
     $onChanges(changes) {
         if (changes.md) {
-            this.md = angular.copy(this.md);
             this.getValues();
         }
     }
 
     onAddInspirekeyword() {
         this.inspirekeywordsList.push({});
-        // if (this.inspirekeywordsList.length) {
-        //     var keyword = this.XmlConverterService.getValue(this.inspirekeywordsList[this.inspirekeywordsList.length - 1], this.space, 'keyword');
-        //     if (keyword[0]) {
-        //         this.inspirekeywordsList.push({});
-        //     }
-        // }
     }
 
     onRemoveInspirekeyword(key) {

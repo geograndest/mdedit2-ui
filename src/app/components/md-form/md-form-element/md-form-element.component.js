@@ -46,7 +46,7 @@ const mdFormElementController = class MdFormElementController {
             this.value = this.field.value
         }
         var isFieldValueEmpty = this.fieldValue.every((value) => {
-            return (value !== false);
+            return !value;
         });
         if (isFieldValueEmpty && this.value) {
             this.fieldValue = this.value;
@@ -62,17 +62,6 @@ const mdFormElementController = class MdFormElementController {
     }
 
     getValues() {
-        if (this.field.name == "dataUseLimitations") {
-            console.log(this.md,
-                this.space,
-                this.field.name,
-                this.XmlConverterService.getValue(
-                    this.md,
-                    this.space,
-                    this.field.name
-                )
-            )
-        }
         var values = this.XmlConverterService.getValue(
             this.md,
             this.space,
@@ -103,7 +92,6 @@ const mdFormElementController = class MdFormElementController {
 
     $onChanges(changes) {
         if (changes.md) {
-            this.md = angular.copy(this.md);
             this.fieldValue = !this.getValues().length ? [""] : this.getValues();
             if (!changes.md.isFirstChange()) {
                 for (var i = 0; i < this.fieldValue.length; i++) {
@@ -153,7 +141,6 @@ const mdFormElementController = class MdFormElementController {
 
     onChange(key) {
         if (this.type == "date") {
-            // console.log(key, this.fieldValue[key]);
             this.onBlur(key, this.fieldValue[key]);
         }
     }

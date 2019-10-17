@@ -14,7 +14,6 @@ const mdFormImageController = class MdFormImageController {
 
     $onChanges(changes) {
         if (changes.md) {
-            this.md = angular.copy(this.md);
             this.fieldValue = !this.getValues().length ? [''] : this.getValues();
         }
     }

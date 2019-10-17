@@ -14,7 +14,6 @@ const mdFormBrowsegraphicsController = class MdFormBrowsegraphicsController {
 
     $onChanges(changes) {
         if (changes.md) {
-            this.md = angular.copy(this.md);
             this.browsegraphics = this.getValues();
             if (this.browsegraphics.length == 0) {
                 this.browsegraphics = [{}];

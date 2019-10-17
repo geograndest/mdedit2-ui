@@ -16,48 +16,24 @@ const mdFormInspireconstraintsController = class MdFormInspireconstraintsControl
     //     return true;
     // }
 
-    $onInit() {
-        // console.log(this.field);
-        // this.getValues();
-    }
+    $onInit() {}
 
     getValues() {
         this.inspireConstraints = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
-        console.log(this.inspireConstraints, this.field.name);
-        // for (var i = 0; i < dates.length; i++) {
-        //     var dateType = this.XmlConverterService.getValue(dates[i], this.space, 'dateType');
-        //     if (dateType[0] == 'creation') {
-        //         this.datecreation = dates[i];
-        //     }
-        //     if (dateType[0] == 'edition') {
-        //         this.dateedition = dates[i];
-        //     }
-        //     if (dateType[0] == 'publication') {
-        //         this.datepublication = dates[i];
-        //     }
-        // }
-        // this.datecreation = this.datecreation || {};
-        // this.dateedition = this.dateedition || {};
-        // this.datepublication = this.datepublication || {};
     }
 
     $onChanges(changes) {
         if (changes.md) {
-            this.md = angular.copy(this.md);
             this.getValues();
         }
     }
 
     updateInspireConstraints(space, field, fieldValue) {
-        console.log(space, field, fieldValue);
         this.XmlConverterService.setValue(this.inspireConstraints, space, field, fieldValue);
-        // this.getValues();
         this.update({
             space: space,
-            // field: field,
             field: 'dataLegalAccessInspireConstraints',
             fieldValue: this.inspireConstraints
-                // fieldValue: inspireConstraints
         });
     }
 }

@@ -18,7 +18,6 @@ const mdFormConformitiesController = class MdFormConformitiesController {
 
     $onChanges(changes) {
         if (changes.md) {
-            this.md = angular.copy(this.md);
             this.conformities = this.getValues();
         }
     }

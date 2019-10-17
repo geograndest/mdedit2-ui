@@ -15,7 +15,6 @@ const mdFormContactsController = class MdFormContactsController {
 
     $onChanges(changes) {
         if (changes.md) {
-            this.md = angular.copy(this.md);
             this.contacts = this.getValues();
             if (this.contacts.length == 0) {
                 this.contacts = [{}];

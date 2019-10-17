@@ -25,7 +25,6 @@ const mdFormDistributionformatsController = class MdFormDistributionformatsContr
 
     $onChanges(changes) {
         if (changes.md) {
-            this.md = angular.copy(this.md);
             this.distributionformats = this.getValues();
             if (this.distributionformats.length == 0) {
                 this.distributionformats = [{}];

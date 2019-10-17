@@ -97,23 +97,13 @@ export class XmlConverter {
         var xpath = this.getXpath(fields[field].xpaths);
         var values = jsonpath.query(obj, xpath);
         return values;
-        // var values = [];
-        // var fieldNames = field.split('|');
-        // for (var i = 0 ; i < fieldNames.length; i++) {
-        //     // var xpath1 = this.getXpath(fields[fieldNames[i]].xpaths);
-        //     values = values.concat(jsonpath.query(obj, this.getXpath(fields[fieldNames[i]].xpaths)));
-        // }
-        // return values;
-        // var xpath = this.getXpath(fields[fieldNames[i]].xpaths);
     }
 
     setValue(obj, space, field, values, separator) {
         var fields = this.getFields(space);
-        // var fieldName = field.split('|')[0];
-        // console.log(field)
         var paths = fields[field].xpaths.paths;
 
-        // TODO: pb si values = empty...
+        // TODO: pb if values = empty...
         if (!paths || paths.length == 0) {
             obj = lodash.set(
                 obj,

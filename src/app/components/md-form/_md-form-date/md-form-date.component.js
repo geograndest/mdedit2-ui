@@ -13,16 +13,13 @@ const mdFormDateController = class MdFormDateController {
         return this.date.length;
     }
 
-    $onInit() {
-        // this.fieldNames = this.field.name.split('|');
-    }
+    $onInit() {}
 
     getValues() {
         var date = [];
         this.fieldNames = this.field.name.split('|');
         this.fieldDate = angular.copy(this.field);
         this.fieldDate.name = this.fieldNames[0];
-        console.log(this.fieldDate)
         for (var i = 0 ; i < this.fieldNames.length; i++) {
             date = date.concat(this.XmlConverterService.getValue(this.md, this.space, this.field.name));
         }
