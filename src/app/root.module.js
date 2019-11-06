@@ -1,11 +1,10 @@
 // Import CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/css/bootstrap.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import './root.scss';
 // Import JS modules
 import angular from 'angular';
-import uiBootstrap from "ui-bootstrap4";
+import uiBootstrap from 'ui-bootstrap4';
 import uiRouter from '@uirouter/angularjs';
 // Import application modules and components
 import {

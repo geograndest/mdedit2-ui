@@ -1,16 +1,6 @@
 {
     "presets": [
-        ["env", {
-                "targets": {
-                    "browsers": [
-                        "last 2 versions",
-                        "ie >= 9"
-                    ]
-                },
-            "useBuiltIns": true,
-            "debug": true
-        }
-    ]
-],
-"plugins": ["angularjs-annotate", "transform-class-properties", "transform-es2015-arrow-functions"]
+        "@babel/env"
+    ],
+    "plugins": ["angularjs-annotate"]
 }
