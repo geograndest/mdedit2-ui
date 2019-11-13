@@ -62,7 +62,7 @@ import {
 } from './md-form-constraints/md-form-constraints.module';
 import {
     mdFormLegalconstraints
-} from './md-form-Legalconstraints/md-form-legalconstraints.module';
+} from './md-form-legalconstraints/md-form-legalconstraints.module';
 import {
     nl2br
 } from './md-form.filters';
