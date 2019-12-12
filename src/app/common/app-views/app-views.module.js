@@ -31,6 +31,9 @@ import {
 import {
     mdLive
 } from './md-live/md-live.module';
+import {
+    mdEditNogeo
+} from './md-edit-nogeo/md-edit-nogeo.module';
 
 export const appViews = angular
     .module('app.views', [
@@ -44,6 +47,7 @@ export const appViews = angular
         mdEditMap,
         mdTest,
         mdList,
-        mdLive
+        mdLive,
+        mdEditNogeo
     ])
     .name;

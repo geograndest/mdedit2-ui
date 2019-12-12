@@ -11,38 +11,44 @@
                     <span class="fas fa-arrows-alt-v float-right text-dark"></span>
                 </div>
                 <div>
+                    <div>
+                        <h3 class="mb-3">{{$ctrl.tabs[2].title}}</h3>
+                        <!-- mdContacts -->
+                        <md-form-inspirecontacts multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdTestLocales.fields.mdContacts" lists="$ctrl.mdTestLocales.codelists" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdTestLocales.locales">
+                        </md-form-inspirecontacts>
+                    </div>
                     <!-- <div class="row">
                         <div class="col-md-4 form-group">
-                            <md-form-element type="text" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.mdFileIdentifier" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-element>
+                            <md-form-element type="text" md="$ctrl.mdjs" field="$ctrl.mdTestLocales.fields.mdFileIdentifier" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdTestLocales.locales"></md-form-element>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <md-form-element type="select" multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataTopicCategories" label="true" list="$ctrl.mdEditLocales.codelists.MD_TopicCategoryCode" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-element>
+                            <md-form-element type="select" multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdTestLocales.fields.dataTopicCategories" label="true" list="$ctrl.mdTestLocales.codelists.MD_TopicCategoryCode" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdTestLocales.locales"></md-form-element>
                         </div>
                         <div class="col-md-12 form-group">
-                            <md-form-element type="select" multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataTopicCategories" label="true" edit="true" list="$ctrl.mdEditLocales.codelists.MD_TopicCategoryCode" update="$ctrl.update(space, field, fieldValue)"
-                                locales="$ctrl.mdEditLocales.locales"></md-form-element>
+                            <md-form-element type="select" multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdTestLocales.fields.dataTopicCategories" label="true" edit="true" list="$ctrl.mdTestLocales.codelists.MD_TopicCategoryCode" update="$ctrl.update(space, field, fieldValue)"
+                                locales="$ctrl.mdTestLocales.locales"></md-form-element>
                         </div>
                     </div> -->
                     <div class="row">
                         <div class="col-md-4 form-group">
-                            <!-- <md-form-element type="date" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.mdDateStamp"
+                            <!-- <md-form-element type="date" md="$ctrl.mdjs" field="$ctrl.mdTestLocales.fields.mdDateStamp"
                                 label="true" edit="true" space="md" value="$ctrl.currentDate" update="$ctrl.update(space, field, fieldValue)"
-                                locales="$ctrl.mdEditLocales.locales"></md-form-element> -->
+                                locales="$ctrl.mdTestLocales.locales"></md-form-element> -->
                         </div>
                     </div>
-                    <!-- <md-form-temporalextents multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataTemporalExtents"
-                        label="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-temporalextents> -->
+                    <!-- <md-form-temporalextents multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdTestLocales.fields.dataTemporalExtents"
+                        label="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdTestLocales.locales"></md-form-temporalextents> -->
                     <div class="col-md-12 form-group">
                         <!-- dataDates -->
-                        <md-form-dates multi="false" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataDates"
-                            label="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-dates>
+                        <!-- <md-form-dates multi="false" md="$ctrl.mdjs" space="md" field="$ctrl.mdTestLocales.fields.dataDates"
+                            label="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdTestLocales.locales"></md-form-dates> -->
                     </div>
                     <!-- dataGeographicExtents -->
-                    <!-- <md-form-geographicextents multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataGeographicExtents"
+                    <!-- <md-form-geographicextents multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdTestLocales.fields.dataGeographicExtents"
                         label="true" extents-file="{{$ctrl.extentsFile}}" update="$ctrl.update(space, field, fieldValue)"
-                        locales="$ctrl.mdEditLocales.locales"></md-form-geographicextents> -->
+                        locales="$ctrl.mdTestLocales.locales"></md-form-geographicextents> -->
                 </div>
             </div>
         </form>

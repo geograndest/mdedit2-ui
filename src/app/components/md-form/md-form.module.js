@@ -12,6 +12,9 @@ import {
     mdFormContacts
 } from './md-form-contacts/md-form-contacts.module';
 import {
+    mdFormInspirecontacts
+} from './md-form-inspirecontacts/md-form-inspirecontacts.module';
+import {
     mdFormGeographicextents
 } from './md-form-geographicextents/md-form-geographicextents.module';
 import {
@@ -77,6 +80,7 @@ export const mdForm = angular
         mdFormElement,
         mdFormImage,
         mdFormContacts,
+        mdFormInspirecontacts,
         mdFormGeographicextents,
         mdFormTemporalextents,
         mdFormBrowsegraphics,
