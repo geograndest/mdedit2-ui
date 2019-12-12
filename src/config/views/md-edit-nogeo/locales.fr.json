@@ -16,7 +16,7 @@
         {
             "id": 1,
             "title": "Informations techniques",
-            "description": "Informations sur la fiche de métadonnées",
+            "description": "Informations techniques sur la fiche de métadonnées",
             "active": true
         },
         {
@@ -60,12 +60,6 @@
             "id": 8,
             "title": "Ressources associées",
             "description": "Ressources associées aux données (guide méthodologique, table attributaire, documents, etc.)",
-            "active": false
-        },
-        {
-            "id": 9,
-            "title": "Conformités des données",
-            "description": "Conformités des données au regard de la directive europénne Inspire et des autres standards en vigueur",
             "active": false
         }
     ],

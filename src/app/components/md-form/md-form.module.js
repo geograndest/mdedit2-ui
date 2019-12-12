@@ -67,6 +67,9 @@ import {
     mdFormLegalconstraints
 } from './md-form-legalconstraints/md-form-legalconstraints.module';
 import {
+    mdFormLegalconstraintsOpendata
+} from './md-form-legalconstraints-opendata/md-form-legalconstraints-opendata.module';
+import {
     nl2br
 } from './md-form.filters';
 import {
@@ -97,7 +100,8 @@ export const mdForm = angular
         mdFormSpatialresolution,
         mdFormSecurityconstraints,
         mdFormConstraints,
-        mdFormLegalconstraints
+        mdFormLegalconstraints,
+        mdFormLegalconstraintsOpendata
     ])
     .component('mdFormComponent', mdFormComponent)
     .filter('nl2br', nl2br)

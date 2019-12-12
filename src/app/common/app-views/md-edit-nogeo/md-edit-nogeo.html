@@ -158,45 +158,44 @@
                     <uib-tab index="6" class="d-none">
                         <div>
                             <h3 class="mb-3">{{$ctrl.tabs[6].title}}</h3>
-                            <div class="row">
-                                <div class="col-md-6 form-group">
+                            <!-- <div class="row"> -->
+                                <!-- <div class="col-md-6 form-group"> -->
                                     <!-- dataSpatialRepresentationType -->
-                                    <md-form-element type="select" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataSpatialRepresentationType" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" list="$ctrl.mdEditLocales.codelists.MD_SpatialRepresentationTypeCode"
-                                        locales="$ctrl.mdEditLocales.locales"></md-form-element>
-                                </div>
-                            </div>
+                                    <!-- <md-form-element type="select" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataSpatialRepresentationType" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" list="$ctrl.mdEditLocales.codelists.MD_SpatialRepresentationTypeCode" locales="$ctrl.mdEditLocales.locales"></md-form-element> -->
+                                <!-- </div> -->
+                            <!-- </div> -->
                             <div class="row">
                                 <div class="col-md-12">
                                     <!-- dataGeographicExtents -->
                                     <md-form-geographicextents multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataGeographicExtents" label="true" extents-file="{{$ctrl.extentsFile}}" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-geographicextents>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12 form-group">
+                            <!-- <div class="row"> -->
+                                <!-- <div class="col-md-12 form-group"> -->
                                     <!-- dataReferenceSystems -->
-                                    <md-form-referencesystems multi="true" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataReferenceSystems" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" list="$ctrl.mdEditLocales.codelists.MD_ReferenceSystemCode"
-                                        locales="$ctrl.mdEditLocales.locales"></md-form-referencesystems>
-                                </div>
-                            </div>
-                            <div class="row">
+                                    <!-- <md-form-referencesystems multi="true" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataReferenceSystems" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" list="$ctrl.mdEditLocales.codelists.MD_ReferenceSystemCode"
+                                        locales="$ctrl.mdEditLocales.locales"></md-form-referencesystems> -->
+                                <!-- </div> -->
+                            <!-- </div> -->
+                            <!-- <div class="row">
                                 <div class="col-md-12 form-group">
                                     <md-form-spatialresolution md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataSpatialResolution" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales">
                                         </md-form-element>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row">
                                 <div class="col-md-12 form-group">
                                     <!-- dataLiStatement -->
                                     <md-form-element type="textarea" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataLiStatement" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-element>
                                 </div>
                             </div>
-                            <div class="row" ng-show="true">
-                                <div class="col-md-12 form-group">
+                            <!-- <div class="row" ng-show="true"> -->
+                                <!-- <div class="col-md-12 form-group"> -->
                                     <!-- dataUseLimitations -->
                                     <!-- <md-form-element type="textarea" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataUseLimitations" label="true" edit="true" space="md" multi="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-element> -->
-                                    <md-form-constraints type="textarea" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataUseLimitations" label="true" edit="true" space="md" multi="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-constraints>
-                                </div>
-                            </div>
+                                    <!-- <md-form-constraints type="textarea" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataUseLimitations" label="true" edit="true" space="md" multi="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-constraints> -->
+                                <!-- </div> -->
+                            <!-- </div> -->
                             <!-- dataCharacterSet -->
                             <div class="row" ng-show="true">
                                 <div class="col-md-12 form-group">
@@ -224,7 +223,7 @@
                                 </div>
                             </div>
                             <!-- dataLegalConstraints -->
-                            <md-form-legalconstraints md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataLegalConstraints" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" list-restriction-code="$ctrl.mdEditLocales.codelists.MD_RestrictionCode" list-inspire-restriction-code="$ctrl.mdEditLocales.codelists.MD_InspireRestrictionCode" locales="$ctrl.mdEditLocales.locales"></md-form-legalconstraints>
+                            <md-form-legalconstraints-opendata md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataLegalConstraints" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" list-restriction-code="$ctrl.mdEditLocales.codelists.MD_RestrictionCode" list-inspire-restriction-code="$ctrl.mdEditLocales.codelists.MD_InspireRestrictionCode" locales="$ctrl.mdEditLocales.locales"></md-form-legalconstraints-opendata>
                         </div>
                     </uib-tab>
 
@@ -235,7 +234,7 @@
                         </div>
                     </uib-tab>
 
-                    <uib-tab index="9" class="d-none">
+                    <!-- <uib-tab index="9" class="d-none">
                         <h3 class="mb-3">{{$ctrl.tabs[9].title}}</h3>
                         <div>
                             <md-form-inspireconformities multi="true" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataDqInspireConformities" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" specifications="$ctrl.mdEditLocales.codelists.MD_InspireSpecificationCode"
@@ -247,7 +246,7 @@
                             <md-form-conformities multi="true" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataDqConformities" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" pass="$ctrl.mdEditLocales.codelists.MD_PassCode" locales="$ctrl.mdEditLocales.locales">
                             </md-form-conformities>
                         </div>
-                    </uib-tab>
+                    </uib-tab> -->
 
                 </form>
             </uib-tabset>
