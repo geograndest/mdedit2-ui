@@ -47,7 +47,9 @@
                             <span class="small" ng-if="!$ctrl.appConfig.views[view].model">
                                 Aucun modèle par défaut défini
                             </span>
-                            <small><span ng-if="$ctrl.appConfig.views[view].opendata" class="badge badge-success float-right mt-1 p-1">Open data</span></small>
+                            <small><span ng-if="$ctrl.appConfig.views[view].opendata" class="badge badge-secondary float-right mt-1 p-1 mr-1">Open data</span></small>
+                            <!-- <small><span ng-if="$ctrl.appConfig.views[view].geo" class="badge badge-primary float-right mt-1 p-1 mr-1">Géo</span></small> -->
+                            <!-- <small><span ng-if="$ctrl.appConfig.views[view].map" class="badge badge-warning float-right mt-1 p-1 mr-1">Carte</span></small> -->
                         </div>
                     </a>
                     <a class="list-group-item list-group-item-action" ng-if="$ctrl.homeAuth.sec_editor" ui-sref="app.mdList()" ui-sref-opts="{reload: true, inherit: true, notify: true }">

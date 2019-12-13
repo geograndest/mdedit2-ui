@@ -128,6 +128,7 @@
             "model": "empty",
             "icon": "fas fa-globe-europe",
             "type": "mdEdit",
+            "geo": true,
             "default": true,
             "hierarchyLevels": ["dataseries", "dataset"],
             "keywords": {
@@ -157,7 +158,8 @@
             "path": "config/views/md-edit-data/md-edit-opendata.html",
             "model": "opendata",
             "icon": "fas fa-globe-europe",
-            "opendata": "true",
+            "opendata": true,
+            "geo": true,
             "type": "mdEdit",
             "default": true,
             "hierarchyLevels": [
@@ -199,6 +201,7 @@
             "model": "empty",
             "icon": "fas fa-globe-europe",
             "type": "mdEdit",
+            "geo": true,
             "default": true,
             "hierarchyLevels": ["dataseries", "dataset"],
             "keywords": {
@@ -291,6 +294,7 @@
             "model": "empty",
             "icon": "fas fa-database",
             "type": "mdEdit",
+            "geo": true,
             "default": true,
             "hierarchyLevels": ["dataseries", "dataset"],
             "keywords": {
@@ -321,6 +325,7 @@
             "model": "map",
             "icon": "fas fa-map",
             "type": "mdEdit",
+            "map": true,
             "default": true,
             "hierarchyLevels": ["dataseries", "dataset"],
             "keywords": {
