@@ -1,6 +1,80 @@
 <div class="container">
 
+    <div class="row text-center mb-5">
+        <div class="col-md-12">
+            <h1 class="mb-1">Assistant de sélection d'un formulaire</h1>
+            <p class="lead text-muted">
+                Vous ne savez pas par où commencer?
+                Laissez-vous guider...
+            </p>
+            <!-- <p class="alert alert-primary my-4" role="alert">
+                <i class="fas fa-hand-point-right"></i> Cet assistant va vous permettre de choisir le bon formulaire en fonction du type de ressource que vous souhaitez décrire.<br />
+                Répondez simplement à la question suivantes.
+            </p> -->
+        </div>
+    </div>
+
     <div class="row">
+        <div class="col-md-12">
+            <form>
+                <h5 class="">
+                    Quel type de ressource souhaitez vous décrire?
+                </h5>
+                <div ng-repeat="type in $ctrl.assistantLocales.resources_type track by $index" class="custom-control custom-radio">
+                    <input type="radio"
+                        ng-model="$ctrl.resource_type"
+                        _value="{{type.code}}"
+                        name="resource_type"
+                        id="{{type.code}}"
+                        ng-value="type.code"
+                        class="custom-control-input"
+                    >
+                    <label class="custom-control-label" for="{{type.code}}">
+                        {{type.name}} 
+                        <!-- (modèle: {{type.model}}) -->
+                    </label>
+                </div>
+
+                <h5 class="mt-5">
+                    Sélectonnez un autre modèle par défaut si vous le souhaitez:
+                </h5>
+                
+                <div class="form-group mb-3">
+                    <label class="bt-doc control-label" for="" uib-tooltip="$ctrl.model" tooltip-trigger="mouseenter"
+                        tooltip-placement="right" ng-click="$ctrl.openModalDoc('doc/html/empty.html')">
+                        Charger un modèle de fiche prérempli
+                    </label>
+                    <select class="form-control input-sm" name="model" ng-options="key as model.name for (key, model) in $ctrl.appConfig.models"
+                        ng-model="$ctrl.model">
+                        <option value="">Sélectionnez un modèle</option>
+                    </select>
+                </div>
+                <div>Charger un fichier XML</div>
+                <div class="custom-file mb-3">
+                    <input type="file" class="custom-file-input" id="file" ng-model="$ctrl.file" accept=".xml">
+                    <label class="custom-file-label" for="file_input" uib-tooltip="Fichier XML à charger" tooltip-trigger="mouseenter"
+                        tooltip-placement="right" data-browse="Sélectionner">
+                        Sélectionner un fichier
+                    </label>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="control-label" for="url_input" uib-tooltip="URL à charger" tooltip-trigger="mouseenter"
+                        tooltip-placement="right">
+                        Charger une fiche à partir d'un URL (XML)
+                    </label>
+                    <input class="form-control input-sm" type="text" id="url_input" ng-model="$ctrl.url"/>
+                </div>
+
+                <div class="float-right">
+                    <button type="submit" class="btn btn-primary" ng-click="$ctrl.loadForm()"><span class="fas fa-save"></span> Charger le formulaire</button>
+                    <button type="submit" class="btn btn-primary" ui-sref="app.home" _ng-click="$ctrl.changeView('view-home')"><span class="fas fa-home"></span> Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+        
+        
+    <!-- <div class="row">
         <div class="col-md-7">
             <h1 class="mb-4">Bienvenue sur mdEdit 2!</h1>
             <p class="lead text-muted">
@@ -38,16 +112,16 @@
                         <div class="text-dark card-link">
                             <i class="{{$ctrl.appConfig.views[view].icon}}"></i> {{$ctrl.appConfig.views[view].name[$ctrl.appConfig.app.lang]}}
                         </div>
-                        <!-- <div><em class="small">{{$ctrl.appConfig.views[view].description[$ctrl.appConfig.app.lang]}}</em></div> -->
                         <div>
                             <span class="small" ng-if="$ctrl.appConfig.views[view].model">
                                 Modèle par défaut:
                                 {{$ctrl.appConfig.models[$ctrl.appConfig.views[view].model].name | lowercase}}
                             </span>
+                        </div>
+                        <div>
                             <span class="small" ng-if="!$ctrl.appConfig.views[view].model">
                                 Aucun modèle par défaut défini
                             </span>
-                            <small><span ng-if="$ctrl.appConfig.views[view].opendata" class="badge badge-success float-right mt-1 p-1">Open data</span></small>
                         </div>
                     </a>
                     <a class="list-group-item list-group-item-action" ng-if="$ctrl.homeAuth.sec_editor" ui-sref="app.mdList()" ui-sref-opts="{reload: true, inherit: true, notify: true }">
@@ -59,5 +133,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>

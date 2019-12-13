@@ -1,4 +1,7 @@
 import {
+    assistant
+} from './assistant/assistant.module';
+import {
     home
 } from './home/home.module';
 import {
@@ -37,6 +40,7 @@ import {
 
 export const appViews = angular
     .module('app.views', [
+        assistant,
         home,
         mdViewData,
         mdViewService,

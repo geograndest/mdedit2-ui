@@ -202,6 +202,36 @@
             },
             "extentsFile": "config/views/md-edit-data2/extents.json"
         },
+        "mdEditNogeo": {
+            "url": "app.mdEditNogeo",
+            "path": "config/views/md-edit-nogeo/md-edit-nogeo.html",
+            "model": "opendata",
+            "icon": "fas fa-database",
+            "type": "mdEdit",
+            "default": true,
+            "hierarchyLevels": ["dataseries", "dataset"],
+            "keywords": {
+                "fr": ["données", "Données ouvertes"],
+                "en": ["data"],
+                "de": ["data"]
+            },
+            "name": {
+                "fr": "Formulaire données non géographique",
+                "en": "Edit view",
+                "de": "Edit view (DE)"
+            },
+            "description": {
+                "fr": "Formulaire de saisie des métadonnées pour les données non géographiques. Il est basé sur un système d'onglets verticaux servant de sommaire dans l'affichage des différents groupes de champs.",
+                "en": "Edit view",
+                "de": "Edit view (DE)"
+            },
+            "locales": {
+                "fr": "config/views/md-edit-nogeo/locales.fr.json",
+                "en": "config/views/md-edit-nogeo/locales.en.json",
+                "de": "config/views/md-edit-nogeo/locales.de.json"
+            },
+            "extentsFile": "config/views/md-edit-nogeo/extents.json"
+        },
         "mdTest": {
             "url": "app.mdTest",
             "_path": "config/views/md-test/md-test.html",

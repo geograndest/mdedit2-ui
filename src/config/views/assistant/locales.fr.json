@@ -1,0 +1,27 @@
+{
+    "lang": "fr",
+    "view": "assistant",
+    "resources_type": [
+        {
+            "code": "data_geo",
+            "name": "Donnée géographique",
+            "description": "Donnée géographique soumise à la directive européenne Inspire.",
+            "model": "empty" 
+        }, {
+            "code": "data_geo_od",
+            "name": "Donnée géographique ouverte",
+            "description": "Donnée géographique ouverte, soumise à l'open data et à la directive européenne Inspire.",
+            "model": "opendata"
+        }, {
+            "code": "data_nogeo_od",
+            "name": "Donnée non géographique ouverte",
+            "description": "Donnée non géographique ouverte, soumise uniquement à l'open data.",
+            "model": "opendata"
+        }, {
+            "code": "map",
+            "name": "Carte",
+            "description": "",
+            "model": "map"
+        }
+    ]
+}
