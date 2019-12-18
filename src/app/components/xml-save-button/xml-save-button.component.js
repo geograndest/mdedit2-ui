@@ -69,7 +69,7 @@ const xmlSaveButtonController = class XmlSaveButtonController {
 
     checkOtherRestrictions() {
         // TODO:
-        // Récupérer les 'dataLegalOtherConstraints' et si 'dataLegalAccessInspireConstraints' existe (non vide ou null) vérifier qu'il y ait une fois "otherRestrictions".
+        // Récupérer les 'dataLegalOtherConstraints' et si 'dataLegalAccessInspireConstraints' existe (non vide ou null) vérifier qu'il y ait une fois et qu'une fois "otherRestrictions".
     }
 
     updateDateStamp(mdjs, date) {
@@ -80,24 +80,29 @@ const xmlSaveButtonController = class XmlSaveButtonController {
         // Generate XML file
         var mdjs = this.getData();
         var now = this.LodashService.lodash.now();
-        var uuid = this.XmlConverterService.getValue(mdjs, 'md', 'mdFileIdentifier')[0];
+        // Update from 17/12/2019 to change ID stratégie: dataId is now mandatory and not fileId
         var dataIdentifiersCodes = this.XmlConverterService.getValue(mdjs, 'md', 'dataIdentifiersCodes')
-        if (!uuid) {
-            if (dataIdentifiersCodes[0]) {
-                uuid = dataIdentifiersCodes[0];
-                if (uuid.startsWith('http')) {
-                    uuid = uuid.split('?')[0];
-                    uuid = uuid.replace(/\/$/, '');
-                    uuid = uuid.substr(uuid.lastIndexOf('/') + 1);
-                }
+        var dataId = dataIdentifiersCodes[0];
+        var fileId = this.XmlConverterService.getValue(mdjs, 'md', 'mdFileIdentifier')[0];
+        if (!fileId) {
+            if (!dataId) {
+                dataId = this.LodashService.lodash.uniqueId(now + '-');
             } else {
-                uuid = this.LodashService.lodash.uniqueId(now + '-');
+                if (dataId.startsWith('http')) {
+                    dataId = dataId.split('?')[0];
+                    dataId = dataId.replace(/\/$/, '');
+                    dataId = dataId.substr(dataId.lastIndexOf('/') + 1);
+                }
+                fileId = dataId
             }
-            this.XmlConverterService.setValue(mdjs, 'md', 'mdFileIdentifier', [uuid]);
+            this.XmlConverterService.setValue(mdjs, 'md', 'mdFileIdentifier', [dataId]);
+        } else if (!dataId) {
+            dataId = fileId
         }
+
         // Get dataIdentifiers and check if contents "uuid" value, else add it (to empty value if exist)
-        if (!dataIdentifiersCodes.includes(uuid)) {
-            var newCode = this.XmlConverterService.setValue({}, 'md', 'code', [uuid]);
+        if (!dataIdentifiersCodes.includes(dataId)) {
+            var newCode = this.XmlConverterService.setValue({}, 'md', 'code', [dataId]);
             var dataIdentifiers = this.XmlConverterService.getValue(mdjs, 'md', 'dataIdentifiers')
             if (dataIdentifiersCodes.includes('')) {
                 for (var i = 0; i < dataIdentifiers.length; i++) {
@@ -111,6 +116,7 @@ const xmlSaveButtonController = class XmlSaveButtonController {
             }
             this.XmlConverterService.setValue(mdjs, 'md', 'dataIdentifiers', dataIdentifiers);
         }
+
         // Merge keywords by thesaurus and type
         var keywords = this.XmlConverterService.getValue(mdjs, 'md', 'dataKeywords');
         keywords = this.mergeKeywords(keywords);
@@ -124,7 +130,7 @@ const xmlSaveButtonController = class XmlSaveButtonController {
 
         var xml = this.XmlConverterService.js2xml(this.CleandeepService.cleandeep(mdjs));
         return {
-            uuid: uuid,
+            uuid: dataId,
             xml: xml
         };
     }
