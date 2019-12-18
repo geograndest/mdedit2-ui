@@ -1,111 +1,26 @@
 {
     "lang": "fr",
-    "view": "md-edit-data2",
-    "locales": {
-        "mandatory": "Champs obligatoire",
-        "empty": "Champ non renseigné"
-    },
-    "defaultActiveTab": 1,
-    "tabs": [{
-            "id": 0,
-            "title": "Description de la fiche",
-            "description": "Informations sur la fiche de métadonnées",
-            "active": false,
-            "disabled": true
-        },
-        {
-            "id": 1,
-            "title": "Informations techniques",
-            "description": "Informations sur la fiche de métadonnées",
-            "active": true
-        },
-        {
-            "id": 2,
-            "title": "Points de contact",
-            "description": "Contacts pour la fiche de métadonnées (auteur, gestionnaire, etc.)",
-            "active": false
-        },
-        {
-            "id": 3,
-            "title": "Description des données",
-            "description": "Informations sur les données",
-            "active": false,
-            "disabled": true
-        },
-        {
-            "id": 4,
-            "title": "Description générale",
-            "description": "Description essentielles des données",
-            "active": false
-        },
-        {
-            "id": 5,
-            "title": "Points de contact",
-            "description": "Contacts pour les données (commanditaire, propriétaire, gestionnaire, etc.)",
-            "active": false
-        },
-        {
-            "id": 6,
-            "title": "Références géographiques et qualité",
-            "description": "Références géographiques et qualité des données",
-            "active": false
-        },
-        {
-            "id": 7,
-            "title": "Conditions légales d'accès et d'usage",
-            "description": "Conditions légales d'accès et d'usage",
-            "active": false
-        },
-        {
-            "id": 8,
-            "title": "Ressources associées",
-            "description": "Ressources associées aux données (guide méthodologique, table attributaire, documents, etc.)",
-            "active": false
-        },
-        {
-            "id": 9,
-            "title": "Conformités des données",
-            "description": "Conformités des données au regard de la directive europénne Inspire et des autres standards en vigueur",
-            "active": false
-        }
-    ],
+    "view": "mdform",
     "fields": {
         "mdFileIdentifier": {
             "name": "mdFileIdentifier",
             "label": "Identifiant",
             "description": "Identifiant de la fiche de métadonnées",
-            "placeholder": "FR-SIREN-...",
-            "disabled": "",
-            "editable": "true",
-            "type": "text",
-            "mandatory": "false",
-            "helpButton": {
-                "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/mdFileIdentifier.md",
-                "title": "Identifiant",
-                "icon": "fa-info-circle"
-            }
-        },
-        "mdParentIdentifier": {
-            "name": "mdParentIdentifier",
-            "label": "Fiche parent",
-            "description": "Identifiant de la fiche de métadonnées parent",
             "placeholder": "",
             "disabled": "",
             "editable": "true",
             "type": "text",
-            "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/mdParentIdentifier.md",
-                "title": "Identifiant du parent",
+                "contentUrl": "config/views/md-edit-data/help.fr/mdFileIdentifier.md",
+                "title": "Identifiant",
                 "icon": "fa-info-circle"
             }
         },
         "mdLanguage": {
             "name": "mdLanguage",
             "label": "Langue",
-            "description": "Langue de la fiche descriptive des données",
+            "description": "Langue de la fiche descriptive des données.",
             "placeholder": "Sélectionnez une langue",
             "disabled": "",
             "editable": "true",
@@ -114,7 +29,7 @@
             "value": ["fre"],
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/mdLanguage.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/mdLanguage.md",
                 "title": "Langue des métadonnées",
                 "icon": "fa-info-circle"
             }
@@ -123,15 +38,15 @@
             "name": "mdCharacterSet",
             "label": "Jeu de caractères",
             "placeholder": "Sélectionnez un encodage",
-            "description": "Jeu de caractère (encodage) de la fiche descriptive des données",
+            "description": "Jeu de caractère (encodage) de la fiche descriptive des données.",
             "disabled": "",
-            "editable": "false",
+            "editable": "true",
             "type": "select",
             "mandatory": "true",
             "value": ["utf8"],
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/mdCharacterSet.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/mdCharacterSet.md",
                 "title": "Jeu de caractère (encodage) de la fiche",
                 "icon": "fa-info-circle"
             }
@@ -143,11 +58,11 @@
             "placeholder": "Sélectionnez un type de ressource",
             "disabled": "",
             "value": ["dataset"],
-            "editable": "false",
+            "editable": "true",
             "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/mdHierarchyLevel.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/mdHierarchyLevel.md",
                 "title": "Type de ressource",
                 "icon": "fa-info-circle"
             }
@@ -156,20 +71,20 @@
             "name": "mdContacts",
             "label": "Contacts pour les métadonnées",
             "placeholder": "",
-            "description": "Contacts pour les métadonnées",
-            "mandatory": "true",
+            "description": "Contacts pour les métadonnées.",
+            "_keywords": "contacts, métadonnées",
             "contact": {
                 "individualName": {
                     "name": "individualName",
                     "label": "Nom et prénom",
                     "placeholder": "Nom et prénom",
-                    "description": "Nom et prénom du contact",
+                    "description": "Nom et prénom du contact.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/individualName.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/individualName.md",
                         "title": "Nom et prénom du contact",
                         "icon": "fa-info-circle"
                     }
@@ -178,13 +93,13 @@
                     "name": "positionName",
                     "label": "Fonction",
                     "placeholder": "Fonction",
-                    "description": "Fonction du contact",
+                    "description": "Fonction du contact.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/positionName.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/positionName.md",
                         "title": "Fonction du contact",
                         "icon": "fa-info-circle"
                     }
@@ -193,14 +108,14 @@
                     "name": "organisationName",
                     "label": "Organisme",
                     "placeholder": "Organisme",
-                    "description": "Organisme à contacter",
+                    "description": "Organisme à contacter.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/organisationName.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/organisationName.md",
                         "title": "Organisme du contact",
                         "icon": "fa-info-circle"
                     }
@@ -209,13 +124,13 @@
                     "name": "phoneVoices",
                     "label": "Téléphone",
                     "placeholder": "Téléphone",
-                    "description": "Numéro de téléphone du contact. Pour inscrire plusieurs numéros de téléphone, les séparer par '|'",
+                    "description": "Numéro de téléphone du contact. Pour inscrire plusieurs numéros de téléphone, les séparer par '|'.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/phoneVoice.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/phoneVoice.md",
                         "title": "Numéro de téléphone du contact",
                         "icon": "fa-info-circle"
                     }
@@ -228,25 +143,24 @@
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
-                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/email.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/email.md",
                         "title": "Email du contact",
                         "icon": "fa-info-circle"
                     }
                 },
                 "deliveryPoints": {
                     "name": "deliveryPoints",
-                    "label": "Adresse",
-                    "placeholder": "Adresse",
-                    "description": "Adresse du contact",
+                    "label": "Addresse",
+                    "placeholder": "Addresse",
+                    "description": "Addresse du contact.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/deliveryPoint.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/deliveryPoint.md",
                         "title": "Adresse du contact",
                         "icon": "fa-info-circle"
                     }
@@ -255,13 +169,13 @@
                     "name": "postalCode",
                     "label": "Code postal",
                     "placeholder": "00000",
-                    "description": "Code postal",
+                    "description": "Code postal.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/postalCode.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/postalCode.md",
                         "title": "Code postal du contact",
                         "icon": "fa-info-circle"
                     }
@@ -270,13 +184,13 @@
                     "name": "city",
                     "label": "Ville",
                     "placeholder": "Ville",
-                    "description": "Ville",
+                    "description": "Ville.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/city.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/city.md",
                         "title": "Ville du contact",
                         "icon": "fa-info-circle"
                     }
@@ -285,11 +199,11 @@
                     "name": "logo",
                     "label": "Logo",
                     "placeholder": "",
-                    "description": "Logo de l'organisme",
+                    "description": "Logo de l'organisme.",
                     "disabled": "",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/logo.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/logo.md",
                         "title": "Logo du contact",
                         "icon": "fa-info-circle"
                     }
@@ -297,14 +211,14 @@
                 "logoUrl": {
                     "name": "logoUrl",
                     "label": "URL du logo",
-                    "placeholder": "http://..",
-                    "description": "Logo",
+                    "placeholder": "http://...",
+                    "description": "URL du logo de l'organisme.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/logo.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/logo.md",
                         "title": "URL du logo du contact",
                         "icon": "fa-info-circle"
                     }
@@ -313,14 +227,13 @@
                     "name": "logoDescription",
                     "label": "Description du logo",
                     "placeholder": "ex.: Logo du partenariat CIGAL",
-                    "description": "Description du logo de l'organisme",
+                    "description": "Description du logo de l'organisme.",
                     "disabled": "",
-                    "display": "none",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/logo.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/logo.md",
                         "title": "Texte de description du logo du contact",
                         "icon": "fa-info-circle"
                     }
@@ -329,13 +242,13 @@
                     "name": "role",
                     "label": "Rôle",
                     "placeholder": "Sélection le rôle du contact",
-                    "description": "Rôle de ce contact",
+                    "description": "Rôle de ce contact.",
                     "disabled": "",
                     "editable": "true",
                     "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/role.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/role.md",
                         "title": "Rôle du contact",
                         "icon": "fa-info-circle"
                     }
@@ -346,14 +259,14 @@
             "name": "mdDateStamp",
             "label": "Date de création/mise à jour de la fiche",
             "placeholder": "",
-            "description": "Date de création ou dernière mise à jour de la fiche descriptive des données",
+            "description": "Date de création ou dernière mise à jour de la fiche descriptive des données.",
             "type": "date",
-            "disabled": "true",
-            "editable": "false",
-            "mandatory": "false",
+            "disabled": "",
+            "editable": "true",
+            "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/mdDateStamp.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/mdDateStamp.md",
                 "title": "Date de création ou dernière mise à jour de la fiche",
                 "icon": "fa-info-circle"
             }
@@ -362,14 +275,14 @@
             "name": "mdStandardName",
             "label": "Nom du standard",
             "placeholder": "",
-            "description": "Nom du standard de description des données",
+            "description": "Nom du standard de description des données.",
             "value": ["ISO 19115/19139"],
             "disabled": "",
             "editable": "false",
             "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/mdStandardName.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/mdStandardName.md",
                 "title": "Nom du standard de description",
                 "icon": "fa-info-circle"
             }
@@ -378,14 +291,14 @@
             "name": "mdStandardVersion",
             "label": "Version du standard",
             "placeholder": "",
-            "description": "Version du standard de description des données",
+            "description": "Version du standard de description des données.",
             "disabled": "",
             "editable": "false",
             "mandatory": "true",
             "value": ["Cor 1:2006"],
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/mdStandardVersion.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/mdStandardVersion.md",
                 "title": "Version du standard de description",
                 "icon": "fa-info-circle"
             }
@@ -394,29 +307,27 @@
             "name": "dataTitle",
             "label": "Titre",
             "description": "Titre de la ressource",
-            "placeholder": "DONNEES: ..",
+            "placeholder": "DONNEES: ...",
             "disabled": "",
             "editable": "true",
-            "mandatory": "true",
-            "type": "text",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataTitle.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataTitle.md",
                 "title": "Titre",
                 "icon": "fa-info-circle"
             }
         },
         "dataDates": {
             "name": "dataDates",
-            "label": "Dates des données",
-            "description": "Dates relatives à la création, mise à jour et publication des données",
+            "label": "Dates",
+            "description": "Dates relatives à la création, mise à jour et publication des données.",
             "placeholder": "",
             "disabled": "",
             "editable": "true",
             "type": "date",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataDates.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataDates.md",
                 "title": "Dates",
                 "icon": "fa-info-circle"
             },
@@ -431,24 +342,23 @@
                     "editable": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dateCreation.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dateCreation.md",
                         "title": "Date de création",
                         "icon": "fa-info-circle"
                     }
                 },
                 "dateEdition": {
                     "name": "date",
-                    "label": "Date de révision",
-                    "description": "Date de dernière mise à jour de la base de données",
+                    "label": "Date d'édition",
+                    "description": "Date d'édition de la base de données",
                     "placeholder": "AAAA-MM-JJ",
                     "disabled": "",
                     "type": "date",
                     "editable": "true",
-                    "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dateEdition.md",
-                        "title": "Date de révision",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dateEdition.md",
+                        "title": "Date d'édition",
                         "icon": "fa-info-circle"
                     }
                 },
@@ -462,10 +372,56 @@
                     "editable": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/datePublication.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/datePublication.md",
                         "title": "Date de publication",
                         "icon": "fa-info-circle"
                     }
+                }
+            }
+        },
+
+
+        "_dataDateCreation": {
+            "name": "dataDateCreation",
+            "label": "Date de création",
+            "placeholder": "",
+            "description": "Date de création de la base de données",
+            "_keywords": "date, creation, données"
+        },
+        "_dataDateRevision": {
+            "name": "dataDateRevision",
+            "label": "Date de mise à jour",
+            "placeholder": "",
+            "description": "Date de dernière mise à jour de la base de données",
+            "_keywords": "date, mise à jour, révision, données"
+        },
+        "_dataDatePublication": {
+            "name": "dataDatePublication",
+            "label": "Date de publication",
+            "placeholder": "",
+            "description": "Date de publication de la base de données",
+            "_keywords": "date, publication, données"
+        },
+        "_data_dates": {
+            "name": "md_dates",
+            "label": "Dates",
+            "placeholder": "",
+            "description": "Dates relatives à la création, mise à jour et publication des données.",
+            "_keywords": "dates, données",
+            "children": {
+                "type": {
+                    "name": "type",
+                    "label": "Type",
+                    "placeholder": "",
+                    "description": "Type de date relative aux données.",
+                    "_keywords": "date, type, données"
+                },
+                "date": {
+                    "name": "date",
+                    "label": "Date",
+                    "placeholder": "",
+                    "description": "Date relative à la création, mise à jour et publication des données.",
+                    "_keywords": "date, données"
                 }
             }
         },
@@ -473,13 +429,13 @@
             "name": "dataIdentifiers",
             "label": "Identifiants pour la donnée",
             "placeholder": "",
-            "description": "Identifiant de la base de données",
+            "description": "Identifiant de la base de données.",
             "disabled": "",
             "editable": "true",
             "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataIdentifiers.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataIdentifiers.md",
                 "title": "Identifiant de la ressource",
                 "icon": "fa-info-circle"
             },
@@ -488,14 +444,13 @@
                     "name": "code",
                     "label": "Identifiant",
                     "placeholder": "",
-                    "description": "Identifiant de la base de données",
+                    "description": "Identifiant de la base de données.",
                     "disabled": "",
                     "editable": "true",
                     "mandatory": "true",
-                    "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/code.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/code.md",
                         "title": "Identifiant de la ressource",
                         "icon": "fa-info-circle"
                     }
@@ -504,14 +459,13 @@
                     "name": "codeSpace",
                     "label": "Espace de nommage",
                     "placeholder": "",
-                    "description": "Espace de nommage pour les identifiants de la base de données",
+                    "description": "Espace de nommage pour les identifiants de la base de données.",
                     "disabled": "",
                     "editable": "true",
-                    "display": "none",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/codeSpace.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/codeSpace.md",
                         "title": "Espace de nommage",
                         "icon": "fa-info-circle"
                     }
@@ -522,13 +476,12 @@
             "name": "dataAbstract",
             "label": "Résumé",
             "description": "Description de la base de données",
-            "placeholder": "..",
+            "placeholder": "...",
             "disabled": "",
             "editable": "true",
-            "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataAbstract.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataAbstract.md",
                 "title": "Résumé",
                 "icon": "fa-info-circle"
             }
@@ -537,13 +490,13 @@
             "name": "dataBrowseGraphics",
             "label": "Miniature d'illustration",
             "placeholder": "",
-            "description": "Lien vers une image illustrant la base de données",
+            "description": "Lien vers une image illustrant la base de données.",
             "disabled": "",
             "editable": "true",
-            "mandatory": "false",
+            "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataBrowseGraphics.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataBrowseGraphics.md",
                 "title": "Illustration de la ressource",
                 "icon": "fa-info-circle"
             },
@@ -551,14 +504,14 @@
                 "fileName": {
                     "name": "fileName",
                     "label": "URL",
-                    "placeholder": "http://..",
-                    "description": "URL vers le fichier image illustrant la base de données",
+                    "placeholder": "http://...",
+                    "description": "URL vers le fichier image illustrant la base de données.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/fileName.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/fileName.md",
                         "title": "URL de l'illustration",
                         "icon": "fa-info-circle"
                     }
@@ -567,13 +520,13 @@
                     "name": "fileDescription",
                     "label": "Description",
                     "placeholder": "Description",
-                    "description": "Description de l'image",
+                    "description": "Description de l'image.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/fileDescription.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/fileDescription.md",
                         "title": "Description de l'illustration",
                         "icon": "fa-info-circle"
                     }
@@ -582,13 +535,13 @@
                     "name": "fileType",
                     "label": "Type de fichier",
                     "placeholder": ".jpg",
-                    "description": "Type de fichier image",
+                    "description": "Type de fichier image.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/fileType.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/fileType.md",
                         "title": "Type de fichier",
                         "icon": "fa-info-circle"
                     }
@@ -597,13 +550,13 @@
                     "name": "image",
                     "label": "Aperçu",
                     "placeholder": "",
-                    "description": "Aperçu du fichier image",
+                    "description": "Aperçu du fichier image.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/image.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/image.md",
                         "title": "Image",
                         "icon": "fa-info-circle"
                     }
@@ -614,29 +567,58 @@
             "name": "dataMaintenanceFrequency",
             "label": "Rythme de mise à jour",
             "placeholder": "Sélectionnez une fréquence de mise à jour",
-            "description": "Fréquence de mise à jour des données",
+            "description": "Fréquence de mise à jour des données.",
             "disabled": "",
             "editable": "true",
             "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataMaintenanceFrequency.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataMaintenanceFrequency.md",
                 "title": "Fréquence de mise à jour",
                 "icon": "fa-info-circle"
+            }
+        },
+        "_dataTemporalExtents": {
+            "name": "dataTemporalExtents",
+            "label": "Etendues desciptionorelles",
+            "placeholder": "",
+            "description": "Etendues desciptionorelles des des données.",
+            "_keywords": "étendues desciptionorelles, données",
+            "_children": {
+                "_dataTemporalExtentBegin": {
+                    "name": "dataTemporalExtentBegin",
+                    "label": "Début",
+                    "placeholder": "",
+                    "description": "Date de début de l'étendue temporelle.",
+                    "_keywords": "date, début, étendues temporelles, données"
+                },
+                "_dataTemporalExtentEnd": {
+                    "name": "dataTemporalExtentEnd",
+                    "label": "Fin",
+                    "placeholder": "",
+                    "description": "Date de fin de l'étendue temporelle.",
+                    "_keywords": "date, fin, étendues, temporelles, données"
+                },
+                "_dataExtentName": {
+                    "name": "dataExtentName",
+                    "label": "Description",
+                    "placeholder": "",
+                    "description": "Description de l'étendue temporelle.",
+                    "_keywords": "description, étendue, temporelle, données"
+                }
             }
         },
         "dataLanguages": {
             "name": "dataLanguages",
             "label": "Langues des données",
             "placeholder": "",
-            "description": "Langues utilisées pour les données (notament attributaires)",
+            "description": "Langues utilisées pour les données (notament attributaires).",
             "disabled": "",
             "editable": "true",
             "type": "select",
-            "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataLanguages.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataLanguages.md",
                 "title": "Langues des données",
                 "icon": "fa-info-circle"
             }
@@ -645,14 +627,13 @@
             "name": "dataTopicCategories",
             "label": "Categorie internationale",
             "placeholder": "",
-            "description": "Thème ISO auquel se rapporte la base de données",
+            "description": "Thème ISO auquel se rapporte la base de données.",
             "disabled": "",
             "editable": "true",
-            "mandatory": "true",
             "type": "select",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataTopicCategories.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
                 "title": "Thème ISO de la fiche",
                 "icon": "fa-info-circle"
             }
@@ -661,14 +642,13 @@
             "name": "dataInspireKeywords",
             "label": "Thème européen",
             "placeholder": "",
-            "description": "Thème de la directive européenne Inspire auquel se rapporte la base de données",
+            "description": "Thème de la directive européenne Inspire auquel se rapporte la base de données.",
             "disabled": "",
             "editable": "true",
-            "mandatory": "true",
             "type": "select",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataInspireKeywords.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataInspireKeywords.md",
                 "title": "Thème Inspire",
                 "icon": "fa-info-circle"
             },
@@ -677,31 +657,37 @@
                     "name": "keyword",
                     "label": "Intitulé",
                     "placeholder": "",
-                    "description": "Intitulé du mot-clé",
+                    "description": "Intitulé du mot-clé.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dataInspireKeywords.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
                         "title": "Thème ISO de la fiche",
                         "icon": "fa-info-circle"
                     }
                 }
             }
         },
+        "_dataKeywordsList": {
+            "name": "dataKeywordsList",
+            "label": "Mots-clés",
+            "placeholder": "ex.: routes, Géoportail, données ouvertes, ...",
+            "description": "Liste des mots-clés descriptifs de la base de données.",
+            "_keywords": "mot-clés, données"
+        },
         "dataKeywords": {
             "name": "dataKeywords",
             "label": "Mots-clés",
             "placeholder": "",
-            "description": "Mots-clés descriptifs des données",
+            "description": "Mots-clés descriptifs des données.",
             "disabled": "",
             "editable": "true",
             "type": "select",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataKeywords.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
                 "title": "Thème ISO de la fiche",
                 "icon": "fa-info-circle"
             },
@@ -710,13 +696,13 @@
                     "name": "keyword",
                     "label": "Intitulé",
                     "placeholder": "",
-                    "description": "Intitulé du mot-clé",
+                    "description": "Intitulé du mot-clé.",
                     "disabled": "",
                     "editable": "true",
-                    "type": "textarea_array",
+                    "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dataKeywords.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
                         "title": "Thème ISO de la fiche",
                         "icon": "fa-info-circle"
                     }
@@ -725,13 +711,13 @@
                     "name": "keywordType",
                     "label": "Type",
                     "placeholder": "",
-                    "description": "Type de mot-clé",
+                    "description": "Type de mot-clé.",
                     "disabled": "",
                     "editable": "true",
                     "type": "select",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dataKeywords.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
                         "title": "Thème ISO de la fiche",
                         "icon": "fa-info-circle"
                     }
@@ -740,13 +726,13 @@
                     "name": "thesaurusName",
                     "label": "Thesaurus",
                     "placeholder": "",
-                    "description": "Nom du thésaurus",
+                    "description": "Nom du thésaurus.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dataKeywords.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
                         "title": "Thème ISO de la fiche",
                         "icon": "fa-info-circle"
                     }
@@ -755,15 +741,38 @@
                     "name": "thesaurusDatePublication",
                     "label": "Date de publication",
                     "placeholder": "",
-                    "description": "Date de publication du thésaurus",
+                    "description": "Date de publication du thésaurus.",
                     "disabled": "",
                     "editable": "true",
                     "type": "date",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dataKeywords.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
                         "title": "Thème ISO de la fiche",
                         "icon": "fa-info-circle"
+                    }
+                },
+                "_thesaurusDates": {
+                    "name": "thesaurusDates",
+                    "label": "Dates",
+                    "placeholder": "",
+                    "description": "Dates relatives au thesaurus.",
+                    "_keywords": "dates, thésaurus, données",
+                    "children": {
+                        "dateType": {
+                            "name": "dateType",
+                            "label": "Type",
+                            "placeholder": "",
+                            "description": "Type de date.",
+                            "_keywords": "type de date, métadonnées"
+                        },
+                        "date": {
+                            "name": "date",
+                            "label": "date",
+                            "placeholder": "ex.: 2015-03-05",
+                            "description": "Date.",
+                            "_keywords": "date, métadonnées"
+                        }
                     }
                 }
             }
@@ -772,19 +781,20 @@
             "name": "dataPointOfContacts",
             "label": "Contacts pour les données",
             "placeholder": "",
-            "description": "Contacts pour les données",
+            "description": "Contacts pour les données.",
+            "_keywords": "contacts, données",
             "contact": {
                 "individualName": {
                     "name": "individualName",
                     "label": "Nom et prénom",
                     "placeholder": "Nom et prénom",
-                    "description": "Nom et prénom du contact",
+                    "description": "Nom et prénom du contact.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/individualName.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/individualName.md",
                         "title": "Nom et prénom du contact",
                         "icon": "fa-info-circle"
                     }
@@ -793,13 +803,13 @@
                     "name": "positionName",
                     "label": "Fonction",
                     "placeholder": "Fonction",
-                    "description": "Fonction du contact",
+                    "description": "Fonction du contact.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/positionName.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/positionName.md",
                         "title": "Fonction du contact",
                         "icon": "fa-info-circle"
                     }
@@ -808,14 +818,14 @@
                     "name": "organisationName",
                     "label": "Organisme",
                     "placeholder": "Organisme",
-                    "description": "Organisme à contacter",
+                    "description": "Organisme à contacter.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/organisationName.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/organisationName.md",
                         "title": "Organisme du contact",
                         "icon": "fa-info-circle"
                     }
@@ -824,13 +834,13 @@
                     "name": "phoneVoices",
                     "label": "Téléphone",
                     "placeholder": "Téléphone",
-                    "description": "Numéro de téléphone du contact. Pour inscrire plusieurs numéros de téléphone, les séparer par '|'",
+                    "description": "Numéro de téléphone du contact. Pour inscrire plusieurs numéros de téléphone, les séparer par '|'.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/phoneVoice.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/phoneVoice.md",
                         "title": "Numéro de téléphone du contact",
                         "icon": "fa-info-circle"
                     }
@@ -842,26 +852,25 @@
                     "description": "Email du contact. Pour inscrire plusieurs emails, les séparer par '|'",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/email.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/email.md",
                         "title": "Email du contact",
                         "icon": "fa-info-circle"
                     }
                 },
                 "deliveryPoints": {
                     "name": "deliveryPoints",
-                    "label": "Adresse",
-                    "placeholder": "Adresse",
-                    "description": "Adresse du contact",
+                    "label": "Addresse",
+                    "placeholder": "Addresse",
+                    "description": "Addresse du contact.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/deliveryPoint.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/deliveryPoint.md",
                         "title": "Adresse du contact",
                         "icon": "fa-info-circle"
                     }
@@ -870,13 +879,13 @@
                     "name": "postalCode",
                     "label": "Code postal",
                     "placeholder": "00000",
-                    "description": "Code postal",
+                    "description": "Code postal.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/postalCode.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/postalCode.md",
                         "title": "Code postal du contact",
                         "icon": "fa-info-circle"
                     }
@@ -885,13 +894,13 @@
                     "name": "city",
                     "label": "Ville",
                     "placeholder": "Ville",
-                    "description": "Ville",
+                    "description": "Ville.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/city.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/city.md",
                         "title": "Ville du contact",
                         "icon": "fa-info-circle"
                     }
@@ -900,11 +909,11 @@
                     "name": "logo",
                     "label": "Logo",
                     "placeholder": "",
-                    "description": "Logo de l'organisme",
+                    "description": "Logo de l'organisme.",
                     "disabled": "",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/logo.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/logo.md",
                         "title": "Logo du contact",
                         "icon": "fa-info-circle"
                     }
@@ -912,14 +921,14 @@
                 "logoUrl": {
                     "name": "logoUrl",
                     "label": "URL du logo",
-                    "placeholder": "http://..",
-                    "description": "URL du logo de l'organisme",
+                    "placeholder": "http://...",
+                    "description": "URL du logo de l'organisme.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/logo.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/logo.md",
                         "title": "URL du logo du contact",
                         "icon": "fa-info-circle"
                     }
@@ -928,13 +937,13 @@
                     "name": "logoDescription",
                     "label": "Description du logo",
                     "placeholder": "ex.: Logo du partenariat CIGAL",
-                    "description": "Description du logo de l'organisme",
+                    "description": "Description du logo de l'organisme.",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/logo.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/logo.md",
                         "title": "Texte de description du logo du contact",
                         "icon": "fa-info-circle"
                     }
@@ -943,13 +952,13 @@
                     "name": "role",
                     "label": "Rôle",
                     "placeholder": "Sélection le rôle du contact",
-                    "description": "Rôle de ce contact",
+                    "description": "Rôle de ce contact.",
                     "disabled": "",
                     "editable": "true",
                     "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/role.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/role.md",
                         "title": "Rôle du contact",
                         "icon": "fa-info-circle"
                     }
@@ -960,13 +969,13 @@
             "name": "dataExtents",
             "label": "Emprise géographique de la base de données",
             "placeholder": "",
-            "description": "Emprise géographique de la base de données (format WGS84)",
+            "description": "Emprise géographique de la base de données (format WGS84).",
             "disabled": "",
             "editable": "true",
-            "mandatory": "false",
+            "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataGeographicExtents.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataGeographicExtents.md",
                 "title": "Emprise géographique",
                 "icon": "fa-info-circle"
             },
@@ -975,13 +984,13 @@
                     "name": "extentName",
                     "label": "Emprise",
                     "placeholder": "ex.: Alsace",
-                    "description": "Nom de l'emprise géographique de la base de données",
+                    "description": "Nom de l'emprise géographique de la base de données.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/extentName.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/extentName.md",
                         "title": "Nom de l'emprise géographique",
                         "icon": "fa-info-circle"
                     }
@@ -990,13 +999,13 @@
                     "name": "geographicExtentWestBound",
                     "label": "Long. Ouest",
                     "placeholder": "6.8410134649126",
-                    "description": "Longitude ouest WGS84 du rectangle d'emprise (Xmin)",
+                    "description": "Longitude ouest WGS84 du rectangle d'emprise (Xmin).",
                     "disabled": "",
                     "editable": "true",
                     "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/geographicExtentWestBound.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentWestBound.md",
                         "title": "Longitude ouest",
                         "icon": "fa-info-circle"
                     }
@@ -1005,13 +1014,13 @@
                     "name": "geographicExtentEastBound",
                     "label": "Long. Est",
                     "placeholder": "8.23351958950571",
-                    "description": "Longitude est WGS84 du rectangle d'emprise (Xmax)",
+                    "description": "Longitude est WGS84 du rectangle d'emprise (Xmax).",
                     "disabled": "",
                     "editable": "true",
                     "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/geographicExtentEastBound.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentEastBound.md",
                         "title": "Longitude est",
                         "icon": "fa-info-circle"
                     }
@@ -1020,13 +1029,13 @@
                     "name": "geographicExtentSouthBound",
                     "label": "Lat. Sud",
                     "placeholder": "47.4202517758332",
-                    "description": "Latitude sud WGS84 du rectangle d'emprise (Ymin)",
+                    "description": "Latitude sud WGS84 du rectangle d'emprise (Ymin).",
                     "disabled": "",
                     "editable": "true",
                     "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/geographicExtentSouthBound.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentSouthBound.md",
                         "title": "Latitude sud",
                         "icon": "fa-info-circle"
                     }
@@ -1035,13 +1044,13 @@
                     "name": "geographicExtentNorthBound",
                     "label": "Lat. Nord",
                     "placeholder": "49.0778319799915",
-                    "description": "Latitude nord WGS84 du rectangle d'emprise (Ymax)",
+                    "description": "Latitude nord WGS84 du rectangle d'emprise (Ymax).",
                     "disabled": "",
                     "editable": "true",
                     "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/geographicExtentNorthBound.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentNorthBound.md",
                         "title": "Latitude nord",
                         "icon": "fa-info-circle"
                     }
@@ -1052,13 +1061,13 @@
             "name": "dataExtents",
             "label": "Emprise temporelle de la base de données",
             "placeholder": "",
-            "description": "Emprise temporelle de la base de données",
+            "description": "Emprise temporelle de la base de données.",
             "disabled": "",
             "editable": "true",
             "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataTemporalExtents.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataTemporalExtents.md",
                 "title": "Emprise géographique",
                 "icon": "fa-info-circle"
             },
@@ -1067,14 +1076,14 @@
                     "name": "temporalExtentBegin",
                     "label": "Début",
                     "placeholder": "",
-                    "description": "Date de début de l'étendue temporelle",
+                    "description": "Date de début de l'étendue temporelle.",
                     "disabled": "",
                     "editable": "true",
                     "mandatory": "false",
                     "type": "date",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/temporalExtentBegin.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/temporalExtentBegin.md",
                         "title": "Latitude nord",
                         "icon": "fa-info-circle"
                     }
@@ -1083,14 +1092,14 @@
                     "name": "temporalExtentEnd",
                     "label": "Fin",
                     "placeholder": "",
-                    "description": "Date de fin de l'étendue temporelle",
+                    "description": "Date de fin de l'étendue temporelle.",
                     "disabled": "",
                     "editable": "true",
                     "type": "date",
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/temporalExtentEnd.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/temporalExtentEnd.md",
                         "title": "Latitude nord",
                         "icon": "fa-info-circle"
                     }
@@ -1099,13 +1108,13 @@
                     "name": "extentName",
                     "label": "Description",
                     "placeholder": "",
-                    "description": "Description de l'étendue temporelle",
+                    "description": "Description de l'étendue temporelle.",
                     "disabled": "",
                     "editable": "true",
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/extentName.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/extentName.md",
                         "title": "Latitude nord",
                         "icon": "fa-info-circle"
                     }
@@ -1116,13 +1125,13 @@
             "name": "dataReferenceSystems",
             "label": "Système de projection",
             "placeholder": "",
-            "description": "Système de projection de la base de données",
+            "description": "Système de projection de la base de données.",
             "disabled": "",
             "editable": "true",
             "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataReferenceSystems.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataReferenceSystems.md",
                 "title": "Latitude nord",
                 "icon": "fa-info-circle"
             },
@@ -1131,29 +1140,29 @@
                     "name": "referenceSystemCode",
                     "label": "Système de projection",
                     "placeholder": "",
-                    "description": "Nom du système de projection de la base de données",
+                    "description": "Nom du système de projection de la base de données.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dataReferenceSystems.md",
-                        "title": "Système de projection",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataReferenceSystems.md",
+                        "title": "Latitude nord",
                         "icon": "fa-info-circle"
                     }
                 },
                 "codeSpace": {
                     "name": "referenceSystemCodeSpace",
                     "label": "Espace de nom",
-                    "placeholder": "",
-                    "description": "Espace de nom du système de projection de la base de données",
+                    "placeholder": "FR-SIREN-Idenfifiant",
+                    "description": "Identifiant de la fiche descriptive des données.",
                     "disabled": "",
                     "editable": "true",
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dataReferenceSystems.md",
-                        "title": "Système de projection",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataReferenceSystems.md",
+                        "title": "Latitude nord",
                         "icon": "fa-info-circle"
                     }
                 }
@@ -1161,21 +1170,22 @@
         },
         "dataPresentationForm": {
             "name": "dataPresentationForm",
-            "label": "Mise en forme des données",
-            "placeholder": "mapDigital",
-            "description": "Mise en forme des données"
+            "label": "Identifiant",
+            "placeholder": "FR-SIREN-Idenfifiant",
+            "description": "Identifiant de la fiche descriptive des données.",
+            "_keywords": "identifiant, métadonnées"
         },
         "dataSpatialRepresentationType": {
             "name": "dataSpatialRepresentationType",
             "label": "Type de données",
             "placeholder": "ex.: vecteurs",
-            "description": "Type de données: vecteur ou raster (image)",
+            "description": "Type de données: vecteur ou raster (image).",
             "disabled": "",
             "editable": "true",
             "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataSpatialRepresentationType.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataSpatialRepresentationType.md",
                 "title": "Type de données",
                 "icon": "fa-info-circle"
             }
@@ -1184,13 +1194,12 @@
             "name": "dataScaleDenominator",
             "label": "Echelle optimale d'utilisation",
             "placeholder": "ex.: 25000",
-            "description": "Dénominateur de l'échelle optimale d'utilisation (ex.: 25000)",
+            "description": "Dénominateur de l'échelle optimale d'utilisation (ex.: 25000).",
             "disabled": "",
             "editable": "true",
-            "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataScale.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataScale.md",
                 "title": "dataScaleDenominator",
                 "icon": "fa-info-circle"
             }
@@ -1199,69 +1208,28 @@
             "name": "dataScaleDistance",
             "label": "Résolution (mètre/pixel)",
             "placeholder": "ex.: 0,5",
-            "description": "Résolution en mètre/pixel (ex. 0.2 pour 20cm par pixel)",
+            "description": "Résolution en mètre/pixel (ex. 0.2 pour 20cm par pixel).",
             "disabled": "",
             "editable": "true",
-            "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataScale.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataScale.md",
                 "title": "dataScaleDistance",
                 "icon": "fa-info-circle"
             }
         },
-        "dataSpatialResolution": {
-            "name": "dataSpatialResolution",
-            "label": "Résolution spatiale",
-            "_placeholder": "ex.: 25000",
-            "description": "Echelle et résolution spatiale des données",
-            "disabled": "",
-            "editable": "true",
-            "mandatory": "false",
-            "helpButton": {
-                "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataScale.md",
-                "title": "dataSpatialResolution",
-                "icon": "fa-info-circle"
-            },
-            "scale": {
-                "dataScaleDenominator": {
-                    "name": "dataScaleDenominator",
-                    "label": "Echelle optimale d'utilisation",
-                    "placeholder": "ex.: 25000",
-                    "description": "Dénominateur de l'échelle optimale d'utilisation (ex.: 25000)",
-                    "disabled": "",
-                    "editable": "true",
-                    "mandatory": "false",
-                    "helpButton": {
-                        "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dataScale.md",
-                        "title": "dataScaleDenominator",
-                        "icon": "fa-info-circle"
-                    }
-                },
-                "dataScaleDistance": {
-                    "name": "dataScaleDistance",
-                    "label": "Résolution (mètre/pixel)",
-                    "placeholder": "ex.: 0,5",
-                    "description": "Résolution en mètre/pixel (ex. 0.2 pour 20cm par pixel)",
-                    "disabled": "",
-                    "editable": "true",
-                    "mandatory": "false",
-                    "helpButton": {
-                        "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dataScale.md",
-                        "title": "dataScaleDistance",
-                        "icon": "fa-info-circle"
-                    }
-                }
-            }
+        "_dataDqLevel": {
+            "name": "_dataDqLevel",
+            "label": "Identifiant",
+            "placeholder": "FR-SIREN-Idenfifiant",
+            "description": "Identifiant de la fiche descriptive des données.",
+            "_keywords": "identifiant, données"
         },
         "dataLiStatement": {
             "name": "dataLiStatement",
             "label": "Qualité des données",
-            "placeholder": "ex.: précision, exaustivité, limites techniques d'exploitation, etc",
-            "description": "Texte sur la qualité des données",
+            "placeholder": "ex.: précision, exaustivité, limites techniques d'exploitation, etc.",
+            "description": "Texte sur la qualité des données.",
             "disabled": "",
             "editable": "true",
             "type": "textarea",
@@ -1269,7 +1237,7 @@
             "value": [""],
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataLiStatement.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataLiStatement.md",
                 "title": "Texte sur la qualité des données",
                 "icon": "fa-info-circle"
             }
@@ -1277,15 +1245,14 @@
         "dataCharacterSet": {
             "name": "dataCharacterSet",
             "label": "Encodage des données",
-            "placeholder": "Sélectionnez un encodage",
-            "description": "Encodage des données",
+            "placeholder": "FR-SIREN-Idenfifiant",
+            "description": "Identifiant de la fiche descriptive des données.",
             "disabled": "",
-            "value": ["utf8"],
             "editable": "true",
             "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataCharacterSet.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataCharacterSet.md",
                 "title": "Encodage des données",
                 "icon": "fa-info-circle"
             }
@@ -1294,13 +1261,13 @@
             "name": "dataDistributionFormats",
             "label": "Formats de diffusion",
             "placeholder": "",
-            "description": "Formats de diffusion des données",
+            "description": "Formats de diffusion des données.",
             "disabled": "",
             "editable": "true",
             "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataCharacterSet.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataCharacterSet.md",
                 "title": "Encodage des données",
                 "icon": "fa-info-circle"
             },
@@ -1309,13 +1276,13 @@
                     "name": "formatName",
                     "label": "Nom",
                     "placeholder": "ex.: Shapefile (SHP)",
-                    "description": "Nom du formats de diffusion des données",
+                    "description": "Nom du formats de diffusion des données.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dataCharacterSet.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataCharacterSet.md",
                         "title": "Encodage des données",
                         "icon": "fa-info-circle"
                     }
@@ -1324,13 +1291,13 @@
                     "name": "formatVersion",
                     "label": "Version",
                     "placeholder": "ex.: 1.0",
-                    "description": "Version du formats de diffusion des données",
+                    "description": "Version du formats de diffusion des données.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dataCharacterSet.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataCharacterSet.md",
                         "title": "Encodage des données",
                         "icon": "fa-info-circle"
                     }
@@ -1339,13 +1306,13 @@
                     "name": "formatSpecification",
                     "label": "Description",
                     "placeholder": "ex.: Fichier de forme ESRI Shapefile (2,7 Mo)",
-                    "description": "Description du formats de diffusion des données",
+                    "description": "Description du formats de diffusion des données.",
                     "disabled": "",
                     "editable": "true",
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dataCharacterSet.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataCharacterSet.md",
                         "title": "Encodage des données",
                         "icon": "fa-info-circle"
                     }
@@ -1355,8 +1322,8 @@
         "dataUseLimitations": {
             "name": "dataUseLimitations",
             "label": "Limites techniques d'usage",
-            "placeholder": "ex.: données non adaptées à de la géolocalisation d'adresse",
-            "description": "Limites techniques d'usage de la base de données",
+            "placeholder": "ex.: données non adaptées à de la géolocalisation d'adresse.",
+            "description": "Limites techniques d'usage de la base de données.",
             "disabled": "",
             "multi": "true",
             "editable": "true",
@@ -1365,135 +1332,182 @@
             "value": [""],
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataUseLimitations.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataUseLimitations.md",
                 "title": "Limites techniques d'usage de la base de données",
                 "icon": "fa-info-circle"
+            },
+
+            "_keywords": "limites techniques, données",
+            "_children": {
+                "name": {
+                    "name": "dataUseLimitation",
+                    "label": "Limites techniques d'usage",
+                    "placeholder": "ex.: données non adaptées à de la géolocalisation d'adresse.",
+                    "description": "Limites techniques d'usage de la base de données.",
+                    "_keywords": "limites techniques, données"
+                }
             }
         },
-        "dataLegalConstraints": {
-            "name": "dataLegalConstraints",
-            "label": "Contraintes légales",
+        "dataLegalUseLimitations": {
+            "name": "dataLegalUseLimitations",
+            "label": "Mentions et conditions légales d'utilisation",
             "placeholder": "",
-            "description": "Contraintes légales d'accès et d'utilisation des données",
+            "description": "Mentions et conditions légales d'utilisation des données.",
             "disabled": "",
-            "_multi": "false",
-            "_editable": "true",
-            "_type": "textarea",
+            "multi": "true",
+            "editable": "true",
+            "type": "textarea",
             "mandatory": "false",
-            "_value": [""],
+            "value": [""],
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataLegalConstraints.md",
-                "title": "Contraintes légales d'accès et d'utilisation des données",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataLegalUseLimitations.md",
+                "title": "Limites techniques d'usage de la base de données",
                 "icon": "fa-info-circle"
             },
-            "dataLegalUseLimitations": {
-                "name": "dataLegalUseLimitations",
-                "label": "Mentions et conditions légales d'utilisation",
-                "placeholder": "",
-                "description": "Mentions et conditions légales d'utilisation des données",
-                "disabled": "",
-                "multi": "true",
-                "editable": "true",
-                "type": "textarea",
-                "mandatory": "false",
-                "value": [""],
-                "helpButton": {
-                    "format": "icon",
-                    "contentUrl": "config/views/md-edit-data2/help.fr/dataLegalUseLimitations.md",
-                    "title": "Limites techniques d'usage de la base de données",
-                    "icon": "fa-info-circle"
+
+            "_keywords": "conditions, utilisation, données",
+            "_children": {
+                "name": {
+                    "name": "",
+                    "label": "Identifiant",
+                    "placeholder": "FR-SIREN-Idenfifiant",
+                    "description": "Identifiant de la fiche descriptive des données.",
+                    "_keywords": "identifiant, métadonnées"
                 }
+            }
+        },
+        "dataLegalUseConstraints": {
+            "name": "dataLegalUseConstraints",
+            "label": "Contraintes légales d'usage",
+            "placeholder": "",
+            "description": "Contraintes légales d'usage des données.",
+            "disabled": "",
+            "multi": "true",
+            "editable": "true",
+            "type": "select",
+            "mandatory": "false",
+            "value": [""],
+            "helpButton": {
+                "format": "icon",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataLegalUseConstraints.md",
+                "title": "Contraintes légales d'usage des données",
+                "icon": "fa-info-circle"
             },
-            "dataLegalUseConstraints": {
-                "name": "dataLegalUseConstraints",
-                "label": "Contraintes légales d'usage",
-                "placeholder": "",
-                "description": "Contraintes légales d'usage des données",
-                "disabled": "",
-                "multi": "true",
-                "editable": "true",
-                "type": "select",
-                "mandatory": "false",
-                "value": [""],
-                "helpButton": {
-                    "format": "icon",
-                    "contentUrl": "config/views/md-edit-data2/help.fr/dataLegalUseConstraints.md",
-                    "title": "Contraintes légales d'usage des données",
-                    "icon": "fa-info-circle"
+
+
+            "_keywords": "contraintes, légales, usage, données",
+            "_children": {
+                "name": {
+                    "name": "",
+                    "label": "Identifiant",
+                    "placeholder": "FR-SIREN-Idenfifiant",
+                    "description": "Identifiant de la fiche descriptive des données.",
+                    "_keywords": "identifiant, métadonnées"
                 }
+            }
+        },
+        "dataLegalAccessConstraints": {
+            "name": "dataLegalAccessConstraints",
+            "label": "Contraintes légales d'accès",
+            "placeholder": "",
+            "description": "Contraintes légales d'accès des données.",
+            "disabled": "",
+            "multi": "true",
+            "editable": "true",
+            "type": "select",
+            "mandatory": "false",
+            "value": [""],
+            "helpButton": {
+                "format": "icon",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataLegalAccessConstraints.md",
+                "title": "Contraintes légales d'accès aux données",
+                "icon": "fa-info-circle"
             },
-            "dataLegalAccessConstraints": {
-                "name": "dataLegalAccessConstraints",
-                "label": "Contraintes légales d'accès",
-                "placeholder": "",
-                "description": "Contraintes légales d'accès des données",
-                "disabled": "",
-                "multi": "true",
-                "editable": "true",
-                "type": "select",
-                "mandatory": "false",
-                "value": [""],
-                "helpButton": {
-                    "format": "icon",
-                    "contentUrl": "config/views/md-edit-data2/help.fr/dataLegalAccessConstraints.md",
-                    "title": "Contraintes légales d'accès aux données",
-                    "icon": "fa-info-circle"
+
+            "_keywords": "contraintes, légales, accès, données",
+            "_children": {
+                "name": {
+                    "name": "name",
+                    "label": "Identifiant",
+                    "placeholder": "FR-SIREN-Idenfifiant",
+                    "description": "Identifiant de la fiche descriptive des données.",
+                    "_keywords": "identifiant, métadonnées"
                 }
+            }
+        },
+        "dataLegalAccessInspireConstraints": {
+            "name": "dataLegalAccessInspireConstraints",
+            "label": "Contraintes d'accès liées à Inspire",
+            "placeholder": "",
+            "description": "Contraintes légales d'accès des données liées à Inspire.",
+            "disabled": "",
+            "multi": "true",
+            "editable": "true",
+            "type": "select",
+            "mandatory": "false",
+            "value": [""],
+            "helpButton": {
+                "format": "icon",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataLegalAccessInspireConstraints.md",
+                "title": "Contraintes légales d'accès des données liées à Inspire",
+                "icon": "fa-info-circle"
             },
-            "dataLegalAccessInspireConstraints": {
-                "name": "dataLegalAccessInspireConstraints",
-                "label": "Contraintes d'accès liées à Inspire",
-                "placeholder": "",
-                "description": "Contraintes légales d'accès des données liées à Inspire",
-                "disabled": "",
-                "multi": "true",
-                "editable": "true",
-                "type": "select",
-                "mandatory": "true",
-                "value": [""],
-                "helpButton": {
-                    "format": "icon",
-                    "contentUrl": "config/views/md-edit-data2/help.fr/dataLegalAccessInspireConstraints.md",
-                    "title": "Contraintes légales d'accès des données liées à Inspire",
-                    "icon": "fa-info-circle"
-                },
-                "legalAccessInspireConstraint": {
-                    "name": "legalAccessInspireConstraint",
-                    "label": "Contraintes d'accès liées à Inspire",
-                    "placeholder": "",
-                    "description": "Contraintes légales d'accès des données liées à Inspire",
-                    "disabled": "",
-                    "editable": "true",
-                    "mandatory": "false",
-                    "type": "select",
-                    "helpButton": {
-                        "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dataLegalAccessInspireConstraints.md",
-                        "title": "Contraintes légales d'accès des données liées à Inspire",
-                        "icon": "fa-info-circle"
-                    }
+
+            "_keywords": "contraintes, légales, inspire, données",
+            "_children": {
+                "name": {
+                    "name": "name",
+                    "label": "Identifiant",
+                    "placeholder": "FR-SIREN-Idenfifiant",
+                    "description": "Identifiant de la fiche descriptive des données.",
+                    "_keywords": "identifiant, métadonnées"
+                }
+            }
+        },
+        "_dataLegalAccessOtherConstraints": {
+            "name": "_dataLegalAccessOtherConstraints",
+            "label": "Autres contraintes légales d'accès",
+            "placeholder": "",
+            "description": "Autres contraintes légales d'accès des données.",
+            "_keywords": "contraintes, légales, données",
+            "_children": {
+                "name": {
+                    "name": "name",
+                    "label": "Identifiant",
+                    "placeholder": "FR-SIREN-Idenfifiant",
+                    "description": "Identifiant de la fiche descriptive des données.",
+                    "_keywords": "identifiant, métadonnées"
                 }
             }
         },
         "dataSecurityUseLimitations": {
             "name": "dataSecurityUseLimitations",
-            "label": "Limites d'usage liée à la classification",
-            "placeholder": "",
-            "description": "Limites d'usage des données liée à la classification"
+            "label": "Identifiant",
+            "placeholder": "FR-SIREN-Idenfifiant",
+            "description": "Identifiant de la fiche descriptive des données.",
+            "_keywords": "identifiant, métadonnées",
+            "children": {
+                "name": {
+                    "name": "",
+                    "label": "Identifiant",
+                    "placeholder": "FR-SIREN-Idenfifiant",
+                    "description": "Identifiant de la fiche descriptive des données.",
+                    "_keywords": "identifiant, métadonnées"
+                }
+            }
         },
         "dataSecurityClassification": {
             "name": "dataSecurityClassification",
             "label": "Niveau de confidentialité",
             "placeholder": "ex.: Non classifié",
-            "description": "Niveau de confidentialité des données",
+            "description": "Niveau de confidentialité des données.",
             "disabled": "",
             "editable": "true",
-            "mandatory": "true",
-            "value": ["unclassified"],
+            "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataSecurityClassification.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
                 "title": "Niveau de confidentialité",
                 "icon": "fa-info-circle"
             }
@@ -1502,13 +1516,13 @@
             "name": "dataLinkages",
             "label": "Ressources",
             "placeholder": "",
-            "description": "Ressources relatives à la base de données",
+            "description": "Ressources relatives à la base de données.",
             "disabled": "",
             "editable": "true",
             "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataSecurityClassification.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
                 "title": "Niveau de confidentialité",
                 "icon": "fa-info-circle"
             },
@@ -1517,13 +1531,13 @@
                     "name": "linkageName",
                     "label": "Nom de la ressource",
                     "placeholder": "ex.: Guide d'utilisation de la BdOCS 2008 CIGAL v2. ",
-                    "description": "Nom de la ressource",
+                    "description": "Nom de la ressource.",
                     "disabled": "",
                     "editable": "true",
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dataSecurityClassification.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
                         "title": "Niveau de confidentialité",
                         "icon": "fa-info-circle"
                     }
@@ -1531,14 +1545,14 @@
                 "linkageDescription": {
                     "name": "linkageDescription",
                     "label": "Description",
-                    "placeholder": "ex.: Document décrivant l'ensemble des limites techniques et légales d'utilisation de la base de données",
-                    "description": "Description de la ressource",
+                    "placeholder": "ex.: Document décrivant l'ensemble des limites techniques et légales d'utilisation de la base de données.",
+                    "description": "Description de la ressource.",
                     "disabled": "",
                     "editable": "true",
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dataSecurityClassification.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
                         "title": "Niveau de confidentialité",
                         "icon": "fa-info-circle"
                     }
@@ -1546,14 +1560,14 @@
                 "linkageUrl": {
                     "name": "linkageUrl",
                     "label": "URL",
-                    "placeholder": "ex.: http://..",
-                    "description": "Lien vers la ressource",
+                    "placeholder": "ex.: http://...",
+                    "description": "Lien vers la ressource.",
                     "disabled": "",
                     "editable": "true",
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dataSecurityClassification.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
                         "title": "Niveau de confidentialité",
                         "icon": "fa-info-circle"
                     }
@@ -1562,13 +1576,13 @@
                     "name": "linkageProtocol",
                     "label": "Type",
                     "placeholder": "",
-                    "description": "Type de ressource",
+                    "description": "Type de ressource.",
                     "disabled": "",
                     "editable": "true",
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/dataSecurityClassification.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
                         "title": "Niveau de confidentialité",
                         "icon": "fa-info-circle"
                     }
@@ -1585,7 +1599,7 @@
             "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataDqInspireConformities.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataDqInspireConformities.md",
                 "title": "Conformité",
                 "icon": "fa-info-circle"
             },
@@ -1594,13 +1608,13 @@
                     "name": "specification",
                     "label": "Spécification",
                     "placeholder": "",
-                    "description": "Nom de la spécification utilisée pour les tests de conformité",
+                    "description": "Nom de la spécification utilisée pour les tests de conformité.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/specification.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/specification.md",
                         "title": "Nom de la spécification",
                         "icon": "fa-info-circle"
                     }
@@ -1609,13 +1623,13 @@
                     "name": "explaination",
                     "label": "Description",
                     "placeholder": "",
-                    "description": "Description des tests réalisés et des résultats obtenus",
+                    "description": "Description des tests réalisés et des résultats obtenus.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/explaination.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/explaination.md",
                         "title": "Description des résultats de conformité",
                         "icon": "fa-info-circle"
                     }
@@ -1624,15 +1638,53 @@
                     "name": "pass",
                     "label": "Degré",
                     "placeholder": "",
-                    "description": "Degré de conformité",
+                    "description": "Degré de conformité.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/pass.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/pass.md",
                         "title": "Degré de conformité",
                         "icon": "fa-info-circle"
+                    }
+                },
+                "_datePublication": {
+                    "name": "datePublication",
+                    "label": "Date de publication",
+                    "placeholder": "",
+                    "description": "Date de publication.",
+                    "disabled": "",
+                    "editable": "true",
+                    "mandatory": "true",
+                    "helpButton": {
+                        "format": "icon",
+                        "contentUrl": "config/views/md-edit-data/help.fr/pass.md",
+                        "title": "Date de publication",
+                        "icon": "fa-info-circle"
+                    }
+                },
+                "_dates": {
+                    "name": "dates",
+                    "label": "Identifiant",
+                    "placeholder": "FR-SIREN-Idenfifiant",
+                    "description": "Identifiant de la fiche descriptive des données.",
+                    "_keywords": "identifiant, métadonnées",
+                    "children": {
+                        "dateType": {
+                            "name": "dateType",
+                            "label": "Identifiant",
+                            "placeholder": "FR-SIREN-Idenfifiant",
+                            "description": "Identifiant de la fiche descriptive des données.",
+                            "_keywords": "identifiant, métadonnées"
+                        },
+                        "date": {
+                            "name": "date",
+                            "label": "Identifiant",
+                            "placeholder": "FR-SIREN-Idenfifiant",
+                            "description": "Identifiant de la fiche descriptive des données.",
+                            "_keywords": "identifiant, métadonnées"
+                        }
                     }
                 }
             }
@@ -1641,13 +1693,13 @@
             "name": "dataDqConformities",
             "label": "Conformité aux autres standards",
             "placeholder": "",
-            "description": "Eléments relatifs à la conformité des données aux autres standards (COVADIS, CNIG, etc.)",
+            "description": "Eléments relatifs à la conformité des données",
             "disabled": "",
             "editable": "",
             "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data2/help.fr/dataDqInspireConformities.md",
+                "contentUrl": "config/views/md-edit-data/help.fr/dataDqInspireConformities.md",
                 "title": "Conformité",
                 "icon": "fa-info-circle"
             },
@@ -1656,13 +1708,13 @@
                     "name": "specification",
                     "label": "Spécification",
                     "placeholder": "",
-                    "description": "Nom de la spécification utilisée pour les tests de conformité",
+                    "description": "Nom de la spécification utilisée pour les tests de conformité.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/specification.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/specification.md",
                         "title": "Nom de la spécification",
                         "icon": "fa-info-circle"
                     }
@@ -1671,13 +1723,13 @@
                     "name": "explaination",
                     "label": "Description",
                     "placeholder": "",
-                    "description": "Description des tests réalisés et des résultats obtenus",
+                    "description": "Description des tests réalisés et des résultats obtenus.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/explaination.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/explaination.md",
                         "title": "Description des résultats de conformité",
                         "icon": "fa-info-circle"
                     }
@@ -1686,31 +1738,53 @@
                     "name": "pass",
                     "label": "Degré",
                     "placeholder": "",
-                    "description": "Degré de conformité",
+                    "description": "Degré de conformité.",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/pass.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/pass.md",
                         "title": "Degré de conformité",
                         "icon": "fa-info-circle"
                     }
                 },
                 "datePublication": {
-                    "name": "date",
+                    "name": "datePublication",
                     "label": "Date de publication",
                     "placeholder": "",
-                    "description": "Date de publication des spécifications",
+                    "description": "Date de publication.",
                     "disabled": "",
                     "editable": "true",
-                    "type": "date",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data2/help.fr/datePublication.md",
+                        "contentUrl": "config/views/md-edit-data/help.fr/pass.md",
                         "title": "Date de publication",
                         "icon": "fa-info-circle"
+                    }
+                },
+                "_dates": {
+                    "name": "dates",
+                    "label": "Identifiant",
+                    "placeholder": "FR-SIREN-Idenfifiant",
+                    "description": "Identifiant de la fiche descriptive des données.",
+                    "_keywords": "identifiant, métadonnées",
+                    "children": {
+                        "dateType": {
+                            "name": "dateType",
+                            "label": "Identifiant",
+                            "placeholder": "FR-SIREN-Idenfifiant",
+                            "description": "Identifiant de la fiche descriptive des données.",
+                            "_keywords": "identifiant, métadonnées"
+                        },
+                        "date": {
+                            "name": "date",
+                            "label": "Identifiant",
+                            "placeholder": "FR-SIREN-Idenfifiant",
+                            "description": "Identifiant de la fiche descriptive des données.",
+                            "_keywords": "identifiant, métadonnées"
+                        }
                     }
                 }
             }
@@ -1747,7 +1821,7 @@
             "value": "Topographie"
         }, {
             "name": "environment",
-            "value": "Ressources et gestion de l'environnement"
+            "value": "Ressources et gestion de l’environnement"
         }, {
             "name": "geoscientificInformation",
             "value": "Géosciences"
@@ -1783,7 +1857,7 @@
             "value": "Infrastructures de transport"
         }, {
             "name": "utilitiesCommunication",
-            "value": "Réseaux de télécommunication, d'énergie"
+            "value": "Réseaux de télécommunication, d’énergie"
         }],
         "MD_CharacterSetCode": [{
             "name": "ucs2",
@@ -1897,7 +1971,7 @@
             "value": "Commanditaire"
         }, {
             "name": "principalInvestigator",
-            "value": "Producteur / Maître d'œuvre principal ou d'ensemble"
+            "value": "Producteur / Maître d’œuvre principal ou d'ensemble"
         }, {
             "name": "processor",
             "value": "Intégrateur / Exécutant secondaire"
@@ -1925,142 +1999,176 @@
 
         "MD_InspireRestrictionCode": [{
             "name": "L124-4-I-1 du code de l'environnement (Directive 2007/2/CE (INSPIRE), Article 13.1.a)",
-            "value": "La confidentialité des travaux des autorités publiques, lorsque cette confidentialité est prévue par la loi",
+            "value": "La confidentialité des travaux des autorités publiques, lorsque cette confidentialité est prévue par la loi.",
             "search": "13.1.a"
         }, {
             "name": "L124-5-II-1 du code de l'environnement (Directive 2007/2/CE (INSPIRE), Article 13.1.b)",
-            "value": "Les relations internationales, la sécurité publique ou la défense nationale",
+            "value": "Les relations internationales, la sécurité publique ou la défense nationale.",
             "search": "13.1.b"
         }, {
             "name": "L124-5-II-2 du code de l'environnement (Directive 2007/2/CE (INSPIRE), Article 13.1.c)",
-            "value": "La bonne marche de la justice, la possibilité pour toute personne d'être jugée équitablement ou la capacité d'une autorité publique d'effectuer une enquête d'ordre pénal ou disciplinaire",
+            "value": "La bonne marche de la justice, la possibilité pour toute personne d’être jugée équitablement ou la capacité d’une autorité publique d’effectuer une enquête d’ordre pénal ou disciplinaire.",
             "search": "13.1.c"
         }, {
             "name": "L124-4-I-1 du code de l'environnement (Directive 2007/2/CE (INSPIRE), Article 13.1.d)",
-            "value": "La confidentialité des informations commerciales ou industrielles, lorsque cette confidentialité est prévue par la législation nationale ou communautaire afin de protéger un intérêt économique légitime, notamment l'intérêt public lié à la préservation de la confidentialité des statistiques et du secret fiscal",
+            "value": "La confidentialité des informations commerciales ou industrielles, lorsque cette confidentialité est prévue par la législation nationale ou communautaire afin de protéger un intérêt économique légitime, notamment l’intérêt public lié à la préservation de la confidentialité des statistiques et du secret fiscal.",
             "search": "13.1.d"
         }, {
             "name": "L124-5-II-3 du code de l'environnement (Directive 2007/2/CE (INSPIRE), Article 13.1.e)",
-            "value": "Les droits de propriété intellectuelle",
+            "value": "Les droits de propriété intellectuelle.",
             "search": "13.1.e"
         }, {
             "name": "L124-4-I-1 du code de l'environnement (Directive 2007/2/CE (INSPIRE), Article 13.1.f)",
-            "value": "La confidentialité des données à caractère personnel et/ou des fichiers concernant une personne physique lorsque cette personne n'a pas consenti à la divulgation de ces informations au public, lorsque la confidentialité de ce type d'information est prévue par la législation nationale ou communautaire",
+            "value": "La confidentialité des données à caractère personnel et/ou des fichiers concernant une personne physique lorsque cette personne n’a pas consenti à la divulgation de ces informations au public, lorsque la confidentialité de ce type d’information est prévue par la législation nationale ou communautaire.",
             "search": "13.1.f"
         }, {
             "name": "L124-4-I-3 du code de l'environnement (Directive 2007/2/CE (INSPIRE), Article 13.1.g)",
-            "value": "Les intérêts ou la protection de toute personne qui a fourni les informations demandées sur une base volontaire sans y être contrainte par la loi ou sans que la loi puisse l'y contraindre, à moins que cette personne n'ait consenti à la divulgation de ces données",
+            "value": "Les intérêts ou la protection de toute personne qui a fourni les informations demandées sur une base volontaire sans y être contrainte par la loi ou sans que la loi puisse l’y contraindre, à moins que cette personne n’ait consenti à la divulgation de ces données.",
             "search": "13.1.g"
         }, {
             "name": "L124-4-I-2 du code de l'environnement (Directive 2007/2/CE (INSPIRE), Article 13.1.h)",
-            "value": "La protection de l'environnement auquel ces informations ont trait, comme par exemple la localisation d'espèces rares",
+            "value": "La protection de l’environnement auquel ces informations ont trait, comme par exemple la localisation d’espèces rares.",
             "search": "13.1.h"
         }, {
-            "name": "Pas de restriction d'accès public",
-            "value": "Aucun des articles de la loi ne peut être invoqué pour justifier d'une restriction d'accès public",
+            "name": "Pas de restriction d'accès public selon INSPIRE",
+            "value": "Aucun des articles de la loi ne peut être invoqué pour justifier d’une restriction d’accès public.",
             "search": "pas de restriction"
         }],
 
         "MD_InspireTopicCategoryCode": [{
+            "_name": "Coordinate reference systems",
             "name": "Référentiels de coordonnées",
             "value": "Référentiels de coordonnées"
         }, {
+            "_name": "Geographical grid systems",
             "name": "Systèmes de maillage géographique",
             "value": "Systèmes de maillage géographique"
         }, {
+            "_name": "Geographical names",
             "name": "Dénominations géographiques",
             "value": "Dénominations géographiques"
         }, {
+            "_name": "Administrative units",
             "name": "Unités administratives",
             "value": "Unités administratives"
         }, {
+            "_name": "Addresses",
             "name": "Adresses",
             "value": "Adresses"
         }, {
+            "_name": "Cadastral parcels",
             "name": "Parcelles cadastrales",
             "value": "Parcelles cadastrales"
         }, {
+            "_name": "Transport networks",
             "name": "Réseaux de transport",
             "value": "Réseaux de transport"
         }, {
+            "_name": "Hydrography",
             "name": "Hydrographie",
             "value": "Hydrographie"
         }, {
+            "_name": "Protected sites",
             "name": "Sites protégés",
             "value": "Sites protégés"
         }, {
+            "_name": "Elevation",
             "name": "Altitude",
             "value": "Altitude"
         }, {
+            "_name": "Land cover",
             "name": "Occupation des terres",
             "value": "Occupation des terres"
         }, {
+            "_name": "Orthoimagery",
             "name": "Ortho-imagerie",
             "value": "Ortho-imagerie"
         }, {
+            "_name": "Geology",
             "name": "Géologie",
             "value": "Géologie"
         }, {
+            "_name": "Statistical units",
             "name": "Unités statistiques",
             "value": "Unités statistiques"
         }, {
+            "_name": "Buildings",
             "name": "Bâtiments",
             "value": "Bâtiments"
         }, {
+            "_name": "Soil",
             "name": "Sols",
             "value": "Sols"
         }, {
+            "_name": "Land use",
             "name": "Usage des sols",
             "value": "Usage des sols"
         }, {
+            "_name": "Human health and safety",
             "name": "Santé et sécurité des personnes",
             "value": "Santé et sécurité des personnes"
         }, {
+            "_name": "Utility and governmental services",
             "name": "Services d'utilité publique et services publics",
             "value": "Services d'utilité publique et services publics"
         }, {
+            "_name": "Environmental monitoring facilities",
             "name": "Installations de suivi environnemental",
             "value": "Installations de suivi environnemental"
         }, {
+            "_name": "Production and industrial facilities",
             "name": "Lieux de production et sites industriels",
             "value": "Lieux de production et sites industriels"
         }, {
+            "_name": "Agricultural and aquaculture facilities",
             "name": "Installations agricoles et aquacoles",
             "value": "Installations agricoles et aquacoles"
         }, {
+            "_name": "Population distribution — demography",
             "name": "Répartition de la population – démographie",
             "value": "Répartition de la population – démographie"
         }, {
+            "_name": "Area management/restriction/regulation zones and reporting units",
             "name": "Zones de gestion, de restriction ou de réglementation et unités de déclaration",
             "value": "Zones de gestion, de restriction ou de réglementation et unités de déclaration"
         }, {
+            "_name": "Natural risk zones",
             "name": "Zones à risque naturel",
             "value": "Zones à risque naturel"
         }, {
+            "_name": "Atmospheric conditions",
             "name": "Conditions atmosphériques",
             "value": "Conditions atmosphériques"
         }, {
+            "_name": "Meteorological geographical features",
             "name": "Caractéristiques géographiques météorologiques",
             "value": "Caractéristiques géographiques météorologiques"
         }, {
+            "_name": "Oceanographic geographical features",
             "name": "Caractéristiques géographiques océanographiques",
             "value": "Caractéristiques géographiques océanographiques"
         }, {
+            "_name": "Sea regions",
             "name": "Régions maritimes",
             "value": "Régions maritimes"
         }, {
+            "_name": "Bio-geographical regions",
             "name": "Régions biogéographiques",
             "value": "Régions biogéographiques"
         }, {
+            "_name": "Habitats and biotopes",
             "name": "Habitats et biotopes",
             "value": "Habitats et biotopes"
         }, {
+            "_name": "Species distribution",
             "name": "Répartition des espèces",
             "value": "Répartition des espèces"
         }, {
+            "_name": "Energy resources",
             "name": "Sources d'énergie",
             "value": "Sources d'énergie"
         }, {
+            "_name": "Mineral resources",
             "name": "Ressources minérales",
             "value": "Ressources minérales"
         }],
@@ -2174,7 +2282,7 @@
 
         "MD_RestrictionCode": [{
             "name": "copyright",
-            "value": "Droit d'auteur / Droit moral (copyright)"
+            "value": "Droit d’auteur / Droit moral (copyright)"
         }, {
             "name": "patent",
             "value": "Brevet"
@@ -2193,6 +2301,9 @@
         }, {
             "name": "restricted",
             "value": "Restreint"
+        }, {
+            "name": "otherRestrictions",
+            "value": "Autres restrictions"
         }],
 
         "MD_ScopeCode": [{
@@ -2200,7 +2311,7 @@
             "value": "Attribut"
         }, {
             "name": "attributeType",
-            "value": "Type d'attribut"
+            "value": "Type d’attribut"
         }, {
             "name": "collectionHardware",
             "value": "Collection matérielle"
@@ -2218,13 +2329,13 @@
             "value": "Jeu de données non géographique"
         }, {
             "name": "dimensionGroup",
-            "value": "Dimension d'un groupe"
+            "value": "Dimension d’un groupe"
         }, {
             "name": "feature",
             "value": "Entité"
         }, {
             "name": "featureType",
-            "value": "Type d'entité"
+            "value": "Type d’entité"
         }, {
             "name": "propertyType",
             "value": "Type de propriété"
@@ -2272,29 +2383,14 @@
         }],
 
         "MD_LinkageProtocolCode": [{
-            "name": "WWW:LINK-1.0-http--link",
-            "value": "Page web"
-        }, {
-            "name": "WWW:DOWNLOAD-1.0-http--download",
-            "value": "Fichier à télécharger (ZIP, PDF, etc.)"
-        }, {
-            "name": "WWW:KML",
-            "value": "Fichier KML"
-        }, {
-            "name": "WWW:GML",
-            "value": "Fichier GML"
-        }, {
             "name": "OGC:WMS",
-            "value": "Service WMS"
+            "value": "WMS"
         }, {
             "name": "OGC:WFS",
-            "value": "Service WFS"
+            "value": "WFS"
         }, {
-            "name": "WWW:WCS",
-            "value": "Service WCS"
-        }, {
-            "name": "WWW:WPS",
-            "value": "Service WPS"
+            "name": "WWW:DOWNLOAD-1.0-http--download",
+            "value": "ZIP"
         }],
 
         "MD_ReferenceSystemCode": [{

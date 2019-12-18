@@ -1,7 +1,7 @@
 <div id="content" class="container-fluid mt-3">
 
     <div class="row">
-        <div class="flex-column border-secondary border-right pl-2 col-3">
+        <div class="border-secondary border-right pl-2 col-3">
             <div class="col-12 text-center">
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label class="btn btn-sm btn-outline-secondary" ng-class="{'active': $ctrl.simpleView}">
@@ -12,7 +12,7 @@
                     </label>
                 </div>
             </div>
-            <div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <div class="flex-column nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link" ng-class="{'active': tab.active, 'disabled text-dark font-weight-bold': tab.disabled, 'ng-hide': $ctrl.simpleView && tab.advanced}" href role="tab" ng-click="$ctrl.changeTab(tab.id)" ng-repeat="(index, tab) in $ctrl.tabs" uib-tooltip="{{tab.description}}" tooltip-popup-close-delay="100" tooltip-trigger="mouseenter" tooltip-placement="right">
                     {{tab.title}}
                 </a>

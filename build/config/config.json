@@ -17,7 +17,7 @@
         "_changeview_format": "'button' or 'list' value",
         "changeview": {
             "format": "list",
-            "list": ["mdEditData", "mdEditData2", "mdLive", "mdEditMap", "mdViewData"],
+            "list": ["mdEditData", "mdEditData2", "mdEditOpendata", "mdEditNogeo", "mdLive", "mdEditMap", "mdViewData"],
             "icon": "far fa-eye"
         },
         "template": "empty",
@@ -62,6 +62,26 @@
     },
     "views": {
         "_": "use '_' to deactivate view in changeView list",
+        "assistant": {
+            "url": "app.assistant",
+            "path": "config/views/assistant/assistant.html",
+            "icon": "fas fa-home",
+            "name": {
+                "fr": "Assistant",
+                "en": "Assistant (EN)",
+                "de": "Assistant (DE)"
+            },
+            "description": {
+                "fr": "Assistant pour le choix d'un formulaire de description.",
+                "en": "Assistant view",
+                "de": "assistant view (DE)"
+            },
+            "locales": {
+                "fr": "config/views/assistant/locales.fr.json",
+                "en": "config/views/assistant/locales.en.json",
+                "de": "config/views/assistant/locales.de.json"
+            }
+        },
         "home": {
             "url": "app.home",
             "path": "config/views/home/home.html",
@@ -106,8 +126,9 @@
             "url": "app.mdEditData",
             "path": "config/views/md-edit-data/md-edit-data.html",
             "model": "empty",
-            "icon": "fas fa-database",
+            "icon": "fas fa-globe-europe",
             "type": "mdEdit",
+            "geo": true,
             "default": true,
             "hierarchyLevels": ["dataseries", "dataset"],
             "keywords": {
@@ -116,7 +137,7 @@
                 "de": ["data"]
             },
             "name": {
-                "fr": "Formulaire mdEdit",
+                "fr": "Données géographiques (mdEdit)",
                 "en": "Edit view",
                 "de": "Edit view (DE)"
             },
@@ -136,7 +157,9 @@
             "url": "app.mdEditOpendata",
             "path": "config/views/md-edit-data/md-edit-opendata.html",
             "model": "opendata",
-            "icon": "fas fa-database",
+            "icon": "fas fa-globe-europe",
+            "opendata": true,
+            "geo": true,
             "type": "mdEdit",
             "default": true,
             "hierarchyLevels": [
@@ -156,12 +179,12 @@
                 ]
             },
             "name": {
-                "fr": "Formulaire open data",
+                "fr": "Données géographiques ouvertes",
                 "en": "Edit view",
                 "de": "Edit view (DE)"
             },
             "description": {
-                "fr": "Formulaire de saisie des métadonnées open data non géographiques. Il est basé sur un système \"d'accordéons\" permettant de masquer et d'afficher des groupes de champs.",
+                "fr": "Formulaire de saisie des métadonnées géographiques ouvertes (Inspire/Open data). Il est basé sur un système \"d'accordéons\" permettant de masquer et d'afficher des groupes de champs.",
                 "en": "Edit view",
                 "de": "Edit view (DE)"
             },
@@ -175,9 +198,10 @@
         "mdEditData2": {
             "url": "app.mdEditData2",
             "path": "config/views/md-edit-data2/md-edit-data2.html",
-            "model": "opendata",
-            "icon": "fas fa-database",
+            "model": "empty",
+            "icon": "fas fa-globe-europe",
             "type": "mdEdit",
+            "geo": true,
             "default": true,
             "hierarchyLevels": ["dataseries", "dataset"],
             "keywords": {
@@ -186,7 +210,7 @@
                 "de": ["data"]
             },
             "name": {
-                "fr": "Formulaire mdEdit 2",
+                "fr": "Données géographiques (mdEdit 2)",
                 "en": "Edit view",
                 "de": "Edit view (DE)"
             },
@@ -206,8 +230,9 @@
             "url": "app.mdEditNogeo",
             "path": "config/views/md-edit-nogeo/md-edit-nogeo.html",
             "model": "opendata",
-            "icon": "fas fa-database",
+            "icon": "fas fa-table",
             "type": "mdEdit",
+            "opendata": true,
             "default": true,
             "hierarchyLevels": ["dataseries", "dataset"],
             "keywords": {
@@ -216,12 +241,12 @@
                 "de": ["data"]
             },
             "name": {
-                "fr": "Formulaire données non géographique",
+                "fr": "Données non géographiques ouvertes (open data)",
                 "en": "Edit view",
                 "de": "Edit view (DE)"
             },
             "description": {
-                "fr": "Formulaire de saisie des métadonnées pour les données non géographiques. Il est basé sur un système d'onglets verticaux servant de sommaire dans l'affichage des différents groupes de champs.",
+                "fr": "Formulaire de saisie des métadonnées pour les données non géographiques ouvertes (open data). Il est basé sur un système d'onglets verticaux servant de sommaire dans l'affichage des différents groupes de champs.",
                 "en": "Edit view",
                 "de": "Edit view (DE)"
             },
@@ -269,6 +294,7 @@
             "model": "empty",
             "icon": "fas fa-database",
             "type": "mdEdit",
+            "geo": true,
             "default": true,
             "hierarchyLevels": ["dataseries", "dataset"],
             "keywords": {
@@ -277,12 +303,12 @@
                 "de": ["data"]
             },
             "name": {
-                "fr": "Formulaire LIVE",
+                "fr": "Formulaire du LIVE",
                 "en": "LIVE/ZAEU form",
                 "de": "LIVE/ZAEU form (DE)"
             },
             "description": {
-                "fr": "Formulaire de saisie des fiches de métadonnées du Laboratoire Image Ville Environnement - UMR 7362 CNRS– UNISTRA.",
+                "fr": "Formulaire de saisie des fiches de métadonnées du Laboratoire Image Ville Environnement - UMR 7362 CNRS – UNISTRA (LIVE).",
                 "en": "LIVE/ZAEU form",
                 "de": "LIVE/ZAEU form (DE)"
             },
@@ -299,6 +325,7 @@
             "model": "map",
             "icon": "fas fa-map",
             "type": "mdEdit",
+            "map": true,
             "default": true,
             "hierarchyLevels": ["dataseries", "dataset"],
             "keywords": {
