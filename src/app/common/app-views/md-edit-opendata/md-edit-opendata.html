@@ -2,20 +2,22 @@
 
     <div class="row">
         <div class="border-secondary border-right pl-2 col-3">
-            <div class="col-12 text-center">
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-sm btn-outline-secondary" ng-class="{'active': $ctrl.simpleView}">
-                        <input type="radio" name="view" id="view-simple"autocomplete="off" checked ng-click="$ctrl.showSimpleView(true)">Vue simple
-                    </label>
-                    <label class="btn btn-sm btn-outline-secondary" ng-class="{'active': !$ctrl.simpleView}">
-                        <input type="radio" name="view" id="view-complete"autocomplete="off" ng-click="$ctrl.showSimpleView(false)">Vue complète
-                    </label>
+            <div class="position-fixed">
+                <div class="col-12 text-center">
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-sm btn-outline-secondary" ng-class="{'active': $ctrl.simpleView}">
+                            <input type="radio" name="view" id="view-simple"autocomplete="off" checked ng-click="$ctrl.showSimpleView(true)">Vue simple
+                        </label>
+                        <label class="btn btn-sm btn-outline-secondary" ng-class="{'active': !$ctrl.simpleView}">
+                            <input type="radio" name="view" id="view-complete"autocomplete="off" ng-click="$ctrl.showSimpleView(false)">Vue complète
+                        </label>
+                    </div>
                 </div>
-            </div>
-            <div class="flex-column nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link" ng-class="{'active': tab.active, 'disabled text-dark font-weight-bold': tab.disabled, 'ng-hide': $ctrl.simpleView && tab.advanced}" href role="tab" ng-click="$ctrl.changeTab(tab.id)" ng-repeat="(index, tab) in $ctrl.tabs" uib-tooltip="{{tab.description}}" tooltip-popup-close-delay="100" tooltip-trigger="mouseenter" tooltip-placement="right">
-                    {{tab.title}}
-                </a>
+                <div class="flex-column nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link" ng-class="{'active': tab.active, 'disabled text-dark font-weight-bold': tab.disabled, 'ng-hide': $ctrl.simpleView && tab.advanced}" href role="tab" ng-click="$ctrl.changeTab(tab.id)" ng-repeat="(index, tab) in $ctrl.tabs" uib-tooltip="{{tab.description}}" tooltip-popup-close-delay="100" tooltip-trigger="mouseenter" tooltip-placement="right">
+                        {{tab.title}}
+                    </a>
+                </div>
             </div>
         </div>
         <div class="tab-content col-9" id="v-pills-tabContent">
