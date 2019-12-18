@@ -80,7 +80,6 @@ const xmlSaveButtonController = class XmlSaveButtonController {
         // Generate XML file
         var mdjs = this.getData();
         var now = this.LodashService.lodash.now();
-        // Update from 17/12/2019 to change ID stratégie: dataId is now mandatory and not fileId
         var dataIdentifiersCodes = this.XmlConverterService.getValue(mdjs, 'md', 'dataIdentifiersCodes')
         var dataId = dataIdentifiersCodes[0];
         var fileId = this.XmlConverterService.getValue(mdjs, 'md', 'mdFileIdentifier')[0];
