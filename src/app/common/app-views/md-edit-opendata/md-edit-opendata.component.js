@@ -9,6 +9,7 @@ const mdEditOpendataController = class MdEditOpendataController {
     }
 
     $onInit() {
+        this.simpleView = true;
         this.StoreService.onSetData(() => {
             this.mdjs = this.StoreService.getData().mdjs;
         });
@@ -32,6 +33,10 @@ const mdEditOpendataController = class MdEditOpendataController {
             this.tabs[i].active = false
         }
         this.tabs[index].active = true
+    }
+
+    showSimpleView(show) {
+        this.simpleView = show;
     }
 }
 
