@@ -1,23 +1,104 @@
 {
     "lang": "fr",
-    "view": "md-edit-data",
+    "view": "md-edit-opendata",
     "locales": {
         "mandatory": "Champs obligatoire",
         "empty": "Champ non renseigné"
     },
+    "defaultActiveTab": 1,
+    "tabs": [{
+            "id": 0,
+            "title": "Description de la fiche",
+            "description": "Informations sur la fiche de métadonnées",
+            "active": false,
+            "disabled": true
+        },
+        {
+            "id": 1,
+            "title": "Informations techniques",
+            "description": "Informations sur la fiche de métadonnées",
+            "active": true
+        },
+        {
+            "id": 2,
+            "title": "Points de contact",
+            "description": "Contacts pour la fiche de métadonnées (auteur, gestionnaire, etc.)",
+            "active": false
+        },
+        {
+            "id": 3,
+            "title": "Description des données",
+            "description": "Informations sur les données",
+            "active": false,
+            "disabled": true
+        },
+        {
+            "id": 4,
+            "title": "Description générale",
+            "description": "Description essentielles des données",
+            "active": false
+        },
+        {
+            "id": 5,
+            "title": "Points de contact",
+            "description": "Contacts pour les données (commanditaire, propriétaire, gestionnaire, etc.)",
+            "active": false
+        },
+        {
+            "id": 6,
+            "title": "Références géographiques et qualité",
+            "description": "Références géographiques et qualité des données",
+            "active": false
+        },
+        {
+            "id": 7,
+            "title": "Conditions légales d'accès et d'usage",
+            "description": "Conditions légales d'accès et d'usage",
+            "active": false
+        },
+        {
+            "id": 8,
+            "title": "Ressources associées",
+            "description": "Ressources associées aux données (guide méthodologique, table attributaire, documents, etc.)",
+            "active": false
+        },
+        {
+            "id": 9,
+            "title": "Conformités des données",
+            "description": "Conformités des données au regard de la directive europénne Inspire et des autres standards en vigueur",
+            "active": false
+        }
+    ],
     "fields": {
         "mdFileIdentifier": {
             "name": "mdFileIdentifier",
             "label": "Identifiant",
             "description": "Identifiant de la fiche de métadonnées",
+            "placeholder": "FR-SIREN-...",
+            "disabled": "",
+            "editable": "true",
+            "type": "text",
+            "mandatory": "false",
+            "helpButton": {
+                "format": "icon",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/mdFileIdentifier.md",
+                "title": "Identifiant",
+                "icon": "fa-info-circle"
+            }
+        },
+        "mdParentIdentifier": {
+            "name": "mdParentIdentifier",
+            "label": "Fiche parent",
+            "description": "Identifiant de la fiche de métadonnées parent",
             "placeholder": "",
             "disabled": "",
             "editable": "true",
             "type": "text",
+            "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/mdFileIdentifier.md",
-                "title": "Identifiant",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/mdParentIdentifier.md",
+                "title": "Identifiant du parent",
                 "icon": "fa-info-circle"
             }
         },
@@ -33,7 +114,7 @@
             "value": ["fre"],
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/mdLanguage.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/mdLanguage.md",
                 "title": "Langue des métadonnées",
                 "icon": "fa-info-circle"
             }
@@ -44,13 +125,13 @@
             "placeholder": "Sélectionnez un encodage",
             "description": "Jeu de caractère (encodage) de la fiche descriptive des données",
             "disabled": "",
-            "editable": "true",
+            "editable": "false",
             "type": "select",
             "mandatory": "true",
             "value": ["utf8"],
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/mdCharacterSet.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/mdCharacterSet.md",
                 "title": "Jeu de caractère (encodage) de la fiche",
                 "icon": "fa-info-circle"
             }
@@ -62,11 +143,11 @@
             "placeholder": "Sélectionnez un type de ressource",
             "disabled": "",
             "value": ["dataset"],
-            "editable": "true",
+            "editable": "false",
             "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/mdHierarchyLevel.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/mdHierarchyLevel.md",
                 "title": "Type de ressource",
                 "icon": "fa-info-circle"
             }
@@ -88,7 +169,7 @@
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/individualName.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/individualName.md",
                         "title": "Nom et prénom du contact",
                         "icon": "fa-info-circle"
                     }
@@ -103,7 +184,7 @@
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/positionName.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/positionName.md",
                         "title": "Fonction du contact",
                         "icon": "fa-info-circle"
                     }
@@ -119,7 +200,7 @@
                     "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/organisationName.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/organisationName.md",
                         "title": "Organisme du contact",
                         "icon": "fa-info-circle"
                     }
@@ -134,7 +215,7 @@
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/phoneVoice.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/phoneVoice.md",
                         "title": "Numéro de téléphone du contact",
                         "icon": "fa-info-circle"
                     }
@@ -146,26 +227,26 @@
                     "description": "Email du contact. Pour inscrire plusieurs emails, les séparer par '|'",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "true",
                     "type": "text",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/email.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/email.md",
                         "title": "Email du contact",
                         "icon": "fa-info-circle"
                     }
                 },
                 "deliveryPoints": {
                     "name": "deliveryPoints",
-                    "label": "Addresse",
-                    "placeholder": "Addresse",
-                    "description": "Addresse du contact",
+                    "label": "Adresse",
+                    "placeholder": "Adresse",
+                    "description": "Adresse du contact",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/deliveryPoint.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/deliveryPoint.md",
                         "title": "Adresse du contact",
                         "icon": "fa-info-circle"
                     }
@@ -180,7 +261,7 @@
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/postalCode.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/postalCode.md",
                         "title": "Code postal du contact",
                         "icon": "fa-info-circle"
                     }
@@ -195,7 +276,7 @@
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/city.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/city.md",
                         "title": "Ville du contact",
                         "icon": "fa-info-circle"
                     }
@@ -208,7 +289,7 @@
                     "disabled": "",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/logo.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/logo.md",
                         "title": "Logo du contact",
                         "icon": "fa-info-circle"
                     }
@@ -223,7 +304,7 @@
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/logo.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/logo.md",
                         "title": "URL du logo du contact",
                         "icon": "fa-info-circle"
                     }
@@ -234,11 +315,12 @@
                     "placeholder": "ex.: Logo du partenariat CIGAL",
                     "description": "Description du logo de l'organisme",
                     "disabled": "",
+                    "display": "none",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/logo.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/logo.md",
                         "title": "Texte de description du logo du contact",
                         "icon": "fa-info-circle"
                     }
@@ -253,7 +335,7 @@
                     "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/role.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/role.md",
                         "title": "Rôle du contact",
                         "icon": "fa-info-circle"
                     }
@@ -266,12 +348,12 @@
             "placeholder": "",
             "description": "Date de création ou dernière mise à jour de la fiche descriptive des données",
             "type": "date",
-            "disabled": "",
-            "editable": "true",
-            "mandatory": "true",
+            "disabled": "true",
+            "editable": "false",
+            "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/mdDateStamp.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/mdDateStamp.md",
                 "title": "Date de création ou dernière mise à jour de la fiche",
                 "icon": "fa-info-circle"
             }
@@ -287,7 +369,7 @@
             "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/mdStandardName.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/mdStandardName.md",
                 "title": "Nom du standard de description",
                 "icon": "fa-info-circle"
             }
@@ -303,7 +385,7 @@
             "value": ["Cor 1:2006"],
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/mdStandardVersion.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/mdStandardVersion.md",
                 "title": "Version du standard de description",
                 "icon": "fa-info-circle"
             }
@@ -315,16 +397,18 @@
             "placeholder": "DONNEES: ..",
             "disabled": "",
             "editable": "true",
+            "mandatory": "true",
+            "type": "text",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataTitle.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataTitle.md",
                 "title": "Titre",
                 "icon": "fa-info-circle"
             }
         },
         "dataDates": {
             "name": "dataDates",
-            "label": "Dates",
+            "label": "Dates des données",
             "description": "Dates relatives à la création, mise à jour et publication des données",
             "placeholder": "",
             "disabled": "",
@@ -332,7 +416,7 @@
             "type": "date",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataDates.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataDates.md",
                 "title": "Dates",
                 "icon": "fa-info-circle"
             },
@@ -347,23 +431,24 @@
                     "editable": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dateCreation.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dateCreation.md",
                         "title": "Date de création",
                         "icon": "fa-info-circle"
                     }
                 },
                 "dateEdition": {
                     "name": "date",
-                    "label": "Date d'édition",
-                    "description": "Date d'édition de la base de données",
+                    "label": "Date de révision",
+                    "description": "Date de dernière mise à jour de la base de données",
                     "placeholder": "AAAA-MM-JJ",
                     "disabled": "",
                     "type": "date",
                     "editable": "true",
+                    "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dateEdition.md",
-                        "title": "Date d'édition",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dateEdition.md",
+                        "title": "Date de révision",
                         "icon": "fa-info-circle"
                     }
                 },
@@ -377,7 +462,7 @@
                     "editable": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/datePublication.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/datePublication.md",
                         "title": "Date de publication",
                         "icon": "fa-info-circle"
                     }
@@ -394,7 +479,7 @@
             "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataIdentifiers.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataIdentifiers.md",
                 "title": "Identifiant de la ressource",
                 "icon": "fa-info-circle"
             },
@@ -406,10 +491,11 @@
                     "description": "Identifiant de la base de données",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
+                    "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/code.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/code.md",
                         "title": "Identifiant de la ressource",
                         "icon": "fa-info-circle"
                     }
@@ -421,10 +507,11 @@
                     "description": "Espace de nommage pour les identifiants de la base de données",
                     "disabled": "",
                     "editable": "true",
+                    "display": "none",
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/codeSpace.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/codeSpace.md",
                         "title": "Espace de nommage",
                         "icon": "fa-info-circle"
                     }
@@ -438,9 +525,10 @@
             "placeholder": "..",
             "disabled": "",
             "editable": "true",
+            "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataAbstract.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataAbstract.md",
                 "title": "Résumé",
                 "icon": "fa-info-circle"
             }
@@ -455,7 +543,7 @@
             "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataBrowseGraphics.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataBrowseGraphics.md",
                 "title": "Illustration de la ressource",
                 "icon": "fa-info-circle"
             },
@@ -470,7 +558,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/fileName.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/fileName.md",
                         "title": "URL de l'illustration",
                         "icon": "fa-info-circle"
                     }
@@ -485,7 +573,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/fileDescription.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/fileDescription.md",
                         "title": "Description de l'illustration",
                         "icon": "fa-info-circle"
                     }
@@ -500,7 +588,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/fileType.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/fileType.md",
                         "title": "Type de fichier",
                         "icon": "fa-info-circle"
                     }
@@ -515,7 +603,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/image.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/image.md",
                         "title": "Image",
                         "icon": "fa-info-circle"
                     }
@@ -532,7 +620,7 @@
             "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataMaintenanceFrequency.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataMaintenanceFrequency.md",
                 "title": "Fréquence de mise à jour",
                 "icon": "fa-info-circle"
             }
@@ -545,9 +633,10 @@
             "disabled": "",
             "editable": "true",
             "type": "select",
+            "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataLanguages.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataLanguages.md",
                 "title": "Langues des données",
                 "icon": "fa-info-circle"
             }
@@ -559,10 +648,11 @@
             "description": "Thème ISO auquel se rapporte la base de données",
             "disabled": "",
             "editable": "true",
+            "mandatory": "true",
             "type": "select",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataTopicCategories.md",
                 "title": "Thème ISO de la fiche",
                 "icon": "fa-info-circle"
             }
@@ -574,10 +664,11 @@
             "description": "Thème de la directive européenne Inspire auquel se rapporte la base de données",
             "disabled": "",
             "editable": "true",
+            "mandatory": "true",
             "type": "select",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataInspireKeywords.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataInspireKeywords.md",
                 "title": "Thème Inspire",
                 "icon": "fa-info-circle"
             },
@@ -589,10 +680,11 @@
                     "description": "Intitulé du mot-clé",
                     "disabled": "",
                     "editable": "true",
+                    "mandatory": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dataInspireKeywords.md",
                         "title": "Thème ISO de la fiche",
                         "icon": "fa-info-circle"
                     }
@@ -609,7 +701,7 @@
             "type": "select",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataKeywords.md",
                 "title": "Thème ISO de la fiche",
                 "icon": "fa-info-circle"
             },
@@ -621,10 +713,10 @@
                     "description": "Intitulé du mot-clé",
                     "disabled": "",
                     "editable": "true",
-                    "type": "text",
+                    "type": "textarea_array",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dataKeywords.md",
                         "title": "Thème ISO de la fiche",
                         "icon": "fa-info-circle"
                     }
@@ -639,7 +731,7 @@
                     "type": "select",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dataKeywords.md",
                         "title": "Thème ISO de la fiche",
                         "icon": "fa-info-circle"
                     }
@@ -654,7 +746,7 @@
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dataKeywords.md",
                         "title": "Thème ISO de la fiche",
                         "icon": "fa-info-circle"
                     }
@@ -669,7 +761,7 @@
                     "type": "date",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataTopicCategories.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dataKeywords.md",
                         "title": "Thème ISO de la fiche",
                         "icon": "fa-info-circle"
                     }
@@ -692,7 +784,7 @@
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/individualName.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/individualName.md",
                         "title": "Nom et prénom du contact",
                         "icon": "fa-info-circle"
                     }
@@ -707,7 +799,7 @@
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/positionName.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/positionName.md",
                         "title": "Fonction du contact",
                         "icon": "fa-info-circle"
                     }
@@ -723,7 +815,7 @@
                     "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/organisationName.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/organisationName.md",
                         "title": "Organisme du contact",
                         "icon": "fa-info-circle"
                     }
@@ -738,7 +830,7 @@
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/phoneVoice.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/phoneVoice.md",
                         "title": "Numéro de téléphone du contact",
                         "icon": "fa-info-circle"
                     }
@@ -754,22 +846,22 @@
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/email.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/email.md",
                         "title": "Email du contact",
                         "icon": "fa-info-circle"
                     }
                 },
                 "deliveryPoints": {
                     "name": "deliveryPoints",
-                    "label": "Addresse",
-                    "placeholder": "Addresse",
-                    "description": "Addresse du contact",
+                    "label": "Adresse",
+                    "placeholder": "Adresse",
+                    "description": "Adresse du contact",
                     "disabled": "",
                     "editable": "true",
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/deliveryPoint.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/deliveryPoint.md",
                         "title": "Adresse du contact",
                         "icon": "fa-info-circle"
                     }
@@ -784,7 +876,7 @@
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/postalCode.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/postalCode.md",
                         "title": "Code postal du contact",
                         "icon": "fa-info-circle"
                     }
@@ -799,7 +891,7 @@
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/city.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/city.md",
                         "title": "Ville du contact",
                         "icon": "fa-info-circle"
                     }
@@ -812,7 +904,7 @@
                     "disabled": "",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/logo.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/logo.md",
                         "title": "Logo du contact",
                         "icon": "fa-info-circle"
                     }
@@ -827,7 +919,7 @@
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/logo.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/logo.md",
                         "title": "URL du logo du contact",
                         "icon": "fa-info-circle"
                     }
@@ -842,7 +934,7 @@
                     "type": "text",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/logo.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/logo.md",
                         "title": "Texte de description du logo du contact",
                         "icon": "fa-info-circle"
                     }
@@ -857,7 +949,7 @@
                     "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/role.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/role.md",
                         "title": "Rôle du contact",
                         "icon": "fa-info-circle"
                     }
@@ -871,10 +963,10 @@
             "description": "Emprise géographique de la base de données (format WGS84)",
             "disabled": "",
             "editable": "true",
-            "mandatory": "true",
+            "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataGeographicExtents.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataGeographicExtents.md",
                 "title": "Emprise géographique",
                 "icon": "fa-info-circle"
             },
@@ -889,7 +981,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/extentName.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/extentName.md",
                         "title": "Nom de l'emprise géographique",
                         "icon": "fa-info-circle"
                     }
@@ -901,10 +993,10 @@
                     "description": "Longitude ouest WGS84 du rectangle d'emprise (Xmin)",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentWestBound.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/geographicExtentWestBound.md",
                         "title": "Longitude ouest",
                         "icon": "fa-info-circle"
                     }
@@ -916,10 +1008,10 @@
                     "description": "Longitude est WGS84 du rectangle d'emprise (Xmax)",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentEastBound.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/geographicExtentEastBound.md",
                         "title": "Longitude est",
                         "icon": "fa-info-circle"
                     }
@@ -931,10 +1023,10 @@
                     "description": "Latitude sud WGS84 du rectangle d'emprise (Ymin)",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentSouthBound.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/geographicExtentSouthBound.md",
                         "title": "Latitude sud",
                         "icon": "fa-info-circle"
                     }
@@ -946,10 +1038,10 @@
                     "description": "Latitude nord WGS84 du rectangle d'emprise (Ymax)",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/geographicExtentNorthBound.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/geographicExtentNorthBound.md",
                         "title": "Latitude nord",
                         "icon": "fa-info-circle"
                     }
@@ -966,7 +1058,7 @@
             "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataTemporalExtents.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataTemporalExtents.md",
                 "title": "Emprise géographique",
                 "icon": "fa-info-circle"
             },
@@ -982,7 +1074,7 @@
                     "type": "date",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/temporalExtentBegin.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/temporalExtentBegin.md",
                         "title": "Latitude nord",
                         "icon": "fa-info-circle"
                     }
@@ -998,7 +1090,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/temporalExtentEnd.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/temporalExtentEnd.md",
                         "title": "Latitude nord",
                         "icon": "fa-info-circle"
                     }
@@ -1013,7 +1105,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/extentName.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/extentName.md",
                         "title": "Latitude nord",
                         "icon": "fa-info-circle"
                     }
@@ -1030,7 +1122,7 @@
             "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataReferenceSystems.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataReferenceSystems.md",
                 "title": "Latitude nord",
                 "icon": "fa-info-circle"
             },
@@ -1042,26 +1134,26 @@
                     "description": "Nom du système de projection de la base de données",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataReferenceSystems.md",
-                        "title": "Latitude nord",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dataReferenceSystems.md",
+                        "title": "Système de projection",
                         "icon": "fa-info-circle"
                     }
                 },
                 "codeSpace": {
                     "name": "referenceSystemCodeSpace",
                     "label": "Espace de nom",
-                    "placeholder": "FR-SIREN-Idenfifiant",
-                    "description": "Identifiant de la fiche descriptive des données",
+                    "placeholder": "",
+                    "description": "Espace de nom du système de projection de la base de données",
                     "disabled": "",
                     "editable": "true",
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataReferenceSystems.md",
-                        "title": "Latitude nord",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dataReferenceSystems.md",
+                        "title": "Système de projection",
                         "icon": "fa-info-circle"
                     }
                 }
@@ -1069,9 +1161,9 @@
         },
         "dataPresentationForm": {
             "name": "dataPresentationForm",
-            "label": "Identifiant",
-            "placeholder": "FR-SIREN-Idenfifiant",
-            "description": "Identifiant de la fiche descriptive des données"
+            "label": "Mise en forme des données",
+            "placeholder": "mapDigital",
+            "description": "Mise en forme des données"
         },
         "dataSpatialRepresentationType": {
             "name": "dataSpatialRepresentationType",
@@ -1083,7 +1175,7 @@
             "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataSpatialRepresentationType.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataSpatialRepresentationType.md",
                 "title": "Type de données",
                 "icon": "fa-info-circle"
             }
@@ -1098,7 +1190,7 @@
             "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataScale.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataScale.md",
                 "title": "dataScaleDenominator",
                 "icon": "fa-info-circle"
             }
@@ -1113,9 +1205,56 @@
             "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataScale.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataScale.md",
                 "title": "dataScaleDistance",
                 "icon": "fa-info-circle"
+            }
+        },
+        "dataSpatialResolution": {
+            "name": "dataSpatialResolution",
+            "label": "Résolution spatiale",
+            "_placeholder": "ex.: 25000",
+            "description": "Echelle et résolution spatiale des données",
+            "disabled": "",
+            "editable": "true",
+            "mandatory": "false",
+            "helpButton": {
+                "format": "icon",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataScale.md",
+                "title": "dataSpatialResolution",
+                "icon": "fa-info-circle"
+            },
+            "scale": {
+                "dataScaleDenominator": {
+                    "name": "dataScaleDenominator",
+                    "label": "Echelle optimale d'utilisation",
+                    "placeholder": "ex.: 25000",
+                    "description": "Dénominateur de l'échelle optimale d'utilisation (ex.: 25000)",
+                    "disabled": "",
+                    "editable": "true",
+                    "mandatory": "false",
+                    "helpButton": {
+                        "format": "icon",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dataScale.md",
+                        "title": "dataScaleDenominator",
+                        "icon": "fa-info-circle"
+                    }
+                },
+                "dataScaleDistance": {
+                    "name": "dataScaleDistance",
+                    "label": "Résolution (mètre/pixel)",
+                    "placeholder": "ex.: 0,5",
+                    "description": "Résolution en mètre/pixel (ex. 0.2 pour 20cm par pixel)",
+                    "disabled": "",
+                    "editable": "true",
+                    "mandatory": "false",
+                    "helpButton": {
+                        "format": "icon",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dataScale.md",
+                        "title": "dataScaleDistance",
+                        "icon": "fa-info-circle"
+                    }
+                }
             }
         },
         "dataLiStatement": {
@@ -1130,7 +1269,7 @@
             "value": [""],
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataLiStatement.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataLiStatement.md",
                 "title": "Texte sur la qualité des données",
                 "icon": "fa-info-circle"
             }
@@ -1138,14 +1277,15 @@
         "dataCharacterSet": {
             "name": "dataCharacterSet",
             "label": "Encodage des données",
-            "placeholder": "FR-SIREN-Idenfifiant",
-            "description": "Identifiant de la fiche descriptive des données",
+            "placeholder": "Sélectionnez un encodage",
+            "description": "Encodage des données",
             "disabled": "",
+            "value": ["utf8"],
             "editable": "true",
             "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataCharacterSet.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataCharacterSet.md",
                 "title": "Encodage des données",
                 "icon": "fa-info-circle"
             }
@@ -1160,7 +1300,7 @@
             "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataCharacterSet.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataCharacterSet.md",
                 "title": "Encodage des données",
                 "icon": "fa-info-circle"
             },
@@ -1172,10 +1312,10 @@
                     "description": "Nom du formats de diffusion des données",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataCharacterSet.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dataCharacterSet.md",
                         "title": "Encodage des données",
                         "icon": "fa-info-circle"
                     }
@@ -1187,10 +1327,10 @@
                     "description": "Version du formats de diffusion des données",
                     "disabled": "",
                     "editable": "true",
-                    "mandatory": "false",
+                    "mandatory": "true",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataCharacterSet.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dataCharacterSet.md",
                         "title": "Encodage des données",
                         "icon": "fa-info-circle"
                     }
@@ -1205,7 +1345,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataCharacterSet.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dataCharacterSet.md",
                         "title": "Encodage des données",
                         "icon": "fa-info-circle"
                     }
@@ -1225,96 +1365,122 @@
             "value": [""],
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataUseLimitations.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataUseLimitations.md",
                 "title": "Limites techniques d'usage de la base de données",
                 "icon": "fa-info-circle"
             }
         },
-        "dataLegalUseLimitations": {
-            "name": "dataLegalUseLimitations",
-            "label": "Mentions et conditions légales d'utilisation",
+        "dataLegalConstraints": {
+            "name": "dataLegalConstraints",
+            "label": "Contraintes légales",
             "placeholder": "",
-            "description": "Mentions et conditions légales d'utilisation des données",
+            "description": "Contraintes légales d'accès et d'utilisation des données",
             "disabled": "",
-            "multi": "true",
-            "editable": "true",
-            "type": "textarea",
+            "_multi": "false",
+            "_editable": "true",
+            "_type": "textarea",
             "mandatory": "false",
-            "value": [""],
+            "_value": [""],
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataLegalUseLimitations.md",
-                "title": "Limites techniques d'usage de la base de données",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataLegalConstraints.md",
+                "title": "Contraintes légales d'accès et d'utilisation des données",
                 "icon": "fa-info-circle"
-            }
-        },
-        "dataLegalUseConstraints": {
-            "name": "dataLegalUseConstraints",
-            "label": "Contraintes légales d'usage",
-            "placeholder": "",
-            "description": "Contraintes légales d'usage des données",
-            "disabled": "",
-            "multi": "true",
-            "editable": "true",
-            "type": "select",
-            "mandatory": "false",
-            "value": [""],
-            "helpButton": {
-                "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataLegalUseConstraints.md",
-                "title": "Contraintes légales d'usage des données",
-                "icon": "fa-info-circle"
-            }
-        },
-        "dataLegalAccessConstraints": {
-            "name": "dataLegalAccessConstraints",
-            "label": "Contraintes légales d'accès",
-            "placeholder": "",
-            "description": "Contraintes légales d'accès des données",
-            "disabled": "",
-            "multi": "true",
-            "editable": "true",
-            "type": "select",
-            "mandatory": "false",
-            "value": [""],
-            "helpButton": {
-                "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataLegalAccessConstraints.md",
-                "title": "Contraintes légales d'accès aux données",
-                "icon": "fa-info-circle"
-            }
-        },
-        "dataLegalAccessInspireConstraints": {
-            "name": "dataLegalAccessInspireConstraints",
-            "label": "Contraintes d'accès liées à Inspire",
-            "placeholder": "",
-            "description": "Contraintes légales d'accès des données liées à Inspire",
-            "disabled": "",
-            "multi": "true",
-            "editable": "true",
-            "type": "select",
-            "mandatory": "false",
-            "value": [""],
-            "helpButton": {
-                "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataLegalAccessInspireConstraints.md",
-                "title": "Contraintes légales d'accès des données liées à Inspire",
-                "icon": "fa-info-circle"
+            },
+            "dataLegalUseLimitations": {
+                "name": "dataLegalUseLimitations",
+                "label": "Mentions et conditions légales d'utilisation",
+                "placeholder": "",
+                "description": "Mentions et conditions légales d'utilisation des données",
+                "disabled": "",
+                "multi": "true",
+                "editable": "true",
+                "type": "textarea",
+                "mandatory": "false",
+                "value": [""],
+                "helpButton": {
+                    "format": "icon",
+                    "contentUrl": "config/views/md-edit-opendata/help.fr/dataLegalUseLimitations.md",
+                    "title": "Limites techniques d'usage de la base de données",
+                    "icon": "fa-info-circle"
+                }
+            },
+            "dataLegalUseConstraints": {
+                "name": "dataLegalUseConstraints",
+                "label": "Contraintes légales d'usage",
+                "placeholder": "",
+                "description": "Contraintes légales d'usage des données",
+                "disabled": "",
+                "multi": "true",
+                "editable": "true",
+                "type": "select",
+                "mandatory": "false",
+                "value": [""],
+                "helpButton": {
+                    "format": "icon",
+                    "contentUrl": "config/views/md-edit-opendata/help.fr/dataLegalUseConstraints.md",
+                    "title": "Contraintes légales d'usage des données",
+                    "icon": "fa-info-circle"
+                }
+            },
+            "dataLegalAccessConstraints": {
+                "name": "dataLegalAccessConstraints",
+                "label": "Contraintes légales d'accès",
+                "placeholder": "",
+                "description": "Contraintes légales d'accès des données",
+                "disabled": "",
+                "multi": "true",
+                "editable": "true",
+                "type": "select",
+                "mandatory": "false",
+                "value": [""],
+                "helpButton": {
+                    "format": "icon",
+                    "contentUrl": "config/views/md-edit-opendata/help.fr/dataLegalAccessConstraints.md",
+                    "title": "Contraintes légales d'accès aux données",
+                    "icon": "fa-info-circle"
+                }
+            },
+            "dataLegalAccessInspireConstraints": {
+                "name": "dataLegalAccessInspireConstraints",
+                "label": "Contraintes d'accès liées à Inspire",
+                "placeholder": "",
+                "description": "Contraintes légales d'accès des données liées à Inspire",
+                "disabled": "",
+                "multi": "true",
+                "editable": "true",
+                "type": "select",
+                "mandatory": "true",
+                "value": [""],
+                "helpButton": {
+                    "format": "icon",
+                    "contentUrl": "config/views/md-edit-opendata/help.fr/dataLegalAccessInspireConstraints.md",
+                    "title": "Contraintes légales d'accès des données liées à Inspire",
+                    "icon": "fa-info-circle"
+                },
+                "legalAccessInspireConstraint": {
+                    "name": "legalAccessInspireConstraint",
+                    "label": "Contraintes d'accès liées à Inspire",
+                    "placeholder": "",
+                    "description": "Contraintes légales d'accès des données liées à Inspire",
+                    "disabled": "",
+                    "editable": "true",
+                    "mandatory": "false",
+                    "type": "select",
+                    "helpButton": {
+                        "format": "icon",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dataLegalAccessInspireConstraints.md",
+                        "title": "Contraintes légales d'accès des données liées à Inspire",
+                        "icon": "fa-info-circle"
+                    }
+                }
             }
         },
         "dataSecurityUseLimitations": {
             "name": "dataSecurityUseLimitations",
-            "label": "Identifiant",
-            "placeholder": "FR-SIREN-Idenfifiant",
-            "description": "Identifiant de la fiche descriptive des données",
-            "children": {
-                "name": {
-                    "name": "",
-                    "label": "Identifiant",
-                    "placeholder": "FR-SIREN-Idenfifiant",
-                    "description": "Identifiant de la fiche descriptive des données"
-                }
-            }
+            "label": "Limites d'usage liée à la classification",
+            "placeholder": "",
+            "description": "Limites d'usage des données liée à la classification"
         },
         "dataSecurityClassification": {
             "name": "dataSecurityClassification",
@@ -1323,10 +1489,11 @@
             "description": "Niveau de confidentialité des données",
             "disabled": "",
             "editable": "true",
-            "mandatory": "false",
+            "mandatory": "true",
+            "value": ["unclassified"],
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataSecurityClassification.md",
                 "title": "Niveau de confidentialité",
                 "icon": "fa-info-circle"
             }
@@ -1341,7 +1508,7 @@
             "mandatory": "false",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataSecurityClassification.md",
                 "title": "Niveau de confidentialité",
                 "icon": "fa-info-circle"
             },
@@ -1356,7 +1523,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dataSecurityClassification.md",
                         "title": "Niveau de confidentialité",
                         "icon": "fa-info-circle"
                     }
@@ -1371,7 +1538,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dataSecurityClassification.md",
                         "title": "Niveau de confidentialité",
                         "icon": "fa-info-circle"
                     }
@@ -1386,7 +1553,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dataSecurityClassification.md",
                         "title": "Niveau de confidentialité",
                         "icon": "fa-info-circle"
                     }
@@ -1401,7 +1568,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/dataSecurityClassification.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/dataSecurityClassification.md",
                         "title": "Niveau de confidentialité",
                         "icon": "fa-info-circle"
                     }
@@ -1418,7 +1585,7 @@
             "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataDqInspireConformities.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataDqInspireConformities.md",
                 "title": "Conformité",
                 "icon": "fa-info-circle"
             },
@@ -1433,7 +1600,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/specification.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/specification.md",
                         "title": "Nom de la spécification",
                         "icon": "fa-info-circle"
                     }
@@ -1448,7 +1615,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/explaination.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/explaination.md",
                         "title": "Description des résultats de conformité",
                         "icon": "fa-info-circle"
                     }
@@ -1463,7 +1630,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/pass.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/pass.md",
                         "title": "Degré de conformité",
                         "icon": "fa-info-circle"
                     }
@@ -1480,7 +1647,7 @@
             "mandatory": "true",
             "helpButton": {
                 "format": "icon",
-                "contentUrl": "config/views/md-edit-data/help.fr/dataDqInspireConformities.md",
+                "contentUrl": "config/views/md-edit-opendata/help.fr/dataDqInspireConformities.md",
                 "title": "Conformité",
                 "icon": "fa-info-circle"
             },
@@ -1495,7 +1662,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/specification.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/specification.md",
                         "title": "Nom de la spécification",
                         "icon": "fa-info-circle"
                     }
@@ -1510,7 +1677,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/explaination.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/explaination.md",
                         "title": "Description des résultats de conformité",
                         "icon": "fa-info-circle"
                     }
@@ -1525,7 +1692,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/pass.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/pass.md",
                         "title": "Degré de conformité",
                         "icon": "fa-info-circle"
                     }
@@ -1541,7 +1708,7 @@
                     "mandatory": "false",
                     "helpButton": {
                         "format": "icon",
-                        "contentUrl": "config/views/md-edit-data/help.fr/datePublication.md",
+                        "contentUrl": "config/views/md-edit-opendata/help.fr/datePublication.md",
                         "title": "Date de publication",
                         "icon": "fa-info-circle"
                     }
@@ -2026,9 +2193,6 @@
         }, {
             "name": "restricted",
             "value": "Restreint"
-        }, {
-            "name": "otherRestrictions",
-            "value": "Autres restrictions"
         }],
 
         "MD_ScopeCode": [{
@@ -2108,14 +2272,29 @@
         }],
 
         "MD_LinkageProtocolCode": [{
-            "name": "OGC:WMS",
-            "value": "WMS"
-        }, {
-            "name": "OGC:WFS",
-            "value": "WFS"
+            "name": "WWW:LINK-1.0-http--link",
+            "value": "Page web"
         }, {
             "name": "WWW:DOWNLOAD-1.0-http--download",
-            "value": "ZIP"
+            "value": "Fichier à télécharger (ZIP, PDF, etc.)"
+        }, {
+            "name": "WWW:KML",
+            "value": "Fichier KML"
+        }, {
+            "name": "WWW:GML",
+            "value": "Fichier GML"
+        }, {
+            "name": "OGC:WMS",
+            "value": "Service WMS"
+        }, {
+            "name": "OGC:WFS",
+            "value": "Service WFS"
+        }, {
+            "name": "WWW:WCS",
+            "value": "Service WCS"
+        }, {
+            "name": "WWW:WPS",
+            "value": "Service WPS"
         }],
 
         "MD_ReferenceSystemCode": [{

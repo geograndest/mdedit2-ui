@@ -13,8 +13,6 @@ const mdEditOpendataController = class MdEditOpendataController {
             this.mdjs = this.StoreService.getData().mdjs;
         });
         this.extentsFile = this.appConfig.views.mdEditOpendata.extentsFile;
-        this.active = this.mdEditLocales.defaultActiveTab
-        this.tabs = this.mdEditLocales.tabs
         //  Just to have current date value and can use it in the view
         this.currentDate = new Date()
     }
@@ -24,14 +22,6 @@ const mdEditOpendataController = class MdEditOpendataController {
         this.StoreService.setData({
             mdjs: this.mdjs
         });
-    }
-
-    changeTab(index) {
-        this.active = index
-        for (var i = 0; i < this.tabs.length; i++) {
-            this.tabs[i].active = false
-        }
-        this.tabs[index].active = true
     }
 }
 
