@@ -67,20 +67,24 @@
                                 </div>
                             </div>
                             <hr />
-                            <div class="row" ng-hide="$ctrl.simpleView">
-                                <div class="col-md-12">
-                                    <!-- dataTemporalExtents -->
-                                    <md-form-temporalextents multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataTemporalExtents" label="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-temporalextents>
+                            <div  ng-hide="$ctrl.simpleView">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!-- dataTemporalExtents -->
+                                        <md-form-temporalextents multi="true" md="$ctrl.mdjs" space="md" field="$ctrl.mdEditLocales.fields.dataTemporalExtents" label="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-temporalextents>
+                                    </div>
                                 </div>
+                                <hr />
                             </div>
-                            <hr />
-                            <div class="row" ng-hide="$ctrl.simpleView">
-                                <!-- dataLanguages -->
-                                <div class="col-md-6 form-group">
-                                    <md-form-element type="select" multi="true" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataLanguages" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" list="$ctrl.mdEditLocales.codelists.MD_LanguageCode" locales="$ctrl.mdEditLocales.locales"></md-form-element>
+                            <div  ng-hide="$ctrl.simpleView">
+                                <div class="row" ng-hide="$ctrl.simpleView">
+                                    <!-- dataLanguages -->
+                                    <div class="col-md-6 form-group">
+                                        <md-form-element type="select" multi="true" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataLanguages" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" list="$ctrl.mdEditLocales.codelists.MD_LanguageCode" locales="$ctrl.mdEditLocales.locales"></md-form-element>
+                                    </div>
                                 </div>
+                                <hr />
                             </div>
-                            <hr />
                             <div class="row">
                                 <!-- dataTopicCategories -->
                                 <div class="col-md-6 form-group">
@@ -148,15 +152,19 @@
                                 </div>
                             </div>
                             <!-- dataUseLimitations -->
-                            <div class="row" ng-hide="$ctrl.simpleView">
-                                <div class="col-md-12 form-group">
-                                    <md-form-constraints type="textarea" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataUseLimitations" label="true" edit="true" space="md" multi="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-constraints>
+                            <div  ng-hide="$ctrl.simpleView">
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <md-form-constraints type="textarea" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataUseLimitations" label="true" edit="true" space="md" multi="true" update="$ctrl.update(space, field, fieldValue)" locales="$ctrl.mdEditLocales.locales"></md-form-constraints>
+                                    </div>
                                 </div>
                             </div>
                             <!-- dataCharacterSet -->
-                            <div class="row" ng-hide="$ctrl.simpleView">
-                                <div class="col-md-12 form-group">
-                                    <md-form-element type="select" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataCharacterSet" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" list="$ctrl.mdEditLocales.codelists.MD_CharacterSetCode" locales="$ctrl.mdEditLocales.locales"></md-form-element>
+                            <div  ng-hide="$ctrl.simpleView">
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <md-form-element type="select" md="$ctrl.mdjs" field="$ctrl.mdEditLocales.fields.dataCharacterSet" label="true" edit="true" space="md" update="$ctrl.update(space, field, fieldValue)" list="$ctrl.mdEditLocales.codelists.MD_CharacterSetCode" locales="$ctrl.mdEditLocales.locales"></md-form-element>
+                                    </div>
                                 </div>
                             </div>
                             <!-- dataDistributionFormats -->
