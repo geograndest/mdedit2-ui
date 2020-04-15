@@ -39,7 +39,7 @@ La configuration de mdEdit 2 se fait principalement via les fichiers contenus da
 
 L'interface a été conçue pour être simple et facilement utilisable par toute personne disposant d'un minimum de connaissance en terme de description de données géographiques.
 
-Pou plus d'information concernant l'utilisation de l'application, merci de vosu référer au [Guide d'utilisation de mdEdit](./documentation/userGuide/mdEdit_UserDocumentation.md).
+Pou plus d'information concernant l'utilisation de l'application, merci de vosu référer au [Guide d'utilisation de mdEdit](.build/documentation/userGuide/mdEdit_UserDocumentation.md). 
 
 ## Choix techniques et développement
 
