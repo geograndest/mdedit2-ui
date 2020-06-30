@@ -1,9 +1,10 @@
 import template from './home.html';
 
 const homeController = class HomeController {
-    constructor($state, UtilsService) {
+    constructor($state, $sce, UtilsService) {
         'ngInject';
         this.$state = $state;
+        this.$sce = $sce;
         this.UtilsService = UtilsService;
     }
 
@@ -17,6 +18,9 @@ const homeController = class HomeController {
         });
     }
 
+    safeHtml(html) {
+        return this.$sce.trustAsHtml(html);
+    }
 }
 
 export const homeComponent = {

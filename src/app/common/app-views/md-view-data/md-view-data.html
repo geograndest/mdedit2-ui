@@ -1,16 +1,16 @@
 <div class="container">
-    <!-- <div class="row">
+    <div class="row d-print-none">
         <div class="col-md-12">
             <div class="btn-group float-right" role="group">
-                <button class="btn btn-outline-dark btn-sm d-print-none" ng-click="$ctrl.onPrint()">
-                    <span class="fas fa-print" aria-hidden="true"></span>
+                <button class="btn btn-outline-dark btn-sm" ng-click="$ctrl.onPrint()">
+                    <span class="fas fa-print px-2" aria-hidden="true"></span>
                 </button>
                 <button class="btn btn-outline-dark btn-sm" ng-click="$ctrl.onClose()">
-                    <span class="fas fa-times" aria-hidden="true"></span>
+                    <span class="fas fa-times px-2" aria-hidden="true"></span>
                 </button>
             </div>
         </div>
-    </div> -->
+    </div>
     <div class="row mb-3">
         <div class="col-md-12">
             <h2>
@@ -34,11 +34,13 @@
     <div class="row">
         <div id="page" class="col-md-8">
             <div class="card mb-3">
-                <div id="dataAbstract" class="pre card-body" ng-bind-html="$ctrl.mdjs | getValue:'md':'dataAbstract|srvAbstract' | toString | nl2br"></div>
+                <div id="dataAbstract" class="pre card-body"
+                    ng-bind-html="$ctrl.mdjs | getValue:'md':'dataAbstract|srvAbstract' | toString | nl2br"></div>
             </div>
             <div class="card mb-3">
                 <div class="card-body">
-                    <p ng-if="($ctrl.mdjs | getValue:'md':'dataDates').length" ng-repeat="dataDate in $ctrl.mdjs | getValue:'md':'dataDates' track by $index">
+                    <p ng-if="($ctrl.mdjs | getValue:'md':'dataDates').length"
+                        ng-repeat="dataDate in $ctrl.mdjs | getValue:'md':'dataDates' track by $index">
                         <strong>Date de {{(dataDate | getValue:'md':'dateType' |
                             translate:$ctrl.codelists.CI_DateTypeCode | toString).toLowerCase()}}
                             des données: </strong> {{dataDate | getValue:'md':'date|dateTime' | toString}}
@@ -47,11 +49,13 @@
                         <i class="far fa-arrow-alt-circle-right"></i> Aucune date précisée
                     </p>
                     <div ng-if="($ctrl.mdjs | getValue:'md':'dataExtents|srvExtents').length">
-                        <p ng-if="(dataExtents | getValue:'md':'temporalExtent.temporalExtentBegin').length" ng-repeat="extent in $ctrl.mdjs | getValue:'md':'dataExtents|srvExtents' track by $index">
+                        <p ng-if="(dataExtents | getValue:'md':'temporalExtent.temporalExtentBegin').length"
+                            ng-repeat="extent in $ctrl.mdjs | getValue:'md':'dataExtents|srvExtents' track by $index">
                             <strong>{{extent | getValue:'md':'extentName' | toString}}:</strong>
                             <span class="pre">{{extent | getValue:'md':'temporalExtent.temporalExtentBegin' |
                                 toString}}</span>
-                            <span class="pre" ng-if="(extent | getValue:'md':'temporalExtent.temporalExtentEnd').length">/
+                            <span class="pre"
+                                ng-if="(extent | getValue:'md':'temporalExtent.temporalExtentEnd').length">/
                                 {{extent | getValue:'md':'temporalExtent.temporalExtentEnd' | toString}}</span>
                         </p>
                         <p>
@@ -78,14 +82,18 @@
                     <hr />
                     <div>
                         <strong>Format de diffusion:</strong>
-                        <span ng-if="($ctrl.mdjs | getValue:'md':'dataDistributionFormats').length" ng-repeat="dataDistributionFormat in $ctrl.mdjs | getValue:'md':'dataDistributionFormats' track by $index">
+                        <span ng-if="($ctrl.mdjs | getValue:'md':'dataDistributionFormats').length"
+                            ng-repeat="dataDistributionFormat in $ctrl.mdjs | getValue:'md':'dataDistributionFormats' track by $index">
                             {{dataDistributionFormat | getValue:'md':'formatName' | toString}}
-                            <span ng-if="(dataDistributionFormat | getValue:'md':'formatVersion').length || (dataDistributionFormat | getValue:'md':'formatSpecification').length">(</span>
-                        <span ng-if="(dataDistributionFormat | getValue:'md':'formatVersion').length">{{dataDistributionFormat
+                            <span
+                                ng-if="(dataDistributionFormat | getValue:'md':'formatVersion').length || (dataDistributionFormat | getValue:'md':'formatSpecification').length">(</span>
+                            <span ng-if="(dataDistributionFormat | getValue:'md':'formatVersion').length">{{dataDistributionFormat
                                 | getValue:'md':'formatVersion' | toString}}</span>
-                        <span ng-if="(dataDistributionFormat | getValue:'md':'formatSpecification').length">-
+                            <span ng-if="(dataDistributionFormat | getValue:'md':'formatSpecification').length">-
                                 {{dataDistributionFormat | getValue:'md':'formatSpecification' | toString}}</span>
-                        <span ng-if="(dataDistributionFormat | getValue:'md':'formatVersion').length || (dataDistributionFormat | getValue:'md':'formatSpecification').length">)</span> {{$last ? '' : ', '}}
+                            <span
+                                ng-if="(dataDistributionFormat | getValue:'md':'formatVersion').length || (dataDistributionFormat | getValue:'md':'formatSpecification').length">)</span>
+                            {{$last ? '' : ', '}}
                         </span>
                         <span ng-if="!($ctrl.mdjs | getValue:'md':'dataDistributionFormats').length">
                             <i class="far fa-arrow-alt-circle-right"></i> Non renseigné
@@ -97,7 +105,8 @@
                             <strong>Qualité des données:</strong>
                         </p>
                         <div class="pre">
-                            <div ng-if="($ctrl.mdjs | getValue:'md':'dataLiStatement').length" ng-bind-html="$ctrl.mdjs | getValue:'md':'dataLiStatement' | toString | nl2br"></div>
+                            <div ng-if="($ctrl.mdjs | getValue:'md':'dataLiStatement').length"
+                                ng-bind-html="$ctrl.mdjs | getValue:'md':'dataLiStatement' | toString | nl2br"></div>
                             <div ng-if="!($ctrl.mdjs | getValue:'md':'dataLiStatement').length"> Non renseigné </div>
                         </div>
                     </div>
@@ -106,10 +115,12 @@
                         <p>
                             <strong>Limites techniques d'usage:</strong>
                         </p>
-                        <div ng-if="($ctrl.mdjs | getValue:'md':'dataUseLimitations|srvUseLimitations').length" ng-repeat="useLimitation in $ctrl.mdjs | getValue:'md':'dataUseLimitations|srvUseLimitations' track by $index">
+                        <div ng-if="($ctrl.mdjs | getValue:'md':'dataUseLimitations|srvUseLimitations').length"
+                            ng-repeat="useLimitation in $ctrl.mdjs | getValue:'md':'dataUseLimitations|srvUseLimitations' track by $index">
                             <p ng-bind-html="useLimitation | toString | nl2br"></p>
                         </div>
-                        <div ng-if="($ctrl.mdjs | getValue:'md':'dataUseLimitations|srvUseLimitations' | toString) == ''">
+                        <div
+                            ng-if="($ctrl.mdjs | getValue:'md':'dataUseLimitations|srvUseLimitations' | toString) == ''">
                             <div><i class="far fa-arrow-alt-circle-right"></i> Aucune limite d'usage définie.</div>
                         </div>
                     </div>
@@ -118,33 +129,46 @@
                         <p>
                             <strong>Contraintes légales:</strong>
                         </p>
-                        <div ng-if="($ctrl.mdjs | getValue:'md':'dataSecurityClassification|srvSecurityClassification').length">
-                            <label>Classification:</label> {{$ctrl.mdjs | getValue:'md':'dataSecurityClassification|srvSecurityClassification' | translate:$ctrl.codelists.MD_ClassificationCode | toString}}
+                        <div
+                            ng-if="($ctrl.mdjs | getValue:'md':'dataSecurityClassification|srvSecurityClassification').length">
+                            <label>Classification:</label>
+                            {{$ctrl.mdjs | getValue:'md':'dataSecurityClassification|srvSecurityClassification' | translate:$ctrl.codelists.MD_ClassificationCode | toString}}
                             <br />
                         </div>
-                        <div ng-if="($ctrl.mdjs | getValue:'md':'dataSecurityUseLimitations|srvSecurityUseLimitations').length">
+                        <div
+                            ng-if="($ctrl.mdjs | getValue:'md':'dataSecurityUseLimitations|srvSecurityUseLimitations').length">
                             <label>Limite d'usage (sécurité):</label>
-                            <p ng-repeat="useLimitation in $ctrl.mdjs | getValue:'md':'dataSecurityUseLimitations|srvSecurityUseLimitations' track by $index" ng-bind-html="useLimitation | getValue:'md':'useLimitation' | toString | nl2br"></p>
+                            <p ng-repeat="useLimitation in $ctrl.mdjs | getValue:'md':'dataSecurityUseLimitations|srvSecurityUseLimitations' track by $index"
+                                ng-bind-html="useLimitation | getValue:'md':'useLimitation' | toString | nl2br"></p>
                         </div>
                     </div>
                     <label>Contraintes légales d'accès aux données:</label>
                     <br />
-                    <p ng-if="($ctrl.mdjs | getValue:'md':'dataLegalAccessConstraints').length && (legalAccessConstraint | toString) != 'otherRestrictions'" ng-repeat="legalAccessConstraint in $ctrl.mdjs | getValue:'md':'dataLegalAccessConstraints' track by $index">
-                        <i class="far fa-arrow-alt-circle-right"></i> {{legalAccessConstraint | translate:$ctrl.codelists.MD_RestrictionCode | toString }}
+                    <p ng-if="($ctrl.mdjs | getValue:'md':'dataLegalAccessConstraints').length && (legalAccessConstraint | toString) != 'otherRestrictions'"
+                        ng-repeat="legalAccessConstraint in $ctrl.mdjs | getValue:'md':'dataLegalAccessConstraints' track by $index">
+                        <i class="far fa-arrow-alt-circle-right"></i>
+                        {{legalAccessConstraint | translate:$ctrl.codelists.MD_RestrictionCode | toString }}
                     </p>
-                    <p ng-if="($ctrl.mdjs | getValue:'md':'dataLegalOtherConstraints').length" ng-repeat="legalOtherConstraint in $ctrl.mdjs | getValue:'md':'dataLegalOtherConstraints' track by $index">
+                    <p ng-if="($ctrl.mdjs | getValue:'md':'dataLegalOtherConstraints').length"
+                        ng-repeat="legalOtherConstraint in $ctrl.mdjs | getValue:'md':'dataLegalOtherConstraints' track by $index">
                         <i class="far fa-arrow-alt-circle-right"></i> {{legalOtherConstraint | toString }}
                     </p>
-                    <p ng-if="!($ctrl.mdjs | getValue:'md':'dataLegalAccessConstraints').length && !($ctrl.mdjs | getValue:'md':'dataLegalOtherConstraints').length">
+                    <p
+                        ng-if="!($ctrl.mdjs | getValue:'md':'dataLegalAccessConstraints').length && !($ctrl.mdjs | getValue:'md':'dataLegalOtherConstraints').length">
                         <i class="far fa-arrow-alt-circle-right"></i> Aucune contrainte d'accès définie.
                     </p>
                     <label>Contraintes légales d'usage des données:</label>
                     <br />
-                    <p ng-if="($ctrl.mdjs | getValue:'md':'dataLegalUseConstraints').length" ng-repeat="legalUseConstraint in $ctrl.mdjs | getValue:'md':'dataLegalUseConstraints' track by $index">
-                        <i class="far fa-arrow-alt-circle-right"></i> {{ legalUseConstraint | translate:$ctrl.codelists.MD_RestrictionCode | toString }}
+                    <p ng-if="($ctrl.mdjs | getValue:'md':'dataLegalUseConstraints').length"
+                        ng-repeat="legalUseConstraint in $ctrl.mdjs | getValue:'md':'dataLegalUseConstraints' track by $index">
+                        <i class="far fa-arrow-alt-circle-right"></i>
+                        {{ legalUseConstraint | translate:$ctrl.codelists.MD_RestrictionCode | toString }}
                     </p>
-                    <p ng-if="($ctrl.mdjs | getValue:'md':'dataLegalUseLimitations').length" ng-repeat="useLimitation in $ctrl.mdjs | getValue:'md':'dataLegalUseLimitations' track by $index" ng-bind-html="useLimitation | getValue:'md':'useLimitation' | toString | nl2br"></p>
-                    <p ng-if="!($ctrl.mdjs | getValue:'md':'dataLegalUseLimitations').length && !($ctrl.mdjs | getValue:'md':'dataLegalUseLimitations').length">
+                    <p ng-if="($ctrl.mdjs | getValue:'md':'dataLegalUseLimitations').length"
+                        ng-repeat="useLimitation in $ctrl.mdjs | getValue:'md':'dataLegalUseLimitations' track by $index"
+                        ng-bind-html="useLimitation | getValue:'md':'useLimitation' | toString | nl2br"></p>
+                    <p
+                        ng-if="!($ctrl.mdjs | getValue:'md':'dataLegalUseLimitations').length && !($ctrl.mdjs | getValue:'md':'dataLegalUseLimitations').length">
                         <i class="far fa-arrow-alt-circle-right"></i> Aucune limite légale d'usage définie.
                     </p>
                 </div>
@@ -153,13 +177,15 @@
                 <div class="card-body">
                     <h5>Contact pour les métadonnées</h5>
                     <div ng-repeat="contact in $ctrl.mdjs | getValue:'md':'mdContacts' track by $index">
-                        <md-view-contact contact="contact" contact-type="metadata" locales="$ctrl.locales.ui" role-codes="$ctrl.codelists.CI_RoleCode">
+                        <md-view-contact contact="contact" contact-type="metadata" locales="$ctrl.locales.ui"
+                            role-codes="$ctrl.codelists.CI_RoleCode">
                         </md-view-contact>
                     </div>
                     <hr />
                     <h5 class="mt-3">Contact pour les données</h5>
                     <div ng-repeat="contact in $ctrl.mdjs | getValue:'md':'dataPointOfContacts' track by $index">
-                        <md-view-contact contact="contact" contact-type="data" locales="$ctrl.locales.ui" role-codes="$ctrl.codelists.CI_RoleCode">
+                        <md-view-contact contact="contact" contact-type="data" locales="$ctrl.locales.ui"
+                            role-codes="$ctrl.codelists.CI_RoleCode">
                         </md-view-contact>
                     </div>
                 </div>
@@ -170,23 +196,27 @@
             <!-- <div id="browsegraphic" class="col-md-4 pb-3"> -->
             <div class="mb-3">
                 <div ng-if="($ctrl.mdjs | getValue:'md':'dataSpatialRepresentationType').length">
-                    <span style="position:absolute; right:30px; top:20px; z-index:999" id="spatial-representation-type-label" class="badge badge-success" title="{{$ctrl.mdjs | getValue:'md':'dataSpatialRepresentationType' | toString}}">
+                    <span style="position:absolute; right:30px; top:20px; z-index:999"
+                        id="spatial-representation-type-label" class="badge badge-success"
+                        title="{{$ctrl.mdjs | getValue:'md':'dataSpatialRepresentationType' | toString}}">
                         {{$ctrl.mdjs | getValue:'md':'dataSpatialRepresentationType' |
                         translate:$ctrl.codelists.MD_SpatialRepresentationTypeCode
                         | toString}}
                     </span>
                 </div>
                 <div class="image">
-                    <span ng-if="($ctrl.mdjs | getValue:'md':'dataBrowseGraphics|srvBrowseGraphics').length" href="{{ ($ctrl.mdjs | getValue:'md':'dataBrowseGraphics|srvBrowseGraphics')[0] | getValue:'md':'fileName' | toString}}" target="_blanck ">
+                    <span ng-if="($ctrl.mdjs | getValue:'md':'dataBrowseGraphics|srvBrowseGraphics').length"
+                        href="{{ ($ctrl.mdjs | getValue:'md':'dataBrowseGraphics|srvBrowseGraphics')[0] | getValue:'md':'fileName' | toString}}"
+                        target="_blanck ">
                         <img class="img-thumbnail img-responsive" ng-src="{{ ($ctrl.mdjs | getValue:
-                    'md':'dataBrowseGraphics|srvBrowseGraphics')[0] | getValue:'md':'fileName' | toString}}"
-                            alt="{{ ($ctrl.mdjs
+                    'md':'dataBrowseGraphics|srvBrowseGraphics')[0] | getValue:'md':'fileName' | toString}}" alt="{{ ($ctrl.mdjs
                     | getValue:'md':'dataBrowseGraphics|srvBrowseGraphics')[0] | getValue:'md':'fileDescription'
-                    | toString}}"
-                            title="{{ ($ctrl.mdjs | getValue:'md':'dataBrowseGraphics|srvBrowseGraphics')[0] | getValue:
+                    | toString}}" title="{{ ($ctrl.mdjs | getValue:'md':'dataBrowseGraphics|srvBrowseGraphics')[0] | getValue:
                     'md':'fileDescription' | toString}}" />
                     </span>
-                    <img ng-if="!($ctrl.mdjs | getValue:'md':'dataBrowseGraphics|srvBrowseGraphics').length" style="width:3cm" class="img-thumbnail img-responsive" src="/img/logo_empty.jpg" alt="Image blanche" title="Logo non défini" />
+                    <img ng-if="!($ctrl.mdjs | getValue:'md':'dataBrowseGraphics|srvBrowseGraphics').length"
+                        style="width:3cm" class="img-thumbnail img-responsive" src="/img/logo_empty.jpg"
+                        alt="Image blanche" title="Logo non défini" />
                 </div>
             </div>
             <!-- </div> -->
@@ -195,12 +225,15 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <p>
-                        <span ng-if="($ctrl.mdjs | getValue:'md':'dataExtents.geographicExtent.geographicExtentSouthBound|srvExtents.geographicExtent.geographicExtentSouthBound').length" ng-repeat="geographicExtent in $ctrl.mdjs | getValue:'md':'dataExtents|srvExtents' track by $index ">
+                        <span
+                            ng-if="($ctrl.mdjs | getValue:'md':'dataExtents.geographicExtent.geographicExtentSouthBound|srvExtents.geographicExtent.geographicExtentSouthBound').length"
+                            ng-repeat="geographicExtent in $ctrl.mdjs | getValue:'md':'dataExtents|srvExtents' track by $index ">
                             <span ng-if="(geographicExtent | getValue:'md':'geographicExtentSouthBound').length">
                                 <!-- <a class="btn btn-xs btn-info "> -->
                                 <i class="fas fa-expand" title="Couverture territoriale "></i>
                                 <!-- </a> -->
-                                <span title="S:{{geographicExtent.geographicExtentSouthBound}}, N:{{geographicExtent.geographicExtentNorthBound}},
+                                <span
+                                    title="S:{{geographicExtent.geographicExtentSouthBound}}, N:{{geographicExtent.geographicExtentNorthBound}},
                     W:{{geographicExtent.geographicExtentWestBound}}, E:{{geographicExtent.geographicExtentEastBound}} ">
                                     <span ng-if="(geographicExtent | getValue:'md':'extentName').length">{{geographicExtent
                                         | getValue:'md':'extentName' | toString}} (S:{{geographicExtent
@@ -210,7 +243,7 @@
                                         toString}}, W:{{geographicExtent | getValue:'md':'geographicExtentWestBound' |
                                         toString}},
                                         E:{{geographicExtent | getValue:'md':'geographicExtentEastBound' | toString}})</span>
-                        <span ng-if="!(geographicExtent | getValue:'md':'extentName').length">Nom inconnu
+                                    <span ng-if="!(geographicExtent | getValue:'md':'extentName').length">Nom inconnu
                                         (S:{{geographicExtent | getValue:'md':'geographicExtentSouthBound' |
                                         toString}},
                                         N:{{geographicExtent | getValue:'md':'geographicExtentNorthBound' | toString}},
@@ -218,17 +251,18 @@
                                         | getValue:'md':'geographicExtentWestBound' | toString}}, E:{{geographicExtent
                                         |
                                         getValue:'md':'geographicExtentEastBound' | toString}})</span>
+                                </span>
+                                <br />
+                            </span>
                         </span>
-                        <br />
-                        </span>
-                        </span>
-                        <span ng-if="!($ctrl.mdjs | getValue:'md':'dataExtents.geographicExtent.geographicExtentSouthBound|srvExtents.geographicExtent.geographicExtentSouthBound').length">
+                        <span
+                            ng-if="!($ctrl.mdjs | getValue:'md':'dataExtents.geographicExtent.geographicExtentSouthBound|srvExtents.geographicExtent.geographicExtentSouthBound').length">
                             <!-- <a class="btn btn-xs btn-info "> -->
                             <i class="fas fa-expand" title="Couverture territoriale "></i>
                             <!-- </a> -->
                             <span class="pre" title="S:0.00, N:0.00, W:0.00, E:0.00 ">Couverture territoriale non
                                 renseignée</span>
-                        <br />
+                            <br />
                         </span>
                     </p>
                     <p>
@@ -239,12 +273,14 @@
                             getValue:'md':'dataScaleDenominator' | toString}}</span>
                         <span ng-if="($ctrl.mdjs | getValue:'md':'dataScaleDistance').length">{{$ctrl.mdjs |
                             getValue:'md':'dataScaleDistance' | toString}} mètre(s)</span>
-                        <span ng-if="!($ctrl.mdjs | getValue:'md':'dataScaleDenominator').length && !($ctrl.mdjs | getValue:'md':'dataScaleDistance').length ">Echelle
+                        <span
+                            ng-if="!($ctrl.mdjs | getValue:'md':'dataScaleDenominator').length && !($ctrl.mdjs | getValue:'md':'dataScaleDistance').length ">Echelle
                             et résolution non renseignées.</span>
                     </p>
                     <p>
                         <span ng-if="($ctrl.mdjs | getValue:'md':'dataReferenceSystems').length">
-                            <span ng-repeat="dataReferenceSystem in $ctrl.mdjs | getValue:'md':'dataReferenceSystems' track by $index ">
+                            <span
+                                ng-repeat="dataReferenceSystem in $ctrl.mdjs | getValue:'md':'dataReferenceSystems' track by $index ">
                                 <!-- <a class="btn btn-xs btn-info "> -->
                                 <i class="fas fa-globe-europe" title="Système de projection "></i>
                                 <!-- </a> -->
@@ -253,8 +289,8 @@
                                 | toString}}
                                 <span ng-if="(dataReferenceSystem | getValue:'md':'referenceSystemCodeSpace').length">({{dataReferenceSystem
                                     | getValue:'md':'referenceSystemCodeSpace' | toString}})</span>
-                        <br />
-                        </span>
+                                <br />
+                            </span>
                         </span>
                         <span ng-if="!($ctrl.mdjs | getValue:'md':'dataReferenceSystems').length">
                             <!-- <a class="btn btn-xs btn-info "> -->
@@ -265,55 +301,75 @@
                     </p>
                     <hr />
                     <div id="keywords ">
-                        <span ng-repeat="dataTopicCategory in $ctrl.mdjs | getValue:'md':'dataTopicCategories|srvTopicCategories' track by $index">
+                        <span
+                            ng-repeat="dataTopicCategory in $ctrl.mdjs | getValue:'md':'dataTopicCategories|srvTopicCategories' track by $index">
                             <span title="{{dataTopicCategory | toString}}" class="badge badge-warning">
                                 {{dataTopicCategory | translate:$ctrl.codelists.MD_TopicCategoryCode | toString}}
                             </span>
                         </span>
                         <br />
-                        <span ng-repeat="keyword in $ctrl.mdjs | getValue:'md':'dataKeywords|srvKeywords' track by $index">
+                        <span
+                            ng-repeat="keyword in $ctrl.mdjs | getValue:'md':'dataKeywords|srvKeywords' track by $index">
                             <span ng-if="(keyword | getValue:'md':'thesaurusName').length">
                                 <!-- TODO: Voir si possible de gérer l'affichage uniquement via ng-class + convertir en composant -->
-                                <span ng-if="(keyword | getValue:'md':'thesaurusName' | toString).toLowerCase().includes('inspire')"
+                                <span
+                                    ng-if="(keyword | getValue:'md':'thesaurusName' | toString).toLowerCase().includes('inspire')"
                                     title="{{keyword | getValue:'md':'thesaurusName' | toString}}">
-                                    <span title="{{keyword | getValue:'md':'thesaurusName'}} ({{keyword | getValue:'md':'keywordType' | toString}})"
-                                        class="badge badge-primary">
-                                        {{keyword| getValue:'md':'keyword' |
-                                        translate:$ctrl.codelists.MD_InspireTopicCategoryCode | toString}}
+                                    <span ng-repeat="kwd in keyword| getValue:'md':'keyword' |
+                                    translate:$ctrl.codelists.MD_InspireTopicCategoryCode track by $index"
+                                        title="{{keyword | getValue:'md':'thesaurusName'}} ({{keyword | getValue:'md':'keywordType' | toString}})"
+                                        class="badge badge-primary mr-1">
+                                        <!-- {{keyword | getValue:'md':'keyword' |
+                                        translate:$ctrl.codelists.MD_InspireTopicCategoryCode | toString}} -->
+                                        {{kwd}}
                                     </span>
-                        </span>
-                        <span ng-if="!(keyword | getValue:'md':'thesaurusName' | toString).toLowerCase().includes('inspire')" title="{{keyword | getValue:'md':'thesaurusName' | toString}} ({{keyword | getValue:'md':'keywordType' | toString}})">
-                                    <span title="{{keyword | getValue:'md':'keywordType' | toString}}" class="badge badge-info">
-                                        {{keyword| getValue:'md':'keyword' | toString}}
+                                </span>
+                                <span
+                                    ng-if="!(keyword | getValue:'md':'thesaurusName' | toString).toLowerCase().includes('inspire')"
+                                    title="{{keyword | getValue:'md':'thesaurusName' | toString}} ({{keyword | getValue:'md':'keywordType' | toString}})">
+                                    <span ng-repeat="kwd in keyword | getValue:'md':'keyword' track by $index"
+                                        title="{{keyword | getValue:'md':'keywordType' | toString}}"
+                                        class="badge badge-info mr-1">
+                                        <!-- {{keyword | getValue:'md':'keyword' | toString}} --- -->
+                                        {{kwd}}
                                     </span>
-                        </span>
-                        </span>
-                        <span ng-if="!(keyword | getValue:'md':'thesaurusName').length">
-                                <span title="{{keyword | getValue:'md':'keyword' | toString}}">
-                                    <span title="{{keyword | getValue:'md':'keywordType' | toString}}" class="badge badge-success">
-                                        {{keyword| getValue:'md':'keyword' | toString}}
+                                </span>
+                            </span>
+                            <span ng-if="!(keyword | getValue:'md':'thesaurusName').length">
+                                <span ng-repeat="kwd in keyword | getValue:'md':'keyword' track by $index"
+                                    title="{{keyword | getValue:'md':'keyword' | toString}}">
+                                    <span title="{{keyword | getValue:'md':'keywordType' | toString}}"
+                                        class="badge badge-success mr-1">
+                                        <!-- {{keyword| getValue:'md':'keyword' | toString}} -->
+                                        {{kwd}}
                                     </span>
-                        </span>
-                        </span>
+                                </span>
+                            </span>
                         </span>
                     </div>
                     <hr />
                     <div>
                         <strong>Ressources associés:</strong>
                         <ul>
-                            <li ng-if="($ctrl.mdjs | getValue:'md':'dataLinkages').length" ng-repeat="dataLinkage in $ctrl.mdjs | getValue:'md':'dataLinkages' track by $index">
+                            <li ng-if="($ctrl.mdjs | getValue:'md':'dataLinkages').length"
+                                ng-repeat="dataLinkage in $ctrl.mdjs | getValue:'md':'dataLinkages' track by $index">
                                 <span ng-if="(dataLinkage | getValue:'md':'linkageDescription').length">
-                                    <a ng-href="{{dataLinkage | getValue:'md':'linkageUrl' | toString}}" target="_blanck"
+                                    <a ng-href="{{dataLinkage | getValue:'md':'linkageUrl' | toString}}"
+                                        target="_blanck"
                                         title="{{dataLinkage | getValue:'md':'linkageName' | toString}}">{{dataLinkage
                                         | getValue:'md':'linkageDescription' | toString}}</a>
                                     <br />
-                                    <span ng-if="(dataLinkage | getValue:'md':'linkageProtocol' | toString).toLowerCase().includes('wfs') && ($ctrl.mdjs | getValue:'md':'mdHierarchyLevel' | toString) != 'service'">
+                                    <span
+                                        ng-if="(dataLinkage | getValue:'md':'linkageProtocol' | toString).toLowerCase().includes('wfs') && ($ctrl.mdjs | getValue:'md':'mdHierarchyLevel' | toString) != 'service'">
                                         <wfs-linkage url="{{dataLinkage | getValue:'md':'linkageUrl' | toString}}"
-                                            proxy="{{$ctrl.csw.proxy}}" name="{{dataLinkage | getValue:'md':'linkageName' | toString}}"></wfs-linkage>
+                                            proxy="{{$ctrl.csw.proxy}}"
+                                            name="{{dataLinkage | getValue:'md':'linkageName' | toString}}">
+                                        </wfs-linkage>
                                     </span>
                                 </span>
                                 <span ng-if="!(dataLinkage | getValue:'md':'linkageDescription').length">
-                                    <a ng-href="dataLinkage | getValue:'md':'linkageUrl'" target="_blanck" title="{{dataLinkage | getValue:'md':'linkageName'}}">{{dataLinkage
+                                    <a ng-href="dataLinkage | getValue:'md':'linkageUrl'" target="_blanck"
+                                        title="{{dataLinkage | getValue:'md':'linkageName'}}">{{dataLinkage
                                         | getValue:'md':'linkageDescription'}}</a>
                                 </span>
                             </li>
@@ -333,7 +389,8 @@
                             <a ng-href="{{$ctrl.mdjs.url}}" target="_blank">{{$ctrl.mdjs |
                                 getValue:'md':'mdFileIdentifier' | toString}}</a> ({{$ctrl.mdjs |
                             getValue:'md':'mdLanguage'
-                            | toString}}) mise à jour le: {{$ctrl.mdjs | getValue:'md':'mdDateStamp|mdDateTimeStamp' | toString}}</em>
+                            | toString}}) mise à jour le:
+                            {{$ctrl.mdjs | getValue:'md':'mdDateStamp|mdDateTimeStamp' | toString}}</em>
                     </span>
                 </small>
             </div>

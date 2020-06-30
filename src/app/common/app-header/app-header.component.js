@@ -11,13 +11,14 @@ export const appHeaderComponent = {
     bindings: {
         headerTitle: '@',
         lang: '<',
-        helpButton: '<',
         changeViewButton: '<',
         xmlLoadButton: '<',
         xmlSaveButton: '<',
         homeButton: '<',
         mdListButton: '<',
-        auth: '<'
+        dir: '@',
+        url: '@',
+        user: '<'
     },
     template: template,
     controller: appHeaderController,

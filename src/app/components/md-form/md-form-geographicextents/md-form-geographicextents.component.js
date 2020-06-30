@@ -39,20 +39,55 @@ const mdFormGeographicextentsController = class MdFormGeographicextentsControlle
         return true;
     }
 
-    getValues() {
-        var dataExtents = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
+    isDefined(array) {
+        return array.filter((el) => { return el; }).length;
+    }
+
+    isTemporalExtent(dataExtent) {
+        return (this.isDefined(this.XmlConverterService.getValue(dataExtent, this.space, 'temporalExtentBegin'))
+            || this.isDefined(this.XmlConverterService.getValue(dataExtent, this.space, 'temporalExtentEnd')));
+    }
+
+    isGeographicExtent(dataExtent) {
+        return (this.isDefined(this.XmlConverterService.getValue(dataExtent, this.space, 'geographicExtentWestBound')) ||
+        this.isDefined(this.XmlConverterService.getValue(dataExtent, this.space, 'geographicExtentEastBound')) ||
+        this.isDefined(this.XmlConverterService.getValue(dataExtent, this.space, 'geographicExtentSouthBound')) ||
+        this.isDefined(this.XmlConverterService.getValue(dataExtent, this.space, 'geographicExtentNorthBound')));
+    }
+
+    isValidExtent(dataExtent) {
+        return isTemporalExtent(dataExtent) || isGeographicExtent(dataExtent);
+    }
+
+    getExtents(dataExtents, type) {
         var geographicExtents = [];
+        var temporalExtents = [];
         for (var i = 0; i < dataExtents.length; i++) {
-            if (this.XmlConverterService.getValue(dataExtents[i], this.space, 'geographicExtent').length) {
+            if (this.isGeographicExtent(dataExtents[i])) {
                 geographicExtents.push(dataExtents[i]);
+            } else if (this.isTemporalExtent(dataExtents[i])) {
+                temporalExtents.push(dataExtents[i]);
             }
         }
-        return geographicExtents;
+
+        if (type == 'temporal') {
+            return this.isDefined(temporalExtents) ? temporalExtents : [{}];
+        } else {
+            return this.isDefined(geographicExtents) ? geographicExtents : [{}];
+        }
+    }
+
+    getValues() {
+        var dataExtents = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
+        return this.getExtents(dataExtents, 'geographic');
     }
 
     $onChanges(changes) {
         if (changes.md) {
             this.geographicextents = this.getValues();
+            if (this.geographicextents.length == 0) {
+                this.geographicextents = [{}];
+            }
         }
     }
 
@@ -61,31 +96,25 @@ const mdFormGeographicextentsController = class MdFormGeographicextentsControlle
     }
 
     onRemoveExtent(key) {
-        if (this.geographicextents.length > 1) {
-            this.geographicextents.splice(key, 1);
-        } else {
-            this.geographicextents[key] = {};
-        }
+        this.updateExtents(key, {});
     }
 
     updateExtents(key, geographicextent) {
-        this.geographicextents[key] = geographicextent;
-
-        // Keep only no geo dataExtents and add new geographicExtents 
-        var dataExtents = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
-        var newDataExtents = [];
-        for (var d = 0; d < dataExtents.length; d++) {
-            if (!this.XmlConverterService.getValue(dataExtents[d], this.space, 'geographicExtent').length) {
-                newDataExtents.push(dataExtents[d]);
-            }
+        if (this.isGeographicExtent(geographicextent) || Object.keys(geographicextent).length === 0) {
+            this.geographicextents[key] = geographicextent;
+            this.geographicextents = this.getExtents(this.geographicextents, 'geographic');
+            
+            // Keep only no geo dataExtents and add new geographicextents 
+            var dataExtents = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
+            var temporalextents = this.getExtents(dataExtents, 'temporal');
+            var newDataExtents = temporalextents.concat(this.geographicextents);
+                                
+            this.update({
+                space: this.space,
+                field: this.field.name,
+                fieldValue: newDataExtents
+            });
         }
-        newDataExtents = newDataExtents.concat(this.geographicextents);
-
-        this.update({
-            space: this.space,
-            field: this.field.name,
-            fieldValue: newDataExtents
-        });
     }
 
 }

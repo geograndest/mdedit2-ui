@@ -14,20 +14,11 @@ export const assistant = angular
         const assistantState = {
             name: 'app.assistant',
             url: '/assistant',
-            params: {
-                // url: {
-                //     value: 'none',
-                //     squash: false
-                // }
-            },
+            params: {},
             resolve: {
                 assistantLocales: (UtilsService, appConfig, lang) => {
                     'ngInject';
                     return UtilsService.getJsonFile(appConfig.views.assistant.locales[lang]);
-                },
-                assistantAuth: (auth) => {
-                    'ngInject';
-                    return auth;
                 }
             },
             component: 'assistantComponent'

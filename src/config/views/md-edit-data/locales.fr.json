@@ -906,7 +906,7 @@
                 "extentName": {
                     "name": "extentName",
                     "label": "Emprise",
-                    "placeholder": "ex.: Alsace",
+                    "placeholder": "ex.: Grand Est",
                     "description": "Nom de l'emprise géographique de la base de données",
                     "disabled": "",
                     "editable": "true",
@@ -921,7 +921,7 @@
                 "geographicExtentWestBound": {
                     "name": "geographicExtentWestBound",
                     "label": "Long. Ouest",
-                    "placeholder": "6.8410134649126",
+                    "placeholder": "3.38",
                     "description": "Longitude ouest WGS84 du rectangle d'emprise (Xmin)",
                     "disabled": "",
                     "editable": "true",
@@ -936,7 +936,7 @@
                 "geographicExtentEastBound": {
                     "name": "geographicExtentEastBound",
                     "label": "Long. Est",
-                    "placeholder": "8.23351958950571",
+                    "placeholder": "8.23",
                     "description": "Longitude est WGS84 du rectangle d'emprise (Xmax)",
                     "disabled": "",
                     "editable": "true",
@@ -951,7 +951,7 @@
                 "geographicExtentSouthBound": {
                     "name": "geographicExtentSouthBound",
                     "label": "Lat. Sud",
-                    "placeholder": "47.4202517758332",
+                    "placeholder": "47.42",
                     "description": "Latitude sud WGS84 du rectangle d'emprise (Ymin)",
                     "disabled": "",
                     "editable": "true",
@@ -966,7 +966,7 @@
                 "geographicExtentNorthBound": {
                     "name": "geographicExtentNorthBound",
                     "label": "Lat. Nord",
-                    "placeholder": "49.0778319799915",
+                    "placeholder": "50.16",
                     "description": "Latitude nord WGS84 du rectangle d'emprise (Ymax)",
                     "disabled": "",
                     "editable": "true",

@@ -1,8 +1,10 @@
 <div class="form-group has-feedback" ng-class="$ctrl.isValid() ? '' : 'has-error'">
     <div uib-tooltip="{{$ctrl.field.description}}" tooltip-trigger="mouseenter" tooltip-placement="top-left">
         <span class="h5" ng-class="$ctrl.isValid() ? '' : 'text-danger font-weight-bold'">{{$ctrl.field.label}}</span>
-        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" format="{{$ctrl.field.helpButton.format}}" title="{{$ctrl.field.helpButton.title}}" text="{{$ctrl.field.helpButton.text}}" content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}"></page-modal-button>
-        <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-plus" aria-hidden="true" ng-click="$ctrl.onAddIdentifier()"></button>
+        <page-modal-button ng-if="$ctrl.field.helpButton.contentUrl" format="{{$ctrl.field.helpButton.format}}"
+            title="{{$ctrl.field.helpButton.title}}" text="{{$ctrl.field.helpButton.text}}"
+            content-url="$ctrl.field.helpButton.contentUrl" icon="{{$ctrl.field.helpButton.icon}}"></page-modal-button>
+        <!-- <button type="button" class="btn btn-outline-dark btn-sm float-right fas fa-plus" aria-hidden="true" ng-click="$ctrl.onAddIdentifier()"></button> -->
     </div>
     <div class="row">
         <div class="col-md-4 form-group has-feedback">
@@ -16,8 +18,8 @@
                 locales="$ctrl.locales" valid="true"></md-form-element>
         </div>
         <div class="col-md-4 form-group has-feedback">
-            <md-form-element type="date" md="$ctrl.datepublication" field="$ctrl.field.dates.datePublication" label="true"
-                edit="true" space="md" update="$ctrl.updateDate(space, field, fieldValue, 'publication')"
+            <md-form-element type="date" md="$ctrl.datepublication" field="$ctrl.field.dates.datePublication"
+                label="true" edit="true" space="md" update="$ctrl.updateDate(space, field, fieldValue, 'publication')"
                 locales="$ctrl.locales" valid="true"></md-form-element>
         </div>
     </div>

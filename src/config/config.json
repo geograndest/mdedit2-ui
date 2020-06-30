@@ -2,22 +2,37 @@
     "app": {
         "name": "mdEdit2",
         "title": "mdEdit2",
-        "version": "2.1.0b",
-        "copyrights": "(c) CIGAL / GéoGrandEst 2019",
+        "version": "2.3.0 (23/03/2020)",
+        "copyrights": "(c) CIGAL / GéoGrandEst 2020",
         "copyrights_url": "https://www.geograndest.fr",
         "_proxy": "php/proxy.php?url=",
         "proxy": "",
         "api": {
-            "isAuth": "http://localhost:8000/src/php/api.php?action=isAuth&debug=1",
-            "getFiles": "http://localhost:8000/src/php/api.php?action=getFiles&debug=1",
-            "saveFile": "http://localhost:8000/src/php/api.php?action=saveFile&debug=1",
-            "deleteFile": "http://localhost:8000/src/php/api.php?action=deleteFile&debug=1"
+            "login": "https://www.geograndest.fr/cas/login?service=https%3A%2F%2Fwww.geograndest.fr%2Ftools%2Fmdedit2-test%2Fmdedit2-ui%3Flogin",
+            "logout": "https://www.geograndest.fr/portail/fr/nw_logout",
+            "me": "http://localhost:4000/me?debug=1",
+            "files": "http://localhost:4000/files?debug=1",
+            "directories": "http://localhost:4000/directories?debug=1"
         },
         "lang": "fr",
-        "_changeview_format": "'button' or 'list' value",
+        "homeviews": [
+            "mdEditDataGeo",
+            "mdEditDataGeoOpendata",
+            "mdEditDataNogeo",
+            "mdEditDataNogeoOpendata",
+            "mdEditMap"
+        ],
         "changeview": {
+            "_format": "'button' or 'list' value",
             "format": "list",
-            "list": ["mdEditData", "mdEditData2", "mdEditOpendata", "mdEditNogeo", "mdLive", "mdEditMap", "mdViewData"],
+            "list": [
+                "mdEditDataGeo",
+                "mdEditDataGeoOpendata",
+                "mdEditDataNogeo",
+                "mdEditDataNogeoOpendata",
+                "mdEditMap",
+                "mdViewData"
+            ],
             "icon": "far fa-eye"
         },
         "template": "empty",
@@ -112,7 +127,7 @@
                 "de": "mdList view (DE)"
             },
             "description": {
-                "fr": "Cette vue spécifique vous permet de lister les fichiers XML présents sur votre espace de travail Pydio.",
+                "fr": "Créer, modifier et supprimer vos fichiers XML directement sur le serveur GéoGrandEst.",
                 "en": "mdList view",
                 "de": "mdList view (DE)"
             },
@@ -122,7 +137,7 @@
                 "de": "config/views/md-list/locales.de.json"
             }
         },
-        "mdEditData": {
+        "_mdEditData": {
             "url": "app.mdEditData",
             "path": "config/views/md-edit-data/md-edit-data.html",
             "model": "empty",
@@ -153,51 +168,9 @@
             },
             "extentsFile": "config/views/md-edit-data/extents.json"
         },
-        "mdEditOpendata": {
-            "url": "app.mdEditOpendata",
-            "path": "config/views/md-edit-data/md-edit-opendata.html",
-            "model": "opendata",
-            "icon": "fas fa-globe-europe",
-            "opendata": true,
-            "geo": true,
-            "type": "mdEdit",
-            "default": true,
-            "hierarchyLevels": [
-                "dataseries",
-                "dataset"
-            ],
-            "keywords": {
-                "fr": [
-                    "données",
-                    "Données ouvertes"
-                ],
-                "en": [
-                    "data"
-                ],
-                "de": [
-                    "data"
-                ]
-            },
-            "name": {
-                "fr": "Données géographiques ouvertes",
-                "en": "Edit view",
-                "de": "Edit view (DE)"
-            },
-            "description": {
-                "fr": "Formulaire de saisie des métadonnées géographiques ouvertes (Inspire/Open data). Il est basé sur un système \"d'accordéons\" permettant de masquer et d'afficher des groupes de champs.",
-                "en": "Edit view",
-                "de": "Edit view (DE)"
-            },
-            "locales": {
-                "fr": "config/views/md-edit-opendata/locales.fr.json",
-                "en": "config/views/md-edit-opendata/locales.en.json",
-                "de": "config/views/md-edit-opendata/locales.de.json"
-            },
-            "extentsFile": "config/views/md-edit-data/extents.json"
-        },
-        "mdEditData2": {
-            "url": "app.mdEditData2",
-            "path": "config/views/md-edit-data2/md-edit-data2.html",
+        "mdEditDataGeo": {
+            "url": "app.mdEditDataGeo",
+            "path": "config/views/md-edit-data-geo/md-edit-data-geo.html",
             "model": "empty",
             "icon": "fas fa-globe-europe",
             "type": "mdEdit",
@@ -210,25 +183,88 @@
                 "de": ["data"]
             },
             "name": {
-                "fr": "Données géographiques (mdEdit 2)",
+                "fr": "Données géographiques",
                 "en": "Edit view",
                 "de": "Edit view (DE)"
             },
             "description": {
-                "fr": "Formulaire de saisie des métadonnées de mdEdit 2. Il est basé sur un système d'onglets verticaux servant de sommaire dans l'affichage des différents groupes de champs.",
+                "fr": "Description des données géographiques (Inspire).",
                 "en": "Edit view",
                 "de": "Edit view (DE)"
             },
             "locales": {
-                "fr": "config/views/md-edit-data2/locales.fr.json",
-                "en": "config/views/md-edit-data2/locales.en.json",
-                "de": "config/views/md-edit-data2/locales.de.json"
+                "fr": "config/views/md-edit-data-geo/locales.fr.json",
+                "en": "config/views/md-edit-data-geo/locales.en.json",
+                "de": "config/views/md-edit-data-geo/locales.de.json"
             },
-            "extentsFile": "config/views/md-edit-data2/extents.json"
+            "extentsFile": "config/views/md-edit-data-geo/extents.json"
         },
-        "mdEditNogeo": {
-            "url": "app.mdEditNogeo",
-            "path": "config/views/md-edit-nogeo/md-edit-nogeo.html",
+        "mdEditDataGeoOpendata": {
+            "url": "app.mdEditDataGeoOpendata",
+            "path": "config/views/md-edit-data-geo-data/md-edit-data-geo-opendata.html",
+            "model": "opendata",
+            "icon": "fas fa-globe-europe",
+            "opendata": true,
+            "geo": true,
+            "type": "mdEdit",
+            "default": true,
+            "hierarchyLevels": ["dataseries", "dataset"],
+            "keywords": {
+                "fr": ["données", "Données ouvertes"],
+                "en": ["data"],
+                "de": ["data"]
+            },
+            "name": {
+                "fr": "Données géographiques ouvertes",
+                "en": "Edit view",
+                "de": "Edit view (DE)"
+            },
+            "description": {
+                "fr": "Description des données géographiques ouvertes (Inspire / open data).",
+                "en": "Edit view",
+                "de": "Edit view (DE)"
+            },
+            "locales": {
+                "fr": "config/views/md-edit-data-geo-opendata/locales.fr.json",
+                "en": "config/views/md-edit-data-geo-opendata/locales.en.json",
+                "de": "config/views/md-edit-data-geo-opendata/locales.de.json"
+            },
+            "extentsFile": "config/views/md-edit-data-geo-opendata/extents.json"
+        },
+        "mdEditDataNogeo": {
+            "url": "app.mdEditDataNogeo",
+            "path": "config/views/md-edit-data-nogeo/md-edit-data-nogeo.html",
+            "model": "empty",
+            "icon": "fas fa-table",
+            "type": "mdEdit",
+            "opendata": false,
+            "default": true,
+            "hierarchyLevels": ["dataseries", "dataset"],
+            "keywords": {
+                "fr": ["données", "Données ouvertes"],
+                "en": ["data"],
+                "de": ["data"]
+            },
+            "name": {
+                "fr": "Données non géographiques",
+                "en": "Edit view",
+                "de": "Edit view (DE)"
+            },
+            "description": {
+                "fr": "Description des données non géographiques.",
+                "en": "Edit view",
+                "de": "Edit view (DE)"
+            },
+            "locales": {
+                "fr": "config/views/md-edit-data-nogeo/locales.fr.json",
+                "en": "config/views/md-edit-data-nogeo/locales.en.json",
+                "de": "config/views/md-edit-data-nogeo/locales.de.json"
+            },
+            "extentsFile": "config/views/md-edit-data-nogeo/extents.json"
+        },
+        "mdEditDataNogeoOpendata": {
+            "url": "app.mdEditDataNogeoOpendata",
+            "path": "config/views/md-edit-data-nogeo-opendata/md-edit-data-nogeo-opendata.html",
             "model": "opendata",
             "icon": "fas fa-table",
             "type": "mdEdit",
@@ -246,16 +282,16 @@
                 "de": "Edit view (DE)"
             },
             "description": {
-                "fr": "Formulaire de saisie des métadonnées pour les données non géographiques ouvertes (open data). Il est basé sur un système d'onglets verticaux servant de sommaire dans l'affichage des différents groupes de champs.",
+                "fr": "Description des données non géographiques ouvertes (open data).",
                 "en": "Edit view",
                 "de": "Edit view (DE)"
             },
             "locales": {
-                "fr": "config/views/md-edit-nogeo/locales.fr.json",
-                "en": "config/views/md-edit-nogeo/locales.en.json",
-                "de": "config/views/md-edit-nogeo/locales.de.json"
+                "fr": "config/views/md-edit-data-nogeo-opendata/locales.fr.json",
+                "en": "config/views/md-edit-data-nogeo-opendata/locales.en.json",
+                "de": "config/views/md-edit-data-nogeo-opendata/locales.de.json"
             },
-            "extentsFile": "config/views/md-edit-nogeo/extents.json"
+            "extentsFile": "config/views/md-edit-data-nogeo-opendata/extents.json"
         },
         "mdTest": {
             "url": "app.mdTest",
@@ -334,12 +370,12 @@
                 "de": ["data"]
             },
             "name": {
-                "fr": "Formulaire pour les cartes",
+                "fr": "Cartes",
                 "en": "Edit map",
                 "de": "Karte (DE)"
             },
             "description": {
-                "fr": "Formulaire de saisie des fiches de métadonnées de cartes.",
+                "fr": "Description de cartes statiques et dynamique.",
                 "en": "Map form",
                 "de": "Karte form (DE)"
             },
@@ -368,7 +404,7 @@
                 "de": "List views (DE)"
             },
             "description": {
-                "fr": "Vue permettant une consultation et lecture facilitée des fiches de métadonnées (pas d'édition possible).",
+                "fr": "Consultation et lecture facilitée des fiches de métadonnées (édition impossible).",
                 "en": "LIVE/ZAEU form",
                 "de": "LIVE/ZAEU form (DE)"
             },

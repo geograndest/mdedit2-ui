@@ -7,7 +7,9 @@ const mdFormLegalconstraintsController = class MdFormLegalconstraintsController 
         this.LodashService = LodashService;
     }
 
-    $onInit() {}
+    $onInit() {
+        this.fieldsExclude = this.fieldsExclude || [];
+    }
 
     getValues() {
         var dataResourceConstraints = this.XmlConverterService.getValue(
@@ -125,6 +127,10 @@ const mdFormLegalconstraintsController = class MdFormLegalconstraintsController 
             fieldValue: resourcesConstraints
         });
     }
+
+    displayField(fieldName) {
+        return !this.fieldsExclude.includes(fieldName);
+    }
 };
 
 export const mdFormLegalconstraintsComponent = {
@@ -134,6 +140,7 @@ export const mdFormLegalconstraintsComponent = {
         listRestrictionCode: "<",
         listInspireRestrictionCode: "<",
         locales: "<",
+        fieldsExclude: "<",
         multi: "@",
         label: "@",
         space: "@",

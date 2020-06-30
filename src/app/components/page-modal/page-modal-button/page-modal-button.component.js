@@ -12,7 +12,7 @@ const pageModalButtonController = class PageModalButtonController {
         this.modalInstance = this.$uibModal.open({
             animation: false,
             component: "pageModalDialog",
-            size: 'lg',
+            size: 'xl',
             resolve: {
                 contentUrl: () => {
                     return this.contentUrl;

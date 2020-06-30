@@ -1,30 +1,31 @@
 <!-- if not authentication -->
 <!-- if format = button -->
-<button type="button" ng-if="$ctrl.format == 'button' && !$ctrl.auth.sec_editor" class="btn btn-outline-dark" ng-click="$ctrl.download()">
-    <i class="fas {{$ctrl.icon.download}}">
-    </i> <span class="d-none d-lg-inline">{{$ctrl.text.download}}</span>
+<button type="button" ng-if="$ctrl.format == 'button' && (!$ctrl.user.editor || !$ctrl.dir)"
+    class="btn btn-outline-dark" ng-click="$ctrl.downloadFile()">
+    <i class="fas {{$ctrl.icon.download}}"></i>
+    <span class="d-none d-lg-inline">{{$ctrl.text.download}}</span>
 </button>
 <!-- if format = icon -->
-    <span ng-if="$ctrl.format == 'icon'" ng-click="$ctrl.download()" class="">
-    <i class="fas {{$ctrl.icon.download}}">
-    </i>
+<span ng-if="$ctrl.format == 'icon'" ng-click="$ctrl.downloadFile()" class="">
+    <i class="fas {{$ctrl.icon.download}}"></i>
 </span>
 <!-- else if format = text -->
-<a href="" ng-if="$ctrl.format == 'text'" class="navbar-link" ng-click="$ctrl.download()">{{$ctrl.text.download}}</a>
+<a href="" ng-if="$ctrl.format == 'text'" class="navbar-link"
+    ng-click="$ctrl.downloadFile()">{{$ctrl.text.download}}</a>
 
 <!-- if authentication -->
-<!-- if format = button and auth.sec_editor = true -->
-<div ng-if="$ctrl.format == 'button' && $ctrl.auth.sec_editor" class="btn-group" uib-dropdown>
+<!-- ** {{$ctrl.user.editor}} ** {{$ctrl.dir}} ** -->
+<div ng-if="$ctrl.format == 'button' && $ctrl.user.editor && $ctrl.dir" class="btn-group" uib-dropdown>
     <button id="single-button" type="button" class="btn btn-outline-dark" uib-dropdown-toggle ng-disabled="disabled">
-        <i class="fas {{$ctrl.icon.download}}">
-        </i> <span class="d-none d-lg-inline">{{$ctrl.text.save}}</span> <span class="caret"></span>
+        <i class="fas {{$ctrl.icon.record}}">
+        </i> <span class="d-none d-lg-inline">{{$ctrl.text.record}}</span> <span class="caret"></span>
     </button>
     <div class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="save-button-dropdown">
-        <a href class="dropdown-item" ng-click="$ctrl.download()">
+        <a href class="dropdown-item" ng-click="$ctrl.downloadFile()">
             <i class="fas {{$ctrl.icon.download}}">
-        </i> <span class="">{{$ctrl.text.download}}</span></a>
-        <a href class="dropdown-item" ng-click="$ctrl.save()">
+            </i> <span class="">{{$ctrl.text.download}}</span></a>
+        <a href class="dropdown-item" ng-click="$ctrl.saveFile()">
             <i class="fas {{$ctrl.icon.save}}">
-        </i> <span class="">{{$ctrl.text.save}}</span></a>
+            </i> <span class="">{{$ctrl.text.save}}</span></a>
     </div>
 </div>

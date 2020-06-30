@@ -6,16 +6,15 @@ const mdFormIdentifiersController = class MdFormIdentifiersController {
         this.XmlConverterService = XmlConverterService;
     }
 
-    $onInit() {
-        // this.isValid = false;
-    }
+    $onInit() {}
 
     getValues() {
-        this.identifiers = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
-        if (this.identifiers.length == 0) {
-            this.identifiers = [{}];
+        var identifiers = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
+        if (identifiers.length == 0) {
+            identifiers = [{}];
         }
-        this.identifiersList = angular.copy(this.identifiers);
+
+        this.identifiersList = angular.copy(identifiers);
         for (var i = 0; i < this.identifiersList.length; i++) {
             if (this.XmlConverterService.getValue(this.identifiersList[i], this.space, 'mdCode').length) {
                 var mdCode = this.XmlConverterService.getValue(this.identifiersList[i], this.space, 'mdCode');
@@ -31,12 +30,9 @@ const mdFormIdentifiersController = class MdFormIdentifiersController {
     }
 
     isValidField() {
-        for (var i = 0; i < this.identifiers.length; i++) {
-            if (this.XmlConverterService.getValue(this.identifiers[i], this.space, 'mdCode').length && this.XmlConverterService.getValue(this.identifiers[i], this.space, 'mdCode')[0]) {
-                return true;
-            }
-        }
-        return false;
+        var identifiers = this.XmlConverterService.getValue(this.md, this.space, 'dataIdentifiersCodes');
+        identifiers = identifiers.filter((el) => el);
+        return identifiers.length > 0;
     }
 
     onAddIdentifier() {
@@ -52,17 +48,21 @@ const mdFormIdentifiersController = class MdFormIdentifiersController {
     }
 
     updateIdentifiers(key, identifier) {
-        // Use 'mdCode' if no 'codeSpace'
-        var codeSpace = this.XmlConverterService.getValue(identifier, this.space, 'codeSpace');
-        if (!codeSpace.length) {
-            var code = this.XmlConverterService.getValue(identifier, this.space, 'code');
-            identifier = this.XmlConverterService.setValue({}, this.space, 'mdCode', code);
+        var identifiers = angular.copy(this.identifiersList);
+        identifiers[key] = identifier;
+
+        for (var i = 0; i < identifiers.length; i++) {
+            var codeSpace = this.XmlConverterService.getValue(identifiers[i], this.space, 'codeSpace');
+            if (!codeSpace.length || !codeSpace[0]) {
+                var code = this.XmlConverterService.getValue(identifiers[i], this.space, 'code');
+                identifiers[i] = this.XmlConverterService.setValue({}, this.space, 'mdCode', code);
+            }
         }
-        this.identifiers[key] = identifier;
+
         this.update({
             space: this.space,
             field: this.field.name,
-            fieldValue: this.identifiers
+            fieldValue: identifiers
         });
     }
 }

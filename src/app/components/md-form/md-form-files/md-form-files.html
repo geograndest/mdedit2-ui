@@ -1,0 +1,37 @@
+<div ng-show="$ctrl.directory" class="card border-0">
+    <div class="list-group">
+        <div class="list-group-item m-1 p-0 border-0">
+            <div class="input-group mb-2">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="input_file" name="input_file"
+                        ng-model="$ctrl.input_file" />
+                    <label class="custom-file-label" id="input_file_label" for="input_file"
+                        uib-tooltip="Fichier à téléverser" tooltip-trigger="mouseenter" tooltip-placement="right"
+                        data-browse="...">Sélectionner un fichier</label>
+                </div>
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" ng-click="$ctrl.uploadFile()"
+                        ng-disabled="!$ctrl.input_file">
+                        <i class="fas fa-download"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="list-group-item d-flex border-0 p-0 m-1" ng-repeat="(key, file) in $ctrl.files track by $index"
+            ng-if="!$ctrl.removedFiles[key]">
+            <input type="hidden" id="inputUrl-{{key}}" value="{{$ctrl.root_url + file.file}}" />
+            <div class="flex-grow-1 text-truncate" uib-tooltip="{{file.file}}" tooltip-trigger="mouseenter"
+                tooltip-placement="top">{{file.basename}}</div>
+            <button class="btn btn-sm btn-danger px-1 py-0 mx-1" uib-tooltip="Supprimer le fichier"
+                tooltip-trigger="mouseenter" tooltip-placement="top"
+                ng-click="$ctrl.removeFile({file: file.file, key: key})">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+            <button class="btn btn-sm btn-primary px-1 py-0" uib-tooltip="Copier le lien URL"
+                tooltip-trigger="mouseenter" tooltip-placement="top" ng-click="$ctrl.copyUrl({inputId:
+                'inputUrl-' + key})">
+                <i class="fas fa-link"></i>
+            </button>
+        </div>
+    </div>
+</div>

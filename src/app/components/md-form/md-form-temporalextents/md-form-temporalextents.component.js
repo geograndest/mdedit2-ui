@@ -6,21 +6,65 @@ const mdFormTemporalextentsController = class MdFormTemporalextentsController {
         this.XmlConverterService = XmlConverterService;
     }
 
-    $onInit() {}
+    $onInit() {
+        this.temporalextents = [{}];
+    }
 
     isValidField(key) {
         return true;
     }
 
-    getValues() {
-        var dataExtents = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
+    cleanArray(array) {
+        if (array) {
+            return array.filter((el) => { return el; });
+        }
+        return array;
+    }
+
+    isDefined(array) {
+        if (array) {
+            return this.cleanArray(array).length !== 0;
+        }
+        return false;
+    }
+
+    isTemporalExtent(dataExtent) {
+        return (this.isDefined(this.XmlConverterService.getValue(dataExtent, this.space, 'temporalExtentBegin'))
+            || this.isDefined(this.XmlConverterService.getValue(dataExtent, this.space, 'temporalExtentEnd')));
+    }
+
+    isGeographicExtent(dataExtent) {
+        return (this.isDefined(this.XmlConverterService.getValue(dataExtent, this.space, 'geographicExtentWestBound')) ||
+        this.isDefined(this.XmlConverterService.getValue(dataExtent, this.space, 'geographicExtentEastBound')) ||
+        this.isDefined(this.XmlConverterService.getValue(dataExtent, this.space, 'geographicExtentSouthBound')) ||
+        this.isDefined(this.XmlConverterService.getValue(dataExtent, this.space, 'geographicExtentNorthBound')));
+    }
+
+    isValidExtent(dataExtent) {
+        return isTemporalExtent(dataExtent) || isGeographicExtent(dataExtent);
+    }
+
+    getExtents(dataExtents, type) {
+        var geographicExtents = [];
         var temporalExtents = [];
         for (var i = 0; i < dataExtents.length; i++) {
-            if (this.XmlConverterService.getValue(dataExtents[i], this.space, 'temporalExtent').length) {
+            if (this.isGeographicExtent(dataExtents[i])) {
+                geographicExtents.push(dataExtents[i]);
+            } else if (this.isTemporalExtent(dataExtents[i])) {
                 temporalExtents.push(dataExtents[i]);
             }
         }
-        return temporalExtents;
+
+        if (type == 'temporal') {
+            return this.isDefined(temporalExtents) ? temporalExtents : [{}];
+        } else {
+            return this.isDefined(geographicExtents) ? geographicExtents : [{}];
+        }
+    }
+
+    getValues() {
+        var dataExtents = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
+        return this.getExtents(dataExtents, 'temporal');
     }
 
     $onChanges(changes) {
@@ -37,31 +81,25 @@ const mdFormTemporalextentsController = class MdFormTemporalextentsController {
     }
 
     onRemoveExtent(key) {
-        if (this.temporalextents.length > 1) {
-            this.temporalextents.splice(key, 1);
-        } else {
-            this.temporalextents[key] = {};
-        }
+        this.updateExtents(key, {});
     }
 
     updateExtents(key, temporalextent) {
-        this.temporalextents[key] = temporalextent;
+        if (this.isTemporalExtent(temporalextent) || Object.keys(temporalextent).length === 0) {
+            this.temporalextents[key] = temporalextent;
+            this.temporalextents = this.getExtents(this.temporalextents, 'temporal');
+            
+            // Keep only no geo dataExtents and add new temporalExtents 
+            var dataExtents = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
+            var geographicextents = this.getExtents(dataExtents, 'geographic');
+            var newDataExtents = geographicextents.concat(this.temporalextents);
 
-        // Keep only no geo dataExtents and add new temporalExtents 
-        var dataExtents = this.XmlConverterService.getValue(this.md, this.space, this.field.name);
-        var newDataExtents = [];
-        for (var d = 0; d < dataExtents.length; d++) {
-            if (!this.XmlConverterService.getValue(dataExtents[d], this.space, 'temporalExtent').length) {
-                newDataExtents.push(dataExtents[d]);
-            }
+            this.update({
+                space: this.space,
+                field: this.field.name,
+                fieldValue: newDataExtents
+            });
         }
-        newDataExtents = newDataExtents.concat(this.temporalextents);
-
-        this.update({
-            space: this.space,
-            field: this.field.name,
-            fieldValue: newDataExtents
-        });
     }
 
 }

@@ -2,61 +2,95 @@
 
     <div class="row">
         <div class="col-md-7">
-            <h1 class="mb-4">Bienvenue sur mdEdit 2!</h1>
+            <h1 class="mb-3">Bienvenue sur mdEdit 2!</h1>
             <p class="lead text-muted">
-                mdEdit permet de décrire simplement vos données géographiques conformément à la règlementation en vigueur (directive européenne Inspire et open data).
+                Un moyen simple pour décrire vos données géographiques ou non et vos cartes conformément à la
+                règlementation en vigueur.
             </p>
             <p>
-                C'est une application conviviale et facile d'utilisation.
-                <br /> Elle nécessite cependant quelques connaissances en matière de géomatique pour remplir les fiches de façon optimale (système de projection, emprise géographique, etc.).
+                mdEdit 2 est une application facile d'utilisation qui permet de documenter efficacement vos données pour
+                répondre à la directive européenne Inspire et à l'open data. Naturellement il est nécessaire de bien
+                connaître la ressource à documenter et d'avoir, le cas échéant, quelques notions en matière de
+                géomatique (système de projection, emprise géographique, etc.).
             </p>
-            <p class="alert alert-primary my-4" role="alert">
-                <i class="fas fa-check"></i> Choisissez un modèle de formulaire dans la liste de droite et c'est partie!
+            <p class="alert alert-primary my-3" role="alert">
+                <i class="fas fa-book"></i> Mode d'emploi : choisissez un formulaire dans la liste de droite et c'est
+                parti!
                 <br /> Il ne vous reste plus qu'à saisir les information demandées.
             </p>
             <p>
-                <i class="far fa-hand-point-right text-primary"></i> mdEdit 2 vous permet à tout moment de sauvegarder votre travail au format XML (ISO 19139) et de recharger une fiche pour la modifier ou la compléter.
+                <i class="far fa-hand-point-right text-primary"></i> Vous pouvez à tout momment sauvegarder votre
+                travail sous forme d'un fichier XML (ISO 19139) et le recharger pour le modifier ou le compléter.
             </p>
             <p>
-                <i class="far fa-hand-point-right text-primary"></i> Vous pouvez sauver une fiche partiellement remplie pour la recharger ultérieurement comme base de travail.
+                <i class="far fa-hand-point-right text-primary"></i> Vous pouvez sauver une fiche partiellement remplie
+                pour l'utiliser ultérieurement comme modèle.
             </p>
             <p>
-                <i class="far fa-hand-point-right text-primary"></i> Vous pouvez également changer de vue à tout moment via la liste de sélection en haut à droite du formulaire. Attention cependant, si vous revenez sur l page d'accueil, l'ensemble des
-                informations saisies sont permdues.
+                <i class="far fa-hand-point-right text-primary"></i> Vous pouvez changer de vue via la liste de
+                sélection en haut à droite du formulaire.
             </p>
-            <p class="mt-4">
-                Pour plus d'information sur son utilisation, n'hésitez pas à consulter l'aide en ligne (bouton <i class="fas fa-info-circle"></i> en haut à droite).
+            <p>
+                <i class="far fa-hand-point-right text-primary"></i> Pour les partenaires GéoGrandEst authentifiés, il
+                est possible de gérer directement vos fichiers XML sur le serveur mutualisé (Pydio).
+            </p>
+            <p class="mt-3">
+                Pour plus d'information, consultez
+                <page-modal-button format="text" title="{{$ctrl.helpButton.title}}" text="l'aide en ligne"
+                    content-url="'config/app/locales/fr/pages/help.md'"></page-modal-button>
+                ou <a href="mailto:contact@geograndest.fr">nous contacter</a>.
+            </p>
+            <p class="mt-3 text-center font-weight-bold">
+                Vous êtes perdu et ne savez pas par où commencer ?
+            </p>
+            <p class="text-center">
+                <a ui-sref="app.assistant" class="btn w-75 btn-primary btn-lg" target="_self">Laissez-vous guider par
+                    l'assistant!</a>
             </p>
         </div>
         <div class="col-md-5">
-            <div class="card">
+            <div class="card mb-3">
                 <div class="card-header">
                     <h5>Modèles de formulaires disponibles</h5>
                 </div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action" ng-repeat="view in $ctrl.appConfig.app.changeview.list track by $index" ui-sref="app.{{view}}({template:$ctrl.appConfig.views[view].model})" ui-sref-opts="{reload: true, inherit: true, notify: true }" tooltip-trigger="mouseover" tooltip-placement="left" uib-tooltip="{{$ctrl.appConfig.views[view].description[$ctrl.appConfig.app.lang]}}">
+                    <a class="list-group-item list-group-item-action"
+                        ng-repeat="view in $ctrl.appConfig.app.homeviews track by $index"
+                        ui-sref="app.{{view}}({template:$ctrl.appConfig.views[view].model})"
+                        ui-sref-opts="{reload: true, inherit: true, notify: true }">
                         <div class="text-dark card-link">
-                            <i class="{{$ctrl.appConfig.views[view].icon}}"></i> {{$ctrl.appConfig.views[view].name[$ctrl.appConfig.app.lang]}}
+                            <i class="{{$ctrl.appConfig.views[view].icon}}"></i>
+                            {{$ctrl.appConfig.views[view].name[$ctrl.appConfig.app.lang]}}
                         </div>
-                        <!-- <div><em class="small">{{$ctrl.appConfig.views[view].description[$ctrl.appConfig.app.lang]}}</em></div> -->
+                        <div><em class="small"
+                                ng-bind-html="$ctrl.safeHtml($ctrl.appConfig.views[view].description[$ctrl.appConfig.app.lang])"></em>
+                        </div>
                         <div>
                             <span class="small" ng-if="$ctrl.appConfig.views[view].model">
                                 Modèle par défaut:
                                 {{$ctrl.appConfig.models[$ctrl.appConfig.views[view].model].name | lowercase}}
                             </span>
-                            <span class="small" ng-if="!$ctrl.appConfig.views[view].model">
-                                Aucun modèle par défaut défini
-                            </span>
-                            <small><span ng-if="$ctrl.appConfig.views[view].opendata" class="badge badge-secondary float-right mt-1 p-1 mr-1">Open data</span></small>
-                            <!-- <small><span ng-if="$ctrl.appConfig.views[view].geo" class="badge badge-primary float-right mt-1 p-1 mr-1">Géo</span></small> -->
-                            <!-- <small><span ng-if="$ctrl.appConfig.views[view].map" class="badge badge-warning float-right mt-1 p-1 mr-1">Carte</span></small> -->
+
+                            <small><span ng-if="$ctrl.appConfig.views[view].opendata"
+                                    class="badge badge-success float-right mt-1 p-1 mr-1">Open data</span></small>
                         </div>
                     </a>
-                    <a class="list-group-item list-group-item-action" ng-if="$ctrl.homeAuth.sec_editor" ui-sref="app.mdList()" ui-sref-opts="{reload: true, inherit: true, notify: true }">
+                </div>
+            </div>
+            <div ng-if="$ctrl.homeAuth.editor" class="card">
+                <div class="card-header">
+                    <h5>Gestion des métadonnées</h5>
+                </div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action" ui-sref="app.mdList()"
+                        ui-sref-opts="{reload: true, inherit: true, notify: true }">
                         <div class="text-dark card-link">
-                            <i class="{{$ctrl.appConfig.views.mdList.icon}}"></i> {{$ctrl.appConfig.views.mdList.name[$ctrl.appConfig.app.lang]}}
+                            <i class="{{$ctrl.appConfig.views.mdList.icon}}"></i>
+                            {{$ctrl.appConfig.views.mdList.name[$ctrl.appConfig.app.lang]}}
                         </div>
-                        <div><em class="small">{{$ctrl.appConfig.views.mdList.description[$ctrl.appConfig.app.lang]}}</em></div>
+                        <div><em
+                                class="small">{{$ctrl.appConfig.views.mdList.description[$ctrl.appConfig.app.lang]}}</em>
+                        </div>
                     </a>
                 </div>
             </div>

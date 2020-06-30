@@ -8,10 +8,13 @@ const appFooterController = class AppFooterController {
 
 export const appFooterComponent = {
     bindings: {
+        login: '@',
+        logout: '@',
         copyrights: '<',
+        helpButton: '<',
         mentionsButton: '<',
         changeLangButton: '<',
-        auth: '<'
+        user: '<'
     },
     template: template,
     controller: appFooterController,

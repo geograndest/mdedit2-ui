@@ -17,11 +17,17 @@ import {
     mdEditData
 } from './md-edit-data/md-edit-data.module';
 import {
-    mdEditOpendata
-} from './md-edit-opendata/md-edit-opendata.module';
+    mdEditDataGeo
+} from './md-edit-data-geo/md-edit-data-geo.module';
 import {
-    mdEditData2
-} from './md-edit-data2/md-edit-data2.module';
+    mdEditDataGeoOpendata
+} from './md-edit-data-geo-opendata/md-edit-data-geo-opendata.module';
+import {
+    mdEditDataNogeo
+} from './md-edit-data-nogeo/md-edit-data-nogeo.module';
+import {
+    mdEditDataNogeoOpendata
+} from './md-edit-data-nogeo-opendata/md-edit-data-nogeo-opendata.module';
 import {
     mdEditMap
 } from './md-edit-map/md-edit-map.module';
@@ -34,9 +40,6 @@ import {
 import {
     mdLive
 } from './md-live/md-live.module';
-import {
-    mdEditNogeo
-} from './md-edit-nogeo/md-edit-nogeo.module';
 
 export const appViews = angular
     .module('app.views', [
@@ -46,12 +49,13 @@ export const appViews = angular
         mdViewService,
         mdViewMap,
         mdEditData,
-        mdEditOpendata,
-        mdEditData2,
+        mdEditDataGeo,
+        mdEditDataGeoOpendata,
+        mdEditDataNogeo,
+        mdEditDataNogeoOpendata,
         mdEditMap,
         mdTest,
         mdList,
-        mdLive,
-        mdEditNogeo
+        mdLive
     ])
     .name;

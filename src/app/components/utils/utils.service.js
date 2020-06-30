@@ -19,7 +19,7 @@ export class UtilsService {
                     return response.data;
                 })
                 .catch((reason) => {
-                    console.log("Error in UtilsService.getJsonFile() service : can't get '" + file + "' JSON file.");
+                    console.log("Error in UtilsService.getJsonFile() service : can't get '" + file + "' JSON file (" + reason + ").");
                 });
         } else {
             return promises[cache];
@@ -35,29 +35,16 @@ export class UtilsService {
                 return response.data;
             })
             .catch((reason) => {
-                console.log("Error: can't get " + file + " file.");
+                console.log("Error: can't get " + file + " file (" + reason + ").");
             });
     }
 
     post(url, data, callback) {
-        // var data = {
-        //     'filename': fileName,
-        //     'filecontent': fileContent
-        // };
-        // return this.$http({
-        //         method: 'POST',
-        //         url: url,
-        //         dataType: 'json',
-        //         data: data
-        //     })
-        //     .then(function (response) {
-        //         return response.data;
-        //     })
         return this.$http.post(url, data).then(
-            function(response) {
+            function (response) {
                 callback(response.data);
             },
-            function(response) {
+            function (response) {
                 console.log('Error', data, response)
             }
         );
@@ -72,7 +59,7 @@ export class UtilsService {
                 return response.data;
             })
             .catch((reason) => {
-                console.log("Error in UtilsService.getJsonFile() service : can't get '" + url + "' JSON file.");
+                console.log("Error in UtilsService.getJsonFile() service : can't get '" + url + "' JSON file (" + reason + ").");
             });
     }
 
@@ -100,5 +87,21 @@ export class UtilsService {
             }
         }
         return response;
+    }
+
+    readFile(file, callback) {
+        var reader = new FileReader();
+        reader.onloadend = (e) => {
+            var data = e.target.result;
+            callback(data);
+        }
+        reader.readAsText(file);
+    }
+
+    getUrl(proxy, url, callback) {
+        if (proxy) {
+            url = this.getProxyUrl(url, proxy)
+        }
+        return this.get(url, callback);
     }
 }

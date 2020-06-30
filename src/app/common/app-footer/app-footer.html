@@ -2,14 +2,30 @@
     <nav class="navbar fixed-bottom navbar-light bg-light">
         <div class="container-fluid">
             <div class="navbar-text navbar-left">
-                <a ng-href="{{$ctrl.copyrights.url}}" target="_blank" class="navbar-link">{{$ctrl.copyrights.text}}</a>
-                <!-- <div ng-if="$ctrl.auth.sec_editor" class="p-1 badge badge-primary">{{$ctrl.auth.sec_username}}</div> -->
+                <a ng-if="$ctrl.user.editor" class="p-0 btn btn-sm btn-outline-success text-success"
+                    ng-href="{{$ctrl.logout}}" tooltip-trigger="mouseenter" tooltip-placement="top"
+                    uib-tooltip="Logout">
+                    <i class="fas fa-lock p-1 m-0"></i>
+                </a>
+                <a ng-if="!$ctrl.user.editor" class="p-0 btn btn-sm btn-outline-secondary text-secondary"
+                    ng-href="{{$ctrl.login}}" tooltip-trigger="mouseenter" tooltip-placement="top" uib-tooltip="Login">
+                    <i class="fas fa-lock-open p-1 m-0"></i>
+                </a>
+                <a ng-href="{{$ctrl.copyrights.url}}" target="_blank"
+                    class="navbar-link ml-1">{{$ctrl.copyrights.text}}</a>
             </div>
             <div class="navbar-text navbar-right">
-                <page-modal-button format="{{$ctrl.mentionsButton.format}}" text="{{$ctrl.mentionsButton.text}}" title="{{$ctrl.mentionsButton.title}}" content-url="$ctrl.mentionsButton.contentUrl">
+                <page-modal-button format="{{$ctrl.helpButton.format}}" title="{{$ctrl.helpButton.title}}"
+                    text="{{$ctrl.helpButton.text}}" content-url="$ctrl.helpButton.contentUrl"
+                    icon="{{$ctrl.helpButton.icon}}"></page-modal-button>
+                -
+                <page-modal-button format="{{$ctrl.mentionsButton.format}}" text="{{$ctrl.mentionsButton.text}}"
+                    title="{{$ctrl.mentionsButton.title}}" content-url="$ctrl.mentionsButton.contentUrl">
                 </page-modal-button>
                 -
-                <change-lang lang="$ctrl.changeLangButton.lang" tooltip="{{$ctrl.changeLangButton.tooltip}}" locales="$ctrl.changeLangButton.locales" on-change="$ctrl.changeLangButton.onChangeLang(lang)"></change-lang>
+                <change-lang lang="$ctrl.changeLangButton.lang" tooltip="{{$ctrl.changeLangButton.tooltip}}"
+                    locales="$ctrl.changeLangButton.locales" on-change="$ctrl.changeLangButton.onChangeLang(lang)">
+                </change-lang>
             </div>
         </div>
     </nav>

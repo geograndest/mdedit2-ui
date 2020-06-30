@@ -1,50 +1,62 @@
 <div id="content" class="container">
-    List des fichiers XML
-    <!-- <button><i class="fas fa-plus-square"></i></button> -->
-
-    <!-- <a class="list-group-item list-group-item-action" ng-repeat="file in $ctrl.files track by $index" ui-sref="app.{{view}}({url:$ctrl.appConfig.models[$ctrl.appConfig.views[view].model].file})" ui-sref-opts="{
-reload: true, inherit: true, notify: true }"> -->
-
-    <div class="table-responsive">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">File</th>
-                    <th scope="col">Modified</th>
-                    <th scope="col">Actions</th>
+    <div class="table-responsive mb-5"
+        ng-repeat="(directory_key, directory_value) in $ctrl.mdListFiles.directories track by $index">
+        <p class="">
+            <i class="fas fa-folder-open"></i> <strong>Dépôts "{{directory_key}}"</strong>
+            <a class="btn btn-outline-dark btn-sm float-right m-1"
+                ui-sref="app.mdEditDataGeo({dir: directory_key, template: 'empty'})"
+                ui-sref-opts="{reload: true, inherit: false, notify: false }">
+                <i class="fas fa-plus"></i>
+            </a>
+        </p>
+        <table class="table table-striped mb-0">
+            <thead class="thead-dark">
+                <tr class="d-flex">
+                    <th class="col-1 text-center" scope="col">#</th>
+                    <th class="col-7 text-center" scope="col">File</th>
+                    <th class="col-2 text-center" scope="col">Modified</th>
+                    <th class="col-2 text-center" scope="col">Actions</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr ng-repeat="file in $ctrl.mdListFiles.files track by $index">
-                    <td class="col-md-1" scope="row">{{$index}}</th>
-                        <td class="col-md-6">
-                            <!-- <a class="font-weight-bold" ng-click="$ctrl.loadFile('app.mdViewData', {url: file.filename})"> -->
-                            <a ui-sref="app.mdViewData({url: file.filename})" ui-sref-opts="{reload: true, inherit: false, notify: false }" class="text-dark font-weight-bold">
-                                <i class="far fa-file-alt"></i> {{file.title}}
-                            </a>
-                            <div class="small" title="{{file.filename}}"> {{file.basename}}</div>
-                            <!-- {{file}} -->
-                        </td>
-                        <td class="col-md-3">{{file.mtime * 1000 | date:'yyyy-MM-dd HH:mm:ss'}}</td>
-                        <td class="col-md-2">
-                            <!-- <div class="btn-group" role="group" aria-label="Basic example"> -->
-                            <!-- <a class="btn btn-outline-dark btn-sm" ng-click="$ctrl.loadFile('app.mdViewData', {url: file.filename})"> -->
-                            <a class="btn btn-outline-dark btn-sm" ui-sref="app.mdViewData({url: file.filename})" ui-sref-opts="{reload: true, inherit: false, notify: false }">
-                                <i class="far fa-eye"></i>
-                            </a>
-                            <!-- <button type="button" class="btn btn-outline-warning btn-sm" ng-click="$ctrl.loadFile('app.mdEditData2', {url: file.filename})"><i -->
-                            <a class="btn btn-outline-dark btn-sm" ui-sref="app.mdEditData2({url: file.filename})" ui-sref-opts="{reload: true, inherit: false, notify: false }">
-                                <i class="far fa-edit"></i>
-                            </a>
-                            <button type="button" class="btn btn-outline-danger btn-sm" ng-click="$ctrl.deleteFile(file.file)">
+            <tbody class="">
+                <tr class="d-flex" ng-repeat="file in directory_value.files track by $index"
+                    ng-if="file.fileIdentifier">
+                    <td class="col-1 d-flex justify-content-center align-items-center" scope="row">{{$index}}</th>
+                    <td class="col-7">
+                        <a ui-sref="app.mdViewData({url: $ctrl.appConfig.app.api.files + '&file=' + file.file})"
+                            ui-sref-opts="{reload: true, inherit: false, notify: false }" class="text-dark"
+                            title="{{file.filename}}">
+                            <i class="far fa-file-alt"></i>
+                            <span ng-if="file.dataTitle">{{file.dataTitle}}</span>
+                            <span ng-if="!file.dataTitle">Titre non défini</span>
+                            <small ng-if="file.fileIdentifier"> ({{file.fileIdentifier}})</small>
+                        </a>
+                        <div class="small font-weight-light" title="{{file.filename}}">
+                            {{file.basename}}</div>
+                    </td>
+                    <td class="col-2 d-flex align-items-center">
+                        {{file.mtime * 1000 | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                    <td class="col-2 d-md-flex justify-content-center align-items-center">
+                        <button type="button" class="btn btn-outline-danger ml-2 btn-sm"
+                            ng-click="$ctrl.deleteDirectory(directory_key, file)">
                             <i class="far fa-trash-alt"></i>
                         </button>
-                            <!-- </div> -->
-                        </td>
+                        <a class="btn btn-outline-dark ml-2 btn-sm"
+                            ui-sref="app.mdEditDataGeo({url: $ctrl.appConfig.app.api.files + '&file=' + file.file, dir: directory_key})"
+                            ui-sref-opts="{reload: true, inherit: false, notify: false }">
+                            <i class="far fa-edit"></i>
+                        </a>
+                        <a class="btn btn-outline-dark ml-2 btn-sm"
+                            ui-sref="app.mdViewData({url: $ctrl.appConfig.app.api.files + '&file=' + file.file})"
+                            ui-sref-opts="{reload: true, inherit: false, notify: false }">
+                            <i class="far fa-eye"></i>
+                        </a>
+                    </td>
                 </tr>
             </tbody>
         </table>
+        <div ng-if="directory_value.files.length == 0" class="text-center my-3">Aucun fichier à lister</div>
+        <hr class="mt-0 pt-0" />
     </div>
 
 </div>

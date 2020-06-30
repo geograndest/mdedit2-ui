@@ -29,6 +29,7 @@ export class XmlConverter {
                 key != "codeList" &&
                 key != "codeListValue" &&
                 key != "version" &&
+                key != "src" &&
                 key != "encoding"
             ) {
                 key = "gmd:" + key;

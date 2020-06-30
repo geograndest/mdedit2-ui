@@ -8,19 +8,19 @@ export class XmlModalLoadDialogService {
         this.UtilsService = UtilsService;
     }
 
-    readFile(file, callback) {
-        var reader = new FileReader();
-        reader.onloadend = (e) => {
-            var data = e.target.result;
-            callback(data);
-        }
-        reader.readAsText(file);
-    }
+    // readFile(file, callback) {
+    //     var reader = new FileReader();
+    //     reader.onloadend = (e) => {
+    //         var data = e.target.result;
+    //         callback(data);
+    //     }
+    //     reader.readAsText(file);
+    // }
 
-    getUrl(proxy, url, callback) {
-        if (proxy) {
-            url = this.UtilsService.getProxyUrl(url, proxy)
-        }
-        return this.UtilsService.get(url, callback);
-    }
+    // getUrl(proxy, url, callback) {
+    //     if (proxy) {
+    //         url = this.UtilsService.getProxyUrl(url, proxy)
+    //     }
+    //     return this.UtilsService.get(url, callback);
+    // }
 }

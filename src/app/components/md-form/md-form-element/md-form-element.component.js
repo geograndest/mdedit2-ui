@@ -61,6 +61,19 @@ const mdFormElementController = class MdFormElementController {
         this.fieldValue = this.getValues();
     }
 
+    checkLegalAccessInspireConstraints(values) {
+        if (this.field.name == 'dataLegalAccessInspireConstraints') {
+            values = values.map(function (value) {
+                if (value.toLowerCase().includes("pas de restriction d'accès public") ||
+                    value.toLowerCase().includes("pas de restriction d’accès public")) {
+                    return "Pas de restriction d'accès public"
+                }
+                return value;
+            });
+        }
+        return values;
+    }
+
     getValues() {
         var values = this.XmlConverterService.getValue(
             this.md,
@@ -68,7 +81,7 @@ const mdFormElementController = class MdFormElementController {
             this.field.name
         );
         if (this.type == "date" || this.type == "datetime-local") {
-            values = values.map(function(d) {
+            values = values.map(function (d) {
                 if (d) {
                     return new Date(d)
                 }
@@ -79,6 +92,7 @@ const mdFormElementController = class MdFormElementController {
             values = [values.flat(1).map((v) => v.trim()).join(', ')];
         }
         values = this.getUniqueValues(values);
+        values = this.checkLegalAccessInspireConstraints(values);
         return values;
     }
 

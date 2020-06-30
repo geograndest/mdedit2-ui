@@ -2,6 +2,9 @@ import {
     utils
 } from './utils/utils.module';
 import {
+    mdEditApi
+} from './mdedit-api/mdedit-api.module';
+import {
     pageModal
 } from './page-modal/page-modal.module';
 import {
@@ -20,8 +23,8 @@ import {
     lodash
 } from './lodash/lodash.module';
 import {
-    downloadjs
-} from './downloadjs/downloadjs.module';
+    download
+} from './download/download.module';
 import {
     cleandeep
 }
@@ -49,8 +52,9 @@ import {
 export const components = angular
     .module('components', [
         utils,
+        mdEditApi,
         lodash,
-        downloadjs,
+        download,
         cleandeep,
         xmlConverter,
         store,

@@ -26,7 +26,7 @@ export const app = angular
         const appState = {
             name: 'app',
             redirectTo: 'app.home',
-            url: '/app?config&lang&header&footer&url&template',
+            url: '/app?config&lang&header&footer&url&template&dir',
             params: {
                 config: {
                     value: 'config/config.json',
@@ -97,13 +97,27 @@ export const app = angular
                     'ngInject';
                     return $transition$.params().footer;
                 },
+                template: ($transition$) => {
+                    'ngInject';
+                    return $transition$.params().template;
+                },
                 url: ($transition$) => {
                     'ngInject';
                     return $transition$.params().url;
                 },
-                template: ($transition$) => {
+                dir: ($transition$) => {
                     'ngInject';
-                    return $transition$.params().template;
+                    return $transition$.params().dir;
+                },
+                directory: ($transition$, url, dir, user) => {
+                    'ngInject';
+                    if (url && !!dir && user.editor) {
+                        var file = new URL(decodeURI(url)).searchParams.get("file");
+                        var file_parts = file.split(/[\/|\\]/);
+                        file_parts.pop();
+                        return file_parts.join('/') + '/';
+                    }
+                    return null;
                 },
                 xml: ($transition$, UtilsService, appConfig, url) => {
                     'ngInject';
@@ -120,9 +134,9 @@ export const app = angular
                     var file = appConfig.models[template].file;
                     return UtilsService.get(file);
                 },
-                auth: (UtilsService, appConfig) => {
+                user: (UtilsService, appConfig) => {
                     'ngInject';
-                    var url = appConfig.app.api.isAuth;
+                    var url = appConfig.app.api.me;
                     return UtilsService.get(url);
                 }
             },

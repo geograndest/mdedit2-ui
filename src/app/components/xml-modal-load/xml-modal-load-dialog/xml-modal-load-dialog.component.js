@@ -1,9 +1,10 @@
 import template from './xml-modal-load-dialog.html';
 
 const xmlModalLoadDialogController = class XmlModalLoadDialogController {
-    constructor(XmlModalLoadDialogService) {
+    constructor(UtilsService) {
         'ngInject';
-        this.XmlModalLoadDialogService = XmlModalLoadDialogService;
+        // this.XmlModalLoadDialogService = XmlModalLoadDialogService;
+        this.UtilsService = UtilsService;
     }
 
     $onInit() {
@@ -21,7 +22,7 @@ const xmlModalLoadDialogController = class XmlModalLoadDialogController {
     }
 
     loadModel(key_model) {
-        this.XmlModalLoadDialogService.getUrl(this.proxy, this.models[key_model].file, (data) => {
+        this.UtilsService.getUrl(this.proxy, this.models[key_model].file, (data) => {
             this.onLoad({
                 xml: data
             });
@@ -31,14 +32,14 @@ const xmlModalLoadDialogController = class XmlModalLoadDialogController {
 
     getFile(url) {
         if (url) {
-            this.XmlModalLoadDialogService.getUrl(this.proxy, url, (data) => {
+            this.UtilsService.getUrl(this.proxy, url, (data) => {
                 this.onLoad({
                     xml: data
                 });
             });
         } else {
             var file = document.getElementById('file').files[0];
-            this.XmlModalLoadDialogService.readFile(file, (data) => {
+            this.UtilsService.readFile(file, (data) => {
                 this.onLoad({
                     xml: data
                 });

@@ -4,6 +4,8 @@ Outil simple et ouvert de saisie, modification et consultation de fiches de mét
 
 La présente documentation est adressée aux personnes souhaitant installer mdEdit et contribuer au projet.
 
+Le guide d'utilisation est disposinible ici: https://www.geograndest.fr/portail/fr/ressources/guide-pour-description-donnees-et-lutilisation-mdedit
+
 <!-- Un [Guide d'utilisation de mdEdit](./documentation/userGuide/mdEdit_UserDocumentation.md) est également disponible. -->
 
 **_La version de développement est la version `master`. Pour la dernière version stable, consulter la branche `stable`._**

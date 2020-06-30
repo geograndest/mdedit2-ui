@@ -1,137 +1,132 @@
 <div class="container">
 
-    <div class="row text-center mb-5">
+    <div class="row text-center">
         <div class="col-md-12">
             <h1 class="mb-1">Assistant de sélection d'un formulaire</h1>
             <p class="lead text-muted">
                 Vous ne savez pas par où commencer?
                 Laissez-vous guider...
             </p>
-            <!-- <p class="alert alert-primary my-4" role="alert">
-                <i class="fas fa-hand-point-right"></i> Cet assistant va vous permettre de choisir le bon formulaire en fonction du type de ressource que vous souhaitez décrire.<br />
-                Répondez simplement à la question suivantes.
-            </p> -->
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
             <form>
-                <h5 class="">
-                    Quel type de ressource souhaitez vous décrire?
-                </h5>
-                <div ng-repeat="type in $ctrl.assistantLocales.resources_type track by $index" class="custom-control custom-radio">
-                    <input type="radio"
-                        ng-model="$ctrl.resource_type"
-                        _value="{{type.code}}"
-                        name="resource_type"
-                        id="{{type.code}}"
-                        ng-value="type.code"
-                        class="custom-control-input"
-                    >
-                    <label class="custom-control-label" for="{{type.code}}">
-                        {{type.name}} 
-                        <!-- (modèle: {{type.model}}) -->
-                    </label>
+                <div>
+                    <h5 class="mt-3">
+                        Quel type de ressource souhaitez vous décrire ?
+                    </h5>
+                    <div ng-repeat="type in $ctrl.assistantLocales.resources_type track by $index" class="custom-control custom-radio">
+                        <input type="radio"
+                            ng-model="$ctrl.resource_type"
+                            name="resource_type"
+                            id="{{type.code}}"
+                            ng-value="type.code"
+                            class="custom-control-input"
+                        >
+                        <label class="custom-control-label" for="{{type.code}}">
+                            {{type.name}} 
+                            <!-- (modèle: {{type.model}}) -->
+                        </label>
+                    </div>
                 </div>
 
-                <h5 class="mt-5">
-                    Sélectonnez un autre modèle par défaut si vous le souhaitez:
-                </h5>
-                
-                <div class="form-group mb-3">
-                    <label class="bt-doc control-label" for="" uib-tooltip="$ctrl.model" tooltip-trigger="mouseenter"
-                        tooltip-placement="right" ng-click="$ctrl.openModalDoc('doc/html/empty.html')">
-                        Charger un modèle de fiche prérempli
-                    </label>
-                    <select class="form-control input-sm" name="model" ng-options="key as model.name for (key, model) in $ctrl.appConfig.models"
-                        ng-model="$ctrl.model">
-                        <option value="">Sélectionnez un modèle</option>
-                    </select>
-                </div>
-                <div>Charger un fichier XML</div>
-                <div class="custom-file mb-3">
-                    <input type="file" class="custom-file-input" id="file" ng-model="$ctrl.file" accept=".xml">
-                    <label class="custom-file-label" for="file_input" uib-tooltip="Fichier XML à charger" tooltip-trigger="mouseenter"
-                        tooltip-placement="right" data-browse="Sélectionner">
-                        Sélectionner un fichier
-                    </label>
-                </div>
-                <div class="form-group mb-3">
-                    <label class="control-label" for="url_input" uib-tooltip="URL à charger" tooltip-trigger="mouseenter"
-                        tooltip-placement="right">
-                        Charger une fiche à partir d'un URL (XML)
-                    </label>
-                    <input class="form-control input-sm" type="text" id="url_input" ng-model="$ctrl.url"/>
+                <div ng-show="$ctrl.resource_type == 'data'">
+                    <h5 class="mt-3">
+                        S'agit-il d'une donnée géographique ?
+                    </h5>
+                    <div ng-repeat="response_geo in $ctrl.assistantLocales.responses_geo track by $index" class="custom-control custom-radio">
+                        <input type="radio"
+                            ng-model="$ctrl.response_geo"
+                            name="response_geo"
+                            id="{{response_geo.code}}"
+                            ng-value="response_geo.code"
+                            class="custom-control-input"
+                        >
+                        <label class="custom-control-label" for="{{response_geo.code}}">
+                            {{response_geo.name}} 
+                            <!-- (modèle: {{response_geo.model}}) -->
+                        </label>
+                    </div>
                 </div>
 
-                <div class="float-right">
-                    <button type="submit" class="btn btn-primary" ng-click="$ctrl.loadForm()"><span class="fas fa-save"></span> Charger le formulaire</button>
+                <div ng-show="$ctrl.resource_type == 'data' && $ctrl.response_geo">
+                    <h5 class="mt-3">
+                        S'agit-il d'une donnée ouverte ?
+                    </h5>
+                    <div ng-repeat="response_opendata in $ctrl.assistantLocales.responses_opendata track by $index" class="custom-control custom-radio">
+                        <input type="radio"
+                            ng-model="$ctrl.response_opendata"
+                            name="response_opendata"
+                            id="{{response_opendata.code}}"
+                            ng-value="response_opendata.code"
+                            class="custom-control-input"
+                        >
+                        <label class="custom-control-label" for="{{response_opendata.code}}">
+                            {{response_opendata.name}} 
+                        </label>
+                    </div>
+                </div>
+
+                <div ng-show="$ctrl.resource_type == 'map' || $ctrl.response_opendata">
+                    <h5 class="mt-3">
+                        Souhaitez-vous charger un modèle de fiche par défaut ?
+                    </h5>
+                    <div ng-repeat="response_model in $ctrl.assistantLocales.responses_model track by $index" class="custom-control custom-radio">
+                        <input type="radio"
+                            ng-model="$ctrl.response_model"
+                            name="response_model"
+                            id="{{response_model.code}}"
+                            ng-value="response_model.code"
+                            class="custom-control-input"
+                        >
+                        <label class="custom-control-label" for="{{response_model.code}}">
+                            {{response_model.name}} 
+                        </label>
+                    </div>
+                </div>
+
+                <div ng-show="$ctrl.response_model == 'model-yes'" class="mt-3">
+                    <p>
+                        Vous pouvez, soit:
+                    </p>
+                    <div class="form-group mb-2">
+                        <label class="control-label" for="model_server">
+                            1. Charger un modèle de fiche prérempli
+                        </label>
+                        <select class="form-control input-sm" id="model_server" name="model_server" ng-options="key as model.name for (key, model) in $ctrl.appConfig.models"
+                            ng-model="$ctrl.model_server">
+                            <option value="">Sélectionnez un modèle</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label class="control-label" for="model_file">
+                            2. Charger un fichier XML local depuis votre ordinateur
+                        </label>
+                        <div class="custom-file mb-2">
+                            <input type="file" class="custom-file-input" id="model_file" name="model_file" ng-model="$ctrl.model_file" accept=".xml">
+                            <label class="custom-file-label" id="model_file_label" for="model_file" uib-tooltip="Fichier XML à charger" tooltip-trigger="mouseenter"
+                                tooltip-placement="right" data-browse="Sélectionner">
+                                Sélectionner un fichier
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="control-label" for="model_url" uib-tooltip="URL du fichier XML à charger" tooltip-trigger="mouseenter"
+                            tooltip-placement="right">
+                            3. Charger un fichier XML distant à partir d'un URL
+                        </label>
+                        <input class="form-control input-sm" type="text" id="model_url" name="model_url" ng-model="$ctrl.model_url" placeholder="https://..." />
+                    </div>
+                </div>
+
+                <div class="float-right" ng-show="$ctrl.response_model">
+                    <button type="submit" class="btn btn-primary" ng-click="$ctrl.loadForm()"><span class="fas fa-file-alt"></span> Ouvrir le formulaire</button>
                     <button type="submit" class="btn btn-primary" ui-sref="app.home" _ng-click="$ctrl.changeView('view-home')"><span class="fas fa-home"></span> Annuler</button>
                 </div>
             </form>
         </div>
     </div>
-        
-        
-    <!-- <div class="row">
-        <div class="col-md-7">
-            <h1 class="mb-4">Bienvenue sur mdEdit 2!</h1>
-            <p class="lead text-muted">
-                mdEdit permet de décrire simplement vos données géographiques conformément à la règlementation en vigueur (directive européenne Inspire et open data).
-            </p>
-            <p>
-                C'est une application conviviale et facile d'utilisation.
-                <br /> Elle nécessite cependant quelques connaissances en matière de géomatique pour remplir les fiches de façon optimale (système de projection, emprise géographique, etc.).
-            </p>
-            <p class="alert alert-primary my-4" role="alert">
-                <i class="fas fa-check"></i> Choisissez un modèle de formulaire dans la liste de droite et c'est partie!
-                <br /> Il ne vous reste plus qu'à saisir les information demandées.
-            </p>
-            <p>
-                <i class="far fa-hand-point-right text-primary"></i> mdEdit 2 vous permet à tout moment de sauvegarder votre travail au format XML (ISO 19139) et de recharger une fiche pour la modifier ou la compléter.
-            </p>
-            <p>
-                <i class="far fa-hand-point-right text-primary"></i> Vous pouvez sauver une fiche partiellement remplie pour la recharger ultérieurement comme base de travail.
-            </p>
-            <p>
-                <i class="far fa-hand-point-right text-primary"></i> Vous pouvez également changer de vue à tout moment via la liste de sélection en haut à droite du formulaire. Attention cependant, si vous revenez sur l page d'accueil, l'ensemble des
-                informations saisies sont permdues.
-            </p>
-            <p class="mt-4">
-                Pour plus d'information sur son utilisation, n'hésitez pas à consulter l'aide en ligne (bouton <i class="fas fa-info-circle"></i> en haut à droite).
-            </p>
-        </div>
-        <div class="col-md-5">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Modèles de formulaires disponibles</h5>
-                </div>
-                <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action" ng-repeat="view in $ctrl.appConfig.app.changeview.list track by $index" ui-sref="app.{{view}}({template:$ctrl.appConfig.views[view].model})" ui-sref-opts="{reload: true, inherit: true, notify: true }" tooltip-trigger="mouseover" tooltip-placement="left" uib-tooltip="{{$ctrl.appConfig.views[view].description[$ctrl.appConfig.app.lang]}}">
-                        <div class="text-dark card-link">
-                            <i class="{{$ctrl.appConfig.views[view].icon}}"></i> {{$ctrl.appConfig.views[view].name[$ctrl.appConfig.app.lang]}}
-                        </div>
-                        <div>
-                            <span class="small" ng-if="$ctrl.appConfig.views[view].model">
-                                Modèle par défaut:
-                                {{$ctrl.appConfig.models[$ctrl.appConfig.views[view].model].name | lowercase}}
-                            </span>
-                        </div>
-                        <div>
-                            <span class="small" ng-if="!$ctrl.appConfig.views[view].model">
-                                Aucun modèle par défaut défini
-                            </span>
-                        </div>
-                    </a>
-                    <a class="list-group-item list-group-item-action" ng-if="$ctrl.homeAuth.sec_editor" ui-sref="app.mdList()" ui-sref-opts="{reload: true, inherit: true, notify: true }">
-                        <div class="text-dark card-link">
-                            <i class="{{$ctrl.appConfig.views.mdList.icon}}"></i> {{$ctrl.appConfig.views.mdList.name[$ctrl.appConfig.app.lang]}}
-                        </div>
-                        <div><em class="small">{{$ctrl.appConfig.views.mdList.description[$ctrl.appConfig.app.lang]}}</em></div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div> -->
 </div>

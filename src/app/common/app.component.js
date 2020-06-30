@@ -1,7 +1,7 @@
 import template from './app.html';
 
 const AppComponentController = class AppComponentController {
-    constructor($state, $stateParams, UtilsService, XmlConverterService, StoreService, LodashService) {
+    constructor($state, $stateParams, UtilsService, XmlConverterService, StoreService, LodashService, MdEditApiService) {
         'ngInject';
         this.$state = $state;
         this.$stateParams = $stateParams;
@@ -9,6 +9,7 @@ const AppComponentController = class AppComponentController {
         this.XmlConverterService = XmlConverterService;
         this.StoreService = StoreService;
         this.LodashService = LodashService;
+        this.MdEditApiService = MdEditApiService;
     }
 
     getViews(views, type) {
@@ -29,9 +30,8 @@ const AppComponentController = class AppComponentController {
         return changeViews;
     }
 
-    loadMdjs(xml) {
+    loadXml(xml) {
         this.xml = xml;
-        // this.mdjs = this.XmlConverterService.xml2js(this.xml);
         this.mdjs = this.LodashService.lodash.merge(
             this.XmlConverterService.xml2js(this.defaultXml),
             this.XmlConverterService.xml2js(this.xml)
@@ -42,23 +42,24 @@ const AppComponentController = class AppComponentController {
     }
 
     $onInit() {
-        this.auth = this.auth || {};
+        this.user = this.user || {};
         this.mdViews = this.getViews(this.appConfig.views, 'mdView');
         this.mdEditViews = this.getViews(this.appConfig.views, 'mdEdit');
         this.isHome = (this.$state.current.name === 'app.home');
+        this.isAssistant = (this.$state.current.name === 'app.assistant');
         this.isMdView = (Object.keys(this.mdViews).includes(this.$state.current.name.split('.')[1]));
         this.isMdEditView = (Object.keys(this.mdEditViews).includes(this.$state.current.name.split('.')[1]));
         this.isMdListView = (this.$state.current.name === 'app.mdList');
 
         this.mdjs = this.StoreService.getData().mdjs;
         if (this.mdjs == undefined || this.url || this.template) {
-            this.loadMdjs(this.xml);
+            this.loadXml(this.xml);
         }
 
         this.helpButton = {
-            icon: 'fa-info-circle',
+            // icon: 'fa-info-circle',
             tooltip: this.appLocales.ui.bt_help,
-            format: 'button',
+            format: 'text',
             text: this.appLocales.ui.bt_help,
             title: this.appLocales.ui.bt_help,
             contentUrl: this.pages['help']
@@ -78,7 +79,7 @@ const AppComponentController = class AppComponentController {
         };
 
         this.xmlLoadButton = {
-            hide: this.isHome || this.isMdListView,
+            hide: this.isHome || this.isMdListView || this.isAssistant,
             icon: 'fa-file-download',
             tooltip: this.appLocales.ui.bt_xml_load,
             format: 'button',
@@ -87,19 +88,21 @@ const AppComponentController = class AppComponentController {
             models: this.appConfig.models,
             proxy: this.appConfig.app.proxy,
             onLoad: (xml) => {
-                this.loadMdjs(xml);
+                this.loadXml(xml);
             }
         };
 
         this.xmlSaveButton = {
-            hide: this.isHome || this.isMdListView,
+            hide: this.isHome || this.isMdListView || this.isAssistant,
             icon: {
-                download: 'fa-file-upload',
-                save: 'fa-save'
+                record: 'fa-download',
+                save: 'fa-save',
+                download: 'fa-file-upload'
             },
             tooltip: this.appLocales.ui.bt_xml_save,
             format: 'button',
             text: {
+                record: this.appLocales.ui.bt_xml_record,
                 save: this.appLocales.ui.bt_xml_save,
                 download: this.appLocales.ui.bt_xml_download
             },
@@ -112,10 +115,15 @@ const AppComponentController = class AppComponentController {
                     mdjs: angular.copy(mdjs)
                 });
             },
-            saveData: (filename, content) => {
-                this.UtilsService.post(this.appConfig.app.api.saveFile, {
-                    filename: filename,
+            saveData: (file, content) => {
+                this.MdEditApiService.post(this.appConfig.app.api.files, [{
+                    file: file,
                     content: content
+                }]);
+                this.$state.transitionTo('app.mdList', false, {
+                    reload: false,
+                    inherit: false,
+                    notify: false
                 });
             }
         };
@@ -124,7 +132,7 @@ const AppComponentController = class AppComponentController {
             this.appConfig.app.view = this.$state.current.name.split('.').pop();
         }
         this.changeViewButton = {
-            hide: this.isHome || this.isMdListView,
+            hide: this.isHome || this.isMdListView || this.isAssistant,
             tooltip: this.appLocales.ui.tooltip_changeview,
             views: this.getChangeViews(this.appConfig.views, this.appConfig.app.changeview.list),
             view: this.appConfig.app.view,
@@ -140,7 +148,8 @@ const AppComponentController = class AppComponentController {
         };
 
         this.homeButton = {
-            hide: this.isHome,
+            // hide: this.isHome,
+            hide: true,
             tooltip: this.appLocales.ui.tooltip_home,
             views: {
                 home: this.appConfig.views['home']
@@ -148,7 +157,7 @@ const AppComponentController = class AppComponentController {
             view: 'home',
             format: 'button',
             onChangeView: (view) => {
-                this.loadMdjs(this.xml);
+                this.loadXml(this.xml);
                 this.$state.transitionTo(this.appConfig.views[view].url, false, {
                     reload: true,
                     inherit: false,
@@ -158,7 +167,7 @@ const AppComponentController = class AppComponentController {
         };
 
         this.mdListButton = {
-            hide: this.isMdListView || this.isHome || !this.auth.sec_editor,
+            hide: this.isMdListView || this.isHome || !this.user.editor || this.isAssistant,
             tooltip: this.appLocales.ui.tooltip_mdlist,
             views: {
                 mdList: this.appConfig.views['mdList']
@@ -204,7 +213,9 @@ export const appComponent = {
         defaultXml: '<',
         template: '@',
         url: '@',
-        auth: '<'
+        directory: '@',
+        dir: '@',
+        user: '<'
     },
     template: template,
     controller: AppComponentController

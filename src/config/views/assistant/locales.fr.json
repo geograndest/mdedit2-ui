@@ -1,7 +1,7 @@
 {
     "lang": "fr",
     "view": "assistant",
-    "resources_type": [
+    "_resources_type": [
         {
             "code": "data_geo",
             "name": "Donnée géographique",
@@ -22,6 +22,56 @@
             "name": "Carte",
             "description": "",
             "model": "map"
+        }
+    ],
+    "resources_type": [
+        {
+            "code": "data",
+            "name": "Une donnée",
+            "_description": "Donnée géographique soumise à la directive européenne Inspire.",
+            "model": "opendata" 
+        }, {
+            "code": "map",
+            "name": "Une carte",
+            "_description": "Donnée géographique ouverte, soumise à l'open data et à la directive européenne Inspire.",
+            "model": "map"
+        }
+    ],
+    "responses_geo": [
+        {
+            "code": "geo-yes",
+            "name": "Oui",
+            "_description": "Données comportant une information de localisation directe ou indirecte (coordonnées géographiques, non de lieu, adresse, etc.)",
+            "model": "opendata" 
+        }, {
+            "code": "geo-no",
+            "name": "Non",
+            "_description": "Donnée ne comportant pas d'information de loclisation directe ou indirecte (coordonnées géographiques, non de lieu, adresse, etc.)",
+            "model": "opendata"
+        }
+    ],
+    "responses_opendata": [
+        {
+            "code": "opendata-yes",
+            "name": "Oui",
+            "_description": "Données sous licence ouverte (LO/OL Etalab, OdBL, etc.)",
+            "model": "opendata"
+        }, {
+            "code": "opendata-no",
+            "name": "Non",
+            "_description": "Donnée sous licence ne permettant pas le libre accès et la libre réutilisation des informations",
+            "model": "empty"
+        }
+    ],
+    "responses_model": [
+        {
+            "code": "model-yes",
+            "name": "Oui",
+            "_description": "Un modèle permet de pré-remplir certaines informations à partir d'un fichier XML existant."
+        }, {
+            "code": "model-no",
+            "name": "Non",
+            "_description": ""
         }
     ]
 }

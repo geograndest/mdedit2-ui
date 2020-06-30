@@ -20,10 +20,14 @@ export const mdList = angular
                     var file = appConfig.views.mdList.locales[lang]
                     return UtilsService.getJsonFile(file);
                 },
-                mdListFiles: (UtilsService, appConfig) => {
+                mdListFiles: (MdEditApiService, appConfig) => {
                     'ngInject';
-                    var url = appConfig.app.api.getFiles;
-                    return UtilsService.get(url);
+                    var url = appConfig.app.api.files;
+                    return MdEditApiService.get(url);
+                },
+                viewEditor: (user) => {
+                    'ngInject';
+                    return user;
                 }
             },
             component: 'mdListComponent'

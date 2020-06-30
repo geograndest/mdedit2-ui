@@ -32,17 +32,6 @@ export class XmlConverterService {
         return converter.getValue(obj, space, field);
     }
 
-    // getValue(obj, space, field) {
-    //     var result = [];
-    //     // var fields = this.getFields(space);
-    //     var xpath = mdFields[field].xpath;
-    //     var values = jsonPath.query(obj, xpath);
-    //     for (var i = 0; i < values.length; i++) {
-    //         result.push(values[i][0]);
-    //     }
-    //     return result;
-    // }
-
     setValue(obj, space, field, value, separator) {
         const converter = new XmlConverter();
         return converter.setValue(obj, space, field, value, separator);
